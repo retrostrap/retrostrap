@@ -906,6 +906,31 @@ they flash below seizure thresholds and respect the spirit of the Motion
 Law. The wall renders as `rs-button88` elements, order shuffled at build
 time, it's a wall, not a chart.
 
+### Alt-text guidelines for 88×31 buttons
+
+An 88×31 button is still content for visitors using screen readers. Give each
+meaningful image concise alt text that names its destination, status, or purpose;
+do not describe its colors, border, or the fact that it is a button. Use empty
+`alt` only when nearby text already provides the same information or the image is
+purely decorative.
+
+```html
+<!-- Webring button: name the destination. -->
+<a href="https://night-sky-ring.example"><img src="night-sky-ring.png" alt="Visit the Night Sky Ring"></a>
+
+<!-- Made-with badge: state the claim. -->
+<img src="made-with-retrostrap.png" alt="Made with retrostrap">
+
+<!-- Mood badge: preserve the status it conveys. -->
+<img src="mood-stargazing.png" alt="Mood: stargazing">
+
+<!-- Link button: describe what following the link does. -->
+<a href="mailto:sandra@example.com"><img src="email-me.png" alt="Email Sandra"></a>
+
+<!-- Decorative button: surrounding link text supplies the accessible name. -->
+<a href="https://sandra.example">Sandra's Space Corner <img src="sandra-button.png" alt=""></a>
+```
+
 **House rules.**
 
 - the site visibly uses retrostrap (dist link or honest fork)
