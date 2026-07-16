@@ -92,8 +92,8 @@ The Retrospace Lambda (`/api/retrospace/*`) does two jobs.
 **Submissions**: `POST /submit` opens a GitHub issue for review (the git-PR moderation
 inbox), no admin auth, no database. Set `GitHubRepo` (`owner/repo`) and `GitHubToken` at
 `sam deploy` to enable; leave `GitHubRepo` blank to disable. Approve a submission by adding
-the site to the curated source in a PR, CI republishes `sites.json`, which the deploy syncs
-to where the frontend reads it:
+the site to the curated source (`site/data/retrospace.json`) in a PR, republish `sites.json`,
+and the deploy syncs it to where the frontend reads it:
 
 ```sh
 node scripts/publish-retrospace.mjs <curated-source.json> dist/retrospace/sites.json

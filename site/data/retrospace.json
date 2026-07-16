@@ -1,0 +1,37 @@
+{
+  "_note": "The live Retrospace curated source. Approving a submission is a pull request that adds one site here (see infra/README.md); the deploy publishes it to the directory. The fictional seed in demos/retrospace/data.json is the demo's own and never ships.",
+  "sites": [
+    {
+      "id": "retrostrap",
+      "url": "https://retrostrap.dev",
+      "title": "retrostrap",
+      "blurb": "The framework's own home: the docs, thirty-four demos, and the kitchen sink, all dogfooded.",
+      "categories": ["projects"],
+      "languages": ["en"],
+      "tags": ["framework", "css", "docs"],
+      "status": "listed",
+      "approvedAt": "2026-07-16",
+      "lastReviewedAt": "2026-07-16",
+      "nextReviewAt": "2027-07-16",
+      "check": { "score": 100, "verdict": "pass" },
+      "inHits": 0,
+      "outHits": 0
+    },
+    {
+      "id": "boards",
+      "url": "https://boards.retrostrap.dev",
+      "title": "The Retrostrap Boards",
+      "blurb": "The community forum: slow, friendly, no like buttons, with a German table, Der Stammtisch.",
+      "categories": ["community"],
+      "languages": ["en", "de"],
+      "tags": ["forum", "community", "stammtisch"],
+      "status": "listed",
+      "approvedAt": "2026-07-16",
+      "lastReviewedAt": "2026-07-16",
+      "nextReviewAt": "2027-07-16",
+      "check": { "score": 100, "verdict": "pass" },
+      "inHits": 0,
+      "outHits": 0
+    }
+  ]
+}
