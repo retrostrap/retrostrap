@@ -5,8 +5,11 @@ shape with a friendlier accent. When anything moves, MIGRATIONS.md has the recei
 
 ## [Unreleased]
 
-The whole framework, so far. Not yet published to npm, this section becomes 0.1.0
-the day it is.
+Nothing yet; the ink on 0.1.0 is still wet.
+
+## [0.1.0] - 2026-07-16
+
+The whole framework, first published release.
 
 ### Added
 - **The five laws**, as tokens and as a runtime checker. `Retrostrap.audit()` walks a
