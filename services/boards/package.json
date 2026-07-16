@@ -1,0 +1,13 @@
+{
+  "name": "retrostrap-boards",
+  "version": "0.0.1",
+  "description": "Retrostrap Boards, the community forum, built with retrostrap. Server-rendered, own your data.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "comment": "hono powers the Boards request layer (on the DynamoDB stack); @node-rs/argon2 is the production password hasher, wired in at the Lambda entry (handler.js -> auth-argon2.js) so the tested core in src/ stays free of a native dep and CI needs no service deps.",
+  "dependencies": {
+    "hono": "^4",
+    "@node-rs/argon2": "^2"
+  }
+}

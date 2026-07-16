@@ -1,0 +1,24 @@
+{
+  "id": "icon-floppy",
+  "size": [16, 16],
+  "palette": { ".": null, "k": "#000000", "b": "#000080", "s": "#C0C0C0", "w": "#FFFFFF" },
+  "frames": [[
+    "................",
+    ".kkkkkkkkkkkkk..",
+    ".kbbbbbbbbbbwk..",
+    ".kbwwwwwwwwbwk..",
+    ".kbwwwwwwwwbwk..",
+    ".kbwwwwwwwwbwk..",
+    ".kbbbbbbbbbbbk..",
+    ".kbbbbbbbbbbbk..",
+    ".kbwwwwwwwwwbk..",
+    ".kbwkkkkkkkwbk..",
+    ".kbwkwwwwwkwbk..",
+    ".kbwkwwwwwkwbk..",
+    ".kbwkwwwwwkwbk..",
+    ".kbwkwwwwwkwbk..",
+    ".kkkkkkkkkkkkk..",
+    "................"
+  ]],
+  "fps": 0
+}

@@ -1,0 +1,50 @@
+/* retrostrap docs site, the only CSS we allow ourselves on top of the
+   framework. House rules apply here too: --rs-* tokens and legal colors only,
+   border-radius 0, shadow blur 0. If this file ever grows past a screenful,
+   something has gone wrong. */
+
+/* Theme swatches (themes page): a div wearing what <body> normally wears, so
+   each theme can be exhibited scoped to its own little diorama. Page tiles
+   come from the rs-tile-* pattern classes in the markup (their URLs resolve
+   from /dist/, where the art actually lives), so no background-image here. */
+.site-swatch {
+  background-color: var(--rs-bg-page);
+  color: var(--rs-text);
+  font-family: var(--rs-font-body);
+  font-size: var(--rs-font-size-body);
+  line-height: 1.4;
+  padding: var(--rs-space-4);
+  border: 1px solid var(--rs-border-color);
+  margin-block: var(--rs-space-3);
+}
+
+/* Live component previews (components page): give absolutely positioned
+   specimens, the open dialog, a place in the flow, and let anything wide
+   scroll inside its case instead of stretching the sheet. */
+.site-preview {
+  position: relative;
+  overflow-x: auto;
+}
+.site-preview .rs-dialog[open] {
+  position: static;
+  margin: var(--rs-space-3) auto;
+}
+
+/* Markdown tables (the museum's timelines) get the era table dress and scroll
+   on narrow screens rather than shoving the page sideways. */
+.site-prose table {
+  display: block;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-block: var(--rs-space-3);
+}
+.site-prose th,
+.site-prose td {
+  border: 1px solid var(--rs-border-color);
+  padding: var(--rs-space-1) var(--rs-space-2);
+  text-align: left;
+}
+.site-prose th {
+  background: var(--rs-bevel-face);
+}

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nimbus Systems Incorporated - Corporate Home</title>
+<meta name="description" content="Nimbus Systems Incorporated (Continental: NMBS): enterprise middleware, managed infrastructure, and professional services. Corporate overview, products, investor relations, and careers.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+<style>
+  /* Corporate brochureware, layout geometry and theme tokens only; no raw colors. */
+  .corp-masthead{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding-block:4px}
+  .corp-masthead h1{margin:0}
+  .corp-logo{
+    display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;inline-size:56px;block-size:56px;
+    background:var(--rs-titlebar-bg);color:var(--rs-titlebar-text);
+    border:2px solid var(--rs-bevel-dark);
+    font-family:var(--rs-font-display);font-size:var(--rs-font-size-5);
+  }
+  .corp-tagline{margin:4px 0 0;color:var(--rs-text-muted)}
+  .corp-nasdaq{margin:0;margin-inline-start:auto;align-self:flex-start;white-space:nowrap}
+  .corp-facts{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0}
+  .corp-facts dt{margin:0;font-weight:bold}
+  .corp-facts dd{margin:0;text-align:end}
+  .corp-mission{margin-block:8px}
+  .corp-exec{margin-block-end:8px}
+  .corp-exec__photo{
+    display:flex;align-items:center;justify-content:center;
+    inline-size:64px;block-size:64px;margin-block-end:6px;
+    background:var(--rs-titlebar-bg);color:var(--rs-titlebar-text);
+    border:2px solid var(--rs-bevel-dark);
+    font-family:var(--rs-font-display);font-size:var(--rs-font-size-5);
+  }
+  .corp-exec__name{margin:0;font-weight:bold}
+  .corp-exec__title{margin:0}
+  .corp-news dt{font-weight:bold}
+  .corp-news dd{margin:0 0 8px}
+  .corp-offices address{font-style:normal;line-height:1.5}
+  .corp-quote td,.corp-quote th{white-space:nowrap}
+  .corp-cta{margin-block-start:8px}
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to content &rarr;</a>
+
+<div class="rs-page rs-container rs-container--wide">
+
+  <header class="corp-masthead">
+    <span class="corp-logo" aria-hidden="true">NS</span>
+    <div>
+      <h1>Nimbus Systems Incorporated</h1>
+      <p class="corp-tagline rs-font-3">Enterprise solutions for the networked economy</p>
+    </div>
+    <p class="corp-nasdaq rs-font-2">Continental: <b>NMBS</b></p>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Site">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+    <a href="#investors">Investors</a>
+    <a href="#careers">Careers</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="rs-marquee" data-rs-marquee-speed="slow">
+    <span class="rs-marquee__content">
+      Continental: NMBS 42.75 &#9650; 0.50 (+1.18%) &middot; Second-quarter results due 14 August &middot; Annual Meeting of Shareholders 20 June, Riverton &middot; Quarterly cash dividend of $0.06 payable 29 June &middot; quote delayed at least 20 minutes
+    </span>
+  </div>
+
+  <main id="main">
+
+    <section class="rs-panel" id="about" aria-labelledby="about-h">
+      <h2 class="rs-panel__title" id="about-h">About Nimbus Systems</h2>
+      <div class="rs-cols-2">
+        <div>
+          <p>Founded in 1991, Nimbus Systems Incorporated is a leading provider of
+          enterprise middleware, managed infrastructure, and professional services. From
+          our headquarters in Riverton, California, we help more than 1,400 organizations
+          keep their systems talking to one another, around the clock and around the
+          world.</p>
+          <p>Our solutions are built on open standards and proven engineering. We measure
+          success the way our customers do: in uptime, in throughput, and in results
+          delivered on time and within budget.</p>
+        </div>
+        <div class="rs-panel rs-panel--sunken">
+          <h3 class="rs-panel__title">Company at a glance</h3>
+          <dl class="corp-facts">
+            <dt>Founded</dt><dd>1991</dd>
+            <dt>Headquarters</dt><dd>Riverton, California</dd>
+            <dt>Employees</dt><dd>2,100+</dd>
+            <dt>Listed</dt><dd>Continental: NMBS</dd>
+            <dt>Fiscal year end</dt><dd>31 December</dd>
+            <dt>Auditors</dt><dd>Ashcroft &amp; Vane LLP</dd>
+          </dl>
+        </div>
+      </div>
+
+      <hr class="rs-hr rs-hr--groove">
+
+      <div class="corp-mission rs-center">
+        <h3>Our mission</h3>
+        <p class="rs-font-4">To empower the world's enterprises with reliable, scalable
+        infrastructure, and to deliver lasting value to our shareholders, our
+        customers, and our people.</p>
+      </div>
+    </section>
+
+    <section id="products" aria-labelledby="products-h">
+      <h2 id="products-h">Products</h2>
+      <p>Three product families, one platform. Each is sold on its own or as part of an
+      integrated Nimbus deployment.</p>
+      <div class="rs-cols-3">
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">NimbusServe</h3>
+          <p>Our flagship application server. Deploys your business logic across commodity
+          hardware and scales from a single node to a full data-center cluster.</p>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">NimbusLink</h3>
+          <p>Enterprise messaging and integration middleware. Connects mainframe, midrange,
+          and web systems with guaranteed, once-only delivery.</p>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">NimbusVault</h3>
+          <p>Managed backup and archival for mission-critical data. Nightly snapshots,
+          off-site replication, and audited recovery you can rehearse.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-h">
+      <h2 id="services-h">Services</h2>
+      <p>Software is only half the job. Our professional services group stays with you from
+      the first review to the last cut-over.</p>
+      <div class="rs-cols-2">
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Consulting</h3>
+          <p>Architecture reviews, capacity planning, and migration strategy from our senior
+          engineers.</p>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Systems integration</h3>
+          <p>We connect what you already own to what you buy next, on schedule and on
+          budget.</p>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Managed support</h3>
+          <p>Round-the-clock coverage, a named account engineer, and a service-level
+          agreement in writing.</p>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Training</h3>
+          <p>Instructor-led and self-paced courses at our campus or yours; certification
+          available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership" aria-labelledby="leaders-h">
+      <h2 id="leaders-h">Our leadership</h2>
+      <div class="rs-cols-2">
+        <div class="corp-exec">
+          <div class="corp-exec__photo" aria-hidden="true">MH</div>
+          <p class="corp-exec__name">Margaret A. Holloway</p>
+          <p class="corp-exec__title rs-font-2">President &amp; Chief Executive Officer</p>
+          <p>Joined Nimbus in 1994; twenty-five years in enterprise software.</p>
+        </div>
+        <div class="corp-exec">
+          <div class="corp-exec__photo" aria-hidden="true">DO</div>
+          <p class="corp-exec__name">David R. Okonkwo</p>
+          <p class="corp-exec__title rs-font-2">Executive Vice President &amp; Chief Financial Officer</p>
+          <p>Oversees finance, treasury, and investor relations.</p>
+        </div>
+        <div class="corp-exec">
+          <div class="corp-exec__photo" aria-hidden="true">AR</div>
+          <p class="corp-exec__name">Anjali Ramanathan</p>
+          <p class="corp-exec__title rs-font-2">Chief Technology Officer</p>
+          <p>Leads product architecture and the Nimbus research group.</p>
+        </div>
+        <div class="corp-exec">
+          <div class="corp-exec__photo" aria-hidden="true">TB</div>
+          <p class="corp-exec__name">Thomas Bergqvist</p>
+          <p class="corp-exec__title rs-font-2">Chief Operating Officer</p>
+          <p>Responsible for global service delivery and operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rs-panel" id="news" aria-labelledby="news-h">
+      <h2 class="rs-panel__title" id="news-h">Latest news &amp; press releases</h2>
+      <dl class="corp-news">
+        <dt><time datetime="2001-06-20">20 June 2001</time></dt>
+        <dd>Nimbus Systems to host Annual Meeting of Shareholders in Riverton.</dd>
+        <dt><time datetime="2001-05-14">14 May 2001</time></dt>
+        <dd>Nimbus Systems reports record first-quarter revenue of $48.2 million.</dd>
+        <dt><time datetime="2001-04-02">2 April 2001</time></dt>
+        <dd>NimbusLink 4.0 released with native XML message routing.</dd>
+        <dt><time datetime="2001-02-09">9 February 2001</time></dt>
+        <dd>Board of Directors declares quarterly cash dividend of $0.06 per share.</dd>
+        <dt><time datetime="2001-01-15">15 January 2001</time></dt>
+        <dd>Nimbus Systems opens new European support center.</dd>
+      </dl>
+      <p class="rs-font-2">For media inquiries, please write to our press office by way of the
+      <a href="#contact">contact form</a>.</p>
+    </section>
+
+    <section class="rs-panel" id="investors" aria-labelledby="investors-h">
+      <h2 class="rs-panel__title" id="investors-h">Investor relations</h2>
+
+      <div class="rs-panel rs-panel--sunken corp-quote">
+        <h3 class="rs-panel__title">Stock quote</h3>
+        <table class="rs-table rs-table--bordered">
+          <caption class="rs-sr-only">NMBS common stock, quote delayed at least 20 minutes.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Last</th>
+              <th scope="col">Change</th>
+              <th scope="col">Open</th>
+              <th scope="col">Day range</th>
+              <th scope="col">Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NMBS</td>
+              <td class="rs-num">42.75</td>
+              <td class="rs-num">&#9650; 0.50</td>
+              <td class="rs-num">42.30</td>
+              <td class="rs-num">42.10-43.05</td>
+              <td class="rs-num">1,204,900</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="rs-font-1">Quotes are delayed at least 20 minutes and are provided for
+        informational purposes only.</p>
+      </div>
+
+      <h3>Selected quarterly results</h3>
+      <table class="rs-table rs-table--data rs-table--bordered rs-table--striped">
+        <caption>Selected quarterly results (unaudited; US$ in millions, except per-share data)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Quarter</th>
+            <th scope="col">Revenue</th>
+            <th scope="col">Operating income</th>
+            <th scope="col">Net income</th>
+            <th scope="col">Diluted EPS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Q1 FY2000</th>
+            <td class="rs-num">39.4</td><td class="rs-num">5.1</td><td class="rs-num">3.6</td><td class="rs-num">0.14</td>
+          </tr>
+          <tr>
+            <th scope="row">Q2 FY2000</th>
+            <td class="rs-num">41.8</td><td class="rs-num">5.7</td><td class="rs-num">4.0</td><td class="rs-num">0.16</td>
+          </tr>
+          <tr>
+            <th scope="row">Q3 FY2000</th>
+            <td class="rs-num">44.9</td><td class="rs-num">6.3</td><td class="rs-num">4.4</td><td class="rs-num">0.17</td>
+          </tr>
+          <tr>
+            <th scope="row">Q4 FY2000</th>
+            <td class="rs-num">47.6</td><td class="rs-num">7.0</td><td class="rs-num">4.9</td><td class="rs-num">0.19</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="rs-alert rs-alert--info">
+        <b>Safe harbor statement.</b> Certain statements on this page are forward-looking
+        and involve risks and uncertainties. Actual results may differ materially. Nimbus
+        Systems undertakes no obligation to update any forward-looking statement.
+      </p>
+    </section>
+
+    <section class="rs-panel" id="careers" aria-labelledby="careers-h">
+      <h2 class="rs-panel__title" id="careers-h">Careers</h2>
+      <div class="rs-cols-2">
+        <div>
+          <p>A career at Nimbus is an investment in your future. We offer competitive
+          compensation, a modern campus, and a culture that rewards initiative. We are an
+          equal-opportunity employer.</p>
+          <p class="corp-cta">
+            <a class="rs-btn rs-btn--primary" href="#contact">Send us your r&eacute;sum&eacute;</a>
+          </p>
+        </div>
+        <div class="rs-panel rs-panel--sunken">
+          <h3 class="rs-panel__title">Current openings</h3>
+          <ul class="rs-list rs-list--disks">
+            <li>Senior Systems Engineer, Riverton, CA</li>
+            <li>Technical Account Manager, Bellhaven, NY</li>
+            <li>Quality Assurance Analyst, Riverton, CA</li>
+            <li>Corporate Recruiter, Riverton, CA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="rs-panel" id="contact" aria-labelledby="contact-h">
+      <h2 class="rs-panel__title" id="contact-h">Contact us</h2>
+      <p>Tell us what you need and the right team will reply. Fields marked
+      <b>required</b> help us route your message.</p>
+
+      <p class="rs-alert rs-alert--info">
+        This form opens your e-mail program and works even with scripts switched off,
+        no server of ours is listening on the other end.
+      </p>
+
+      <form class="rs-form-table" action="mailto:info@nimbus-systems.example" method="post" enctype="text/plain">
+
+        <label for="c-name">Your name (required):</label>
+        <input class="rs-input" id="c-name" name="name" type="text" autocomplete="name" required>
+
+        <label for="c-company">Company:</label>
+        <input class="rs-input" id="c-company" name="company" type="text" autocomplete="organization">
+
+        <label for="c-email">E-mail (required):</label>
+        <input class="rs-input" id="c-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="c-phone">Telephone:</label>
+        <input class="rs-input" id="c-phone" name="phone" type="tel" autocomplete="tel">
+
+        <label for="c-topic">Reason for contact:</label>
+        <select class="rs-select" id="c-topic" name="topic">
+          <option>General sales inquiry</option>
+          <option>Product information</option>
+          <option>Technical support</option>
+          <option>Investor relations</option>
+          <option>Media &amp; press</option>
+          <option>Careers</option>
+          <option>Other</option>
+        </select>
+
+        <label for="c-message">Your message:</label>
+        <textarea class="rs-textarea" id="c-message" name="message" rows="5"></textarea>
+
+        <p class="rs-form-table__full">
+          <input class="rs-checkbox" type="checkbox" id="c-news" name="newsletter" value="yes">
+          <label for="c-news">Add me to the quarterly investor newsletter</label>
+        </p>
+
+        <p class="rs-form-table__full">
+          <button type="submit" class="rs-btn rs-btn--primary">Send message</button>
+        </p>
+
+      </form>
+
+      <h3 id="offices-h">Our offices</h3>
+      <div class="rs-cols-3 corp-offices">
+        <div class="rs-panel rs-panel--sunken">
+          <h4 class="rs-panel__title">Corporate headquarters</h4>
+          <address>
+            Nimbus Systems Incorporated<br>
+            1 Nimbus Plaza, Ashford Business Park<br>
+            Riverton, CA 94037, USA<br>
+            Tel: +1 (555) 0100
+          </address>
+        </div>
+        <div class="rs-panel rs-panel--sunken">
+          <h4 class="rs-panel__title">Eastern region</h4>
+          <address>
+            400 Meridian Tower, Suite 1900<br>
+            Bellhaven, NY 10018, USA<br>
+            Tel: +1 (555) 0142
+          </address>
+        </div>
+        <div class="rs-panel rs-panel--sunken">
+          <h4 class="rs-panel__title">Europe</h4>
+          <address>
+            Nimbus Systems (Europe) Ltd.<br>
+            Kingsway House, 12 Dawlish Street<br>
+            London EC1 0AA, United Kingdom<br>
+            Tel: +44 (020) 7946 0000
+          </address>
+        </div>
+      </div>
+    </section>
+
+    <p class="rs-center"><a class="rs-top" href="#main">^ Top</a></p>
+
+  </main>
+
+  <footer class="rs-footer rs-center">
+    <nav aria-label="Legal and site links">
+      <a href="#legal">Privacy Policy</a> |
+      <a href="#legal">Terms of Use</a> |
+      <a href="#main">Site Map</a> |
+      <a href="#investors">Investor Relations</a> |
+      <a href="#careers">Careers</a> |
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>
+      <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="081574"></span>
+      <span class="rs-counter__label">visitors since January 1999</span>
+    </p>
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="20 June 2001"></p>
+    <p class="rs-footer__email">Investor relations: <a href="mailto:investors@nimbus-systems.example">investors@nimbus-systems.example</a></p>
+    <p class="rs-font-1">&copy; 1991-2001 Nimbus Systems Incorporated. All rights reserved.
+    Best viewed at 800&times;600 or better.</p>
+    <p class="rs-font-1" id="legal">Nimbus Systems Incorporated is a fictional company. This
+    page is a demonstration of the retrostrap framework; the ticker, financials, people,
+    and addresses are invented. Any resemblance to a real company, product, or person is
+    coincidental.</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

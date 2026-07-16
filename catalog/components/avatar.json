@@ -1,0 +1,18 @@
+{
+  "id": "avatar",
+  "kind": "component",
+  "label": "Avatar",
+  "summary": "An 80×80 pixelated avatar image with a 1px border; --small drops it to 40×40.",
+  "era": "The 80×80 forum avatar, dithered to 256 colors and worn like a uniform on every message board of 2001.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-avatar", "role": "80×80, 1px border, image-rendering pixelated" },
+    { "name": "rs-avatar--small", "role": "modifier: 40×40" }
+  ],
+  "a11y": "It is an <img>: alt text is required and names who the avatar stands for.",
+  "assets": [],
+  "tags": ["content", "image", "forum"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "fieldset",
+  "kind": "component",
+  "label": "Fieldset",
+  "summary": "Native fieldset and legend wearing the groove border.",
+  "era": "The Windows group box: a groove border with its label riding the line, standard issue in every 90s options dialog.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-fieldset", "role": "native fieldset + legend with the groove border" }
+  ],
+  "a11y": "The native <fieldset> and <legend> pair announces the group name with every control inside it, that grouping is the point, so never fake the legend with a heading.",
+  "assets": [],
+  "tags": ["forms", "grouping"]
+}

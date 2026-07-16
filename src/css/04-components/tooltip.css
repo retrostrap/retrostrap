@@ -1,0 +1,23 @@
+/* rs-tooltip - the yellow tip box, on hover AND focus. Never for content
+   the page can't live without. */
+
+.rs-tooltip {
+  position: relative;
+}
+
+.rs-tooltip:is(:hover, :focus-visible)::after {
+  content: attr(data-rs-tip);
+  position: absolute;
+  inset-block-end: calc(100% + var(--rs-space-1));
+  inset-inline-start: 0;
+  z-index: var(--rs-z-menu);
+  background: #FFFFCC;
+  color: #000000;
+  border: 1px solid #000000;
+  box-shadow: var(--rs-shadow-hard);
+  padding: 1px var(--rs-space-2);
+  font-family: var(--rs-font-narrow);
+  font-size: var(--rs-font-size-1);
+  font-weight: normal;
+  white-space: nowrap;
+}

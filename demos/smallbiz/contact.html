@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pizzeria Bella Napoli 2000 - Contact &amp; reservations</title>
+<meta name="description" content="Reserve a table for six or more, or just say ciao. Works by e-mail.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to content &rarr;</a>
+
+<div class="rs-page rs-container">
+
+  <header class="rs-center">
+    <h1>PIZZERIA BELLA NAPOLI 2000</h1>
+    <p>~ since 1987 &middot; wood-fired &middot; made by hand ~</p>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Site">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="find-us.html">Find us</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+
+  <main id="main">
+
+    <h2>Reserve a table</h2>
+    <p>Write to us for tables of six or more and we will write back the same day. For tonight,
+    please <b>telephone</b> instead: the computer is in the office, and the office is very far
+    from the kitchen.</p>
+
+    <p class="rs-alert rs-alert--info">
+      This form opens your e-mail program and works even with scripts switched off,
+      no computer of ours is listening on the other end. Old-fashioned, like the pizza.
+    </p>
+
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">Reservation request</h2>
+
+      <form class="rs-form-table" action="mailto:tavola@bellanapoli.example" method="post" enctype="text/plain">
+
+        <label for="r-name">Your name:</label>
+        <input class="rs-input" id="r-name" name="name" type="text" autocomplete="name" required>
+
+        <label for="r-email">E-mail:</label>
+        <input class="rs-input" id="r-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="r-phone">Telephone:</label>
+        <input class="rs-input" id="r-phone" name="phone" type="tel" autocomplete="tel">
+
+        <label for="r-date">Date (dd/mm):</label>
+        <input class="rs-input" id="r-date" name="date" type="text" inputmode="numeric" placeholder="24/12">
+
+        <label for="r-time">Time (hh:mm):</label>
+        <input class="rs-input" id="r-time" name="time" type="text" inputmode="numeric" placeholder="20:00">
+
+        <label for="r-party">How many at the table?</label>
+        <input class="rs-input" id="r-party" name="party" type="text" inputmode="numeric" placeholder="6">
+
+        <label for="r-found">How did you find us?</label>
+        <select class="rs-select" id="r-found" name="found">
+          <option>a friend sent me</option>
+          <option>walked past and smelled it</option>
+          <option>the newspaper review</option>
+          <option>this very web page</option>
+          <option>total accident (benvenuto!)</option>
+        </select>
+
+        <label for="r-msg">Anything we should know?</label>
+        <textarea class="rs-textarea" id="r-msg" name="message" rows="4">A birthday, a high chair, a fear of anchovies...</textarea>
+
+        <fieldset class="rs-fieldset rs-form-table__full">
+          <legend>Collect or deliver?</legend>
+          <p>
+            <input class="rs-radio" type="radio" name="method" id="m-collect" value="collect" checked>
+            <label for="m-collect">I will collect it myself</label>
+          </p>
+          <p>
+            <input class="rs-radio" type="radio" name="method" id="m-deliver" value="deliver">
+            <label for="m-deliver">Please deliver (within the old quarter)</label>
+          </p>
+        </fieldset>
+
+        <p class="rs-form-table__full">
+          <span><input class="rs-checkbox" type="checkbox" id="r-callback" name="callback" value="yes">
+          <label for="r-callback">Please ring me back to confirm</label></span>
+        </p>
+
+        <p class="rs-form-table__full">
+          <button type="submit" class="rs-btn rs-btn--primary">Send reservation request</button>
+        </p>
+
+      </form>
+    </section>
+
+    <aside class="rs-note">
+      <p><b>Nonna's note:</b> if the machine does nothing when you press the button, your
+      computer has no e-mail set up, do not worry, just telephone us. It is faster and
+      you get to say ciao.</p>
+    </aside>
+
+  </main>
+
+  <footer class="rs-footer rs-center">
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="11 June 2002"></p>
+    <p class="rs-footer__email">Write to us: <a href="mailto:ciao@bellanapoli.example">ciao@bellanapoli.example</a></p>
+    <p class="rs-font-1">&copy; 1987-2002 Famiglia Esposito. Best viewed in any browser, at any size, on an empty stomach.</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

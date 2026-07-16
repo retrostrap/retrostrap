@@ -1,0 +1,111 @@
+---
+layout: base.njk
+title: For robots
+description: "retrostrap's machine surfaces: llms.txt, cheatsheet.md, manifest.json, guardrails.json, and the canonical system prompt for coding assistants."
+---
+<h1>For robots</h1>
+
+<p>retrostrap is designed to be machine-legible. A huge share of pages get built by
+coding assistants now, and left alone, a model asked for "a retro website" produces
+a modern layout with Comic Sans on top. Given a closed vocabulary of
+<code>rs-</code> classes, a legal palette, an easing whitelist, and an auditor, it
+<em>cannot drift modern</em>, the same constraints that keep humans on-era keep
+machines on-era. So we publish the whole framework in formats a machine can eat:</p>
+
+<div class="rs-dos__title">C:\&gt; dir</div>
+<pre class="rs-dos">
+ Volume in drive C is RETROSTRAP
+ Directory of C:\
+
+ <a href="/llms.txt">LLMS.TXT</a>       the entry point, per the llms.txt convention
+ <a href="/cheatsheet.md">CHEATSHT.MD</a>    every class on one page, the file to load into a context window
+ <a href="/manifest.json">MANIFEST.JSN</a>   the full catalog, structured: classes, snippets, themes, laws
+ <a href="/guardrails.json">GUARDRLS.JSN</a>   the five laws as data, validate against this, don't parse prose
+ <a href="/prompt.txt">PROMPT.TXT</a>     the canonical system prompt, paste it into your assistant
+
+        5 file(s)     copied freely
+        0 dir(s)      all of it regenerated per release, never hand-maintained
+</pre>
+
+<h2>The system prompt</h2>
+
+<p>Paste this into your assistant's instructions and go, it is
+<a href="/prompt.txt">PROMPT.TXT</a> above, the canonical prompt for the current
+release, generated from the catalog with everything else so it never drifts:</p>
+
+<div class="rs-dos__title">C:\&gt; type PROMPT.TXT</div>
+<pre class="rs-dos">{{ manifest.prompt }}</pre>
+
+<h2>The loop</h2>
+
+<p>Generation without verification drifts. The loop we support:</p>
+
+<ol>
+  <li>Generate against <a href="/cheatsheet.md">the cheatsheet</a> or
+  <a href="/manifest.json">the manifest</a>.</li>
+  <li>Run <code>Retrostrap.audit()</code> in the page, it returns JSON violations,
+  and its <code>hint</code> strings are written to be actionable by a model
+  ("off palette; nearest legal is #FF9966").</li>
+  <li>Feed the violations back; regenerate. Repeat until the audit reports
+  <em>all lawful</em>.</li>
+</ol>
+
+<p>Everything above is generated from the same catalog that builds the framework,
+major-pinned CDN URLs (while we are on 0.x that means <code>@0</code> tracks updates;
+pin the exact version for production, as <a href="/get-started/">get started</a> says),
+<code>since</code> and <code>stability</code> on every entry, so what a machine copies
+today still resolves tomorrow.</p>
+
+<h2>Or skip the copy-paste</h2>
+
+<p>There is an MCP server, <code>retrostrap-mcp</code> on npm, that hands your assistant the
+catalog as callable tools: search components and widgets, fetch a snippet or a theme,
+and run the same law-check on the HTML it just wrote, the auditor's actionable hints,
+without a browser. It reads the manifest above, so it never drifts from the framework.
+One line to run it, no checkout needed:</p>
+
+<div class="rs-dos__title">C:\&gt; npx retrostrap-mcp</div>
+<pre class="rs-dos">retrostrap-mcp speaks MCP over stdio; the catalog ships inside.
+Point any MCP client at it with a command/args stanza:
+
+{
+  "mcpServers": {
+    "retrostrap": {
+      "command": "npx",
+      "args": ["retrostrap-mcp"]
+    }
+  }
+}
+</pre>
+
+<p>From a checkout it reads the repo's <code>dist/manifest.json</code> instead; the
+full setup lives at <code>services/mcp/</code>.</p>
+
+<h2>Or keep the rules in your repo</h2>
+
+<p>If you build on retrostrap with a coding assistant, drop a template into your project so
+the laws ride along on every turn, no re-pasting, and it keeps the assistant honest when it
+starts <em>extending</em> the framework, not just composing pages:</p>
+
+<div class="rs-dos__title">C:\&gt; dir TEMPLATES</div>
+<pre class="rs-dos">
+ <a href="/templates/AGENTS.md">AGENTS.MD</a>      the full rules, Cursor, Windsurf, Zed, Aider… (repo root)
+ <a href="/templates/CLAUDE.md">CLAUDE.MD</a>      Claude Code, a two-line @-import of AGENTS.md (repo root)
+ <a href="/templates/copilot-instructions.md">COPILOT.MD</a>     GitHub Copilot, the compact form (.github/copilot-instructions.md)
+</pre>
+
+<p>They teach the stable parts, the five laws, the <code>rs-</code>/<code>rsx-</code>
+namespaces, the audit loop, and point back at the surfaces above for what changes. Also in
+the npm package under <code>templates/</code>.</p>
+
+<h2>Or lint your own CSS</h2>
+
+<p>When your assistant writes custom CSS, the <code>stylelint-retrostrap</code> plugin holds
+it to the palette, shape, and easing laws at lint time. It reads
+<a href="/guardrails.json">guardrails.json</a>, the same laws as data, so it never disagrees
+with the framework: the auditor catches drift in the browser, the plugin catches it before
+you ship.</p>
+
+<hr class="rs-hr">
+
+<p class="rs-center"><em>This page is best viewed by any user agent.</em></p>

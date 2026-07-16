@@ -1,0 +1,26 @@
+{
+  "id": "cursor-hand",
+  "size": [14, 18],
+  "palette": { ".": null, "k": "#000000", "w": "#FFFFFF" },
+  "frames": [[
+    "..kk..........",
+    "..kwk.........",
+    "..kwk.........",
+    "..kwk.........",
+    "..kwk.........",
+    "..kwkkk.......",
+    "..kwkwkkk.....",
+    "..kwkwkwkkk...",
+    "kkkwkwkwkwk...",
+    "kwwwwwwwwwwk..",
+    "kwwwwwwwwwwk..",
+    ".kwwwwwwwwk...",
+    ".kwwwwwwwwk...",
+    "..kwwwwwwk....",
+    "..kwwwwwwk....",
+    "..kwwwwwwk....",
+    "..kkkkkkkk....",
+    ".............."
+  ]],
+  "fps": 0
+}

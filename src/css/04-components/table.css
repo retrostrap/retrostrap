@@ -1,0 +1,48 @@
+/* rs-table - data tables in era chrome: 1px grid, silver header, cellpadding
+   feel. For data only; layout is rs-layout's job (docs/01 §2). */
+
+.rs-table {
+  border-collapse: collapse;
+  font-size: var(--rs-font-size-2);
+}
+
+/* a wide data table scrolls inside itself on a phone instead of dragging the
+   whole page sideways (the .rs-table-scroll wrapper is the desktop-friendly opt-in) */
+@media (max-width: 639px) {
+  .rs-table { display: block; overflow-x: auto; max-inline-size: 100%; }
+}
+
+.rs-table caption {
+  caption-side: top;
+  text-align: start;
+  font-size: var(--rs-font-size-1);
+  color: var(--rs-text-muted);
+  padding-block-end: var(--rs-space-1);
+}
+
+.rs-table th,
+.rs-table td {
+  border: 1px solid var(--rs-border-color);
+  padding: var(--rs-space-1) var(--rs-space-2);
+  text-align: start;
+}
+
+.rs-table th {
+  background: var(--rs-bevel-face);
+}
+
+.rs-table--striped tbody tr:nth-child(even) {
+  background: #CCCCCC; /* themes retint via their skin whitelist */
+}
+
+.rs-table--bordered {
+  border: 2px solid;
+  border-color: var(--rs-bevel-shadow) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-shadow);
+}
+
+.rs-table--data .rs-num,
+.rs-num {
+  text-align: end;
+  font-family: var(--rs-font-mono);
+}

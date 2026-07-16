@@ -1,0 +1,117 @@
+/* patterns.css - the wallpaper of the era (docs/02). Some tiles are pure
+   CSS (checker, grid, scanlines, dither bands cost zero bytes as gradients);
+   the pixel-art ones (stars, hearts) load from dist/assets. Ship this file
+   separately: not every page wants a tiled background, and the ones that do
+   opt in with rs-tile-*.
+
+   Build output: dist/retrostrap-patterns.css */
+
+.rs-tile-checker {
+  background-image:
+    conic-gradient(var(--rs-bevel-shadow) 90deg, transparent 90deg 180deg,
+                   var(--rs-bevel-shadow) 180deg 270deg, transparent 270deg);
+  background-size: 16px 16px;
+}
+
+.rs-tile-grid {
+  background-image:
+    linear-gradient(var(--rs-border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rs-border-color) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.rs-tile-blueprint {
+  background-color: #000080;
+  background-image:
+    linear-gradient(#3366FF 1px, transparent 1px),
+    linear-gradient(90deg, #3366FF 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.rs-tile-scanlines {
+  background-image: repeating-linear-gradient(0deg, #000000 0 1px, transparent 1px 3px);
+}
+
+/* the y2k dither bands, as a banded gradient (no image needed) */
+.rs-tile-dither {
+  background-image: repeating-linear-gradient(0deg,
+    #000033 0 2px, #000080 2px 4px);
+}
+
+/* pixel-art tiles from the asset pipeline */
+.rs-tile-stars {
+  background-color: #000000;
+  background-image: url("assets/tile-stars.png");
+  background-repeat: repeat;
+  image-rendering: pixelated;
+}
+
+.rs-tile-hearts {
+  background-color: #FFCCFF;
+  background-image: url("assets/tile-hearts.png");
+  background-repeat: repeat;
+  image-rendering: pixelated;
+}
+
+/* ---- more wallpaper: CSS-only tiles, a gradient apiece and no bytes ---- */
+
+/* polka dots, the candy-shop dot */
+.rs-tile-dots {
+  background-color: #FFFFCC;
+  background-image: radial-gradient(#FF6600 40%, transparent 42%);
+  background-size: 16px 16px;
+}
+
+/* candy stripe, the diagonal barber pole */
+.rs-tile-candy {
+  background-image: repeating-linear-gradient(45deg, #FF3333 0 8px, #FFFFFF 8px 16px);
+}
+
+/* hazard, the caution chevron, the construction sign's yellow and black */
+.rs-tile-hazard {
+  background-image: repeating-linear-gradient(45deg, #FFCC00 0 12px, #000000 12px 24px);
+}
+
+/* brick, a tiled wall, mortar drawn as a grid */
+.rs-tile-brick {
+  background-color: #CC6633;
+  background-image:
+    linear-gradient(90deg, #663300 0 2px, transparent 2px),
+    linear-gradient(#663300 0 2px, transparent 2px);
+  background-size: 32px 16px;
+}
+
+/* zigzag, the chevron knit, four corners of a diamond */
+.rs-tile-zigzag {
+  background-color: #FFCC00;
+  background-image:
+    linear-gradient(135deg, #CC6600 25%, transparent 25%),
+    linear-gradient(225deg, #CC6600 25%, transparent 25%),
+    linear-gradient(45deg, #CC6600 25%, transparent 25%),
+    linear-gradient(315deg, #CC6600 25%, transparent 25%);
+  background-position: 8px 0, 8px 0, 0 0, 0 0;
+  background-size: 16px 16px;
+}
+
+/* ---- and the pixel-art tiles from the asset pipeline ---- */
+
+.rs-tile-confetti {
+  background-color: #FFFFFF;
+  background-image: url("assets/tile-confetti.png");
+  background-repeat: repeat;
+  image-rendering: pixelated;
+}
+
+.rs-tile-clouds {
+  background-color: #99CCFF;
+  background-image: url("assets/tile-clouds.png");
+  background-repeat: repeat;
+  image-rendering: pixelated;
+}
+
+.rs-tile-paws {
+  background-color: #FFFFCC;
+  background-image: url("assets/tile-paws.png");
+  background-repeat: repeat;
+  image-rendering: pixelated;
+}

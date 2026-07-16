@@ -1,0 +1,16 @@
+/* rs-webring-bar - « prev | ring home | random | next ». Sites holding
+   hands in a circle (docs/01 §4); the widget fills the links later. */
+
+.rs-webring-bar {
+  border: 1px solid #000000;
+  background: var(--rs-bg-content);
+  padding: var(--rs-space-2);
+  text-align: center;
+  font-size: var(--rs-font-size-2);
+  margin-block: var(--rs-space-3);
+}
+
+.rs-webring-bar__name {
+  display: block;
+  font-weight: bold;
+}

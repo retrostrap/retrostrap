@@ -1,0 +1,16 @@
+/* rs-page - the opaque content sheet on the tiled body: the "centered
+   table on a starfield" anatomy every homepage shared (docs/01 §3). */
+
+.rs-page {
+  background: var(--rs-bg-content);
+  padding: var(--rs-space-3);
+}
+
+@media (min-width: 640px) { /* vga */
+  .rs-page {
+    border: 2px solid;
+    border-color: var(--rs-bevel-light) var(--rs-bevel-dark)
+                  var(--rs-bevel-dark) var(--rs-bevel-light);
+    margin-block: var(--rs-space-4);
+  }
+}

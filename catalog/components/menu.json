@@ -1,0 +1,17 @@
+{
+  "id": "menu",
+  "kind": "component",
+  "label": "Menu",
+  "summary": "A dropdown menu bar: nested list submenus open on hover and focus; the enhancer adds keyboard and tap.",
+  "era": "The \"DHTML dropdown menu\" cut-and-pasted from a free-scripts site onto every portal of 2000.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "menu",
+  "classes": [
+    { "name": "rs-menu", "role": "menu bar nav; nested ul submenus open on hover/focus-within" }
+  ],
+  "a11y": "Disclosure navigation, not role=\"menu\": submenu triggers are <button aria-expanded aria-controls>, submenus are plain lists of links. The enhancer adds the full keyboard map.",
+  "assets": [],
+  "tags": ["navigation", "dropdown", "menu"]
+}

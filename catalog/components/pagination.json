@@ -1,0 +1,17 @@
+{
+  "id": "pagination",
+  "kind": "component",
+  "label": "Pagination",
+  "summary": "A page-number row: current page bracketed, Prev/Next in angle brackets.",
+  "era": "\"Pages: [1] 2 3 … Next>\", the forum thread pager, current page bracketed because you cannot click where you stand.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-pagination", "role": "the page link row; the current page is bracketed via aria-current" }
+  ],
+  "a11y": "<nav aria-label=\"Pages\"> of real links; the current page is plain text with aria-current=\"page\", bracketed by CSS, never a link to itself.",
+  "assets": [],
+  "tags": ["navigation", "pages"]
+}

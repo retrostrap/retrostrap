@@ -1,0 +1,17 @@
+{
+  "id": "tooltip",
+  "kind": "component",
+  "label": "Tooltip",
+  "summary": "A small yellow tip box on hover and focus, fed by a data-rs-tip attribute.",
+  "era": "The little yellow tip that popped up beside the cursor when you hovered a toolbar button in 1997.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-tooltip", "role": "trigger class; the tip text lives in data-rs-tip" }
+  ],
+  "a11y": "Shows on hover and keyboard focus alike, so the trigger must be focusable. Never essential content, the tip lives in a CSS pseudo-element.",
+  "assets": [],
+  "tags": ["content", "tooltip", "hover"]
+}

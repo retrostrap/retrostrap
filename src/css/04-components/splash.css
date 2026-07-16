@@ -1,0 +1,34 @@
+/* rs-splash - the click-to-enter ceremony, minus the Flash plugin. Hidden
+   until the enhancer reveals it: without JS the page simply loads, which
+   is the correct amount of splash for a page without JS. */
+
+.rs-splash {
+  position: fixed;
+  inset: 0;
+  /* a <dialog class="rs-splash"> otherwise keeps the UA box (fit-content,
+     margin auto, a border) and floats as a slab instead of covering the page */
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: none;
+  max-block-size: none;
+  margin: 0;
+  border: 0;
+  z-index: var(--rs-z-splash);
+  place-items: center;
+  text-align: center;
+  background: var(--rs-bg-page);
+  background-image: var(--rs-tile-page);
+  /* a <dialog> paints UA CanvasText unless told otherwise; take the theme ink */
+  color: var(--rs-text);
+  padding: var(--rs-space-4);
+}
+
+/* shown as a modal <dialog>[open], or as a plain toggled overlay when JS
+   couldn't go modal. A closed dialog keeps the UA's own display:none. */
+dialog.rs-splash[open] { display: grid; }
+.rs-splash:not(dialog):not([hidden]) { display: grid; }
+
+.rs-splash__enter {
+  font-size: var(--rs-font-size-4);
+  padding: var(--rs-space-2) var(--rs-space-5);
+}

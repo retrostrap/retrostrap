@@ -1,0 +1,24 @@
+{
+  "id": "select-button",
+  "size": [16, 16],
+  "palette": { "w": "#FFFFFF", "s": "#C0C0C0", "d": "#808080", "k": "#000000" },
+  "frames": [[
+    "wwwwwwwwwwwwwwww",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssskkkkkkkksssd",
+    "wsssskkkkkkssssd",
+    "wssssskkkksssssd",
+    "wsssssskkssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "wssssssssssssssd",
+    "dddddddddddddddd"
+  ]],
+  "fps": 0
+}

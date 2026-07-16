@@ -1,0 +1,17 @@
+{
+  "id": "banner",
+  "kind": "component",
+  "label": "Banner",
+  "summary": "A 468×60 banner shell that scales proportionally below 500px, the one sanctioned proportional scale.",
+  "era": "The 468×60 full banner of 1996: the only ad size that ever mattered.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-banner", "role": "468×60 shell; scales down proportionally below 500px viewports" }
+  ],
+  "a11y": "An image link: the alt text names the destination, not the artwork.",
+  "assets": [],
+  "tags": ["content", "banner", "468x60"]
+}

@@ -1,0 +1,44 @@
+/* rs-card-profile - the member card: avatar, name, rank, the little facts
+   table. The About-me page and the forum author column share this DNA. */
+
+.rs-card-profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--rs-space-1) var(--rs-space-3);
+  border: 1px solid var(--rs-border-color);
+  background: var(--rs-bg-content);
+  padding: var(--rs-space-2);
+  max-inline-size: 32em;
+  font-size: var(--rs-font-size-2);
+}
+
+.rs-card-profile__avatar {
+  grid-row: span 3;
+}
+
+.rs-card-profile__name {
+  margin: 0;
+  font-size: var(--rs-font-size-3);
+  font-weight: bold;
+}
+
+.rs-card-profile__rank {
+  color: var(--rs-text-muted);
+  font-size: var(--rs-font-size-1);
+}
+
+.rs-card-profile__fields {
+  margin: 0;
+  font-size: var(--rs-font-size-1);
+}
+
+.rs-card-profile__fields dt {
+  float: inline-start;
+  clear: inline-start;
+  font-weight: bold;
+  margin-inline-end: var(--rs-space-2);
+}
+
+.rs-card-profile__fields dd {
+  margin: 0;
+}

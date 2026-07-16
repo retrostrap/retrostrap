@@ -1,0 +1,60 @@
+/* rs-alert - an inline message bar. It does not slide in. It is simply
+   there, like news. The dialog icons are pixel sprites (docs/03). */
+
+/* block flow with the icon pinned, NOT flex: flex would chop mixed inline
+   content (text around an <a> or <b>) into separate ragged flex items */
+.rs-alert {
+  position: relative;
+  display: block;
+  border: 1px solid var(--rs-border-color);
+  background: var(--rs-bevel-face);
+  padding: var(--rs-space-2);
+  padding-inline-start: calc(var(--rs-space-2) * 2 + 16px);
+  margin-block: var(--rs-space-2);
+  font-size: var(--rs-font-size-2);
+}
+
+.rs-alert::before {
+  content: "";
+  position: absolute;
+  inset-block-start: var(--rs-space-2);
+  inset-inline-start: var(--rs-space-2);
+  inline-size: 16px;
+  block-size: 16px;
+  image-rendering: pixelated;
+  background: url("assets/alert-info.png") no-repeat center / 16px 16px;
+}
+
+/* --info is the resting state; the class exists so the three read alike */
+.rs-alert--info { /* same as base */ }
+
+.rs-alert--warn {
+  background: #FFFFCC;
+  border-color: #808000;
+  color: #000000; /* fixed light fill, so the text stays dark whatever the theme */
+}
+
+.rs-alert--warn::before {
+  background-image: url("assets/alert-warn.png");
+}
+
+.rs-alert--error {
+  background: #FFCCCC;
+  border-color: #FF0000;
+  color: #000000; /* fixed light fill, so the text stays dark whatever the theme */
+}
+
+.rs-alert--error::before {
+  background-image: url("assets/alert-error.png");
+}
+
+/* the base/info alert sits on the theme's bevel face (silver, dark grey, even pink across themes),
+   so its links take the alert's OWN ink, which is guaranteed to contrast wherever the body text
+   does, and underline to stay unmistakably links; warn/error force a light fill, so theirs keep
+   the classic navy */
+.rs-alert a { color: var(--rs-text); text-decoration: underline; }
+.rs-alert a:visited { color: var(--rs-text); }
+.rs-alert--warn a,
+.rs-alert--error a { color: #000080; }
+.rs-alert--warn a:visited,
+.rs-alert--error a:visited { color: #660099; }

@@ -1,0 +1,17 @@
+{
+  "id": "spoiler",
+  "kind": "component",
+  "label": "Spoiler",
+  "summary": "A details-based spoiler: content hidden until deliberately opened.",
+  "era": "Black-on-black spoiler text on episode-guide pages, highlight to reveal how the season ends.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "spoiler",
+  "classes": [
+    { "name": "rs-spoiler", "role": "details-based disclosure styled as the classic black bar" }
+  ],
+  "a11y": "Native <details>/<summary>: expanded/collapsed state is announced for free, and the hidden content stays out of the accessibility tree until opened.",
+  "assets": [],
+  "tags": ["content", "disclosure", "details"]
+}

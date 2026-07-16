@@ -1,0 +1,26 @@
+{
+  "id": "hit-counter",
+  "kind": "widget",
+  "label": "Hit counter",
+  "summary": "The odometer visitor counter: static, local, or api-backed.",
+  "era": "The CGI counter that proved your page had visitors, in a pre-analytics world.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-counter", "role": "the odometer shell the widget renders into" }
+  ],
+  "options": [
+    { "name": "mode", "type": "enum", "values": ["static", "local", "api"], "default": "static" },
+    { "name": "value", "type": "int", "default": 1337, "note": "for static mode" },
+    { "name": "src", "type": "url", "note": "for api mode; POST returns { count }" },
+    { "name": "digits", "type": "int", "default": 6, "note": "zero-pad width; the label line is your own rs-counter__label markup" }
+  ],
+  "events": [],
+  "a11y": "Announced once to a screen reader as ordinary text, never on a tick. The api contract counts hits, never people, no identifiers stored (Decency Law).",
+  "assets": ["counter-digits"],
+  "tags": ["informative", "toybox"]
+}

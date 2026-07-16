@@ -1,0 +1,17 @@
+{
+  "name": "retrostrap-homepage-services",
+  "version": "0.0.1",
+  "description": "The counter and guestbook backend for retrostrap homepages, a Lambda over one on-demand DynamoDB table (infra/README.md). Webring is client-side.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "main": "src/handler.js",
+  "comment": "The AWS SDK is the deploy-time binding only (ops-dynamo.js, handler.js); the tested core (services.js, dynamo-store.js) has no runtime dependencies, and the SDK ships in the Lambda Node runtime so it need not be bundled. src/server.js remains for self-hosting without AWS.",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3",
+    "@aws-sdk/lib-dynamodb": "^3"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "award-comet",
+  "size": [
+    30,
+    30
+  ],
+  "palette": {
+    ".": null,
+    "k": "#663300",
+    "o": "#FFCC00",
+    "O": "#FF9900",
+    "h": "#FFFF00",
+    "n": "#000066",
+    "w": "#FFFFFF",
+    "c": "#66CCFF",
+    "C": "#0066CC"
+  },
+  "frames": [
+    [
+      "..............hh..............",
+      ".......k.....khhk.....k.......",
+      ".......hhk...hhhh...koo.......",
+      ".......hhhk..hhhh..kooo.......",
+      ".......hhhkkkkkkkkkkooo.......",
+      ".......hhkkOOOOOOOOkkoo.......",
+      ".......kkOOnnnnnnnnOOkk.......",
+      ".khhhhkkOnnnnnnnnnnnnOkkooook.",
+      "..hhhhkOnnnnnnnnnnnnnnOkoooo..",
+      "..khhkOnnnnnnnnnnnnnnnnOkook..",
+      "...kkkOnnnnnnnnnnnnnnnnOkkk...",
+      "....kOnnnnnnnnnnnwwnnnnnOk....",
+      "....kOnnnnnnnnnncwwnnnnnOk....",
+      ".khhkOnnnnnnnnncnnnnnnnnOkook.",
+      "hhhhkOnnnnnnnncnnnnnnnnnOkoooo",
+      "hhhhkOnnnnnnnCnnnnnnnnnnOkoooo",
+      ".khhkOnnnnnnCnnnnnnnnnnnOkook.",
+      "....kOnnnnnCnnnnnnnnnnnnOk....",
+      "....kOnnnnnnnnnnnnnnnnnnOk....",
+      "...kkkOnnnnnnnnnnnnnnnnOkkk...",
+      "..kookOnnnnnnnnnnnnnnnnOkook..",
+      "..ooookOnnnnnnnnnnnnnnOkoooo..",
+      ".kooookkOnnnnnnnnnnnnOkkooook.",
+      ".......kkOOnnnnnnnnOOkk.......",
+      ".......ookkOOOOOOOOkkoo.......",
+      ".......oookkkkkkkkkkooo.......",
+      ".......oook..oooo..kooo.......",
+      ".......ook...oooo...koo.......",
+      ".......k.....kook.....k.......",
+      "..............oo.............."
+    ]
+  ],
+  "fps": 0
+}

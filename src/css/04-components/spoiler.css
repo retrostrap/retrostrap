@@ -1,0 +1,37 @@
+/* rs-spoiler - hidden until you ask. Built on <details>, so screen readers
+   and the no-JS crowd get the real thing; the enhancer adds manners. */
+
+.rs-spoiler {
+  display: block;
+  margin-block: var(--rs-space-2);
+}
+
+.rs-spoiler > summary {
+  display: inline-block;
+  cursor: pointer;
+  background: var(--rs-text);
+  color: var(--rs-bg-content);
+  font-size: var(--rs-font-size-1);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0 var(--rs-space-2);
+}
+
+.rs-spoiler[open] > summary {
+  background: var(--rs-text-muted);
+}
+
+.rs-spoiler > :not(summary) {
+  border: 1px dashed var(--rs-border-color);
+  padding: var(--rs-space-2);
+  margin-block-start: var(--rs-space-1);
+}
+
+/* touch: the whole summary row is the target, full width and at least 44px tall (docs/08) */
+@media (pointer: coarse) {
+  .rs-spoiler > summary {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+  }
+}

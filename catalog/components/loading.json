@@ -1,0 +1,18 @@
+{
+  "id": "loading",
+  "kind": "component",
+  "label": "Loading",
+  "summary": "An hourglass with \"Loading, please wait…\"; the --bar variant adds an indeterminate progress bar.",
+  "era": "The hourglass, promoted from cursor to page furniture: \"Loading, please wait…\" while the modem sang.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-loading", "role": "hourglass sprite plus waiting text" },
+    { "name": "rs-loading--bar", "role": "modifier: wraps an indeterminate rs-progress" }
+  ],
+  "a11y": "The text carries the meaning; the hourglass is aria-hidden decoration and holds still under reduced motion.",
+  "assets": ["hourglass"],
+  "tags": ["feedback", "loading", "motion"]
+}

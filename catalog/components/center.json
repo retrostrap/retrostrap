@@ -1,0 +1,17 @@
+{
+  "id": "center",
+  "kind": "component",
+  "label": "Center",
+  "summary": "Centers text and block children. Culturally load-bearing.",
+  "era": "<center>, the most honest tag HTML ever had. Deprecated, never forgotten.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-center", "role": "text-align center; block children get auto margins" }
+  ],
+  "a11y": "None specific.",
+  "assets": [],
+  "tags": ["layout", "typography"]
+}

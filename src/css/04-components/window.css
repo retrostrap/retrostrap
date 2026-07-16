@@ -1,0 +1,111 @@
+/* rs-window - window chrome: two-stop titlebar fade, bevel buttons, sunken
+   status cells. Dragging arrives with the windows widget; the furniture
+   stands on its own. */
+
+.rs-window {
+  background: var(--rs-bevel-face);
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-dark)
+                var(--rs-bevel-dark) var(--rs-bevel-light);
+  box-shadow: var(--rs-shadow-hard);
+}
+
+.rs-window__titlebar,
+.rs-dialog__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rs-space-2);
+  background: linear-gradient(90deg, var(--rs-titlebar-bg), var(--rs-titlebar-bg-2));
+  color: var(--rs-titlebar-text);
+  font-family: var(--rs-font-narrow);
+  font-size: var(--rs-font-size-2);
+  font-weight: bold;
+  padding: var(--rs-space-1) var(--rs-space-2);
+}
+
+/* a home link in the titlebar was half the point of window chrome; it wears
+   the titlebar ink, not the page's link blue */
+.rs-window__titlebar a,
+.rs-dialog__titlebar a {
+  color: inherit;
+}
+
+.rs-window__title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.rs-window__controls {
+  display: flex;
+  gap: var(--rs-space-1);
+  flex: none;
+}
+
+.rs-window__controls button {
+  inline-size: 16px;
+  block-size: 16px;
+  padding: 0;
+  font: bold var(--rs-font-size-1)/1 var(--rs-font-narrow);
+  color: var(--rs-text);
+  background: var(--rs-bevel-face);
+  border: 1px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-dark)
+                var(--rs-bevel-dark) var(--rs-bevel-light);
+  cursor: pointer;
+}
+
+.rs-window__controls button:active {
+  border-color: var(--rs-bevel-dark) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-dark);
+  /* the sacred nudge; border-box holds the 16px box while the glyph moves 1px down-right */
+  padding-block-start: 1px;
+  padding-inline-start: 1px;
+}
+
+/* touch: keep the 16px look, grow an invisible hit-area, widen the gap so the
+   enlarged targets never overlap (docs/08 "44px invisible hit-area") */
+@media (pointer: coarse) {
+  .rs-window__titlebar { overflow: visible; } /* never clip the hit-areas */
+  .rs-window__controls { gap: 12px; }
+  .rs-window__controls button { position: relative; }
+  .rs-window__controls button::after {
+    content: "";
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    inline-size: max(100%, 24px);  /* WCAG 2.5.8 (24px) for these clustered controls: no overlap at this gap, */
+    block-size: max(100%, 24px);   /* and no spill into the window body below the short titlebar */
+    transform: translate(-50%, -50%);
+  }
+}
+
+.rs-window__body {
+  padding: var(--rs-space-3);
+}
+
+.rs-window__statusbar {
+  display: flex;
+  gap: var(--rs-space-1);
+  padding: var(--rs-space-1);
+  font-family: var(--rs-font-narrow);
+  font-size: var(--rs-font-size-1);
+}
+
+.rs-window__statusbar > * {
+  flex: 1;
+  margin: 0;
+  border: 1px solid;
+  border-color: var(--rs-bevel-shadow) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-shadow);
+  padding: 1px var(--rs-space-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rs-window--inactive .rs-window__titlebar {
+  background: var(--rs-bevel-shadow);
+  color: var(--rs-bevel-face);
+}

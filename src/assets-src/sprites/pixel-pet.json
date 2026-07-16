@@ -1,0 +1,122 @@
+{
+  "id": "pixel-pet",
+  "size": [
+    16,
+    16
+  ],
+  "frameNames": [
+    "idle",
+    "happy",
+    "hungry",
+    "sleep"
+  ],
+  "skins": {
+    "green": {
+      ".": null,
+      "o": "#000000",
+      "b": "#66CC66",
+      "d": "#339933",
+      "h": "#99FF99",
+      "c": "#FF6699"
+    },
+    "blue": {
+      ".": null,
+      "o": "#000000",
+      "b": "#6699FF",
+      "d": "#3366CC",
+      "h": "#99CCFF",
+      "c": "#FF6699"
+    },
+    "pink": {
+      ".": null,
+      "o": "#000000",
+      "b": "#FF99CC",
+      "d": "#CC6699",
+      "h": "#FFCCFF",
+      "c": "#FF3366"
+    },
+    "gold": {
+      ".": null,
+      "o": "#000000",
+      "b": "#FFCC66",
+      "d": "#CC9933",
+      "h": "#FFFF99",
+      "c": "#FF6699"
+    }
+  },
+  "frames": [
+    [
+      "................",
+      "................",
+      "......oooo......",
+      "....oobbbboo....",
+      "...ohhhbbbbbo...",
+      "..obhhhbbbbbbo..",
+      "..obhhhbbbbbbo..",
+      "..obbobbbbobbo..",
+      "..obbobbbbobbo..",
+      "..obbbbbbbbbbo..",
+      "..obbbbbbbbbbo..",
+      "..oddddooddddo..",
+      "...oddddddddo...",
+      "....oddddddo....",
+      ".....oooooo.....",
+      "................"
+    ],
+    [
+      "................",
+      "................",
+      "......oooo......",
+      "....oobbbboo....",
+      "...ohhhbbbbbo...",
+      "..obhhhbbbbbbo..",
+      "..obhhhbbbbbbo..",
+      "..obbobbbbobbo..",
+      "..obobobbobobo..",
+      "..ocbbbbbbbbco..",
+      "..obbbbbbbbbbo..",
+      "..odddoddodddo..",
+      "...odddoodddo...",
+      "....oddddddo....",
+      ".....oooooo.....",
+      "................"
+    ],
+    [
+      "................",
+      "................",
+      "......oooo......",
+      "....oobbbboo....",
+      "...ohhhbbbbbo...",
+      "..obhhhbbbbbbo..",
+      "..oboohbbboobo..",
+      "..obbbbbbbbbbo..",
+      "..obbobbbbobbo..",
+      "..obbbbbbbbbbo..",
+      "..obbbbbbbbbbo..",
+      "..odddododdddo..",
+      "...odddododdo...",
+      "....oddddddo....",
+      ".....oooooo.....",
+      "................"
+    ],
+    [
+      "................",
+      "................",
+      "......oooo......",
+      "....oobbbboo....",
+      "...ohhhbbbbbo...",
+      "..obhhhbbbbbbo..",
+      "..obhhhbbbbbbo..",
+      "..obbbbbbbbbbo..",
+      "..obooobbooobo..",
+      "..obbbbbbbbbbo..",
+      "..obbbbbbbbbbo..",
+      "..odddddoddddo..",
+      "...oddddddddo...",
+      "....oddddddo....",
+      ".....oooooo.....",
+      "................"
+    ]
+  ],
+  "fps": 0
+}

@@ -1,0 +1,17 @@
+{
+  "id": "bullet-star",
+  "size": [9, 9],
+  "palette": { ".": null, "k": "#996600", "y": "#FFCC00" },
+  "frames": [[
+    "....k....",
+    "...kyk...",
+    "...kyk...",
+    "..kyyyk..",
+    "kkyyyyykk",
+    "..kyyyk..",
+    "...kyk...",
+    "...kyk...",
+    "....k...."
+  ]],
+  "fps": 0
+}

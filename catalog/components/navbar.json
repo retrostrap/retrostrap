@@ -1,0 +1,17 @@
+{
+  "id": "navbar",
+  "kind": "component",
+  "label": "Navbar",
+  "summary": "A horizontal bar of bevel-chip links; the current page renders sunken.",
+  "era": "The row of bevel-edged button links under the site logo, current page pressed in like a held key.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-navbar", "role": "horizontal row of bevel-chip links; wraps to two rows below svga, never a hamburger" }
+  ],
+  "a11y": "A <nav> landmark with an aria-label; the current page carries aria-current=\"page\", that is what renders it sunken.",
+  "assets": [],
+  "tags": ["navigation", "bar"]
+}

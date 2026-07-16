@@ -1,0 +1,16 @@
+/* rs-note - the yellow sticky: asides and webmaster's notes. */
+
+.rs-note {
+  background: #FFFF99;
+  border: 1px solid #808000;
+  color: #000000;
+  padding: var(--rs-space-3);
+  margin-block: var(--rs-space-3);
+  box-shadow: var(--rs-shadow-hard);
+  font-size: var(--rs-font-size-2);
+}
+
+/* the note's background is always light yellow, so its links must be dark
+   regardless of the theme's (possibly light) link color */
+.rs-note a { color: #000080; }
+.rs-note a:visited { color: #660099; }

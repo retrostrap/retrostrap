@@ -1,0 +1,26 @@
+{
+  "id": "layout",
+  "kind": "component",
+  "label": "Layout recipes",
+  "summary": "Page-shape recipes via grid areas: sidebars, holy grail, portal thirds. Single column below svga.",
+  "era": "Nested table layouts: nav column left, content right, banner on top, rebuilt as grid, no tables harmed.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-layout", "role": "grid wrapper" },
+    { "name": "rs-layout--sidebar-left", "role": "recipe: 180px nav + main" },
+    { "name": "rs-layout--sidebar-right", "role": "recipe: main + 180px rail" },
+    { "name": "rs-layout--holy-grail", "role": "recipe: header / nav main rail / footer" },
+    { "name": "rs-layout--three-col", "role": "recipe: the portal look, three honest thirds" },
+    { "name": "rs-layout__header", "role": "area: header" },
+    { "name": "rs-layout__nav", "role": "area: navigation column" },
+    { "name": "rs-layout__main", "role": "area: content" },
+    { "name": "rs-layout__rail", "role": "area: right rail" },
+    { "name": "rs-layout__footer", "role": "area: footer" }
+  ],
+  "a11y": "Source order stays header, main, nav, rail, footer, readers first; the grid rearranges visually from svga up. Use real landmark elements for the areas.",
+  "assets": [],
+  "tags": ["layout", "grid", "responsive"]
+}

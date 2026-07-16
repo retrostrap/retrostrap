@@ -1,0 +1,19 @@
+{
+  "id": "rollover",
+  "kind": "component",
+  "label": "Rollover",
+  "summary": "The onmouseover swap, hide one thing, reveal another on hover or focus, in pure CSS.",
+  "era": "onMouseOver image swaps: the first bit of interactivity most homepages ever shipped.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-rollover", "role": "the wrapper; give it its own accessible name" },
+    { "name": "rs-rollover__off", "role": "shown at rest" },
+    { "name": "rs-rollover__on", "role": "revealed on hover or focus" }
+  ],
+  "a11y": "The two halves are paint only; the wrapping link or button carries the accessible name. It swaps on focus as well as hover, so keyboard users see it too.",
+  "assets": [],
+  "tags": ["decoration", "link"]
+}

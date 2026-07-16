@@ -1,0 +1,17 @@
+{
+  "id": "bullet-disk",
+  "size": [9, 9],
+  "palette": { ".": null, "k": "#006600", "h": "#00CC00", "w": "#99FF99" },
+  "frames": [[
+    "..kkkkk..",
+    ".khhhhhk.",
+    "khhwhhhhk",
+    "khwwhhhhk",
+    "khhhhhhhk",
+    "khhhhhhhk",
+    "khhhhhhhk",
+    ".khhhhhk.",
+    "..kkkkk.."
+  ]],
+  "fps": 0
+}

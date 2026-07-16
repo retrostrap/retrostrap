@@ -1,0 +1,18 @@
+{
+  "id": "splash",
+  "kind": "component",
+  "label": "Splash",
+  "summary": "A click-to-enter intro sheet, hidden until its enhancer decides to show it; the page never depends on it.",
+  "era": "The click-to-enter splash page: a huge title, an [ ENTER ] link, and a webmaster certain you would wait.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "splash",
+  "classes": [
+    { "name": "rs-splash", "role": "full-viewport click-to-enter sheet; hidden until the enhancer reveals it" },
+    { "name": "rs-splash__enter", "role": "the [ ENTER ] button" }
+  ],
+  "a11y": "A native <dialog aria-label=\"Welcome\"> with an autofocused Enter button; the page behind stays in the DOM and is never hidden from assistive tech.",
+  "assets": [],
+  "tags": ["feedback", "intro", "splash"]
+}

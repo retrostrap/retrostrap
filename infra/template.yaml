@@ -1,0 +1,526 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  retrostrap hosting (see README.md): a static site on S3 + CloudFront, plus serverless
+  homepage services (counter + guestbook) on Lambda over one on-demand DynamoDB
+  table. No always-on server, no database to operate. Reads are static + cached;
+  only writes touch a function.
+
+Parameters:
+  GitHubRepo:
+    Type: String
+    Default: ''
+    Description: "owner/repo for Retrospace submission issues (the git-PR moderation inbox). Leave blank to disable submissions."
+  GitHubToken:
+    Type: String
+    Default: ''
+    NoEcho: true
+    Description: "A token scoped to create issues in GitHubRepo. For production, prefer Secrets Manager over a plain parameter."
+  DirectoryUrl:
+    Type: String
+    Default: /demos/retrospace/
+    Description: "Where a Retrospace badge click (/api/retrospace/go) redirects back to. A path resolves against your own domain, so no host is hardcoded."
+  EdgeSecret:
+    Type: String
+    Default: ''
+    NoEcho: true
+    Description: "One shared secret CloudFront stamps as the x-origin-verify custom origin header on every Function-URL origin (both distributions, same value). The handlers fail closed at cold start without it and answer requests missing the header with a 403, so an edge WAF can't be bypassed by calling a Lambda URL directly. Supply from Secrets Manager."
+
+  # ---- deploy-time domain wiring (all defaults = today's no-domain behavior) ----
+  SiteAliases:
+    Type: CommaDelimitedList
+    Default: ''
+    Description: "Alternate domain names for the site distribution (e.g. retrostrap.dev,www.retrostrap.dev). Set together with AcmCertificateArn (aliases only apply once the cert is set); both empty until the domain exists."
+  AcmCertificateArn:
+    Type: String
+    Default: ''
+    Description: "ACM certificate (us-east-1) covering the site aliases. Empty = no aliases and the default CloudFront certificate."
+  BoardsDistributionArn:
+    Type: String
+    Default: ''
+    Description: "The boards distribution's ARN (deploy-time, see the comment below BoardsUrlInvoke). When set, the bucket policy lets it read the static bucket too; kept as a parameter so a stack update can't wipe a console-made edit."
+
+  # ---- the Boards (forum): config + the two secrets (supply from Secrets Manager at deploy) ----
+  BoardsSigningKey:
+    Type: String
+    Default: ''
+    NoEcho: true
+    Description: "HS256 session-signing key for the Boards. Supply from Secrets Manager; a leak forges sessions."
+  BoardsSmtpHost:
+    Type: String
+    Default: smtp.fastmail.com
+  BoardsSmtpPort:
+    Type: String
+    Default: '465'
+  BoardsSmtpUser:
+    Type: String
+    Default: ''
+    Description: "Fastmail SMTP-submission login (the Fastmail account user, not an @retrostrap.dev alias)."
+  BoardsSmtpPass:
+    Type: String
+    Default: ''
+    NoEcho: true
+    Description: "Fastmail app password (NOT the account password). Supply from Secrets Manager."
+  BoardsMailFrom:
+    Type: String
+    Default: 'The Retrostrap Boards <boards@retrostrap.dev>'
+  BoardsOrigin:
+    Type: String
+    Default: 'https://boards.retrostrap.dev'
+    Description: "The forum's own origin (a subdomain, docs/11 §2); used to build verify/reset links."
+
+Globals:
+  Function:
+    Runtime: nodejs24.x
+    Timeout: 10
+    MemorySize: 128
+    Architectures: [arm64]   # cheaper per ms than x86
+
+Conditions:
+  HasEdgeSecret: !Not [!Equals [!Ref EdgeSecret, '']]
+  # one switch for the domain: aliases are invalid without a cert, so the cert
+  # parameter gates both (Fn::Join can't inspect the list in a Condition anyway)
+  HasSiteCert: !Not [!Equals [!Ref AcmCertificateArn, '']]
+  HasBoardsDistribution: !Not [!Equals [!Ref BoardsDistributionArn, '']]
+
+Resources:
+
+  # ---- state: one on-demand table, everything keyed by pk/sk (see README.md) --------
+  DataTable:
+    Type: AWS::DynamoDB::Table
+    # the members' posts live here; an accidental stack delete must not take them along
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST         # pay per request, scales to zero
+      AttributeDefinitions:
+        - { AttributeName: pk, AttributeType: S }
+        - { AttributeName: sk, AttributeType: S }
+        - { AttributeName: gsi1pk, AttributeType: S }   # the Boards' bump-ordered thread lists
+        - { AttributeName: gsi1sk, AttributeType: S }
+      KeySchema:
+        - { AttributeName: pk, KeyType: HASH }
+        - { AttributeName: sk, KeyType: RANGE }
+      GlobalSecondaryIndexes:                 # one sparse GSI: only items with gsi1pk appear in it
+        - IndexName: gsi1
+          KeySchema:
+            - { AttributeName: gsi1pk, KeyType: HASH }
+            - { AttributeName: gsi1sk, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+      TimeToLiveSpecification:              # optional: expire pending items / tokens
+        AttributeName: ttl
+        Enabled: true
+      PointInTimeRecoverySpecification:     # the Boards' posts are the community's memory:
+        PointInTimeRecoveryEnabled: true    # 35 days of rewind for pennies, no ops
+
+  # ---- compute: the write path (counter + guestbook) --------------------------
+  # The AWS SDK v3 ships in the nodejs24 runtime, so nothing needs bundling.
+  HomepageFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../services/homepage-services
+      Handler: src/handler.handler
+      Environment:
+        Variables:
+          TABLE: !Ref DataTable
+          EDGE_SECRET: !Ref EdgeSecret
+          # GUESTBOOK_ENABLED: '1'   # opt in to the hosted guestbook route (off by default; counter/webring always on)
+      Policies:                             # least privilege: only what the handler calls
+        - Statement:
+            - Effect: Allow
+              Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:UpdateItem, dynamodb:Query]
+              Resource: !GetAtt DataTable.Arn
+              # the table is shared with the Boards (password hashes, reset
+              # tokens); fence this public function into its own partitions so
+              # a handler bug can never become an account-data read
+              Condition:
+                ForAllValues:StringLike:
+                  dynamodb:LeadingKeys: ['counter#*', 'gb#*', 'rl#*']   # rl# = the write throttle's tokens
+
+  HomepageUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt HomepageFn.Arn
+      AuthType: NONE                        # public; the handler sets CORS (one place, no dupes)
+  HomepageUrlInvoke:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref HomepageFn
+      Action: lambda:InvokeFunctionUrl
+      Principal: '*'
+      FunctionUrlAuthType: NONE
+  # URLs created since Oct 2025 also demand InvokeFunction, fenced to URL calls only
+  HomepageUrlInvokeFunction:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref HomepageFn
+      Action: lambda:InvokeFunction
+      Principal: '*'
+      InvokedViaFunctionUrl: true
+
+  # Retrospace writes: a submission opens a GitHub issue (git-PR moderation), and the
+  # two toplist counters increment a seeded, listed site's in/out tally. Least
+  # privilege: the only table action it takes is UpdateItem.
+  RetrospaceFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../services/retrospace
+      Handler: src/handler.handler
+      Environment:
+        Variables:
+          TABLE: !Ref DataTable
+          GITHUB_REPO: !Ref GitHubRepo
+          GITHUB_TOKEN: !Ref GitHubToken
+          DIRECTORY_URL: !Ref DirectoryUrl
+          EDGE_SECRET: !Ref EdgeSecret
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: dynamodb:UpdateItem
+              Resource: !GetAtt DataTable.Arn
+              # the table is shared with the Boards (password hashes, reset
+              # tokens); fence this public function into the toplist partitions
+              # (plus its throttle tokens) so a handler bug can never become an
+              # account-data write
+              Condition:
+                ForAllValues:StringLike:
+                  dynamodb:LeadingKeys: ['site#*', 'rl#*']
+
+  RetrospaceUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt RetrospaceFn.Arn
+      AuthType: NONE                        # public; the handler sets CORS (one place, no dupes)
+  RetrospaceUrlInvoke:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref RetrospaceFn
+      Action: lambda:InvokeFunctionUrl
+      Principal: '*'
+      FunctionUrlAuthType: NONE
+  RetrospaceUrlInvokeFunction:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref RetrospaceFn
+      Action: lambda:InvokeFunction
+      Principal: '*'
+      InvokedViaFunctionUrl: true
+
+  # The toplist export runs on a schedule (not a request): read the published
+  # directory, seed a counter marker per listed site (so live clicks have a target
+  # and stray ids can't spawn one), read the counts back, and write hits.json for
+  # the frontend to merge. No Function URL, EventBridge invokes it, so it neither
+  # gets nor needs the edge secret.
+  RetrospaceSyncFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../services/retrospace
+      Handler: src/sync-handler.handler
+      Timeout: 60
+      Environment:
+        Variables:
+          TABLE: !Ref DataTable
+          BUCKET: !Ref StaticBucket
+          SITES_KEY: demos/retrospace/data.json
+          HITS_KEY: demos/retrospace/hits.json
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: dynamodb:UpdateItem
+              Resource: !GetAtt DataTable.Arn
+              Condition:                       # the sync seeds toplist markers, nothing else
+                ForAllValues:StringLike:
+                  dynamodb:LeadingKeys: ['site#*']
+            - Effect: Allow
+              Action: [s3:GetObject, s3:PutObject]
+              Resource: !Sub '${StaticBucket.Arn}/demos/retrospace/*'   # only the two keys it touches
+      Events:
+        Tick:
+          Type: Schedule
+          Properties:
+            Schedule: rate(15 minutes)
+
+  # ---- the Boards (forum): one function serving the whole subdomain (docs/11) --------
+  # Unlike the SDK-only functions above, this one bundles a dependency (hono), so `sam build` runs
+  # npm install in services/boards; @node-rs/argon2 needs its arm64 Linux prebuilt (build on Linux
+  # or in a container). Reads vary by cookie, so CloudFront must NOT cache them (see the note below).
+  BoardsFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../services/boards
+      Handler: src/handler.handler
+      MemorySize: 256                         # a little headroom for rendering + argon2id
+      Environment:
+        Variables:
+          TABLE: !Ref DataTable
+          SIGNING_KEY: !Ref BoardsSigningKey
+          SMTP_HOST: !Ref BoardsSmtpHost
+          SMTP_PORT: !Ref BoardsSmtpPort
+          SMTP_USER: !Ref BoardsSmtpUser
+          SMTP_PASS: !Ref BoardsSmtpPass
+          MAIL_FROM: !Ref BoardsMailFrom
+          ORIGIN: !Ref BoardsOrigin
+          EDGE_SECRET: !Ref EdgeSecret
+      Policies:
+        - Statement:
+            - Effect: Allow
+              # transactions authorize via these item-level actions; there is no
+              # TransactWriteItems IAM action to grant
+              Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:UpdateItem, dynamodb:DeleteItem, dynamodb:Query]
+              Resource:
+                - !GetAtt DataTable.Arn
+                - !Sub '${DataTable.Arn}/index/*'   # the gsi1 query for thread lists
+  BoardsUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt BoardsFn.Arn
+      AuthType: NONE                        # public; sits behind CloudFront on the boards subdomain
+  BoardsUrlInvoke:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref BoardsFn
+      Action: lambda:InvokeFunctionUrl
+      Principal: '*'
+      FunctionUrlAuthType: NONE
+  BoardsUrlInvokeFunction:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref BoardsFn
+      Action: lambda:InvokeFunction
+      Principal: '*'
+      InvokedViaFunctionUrl: true
+
+  # DEPLOY-TIME, account-specific (deliberately not defined until the domain + cert exist): the
+  # Boards live on their OWN subdomain boards.retrostrap.dev (docs/11 §2), so they want a SEPARATE
+  # CloudFront distribution, with Aliases [boards.retrostrap.dev]; a ViewerCertificate from an ACM
+  # cert (us-east-1) for that name; two origins, the StaticBucket for /dist/* (cached; the framework
+  # CSS/JS the pages link, views.js CDN = '/dist') and BoardsUrl for everything else with caching
+  # DISABLED and Cookie forwarded (the CSRF token travels in the form body, no extra header needed);
+  # and a Route53 record.
+  # The default behavior MUST allow the full AllowedMethods set (GET, HEAD, OPTIONS, PUT, POST,
+  # PATCH, DELETE): CloudFront defaults to GET/HEAD, and a form POST then dies at the edge before
+  # the origin ever sees it.
+  # Viewer IP: the flat-rate plans have no custom origin-request policies, so a viewer-request
+  # CloudFront Function on the default behavior stamps the address instead (and always overwrites
+  # a client-sent copy), reusing StampViewerIpFn below:
+  #   request.headers['x-viewer-address'] = { value: event.viewer.ip };
+  # The BoardsUrl origin needs x-origin-verify as a custom origin header carrying the EdgeSecret
+  # value (same as the site's api origins below), or the handler answers everything 403.
+  # Finally, set BoardsDistributionArn to the new distribution's ARN, or the BucketPolicy below
+  # denies its /dist/* origin reads.
+
+  # ---- logs: diagnostics only, and only for a week (docs/11 §11) --------------
+  # Our code logs no IPs; these groups pin the retention so nothing lingers forever.
+  HomepageLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${HomepageFn}
+      RetentionInDays: 7
+  RetrospaceLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${RetrospaceFn}
+      RetentionInDays: 7
+  RetrospaceSyncLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${RetrospaceSyncFn}
+      RetentionInDays: 7
+  BoardsLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${BoardsFn}
+      RetentionInDays: 7
+
+  # ---- static content: private bucket, read only through CloudFront -----------
+  StaticBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  # S3 behind OAC serves keys, not directories: DefaultRootObject only covers "/", so
+  # /components/ or /demos/clan/ would 403 without this. /dir/ rewrites to /dir/index.html;
+  # a slashless /dir gets a 301 to /dir/ first, because a rewrite there leaves the browser
+  # resolving relative asset URLs one level up. Runs in the CloudFront-Functions free tier.
+  IndexRewriteFn:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub '${AWS::StackName}-index-rewrite'
+      AutoPublish: true
+      FunctionConfig:
+        Comment: /dir/ serves /dir/index.html; extensionless paths 301 to /dir/
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+          var request = event.request;
+          var uri = request.uri;
+          uri = uri.replace(/^\/{2,}/, '/'); // collapse leading slashes: //evil.com must not become a protocol-relative redirect
+          if (uri.endsWith('/')) {
+            request.uri = uri + 'index.html';
+            return request;
+          }
+          if (!uri.split('/').pop().includes('.')) {
+            var qs = Object.keys(request.querystring).map(function (k) {
+              var v = request.querystring[k].value;
+              return v ? k + '=' + v : k;
+            }).join('&');
+            return {
+              statusCode: 301,
+              statusDescription: 'Moved Permanently',
+              headers: { location: { value: uri + '/' + (qs ? '?' + qs : '') } },
+            };
+          }
+          return request;
+        }
+
+  # The /api/* behaviors use AllViewerExceptHostHeader, which forwards every viewer header
+  # verbatim, so a client could send its own x-viewer-address and forge the rate-limit key the
+  # handlers key on. This viewer-request function OVERWRITES that header with the real edge-seen
+  # viewer IP on every request (a client copy is replaced, never appended), which is exactly the
+  # trust the handlers assume. Runs in the CloudFront-Functions free tier.
+  StampViewerIpFn:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub '${AWS::StackName}-stamp-viewer-ip'
+      AutoPublish: true
+      FunctionConfig:
+        Comment: overwrite x-viewer-address with the real viewer IP so the rate-limit key can't be spoofed
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+          var request = event.request;
+          request.headers['x-viewer-address'] = { value: event.viewer.ip };
+          return request;
+        }
+
+  OAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-oac'
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: retrostrap
+        DefaultRootObject: index.html
+        PriceClass: PriceClass_100          # cheapest: NA + EU edges
+        # the domain arrives at deploy time: with the parameters unset this stays
+        # the bare *.cloudfront.net distribution on the default certificate
+        Aliases: !If [HasSiteCert, !Ref SiteAliases, !Ref 'AWS::NoValue']
+        ViewerCertificate: !If
+          - HasSiteCert
+          - AcmCertificateArn: !Ref AcmCertificateArn
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+          - CloudFrontDefaultCertificate: true
+        Origins:
+          - Id: s3
+            DomainName: !GetAtt StaticBucket.RegionalDomainName
+            OriginAccessControlId: !Ref OAC
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+          # the two Function-URL origins carry the edge secret the handlers demand,
+          # so nothing answers a caller that went around CloudFront
+          - Id: api
+            DomainName: !Select [2, !Split ['/', !GetAtt HomepageUrl.FunctionUrl]]
+            OriginCustomHeaders: !If
+              - HasEdgeSecret
+              - - HeaderName: x-origin-verify
+                  HeaderValue: !Ref EdgeSecret
+              - !Ref 'AWS::NoValue'
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols: [TLSv1.2]
+          - Id: api-retrospace
+            DomainName: !Select [2, !Split ['/', !GetAtt RetrospaceUrl.FunctionUrl]]
+            OriginCustomHeaders: !If
+              - HasEdgeSecret
+              - - HeaderName: x-origin-verify
+                  HeaderValue: !Ref EdgeSecret
+              - !Ref 'AWS::NoValue'
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols: [TLSv1.2]
+        DefaultCacheBehavior:
+          TargetOriginId: s3
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # Managed-CachingOptimized
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt IndexRewriteFn.FunctionARN
+        # A missing key through OAC surfaces as 403 (no ListBucket), so map both codes
+        # to the 404 page. Applies distribution-wide; the /api/* handlers only return
+        # 404 for unknown routes, and the widgets already tolerate a non-JSON error body.
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 404
+            ResponsePagePath: /404.html
+          - ErrorCode: 404
+            ResponseCode: 404
+            ResponsePagePath: /404.html
+        CacheBehaviors:
+          - PathPattern: /api/retrospace/*                     # more specific, matched first
+            TargetOriginId: api-retrospace
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # Managed-CachingDisabled
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac  # AllViewerExceptHostHeader
+            FunctionAssociations:
+              - EventType: viewer-request
+                FunctionARN: !GetAtt StampViewerIpFn.FunctionARN
+          - PathPattern: /api/*                                # writes: never cache
+            TargetOriginId: api
+            ViewerProtocolPolicy: https-only
+            AllowedMethods: [GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE]
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # Managed-CachingDisabled
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac  # AllViewerExceptHostHeader
+            FunctionAssociations:
+              - EventType: viewer-request
+                FunctionARN: !GetAtt StampViewerIpFn.FunctionARN
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StaticBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: cloudfront.amazonaws.com }
+            Action: s3:GetObject
+            Resource: !Sub '${StaticBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                # the boards distribution (deploy-time) reads /dist/* from this
+                # bucket too; its ARN joins the list via the parameter
+                AWS:SourceArn: !If
+                  - HasBoardsDistribution
+                  - - !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+                    - !Ref BoardsDistributionArn
+                  - !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+Outputs:
+  SiteURL:
+    Description: The CloudFront URL (point your domain here via a CNAME/alias).
+    Value: !Sub 'https://${Distribution.DomainName}'
+  ApiFunctionUrl:
+    Description: Direct Lambda URL (fronted at /api/* by CloudFront).
+    Value: !GetAtt HomepageUrl.FunctionUrl
+  BucketName:
+    Description: Sync the static build (dist, docs, demos, sites.json) here.
+    Value: !Ref StaticBucket
+  TableName:
+    Value: !Ref DataTable
+  RetrospaceSyncFunction:
+    Description: The toplist export Lambda, runs every 15 min; invoke it to publish hits.json now.
+    Value: !Ref RetrospaceSyncFn

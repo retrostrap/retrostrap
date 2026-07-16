@@ -1,0 +1,26 @@
+{
+  "id": "cursor-arrow",
+  "size": [12, 18],
+  "palette": { ".": null, "k": "#000000", "w": "#FFFFFF" },
+  "frames": [[
+    "k...........",
+    "kk..........",
+    "kwk.........",
+    "kwwk........",
+    "kwwwk.......",
+    "kwwwwk......",
+    "kwwwwwk.....",
+    "kwwwwwwk....",
+    "kwwwwwwwk...",
+    "kwwwwwwwwk..",
+    "kwwwwwkkkkk.",
+    "kwwkkwk.....",
+    "kwk.kwwk....",
+    "kk..kwwk....",
+    "k....kwwk...",
+    ".....kwwk...",
+    "......kkk...",
+    "............"
+  ]],
+  "fps": 0
+}

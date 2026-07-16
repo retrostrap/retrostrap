@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>To-Do List 98</title>
+<meta name="description" content="A tiny shareware task manager that saves to your own computer. No server, no upload.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+<style>
+  /* App layout only, pure geometry, no colours, no framework tokens overridden. */
+  .app-desktop {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px 12px;
+  }
+  .app-window { width: 100%; max-width: 640px; }
+  .app-add { display: flex; gap: 8px; align-items: center; margin-block: 12px 8px; }
+  .app-add .rs-input { flex: 1 1 auto; min-width: 0; }
+  .app-progress { display: flex; align-items: center; gap: 8px; margin-block: 8px; }
+  .app-progress .rs-progress { flex: 1 1 auto; }
+  /* Completed task: struck through and dimmed, like a crossed-off line. */
+  .task-row.done .task-text { color: var(--rs-text-muted); text-decoration: line-through; }
+  /* Selected task: reuse the theme's own selection colours (both legal, both opaque). */
+  .task-row[aria-selected="true"] .task-text {
+    background: var(--rs-selection-bg);
+    color: var(--rs-selection-text);
+  }
+  @media (max-width: 639px) {
+    .app-desktop { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to the task list &rarr;</a>
+
+<div class="app-desktop">
+
+  <section class="rs-window app-window">
+
+    <header class="rs-window__titlebar">
+      <span class="rs-window__title" id="win-title">To-Do List 98, [unregistered]</span>
+      <span class="rs-window__controls">
+        <button type="button" aria-label="Minimize">_</button>
+        <button type="button" aria-label="Maximize">&#9633;</button>
+        <button type="button" aria-label="Close">&#10005;</button>
+      </span>
+    </header>
+
+    <nav class="rs-menu" aria-label="Program menu">
+      <ul>
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="menu-file">File</button>
+          <ul id="menu-file">
+            <li><button type="button" data-action="new">New task</button></li>
+            <li><button type="button" data-action="clear">Clear completed</button></li>
+            <li><button type="button" data-action="exit">Exit</button></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="menu-edit">Edit</button>
+          <ul id="menu-edit">
+            <li><button type="button" data-action="mark">Mark done / undone</button></li>
+            <li><button type="button" data-action="delete">Delete selected</button></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="menu-help">Help</button>
+          <ul id="menu-help">
+            <li><a href="help.html">Contents</a></li>
+            <li><a href="help.html#tab-register">Register&hellip;</a></li>
+            <li><button type="button" data-action="about">About To-Do List 98</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="rs-toolbar" role="toolbar" aria-label="Task actions">
+      <button type="button" class="rs-btn rs-btn--small rs-tooltip" data-rs-tip="Add a new task (or press Enter)" data-action="new">New</button>
+      <button type="button" class="rs-btn rs-btn--small rs-tooltip" data-rs-tip="Delete the selected task (Del)" data-action="delete">Delete</button>
+      <span class="rs-toolbar__sep" aria-hidden="true"></span>
+      <button type="button" class="rs-btn rs-btn--small rs-tooltip" data-rs-tip="Toggle the selected task done (Space)" data-action="mark">Mark done</button>
+      <button type="button" class="rs-btn rs-btn--small rs-tooltip" data-rs-tip="Remove every completed task at once" data-action="clear">Clear completed</button>
+    </div>
+
+    <main class="rs-window__body" id="main">
+      <h1 class="rs-sr-only">To-Do List 98, task manager</h1>
+
+      <noscript>
+        <p class="rs-alert rs-alert--info">
+          This little program needs JavaScript to keep your list. Switch scripts on and reload,
+          and every task will save to this very computer, no server, no upload.
+        </p>
+      </noscript>
+
+      <form id="add-form" class="app-add">
+        <label class="rs-sr-only" for="new-task">New task</label>
+        <input class="rs-input" id="new-task" type="text" maxlength="80" autocomplete="off" placeholder="new task&hellip;">
+        <button type="submit" class="rs-btn rs-btn--primary" id="add-btn">Add</button>
+      </form>
+
+      <div class="rs-table-scroll">
+        <table class="rs-table rs-table--striped" id="task-table">
+          <caption class="rs-sr-only">Your tasks. Tick a box to mark a task done.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Done</th>
+              <th scope="col">Task</th>
+            </tr>
+          </thead>
+          <tbody id="task-body"><!-- filled by app.js --></tbody>
+        </table>
+      </div>
+
+      <p class="rs-alert rs-alert--info" id="empty-state" style="display:none">No tasks. Go outside?</p>
+
+      <div class="app-progress">
+        <div class="rs-progress" id="prog" role="progressbar" aria-label="Tasks completed"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="rs-progress__bar" id="prog-bar" style="width:0%"></div>
+        </div>
+        <span id="prog-pct" class="rs-font-2">0%</span>
+      </div>
+    </main>
+
+    <footer class="rs-window__statusbar">
+      <span id="status-cell">0 tasks, 0 done, 0%</span>
+      <span>saved to this computer</span>
+    </footer>
+
+  </section>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

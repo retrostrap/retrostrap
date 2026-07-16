@@ -1,0 +1,8 @@
+[
+ {"name": "classic navy", "bg": "#000080", "fg": "#FFFFFF", "border": "bevel",  "tile": "solid",   "text": "MY SITE"},
+ {"name": "hot lava",     "bg": "#330000", "fg": "#FF9900", "border": "ridge",  "tile": "stripes", "text": "COOL LINKS"},
+ {"name": "terminal",     "bg": "#000000", "fg": "#00FF00", "border": "dotted", "tile": "solid",   "text": "root@home"},
+ {"name": "bubblegum",    "bg": "#FFCCFF", "fg": "#660066", "border": "bevel",  "tile": "checker", "text": "kawaii!!"},
+ {"name": "roadworks",    "bg": "#FFCC00", "fg": "#000000", "border": "ridge",  "tile": "stripes", "text": "UNDER CONSTR."},
+ {"name": "midnight",     "bg": "#000033", "fg": "#FFFF00", "border": "none",   "tile": "stars",   "text": "star corner"}
+]

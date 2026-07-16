@@ -1,0 +1,16 @@
+{
+  "id": "jukebox", "kind": "widget", "label": "Jukebox",
+  "summary": "A playlist audio player in window chrome. Never autoplays.",
+  "era": "The MIDI player tucked in the corner, but this one waits for your click.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "informative", "pointer": "any",
+  "classes": [{ "name": "rs-jukebox", "role": "applied to the host, alongside rs-window" }],
+  "options": [
+    { "name": "tracks", "type": "json-array", "note": "each { title, src }; attribute JSON or an inline JSON block" },
+    { "name": "loop", "type": "bool", "default": false },
+    { "name": "src", "type": "url", "note": "a fallback audio URL: plays when a track has no src, or alone as a one-track player; never fetched as a playlist" }
+  ],
+  "events": ["rs:jukebox:track"],
+  "a11y": "NEVER autoplays, there is no autoplay option (Decency Law). Fully keyboard-operable; the fake EQ is aria-hidden and holds still under reduced motion.",
+  "assets": [], "tags": ["informative", "audio", "toybox"]
+}

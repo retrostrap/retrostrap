@@ -1,0 +1,21 @@
+{
+  "id": "badge",
+  "kind": "component",
+  "label": "Badge",
+  "summary": "Inline flashing tags, NEW!, UPDATED!, HOT!, COOL!, for links you touched this month.",
+  "era": "The flashing NEW! gif planted beside every link the webmaster touched this month.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-badge", "role": "inline tag chip" },
+    { "name": "rs-badge--new", "role": "modifier: NEW! in red on yellow" },
+    { "name": "rs-badge--updated", "role": "modifier: UPDATED!" },
+    { "name": "rs-badge--hot", "role": "modifier: HOT! with flame icon" },
+    { "name": "rs-badge--cool", "role": "modifier: COOL! in blue" }
+  ],
+  "a11y": "The badge is real text, read inline where it sits; add rs-blink for the flash and reduced motion renders it static bold.",
+  "assets": [],
+  "tags": ["content", "inline", "new"]
+}

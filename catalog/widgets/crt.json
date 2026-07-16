@@ -1,0 +1,15 @@
+{
+  "id": "crt", "kind": "widget", "label": "CRT overlay",
+  "summary": "Scanlines and a vignette, with an optional (off-by-default) flicker.",
+  "era": "The look of a page seen through a tube monitor at 2 a.m.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "decorative", "pointer": "any",
+  "classes": [{ "name": "rs-crt-overlay", "role": "the fixed scanline overlay" }],
+  "options": [
+    { "name": "vignette", "type": "bool", "default": true },
+    { "name": "flicker", "type": "bool", "default": false, "note": "capped at 2 changes/sec, tiny opacity delta; force-disabled under reduced motion" }
+  ],
+  "events": [],
+  "a11y": "Decoration: aria-hidden, pointer-events:none. Flicker stays far below the photosensitivity threshold and never runs under prefers-reduced-motion.",
+  "assets": [], "tags": ["decoration", "toybox"]
+}

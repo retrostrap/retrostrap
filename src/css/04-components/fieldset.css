@@ -1,0 +1,14 @@
+/* rs-fieldset - the native fieldset+legend, wearing its groove with pride.
+   This is the pattern rs-panel imitates; use this one inside real forms. */
+
+.rs-fieldset {
+  border: 2px groove var(--rs-bevel-face);
+  padding: var(--rs-space-3);
+  margin: 0 0 var(--rs-space-3);
+}
+
+.rs-fieldset > legend {
+  font-weight: bold;
+  font-size: var(--rs-font-size-2);
+  padding-inline: var(--rs-space-2);
+}

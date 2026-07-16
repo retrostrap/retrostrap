@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="newspaper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Dial-Up Gazette - Millbrook's paper, now on the World Wide Web</title>
+<meta name="description" content="A small-town newspaper's first website, built with retrostrap's newspaper theme, front-page columns, classifieds, weather, and letters to the editor.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/newspaper.css">
+<style>
+  .lead::first-letter { font-size: 3em; float: inline-start; line-height: 0.8; padding-inline-end: 4px; font-family: var(--rs-font-serif); }
+  .masthead { text-align: center; }
+  .masthead__rule { display: flex; justify-content: space-between; font-size: var(--rs-font-size-1); border-block: 2px solid var(--rs-border-color); padding-block: 2px; margin-block: var(--rs-space-2); }
+</style>
+</head>
+<body>
+<a class="rs-skip" href="#main">Skip to content</a>
+<div class="rs-page rs-container rs-container--wide">
+
+  <header class="masthead">
+    <h1 class="rs-font-7">The Dial-Up Gazette</h1>
+    <p class="masthead__rule">
+      <span>Millbrook, est. 1953</span>
+      <span>~ Serving the valley, now on the World Wide Web ~</span>
+      <span>Friday · 25¢ (this edition free, reluctantly)</span>
+    </p>
+    <p class="rs-font-1">Web circulation: <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="local" data-rs-hit-counter-digits="5"></span> · print circulation: everyone else in Millbrook</p>
+  </header>
+
+  <hr class="rs-hr">
+
+  <main id="main" class="rs-layout rs-layout--sidebar-right">
+    <div class="rs-layout__main">
+      <article>
+        <h2 class="rs-font-6">Town Gets Its First Website; Nobody Sure Who Asked</h2>
+        <p class="rs-font-1"><em>By the Editor · Front page</em></p>
+        <p class="lead">MILLBROOK - After forty-six years of ink, the Gazette has,
+        at the urging of the town librarian, arrived on the Internet. Readers
+        may now enjoy the paper on a screen, at a resolution the editor describes
+        as "perfectly adequate," from the comfort of a room with a telephone in it.</p>
+        <p>"We were told the Web is the future," said publisher Harold Vance, 71,
+        squinting at a beige monitor. "We remain open to the possibility." The site
+        loads in under a minute on most connections and requires no special software
+        beyond a browser, patience, and a willingness to hear the modem sing.</p>
+        <p>Classifieds, the weather, and letters appear at right. The crossword,
+        management stresses, is still in the print edition, "where a pencil belongs."</p>
+      </article>
+
+      <hr class="rs-hr rs-hr--dotted">
+
+      <div class="rs-cols-2">
+        <article>
+          <h3 class="rs-font-4">Library Extends Hours</h3>
+          <p>The Millbrook Free Library will stay open until eight on Thursdays,
+          citing "unprecedented interest" in its single Internet terminal. A
+          sign-up sheet is posted; sessions are capped at twenty minutes.</p>
+        </article>
+        <article>
+          <h3 class="rs-font-4">Y2K: Valley "Calm"</h3>
+          <p>Officials report no cause for alarm as the millennium approaches.
+          The traffic light at Main and Third has been certified compliant. The
+          light at Main and Fifth "was always a little unpredictable."</p>
+        </article>
+      </div>
+    </div>
+
+    <aside class="rs-layout__rail">
+      <section class="rs-panel">
+        <h3 class="rs-panel__title">Weather</h3>
+        <table class="rs-table">
+          <tbody>
+            <tr><td>Today</td><td>Fair, 48°</td></tr>
+            <tr><td>Sat</td><td>Cloud, 44°</td></tr>
+            <tr><td>Sun</td><td>Rain, 41°</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="rs-panel">
+        <h3 class="rs-panel__title">Classifieds</h3>
+        <p class="rs-font-1"><strong>FOR SALE:</strong> 486 PC, runs fine, comes with
+        the desk it is bolted to. Best offer. Ask for Ray.</p>
+        <p class="rs-font-1"><strong>WANTED:</strong> someone to explain "e-mail" to
+        the Ladies' Auxiliary. Refreshments provided.</p>
+        <p class="rs-font-1"><strong>LOST:</strong> one grey cat, answers to nothing.</p>
+      </section>
+
+      <section class="rs-panel">
+        <h3 class="rs-panel__title">Letters</h3>
+        <blockquote class="rs-quote">
+          <div class="rs-quote__body">The website is very nice but I cannot find the
+          obituaries. - <em>M. Fenwick</em></div>
+        </blockquote>
+      </section>
+    </aside>
+  </main>
+
+  <hr class="rs-hr">
+  <footer class="rs-footer rs-center">
+    <p class="rs-font-1">The Dial-Up Gazette · Printed since 1953, uploaded since Tuesday ·
+    <a href="../index.html">back to the demo hub</a></p>
+  </footer>
+</div>
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

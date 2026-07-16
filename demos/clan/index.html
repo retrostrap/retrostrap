@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!-- Clan Vortex [=V=], a made-up arena/tactical shooter clan, circa 2000. Fiction, top to bottom. Best viewed at 1024x768 with the lights off. -->
+<html lang="en" data-rs-theme="phosphor">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clan Vortex [=V=] - arena shooter clan</title>
+<meta name="description" content="Clan Vortex [=V=], a made-up arena and tactical shooter clan (circa 2000): roster, ladder results, public server, and open tryouts. Ping under 100, be 16 or older, no cheating.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/phosphor.css">
+<style>
+  /* Layout only, spacing and flow. Every colour, bevel, radius and motion on
+     this page comes from retrostrap and the phosphor theme; the page invents
+     none of them (that is what keeps the five laws honest). */
+  .hub-head { display: flex; flex-wrap: wrap; gap: var(--rs-space-2); align-items: baseline; justify-content: space-between; }
+  .hub-head h1 { margin-block: 0; }
+  .hub-head__meta { display: flex; gap: var(--rs-space-3); align-items: baseline; flex-wrap: wrap; }
+  .hub-head__meta > * { white-space: nowrap; }
+  .hub-motto { margin-block: var(--rs-space-1) var(--rs-space-2); }
+  /* The trophy shelf: awards sit in a row and wrap to the next shelf below svga. */
+  .hub-shelf { display: flex; flex-wrap: wrap; gap: var(--rs-space-3); justify-content: center; }
+  .hub-shelf .rs-award { margin: 0; }
+  /* Wide tables keep their own horizontal scroll so the page body never does. */
+  main .rs-table-scroll { margin-block: var(--rs-space-2); }
+</style>
+</head>
+<body data-rs-widgets="crt konami">
+
+<a class="rs-skip" href="#main">Skip to content</a>
+
+<div class="rs-page rs-container">
+
+  <header id="top">
+    <div class="hub-head">
+      <div>
+        <h1 class="rs-gradient-text rs-gradient-text--toxic rs-font-7">CLAN VORTEX</h1>
+        <p class="rs-font-5">[=V=] &middot; arena &amp; tactical shooters &middot; est. 1999</p>
+      </div>
+      <div class="hub-head__meta rs-font-3">
+        <span data-rs-widgets="clock" data-rs-clock-format="24" data-rs-clock-label="server"></span>
+      </div>
+    </div>
+
+    <p class="hub-motto rs-font-4">&laquo; we frag together, we win together, and we do not lose to anyone twice &raquo;</p>
+
+    <div class="rs-marquee" data-rs-marquee-speed="normal">
+      <span class="rs-marquee__content">
+        &#9658;&#9658; NOW RECRUITING: two rifle slots + one sniper &#9668;&#9668; ~ ladder night is Sunday 21:00 ~ public server up 24/7, come warm up ~ ping under 100 or bring a smoother connection ~ no cheats, ever ~ [=V=] out
+      </span>
+    </div>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Sections">
+    <a href="#roster">Roster</a>
+    <a href="#matches">Matches</a>
+    <a href="#server">Server</a>
+    <a href="#recruit">Recruiting</a>
+    <a href="#news">News</a>
+    <a href="#fame">Hall of fame</a>
+  </nav>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <main id="main">
+
+    <p class="rs-alert rs-alert--info">Fan-run clan page. Clan Vortex, every handle here, and every opponent are made up, this is a demo, not a real team.</p>
+
+    <!-- ================= ROSTER ================= -->
+    <section id="roster" aria-labelledby="roster-h">
+      <h2 id="roster-h">The roster</h2>
+      <p>Eight strong, three time zones, one config folder we all pretend is standardised.
+      K/D is kills over deaths across this season's official matches, scrims don't count,
+      that's where we try the dumb stuff.</p>
+
+      <div class="rs-table-scroll" tabindex="0">
+        <table class="rs-table rs-table--data rs-table--striped">
+          <caption>Clan Vortex active roster, season 2001. Rank is clan standing, not skill; K/D is kills divided by deaths in official matches.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Handle</th>
+              <th scope="col">Class</th>
+              <th scope="col" class="rs-num">K/D</th>
+              <th scope="col">Rank</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Vex</th>
+              <td>In-game leader</td>
+              <td class="rs-num">1.24</td>
+              <td>Leader [=V=]</td>
+            </tr>
+            <tr>
+              <th scope="row">Ghost</th>
+              <td>Sniper</td>
+              <td class="rs-num">1.51</td>
+              <td>Officer</td>
+            </tr>
+            <tr>
+              <th scope="row">Reaper</th>
+              <td>Entry fragger</td>
+              <td class="rs-num">1.38</td>
+              <td>Core</td>
+            </tr>
+            <tr>
+              <th scope="row">Nyx</th>
+              <td>Lurker</td>
+              <td class="rs-num">1.19</td>
+              <td>Core</td>
+            </tr>
+            <tr>
+              <th scope="row">Havoc</th>
+              <td>Rifle</td>
+              <td class="rs-num">1.42</td>
+              <td>Core</td>
+            </tr>
+            <tr>
+              <th scope="row">Wraith</th>
+              <td>Support</td>
+              <td class="rs-num">0.98</td>
+              <td>Member</td>
+            </tr>
+            <tr>
+              <th scope="row">Cipher</th>
+              <td>Rearguard</td>
+              <td class="rs-num">1.07</td>
+              <td>Member</td>
+            </tr>
+            <tr>
+              <th scope="row">Rook</th>
+              <td>Entry fragger</td>
+              <td class="rs-num">1.31</td>
+              <td>Trial</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rs-font-1">Wraith carries under 1.0 and stays on the sheet anyway, he plants, he backs you up, he calls rotations. K/D never told the whole story.</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= MATCHES ================= -->
+    <section id="matches" aria-labelledby="matches-h">
+      <h2 id="matches-h">Matches</h2>
+
+      <p class="rs-alert rs-alert--warn">Next up: scrim tonight, 21:00, vs Nightfall on Terminal. Ladder rematch. Get on the server by 20:45 for warmup.</p>
+
+      <h3>Recent results</h3>
+      <div class="rs-table-scroll" tabindex="0">
+        <table class="rs-table rs-table--data rs-table--striped">
+          <caption>Clan Vortex official ladder results, most recent first. Score is rounds won to rounds lost; W is a win, L is a loss.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Opponent</th>
+              <th scope="col">Map</th>
+              <th scope="col" class="rs-num">Score</th>
+              <th scope="col">W/L</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">18 Feb 2001</th>
+              <td>Nightfall [NF]</td>
+              <td>Coldfront</td>
+              <td class="rs-num">16-11</td>
+              <td><strong>W</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">11 Feb 2001</th>
+              <td>Iron Sights [IS]</td>
+              <td>Warehouse</td>
+              <td class="rs-num">13-16</td>
+              <td>L</td>
+            </tr>
+            <tr>
+              <th scope="row">04 Feb 2001</th>
+              <td>Dust Devils [DD]</td>
+              <td>Silo</td>
+              <td class="rs-num">16-6</td>
+              <td><strong>W</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">28 Jan 2001</th>
+              <td>The Overclockers [OC]</td>
+              <td>Backlot</td>
+              <td class="rs-num">16-14</td>
+              <td><strong>W</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">21 Jan 2001</th>
+              <td>Grim Syndicate [GS]</td>
+              <td>Canyon</td>
+              <td class="rs-num">9-16</td>
+              <td>L</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>On the schedule</h3>
+      <div class="rs-table-scroll" tabindex="0">
+        <table class="rs-table rs-table--data rs-table--bordered">
+          <caption>Upcoming Clan Vortex matches. All times server-local, 24-hour.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Opponent</th>
+              <th scope="col">Map</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">25 Feb, 21:00</th>
+              <td>Team Fracture [FRC]</td>
+              <td>Foundry</td>
+              <td>Ladder</td>
+            </tr>
+            <tr>
+              <th scope="row">04 Mar, 21:00</th>
+              <td>Nightfall [NF]</td>
+              <td>Terminal</td>
+              <td>Rematch</td>
+            </tr>
+            <tr>
+              <th scope="row">11 Mar, 20:00</th>
+              <td>Open scrim, anyone</td>
+              <td>Map vote</td>
+              <td>Scrim</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= SERVER ================= -->
+    <section id="server" aria-labelledby="server-h">
+      <h2 id="server-h">Public server</h2>
+      <p>Vortex Public #1 runs day and night. Drop in, warm up, learn the maps we
+      play. Members get a reserved slot, everyone else, mind your manners.</p>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">How to connect</h3>
+        <p>Pull down the console with the tilde key <kbd class="rs-kbd">~</kbd>, paste the line, hit enter:</p>
+        <div class="rs-dos__title">C:\&gt; vortex console</div>
+        <pre class="rs-dos" tabindex="0">connect 203.0.113.42:27015; password frag</pre>
+        <p class="rs-font-1">That address is a documentation stand-in, not a live box, this is a demo page.
+        The password is <span class="rs-tooltip" data-rs-tip="Rotated after every ladder night to keep the peace">rotated weekly</span>; ask an officer if it bounces you.</p>
+      </div>
+
+      <div class="rs-cols-2">
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">House rules</h3>
+          <ul class="rs-list rs-list--stars">
+            <li>No cheats, no scripts, no macros. Ever. One strike, gone.</li>
+            <li>Admins have the last word. Argue after the round, not during.</li>
+            <li>Mic spam and slur-slinging get you kicked, then banned.</li>
+            <li>Scrims and matches take the server, watch the message of the day.</li>
+            <li>Lost? Down a round? Say <strong>gg</strong> and mean it.</li>
+          </ul>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Map rotation</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li>Coldfront</li>
+            <li>Warehouse</li>
+            <li>Silo</li>
+            <li>Backlot</li>
+            <li>Foundry</li>
+            <li>Canyon (weekends)</li>
+          </ul>
+          <p class="rs-font-1">Rotation votes open in the console every map end. Bring friends;
+          empty servers are sad servers.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= RECRUITING ================= -->
+    <section id="recruit" aria-labelledby="recruit-h">
+      <h2 id="recruit-h">We're recruiting</h2>
+      <p>Two rifle slots and one sniper are open. We're not after the biggest
+      frag count, we're after someone who shows up, listens, and doesn't lose his head.
+      Read the requirements, fill the tryout, and we'll invite you to a scrim.</p>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">What we ask</h3>
+        <ul class="rs-list rs-list--stars">
+          <li><strong><span class="rs-tooltip" data-rs-tip="Round-trip time to Vortex Public #1. Lower is better; over 100 and you rubber-band in firefights">Ping under 100</span></strong> to our server, measure it before you apply.</li>
+          <li><strong>Be 16 or older.</strong> No exceptions; late nights are a school-night problem.</li>
+          <li><strong>No cheating, no scripts.</strong> Non-negotiable, and we do check demos.</li>
+          <li>Own a working mic and use it, calls win rounds.</li>
+          <li>Make at least two scrim nights a week. We practise, we don't just pub.</li>
+        </ul>
+      </div>
+
+      <h3>Tryout form</h3>
+      <p>This form opens your mail program, it doesn't phone home. If it won't,
+      write us at <a href="mailto:tryouts@clanvortex.example">tryouts@clanvortex.example</a> instead.</p>
+
+      <form class="rs-form-table" action="mailto:tryouts@clanvortex.example" method="post">
+
+        <label for="ty-handle">In-game handle</label>
+        <input class="rs-input" id="ty-handle" name="handle" type="text" autocomplete="nickname" required>
+
+        <label for="ty-email">E-mail</label>
+        <input class="rs-input" id="ty-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="ty-class">Main class</label>
+        <select class="rs-select" id="ty-class" name="class">
+          <option>Entry fragger</option>
+          <option>Rifle</option>
+          <option>Sniper</option>
+          <option>Support</option>
+          <option>Lurker</option>
+          <option>In-game leader</option>
+        </select>
+
+        <label for="ty-ping">Average ping to our server (ms)</label>
+        <input class="rs-input" id="ty-ping" name="ping" type="number" min="0" max="999" inputmode="numeric">
+
+        <label for="ty-tz">Time zone</label>
+        <input class="rs-input" id="ty-tz" name="tz" type="text" placeholder="e.g. GMT+1">
+
+        <fieldset class="rs-fieldset rs-form-table__full">
+          <legend>The pledges (all three, or don't send)</legend>
+          <p>
+            <input class="rs-checkbox" id="ty-age" name="age" type="checkbox" required>
+            <label for="ty-age">I am 16 or older.</label>
+          </p>
+          <p>
+            <input class="rs-checkbox" id="ty-cheat" name="cheat" type="checkbox" required>
+            <label for="ty-cheat">I have never cheated and never will, clean client, no scripts, no macros.</label>
+          </p>
+          <p>
+            <input class="rs-checkbox" id="ty-nights" name="nights" type="checkbox" required>
+            <label for="ty-nights">I can make at least two scrim nights a week.</label>
+          </p>
+        </fieldset>
+
+        <div class="rs-form-table__full">
+          <label for="ty-why">Why you want in, and your best clutch story</label><br>
+          <textarea class="rs-textarea" id="ty-why" name="why" rows="4"></textarea>
+        </div>
+
+        <div class="rs-form-table__full">
+          <button class="rs-btn rs-btn--primary" type="submit">Send tryout</button>
+          <button class="rs-btn" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= NEWS ================= -->
+    <section id="news" aria-labelledby="news-h">
+      <h2 id="news-h">Clan news</h2>
+
+      <article class="rs-panel">
+        <h3 class="rs-panel__title">We took the Winter Cup <span class="rs-font-1">&middot; 19 Feb 2001</span> <span class="rs-badge rs-badge--hot">HOT!</span></h3>
+        <p>Best-of-three against Nightfall, and it went the distance. Dropped map one on
+        Warehouse, stole map two on Coldfront in overtime, then closed it on Silo 16-8.
+        Ghost went unconscious in the last five rounds. First silverware for the clan,
+        it's on the <a href="#fame">shelf</a> where it belongs.</p>
+      </article>
+
+      <article class="rs-panel">
+        <h3 class="rs-panel__title">Rook joins on trial <span class="rs-font-1">&middot; 05 Feb 2001</span> <span class="rs-badge rs-badge--new">NEW!</span></h3>
+        <p>Entry fragger out of the public server, aggressive and coachable. Two-week
+        trial starts now; be nice, feed him smokes, tell him where the map's traps are.
+        If it sticks, he's core by March.</p>
+      </article>
+
+      <article class="rs-panel">
+        <h3 class="rs-panel__title">New public server online <span class="rs-font-1">&middot; 15 Jan 2001</span></h3>
+        <p>Vortex Public #1 is live on a fatter pipe, 20 slots, low ping, our map
+        rotation, reserved slots for members. <a href="#server">Connect string is up top.</a>
+        Warm up there before you ever play a ladder match.</p>
+      </article>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= HALL OF FAME ================= -->
+    <section id="fame" aria-labelledby="fame-h">
+      <h2 id="fame-h">Hall of fame</h2>
+      <p>The shelf, and the records nobody's beaten yet. Break one and your handle goes
+      up here for the season.</p>
+
+      <div class="hub-shelf">
+        <figure class="rs-award">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23000000%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%2333FF33%22%20stroke-width%3D%222%22%2F%3E%3Cg%20fill%3D%22%2333FF33%22%3E%3Crect%20x%3D%2246%22%20y%3D%2212%22%20width%3D%2228%22%20height%3D%2218%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2214%22%20width%3D%226%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2274%22%20y%3D%2214%22%20width%3D%226%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2256%22%20y%3D%2230%22%20width%3D%228%22%20height%3D%228%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2238%22%20width%3D%2224%22%20height%3D%226%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%2252%22%20y%3D%2216%22%20width%3D%2216%22%20height%3D%226%22%20fill%3D%22%23009900%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%2333FF33%22%3ELAN%20CHAMPS%3C%2Ftext%3E%3Ctext%20x%3D%2260%22%20y%3D%2282%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-size%3D%229%22%20fill%3D%22%23009900%22%3Ewinter%20cup%2001%3C%2Ftext%3E%3C%2Fsvg%3E"
+               alt="Winter Cup trophy: a pixel cup on a green terminal plate reading LAN CHAMPS" width="120" height="90">
+          <figcaption class="rs-award__caption">Winter Cup 2001, beat Nightfall in the final.</figcaption>
+        </figure>
+        <figure class="rs-award">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23000000%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%2333FF33%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2226%22%20r%3D%2215%22%20fill%3D%22%2333FF33%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2226%22%20r%3D%2215%22%20fill%3D%22none%22%20stroke%3D%22%23009900%22%20stroke-width%3D%222%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2233%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-weight%3D%22bold%22%20font-size%3D%2220%22%20fill%3D%22%23000000%22%3E1%3C%2Ftext%3E%3Crect%20x%3D%2253%22%20y%3D%2240%22%20width%3D%226%22%20height%3D%228%22%20fill%3D%22%23009900%22%2F%3E%3Crect%20x%3D%2261%22%20y%3D%2240%22%20width%3D%226%22%20height%3D%228%22%20fill%3D%22%23009900%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%2333FF33%22%3ELADDER%20%231%3C%2Ftext%3E%3Ctext%20x%3D%2260%22%20y%3D%2282%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-size%3D%229%22%20fill%3D%22%23009900%22%3Earena%20div%20A%3C%2Ftext%3E%3C%2Fsvg%3E"
+               alt="Number-one medal on a green terminal plate reading LADDER #1" width="120" height="90">
+          <figcaption class="rs-award__caption">Ladder #1, arena division A, five weeks running.</figcaption>
+        </figure>
+        <figure class="rs-award">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23000000%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%2333FF33%22%20stroke-width%3D%222%22%2F%3E%3Cpolygon%20points%3D%2260%2C12%2065%2C28%2082%2C28%2068%2C38%2073%2C55%2060%2C44%2047%2C55%2052%2C38%2038%2C28%2055%2C28%22%20fill%3D%22%2333FF33%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%2333FF33%22%3EMOST%20FRAGS%3C%2Ftext%3E%3Ctext%20x%3D%2260%22%20y%3D%2282%22%20text-anchor%3D%22middle%22%20font-family%3D%22monospace%22%20font-size%3D%229%22%20fill%3D%22%23009900%22%3Eseason%2001%3C%2Ftext%3E%3C%2Fsvg%3E"
+               alt="A single star on a green terminal plate reading MOST FRAGS" width="120" height="90">
+          <figcaption class="rs-award__caption">Most frags, season 2001, Ghost, by a mile.</figcaption>
+        </figure>
+      </div>
+
+      <div class="rs-cols-2">
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Standing records</h3>
+          <ul class="rs-list rs-list--stars">
+            <li><strong>Longest win streak:</strong> 7 matches, autumn 2000.</li>
+            <li><strong>Best match K/D:</strong> Ghost, 2.4 vs Iron Sights.</li>
+            <li><strong>Biggest comeback:</strong> down 3-11, won 16-14 vs The Overclockers.</li>
+            <li><strong>Clutch of the season:</strong> Nyx, 1-versus-4 to steal Coldfront.</li>
+          </ul>
+        </div>
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Player of the month</h3>
+          <p class="rs-font-4"><strong>Ghost</strong>, sniper, officer.</p>
+          <p>Rating this month:
+            <span class="rs-stars" role="img" aria-label="player of the month rating: 5 of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </p>
+          <div class="rs-quote">
+            <div class="rs-quote__source">Ghost, after the Winter Cup final</div>
+            <blockquote class="rs-quote__body">
+              <p>Hold your angle, trust the call, and don't peek the same spot twice.
+              That's the whole game.</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <p class="rs-center">
+    <span class="rs-blinkie rs-blinkie--hot">NOW RECRUITING</span>
+    <span class="rs-blinkie rs-blinkie--cool">ARENA SHOOTERS</span>
+    <span class="rs-blinkie">PING &lt; 100</span>
+    <span class="rs-blinkie rs-blinkie--candy">GG NO RE</span>
+  </p>
+
+  <div class="rs-webring-bar">
+    <span class="rs-webring-bar__name">The Frag Ring, arena &amp; tactical shooter clans</span>
+    <a href="https://ring.example/prev">&laquo; prev</a> &middot;
+    <a href="https://ring.example/random">random</a> &middot;
+    <a href="https://ring.example/">ring home</a> &middot;
+    <a href="https://ring.example/next">next &raquo;</a>
+  </div>
+
+  <div class="rs-statusbar">
+    <span>8 on the roster</span>
+    <span>ladder: arena div A, <strong>#1</strong></span>
+    <span>server: <strong>online</strong></span>
+    <span class="rs-show-svga">est. 1999</span>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="25 February 2001"></p>
+    <p>You are frag <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="013370" data-rs-hit-counter-digits="6"></span> to hit this page.</p>
+    <div class="rs-footer__badges">
+      <a class="rs-button88" href="#top">CLAN VORTEX</a>
+      <a class="rs-button88" href="#recruit">WE WANT YOU</a>
+      <a class="rs-button88" href="#">made with retrostrap</a>
+      <a class="rs-button88" href="#">best viewed at 1024x768</a>
+    </div>
+    <p class="rs-footer__email">Tryouts &amp; scrims: <a href="mailto:tryouts@clanvortex.example">tryouts@clanvortex.example</a></p>
+    <p class="rs-font-1">Clan Vortex is a made-up clan and this whole page is fiction, no real
+    team, player, or game is meant. We play generic arena and tactical shooters, the kind
+    your imagination can fill in.</p>
+    <a class="rs-top" href="#top">^ back to top ^</a>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

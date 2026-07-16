@@ -1,0 +1,21 @@
+{
+  "id": "list",
+  "kind": "component",
+  "label": "List",
+  "summary": "A <ul> with themed pixel markers in place of the stock disc.",
+  "era": "GeoCities' jeweled bullets, spinning balls, gems and tiny arrows doing the stock <li> disc's job with style.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-list", "role": "the themed <ul>; nested levels alternate glyphs" },
+    { "name": "rs-list--stars", "role": "modifier: star bullets" },
+    { "name": "rs-list--arrows", "role": "modifier: arrow bullets" },
+    { "name": "rs-list--disks", "role": "modifier: floppy-disk bullets" },
+    { "name": "rs-list--paws", "role": "modifier: paw-print bullets" }
+  ],
+  "a11y": "Markers are decoration on an honest <ul>: item counts and list semantics reach screen readers untouched.",
+  "assets": ["bullet-star", "bullet-arrow", "bullet-disk", "bullet-paw"],
+  "tags": ["typography", "list", "bullets"]
+}

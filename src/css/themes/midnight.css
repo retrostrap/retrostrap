@@ -1,0 +1,74 @@
+/* midnight - GeoCities after dark: black page, tiled starfield, neon on the
+   void, yellow headings, cyan links (docs/07). The theme every 1998 cool
+   page wanted to be. */
+
+[data-rs-theme="midnight"] {
+  --rs-bg-page: #000000;
+  --rs-tile-page: none; /* the image tile is applied by the body rule below */
+  --rs-bg-content: #000000;
+  --rs-text: #CCCCCC;
+  --rs-text-muted: #999999;
+  --rs-heading: #FFFF00;
+
+  --rs-link: #00FFFF;
+  --rs-link-visited: #CC99FF;
+  --rs-link-active: #FF0000;
+
+  --rs-accent: #00FF00;
+  --rs-accent-2: #FF00FF;
+  --rs-good: #00FF00;
+  --rs-warn: #FFCC00;
+  --rs-bad: #FF0000;
+
+  --rs-bevel-face: #333333;
+  --rs-bevel-light: #666666;
+  --rs-bevel-shadow: #000000;
+  --rs-bevel-dark: #000000;
+  --rs-shadow-hard: 2px 2px 0 #000000; /* a shadow must be darker than the page, not lighter */
+
+  --rs-titlebar-bg: #330066;
+  --rs-titlebar-bg-2: #000033;
+  --rs-titlebar-text: #FFFF99;
+  --rs-border-color: #666666;
+
+  --rs-selection-bg: #FF00FF;
+  --rs-selection-text: #000000;
+  --rs-focus-color: #FFFF00;
+
+  --rs-font-body: var(--rs-font-sans);
+  --rs-font-heading: var(--rs-font-comic);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* The starfield is applied with a DIRECT url() in this theme file, not via a
+   custom property. A relative url() inside a custom property is a cross-browser
+   trap: Chromium resolves it where the variable is used (the core stylesheet,
+   dist/), spec browsers resolve it where it's declared (dist/themes/), no
+   single path satisfies both. A direct url() in a rule always resolves against
+   its own stylesheet, so "../assets" is correct everywhere. */
+[data-rs-theme="midnight"] body:where(:not([class*="rs-tile-"])) {
+  /* the guard bows out when the author picks an rs-tile-* wallpaper */
+  background-image: url("../assets/tile-stars.png");
+  background-repeat: repeat;
+}
+
+/* the sheet lets the starfield frame it, not bury it */
+[data-rs-theme="midnight"] .rs-page {
+  border-color: #666666 #000000 #000000 #666666;
+}
+
+/* headings glow the era way: a hard magenta offset, zero blur. But not on
+   gradient-filled text, a colored shadow behind transparent-filled glyphs
+   swallows the rainbow. Those headings carry their own color. */
+[data-rs-theme="midnight"] h1:not(.rs-rainbow):not([class*="rs-gradient-text"]),
+[data-rs-theme="midnight"] h2:not(.rs-rainbow):not([class*="rs-gradient-text"]) {
+  text-shadow: 2px 2px 0 #FF00FF;
+}
+
+[data-rs-theme="midnight"] .rs-hr { border-block-start-color: #FF00FF; }
+
+/* the default grey stripe would wash out the light text; retint it dark (docs/08) */
+[data-rs-theme="midnight"] .rs-table--striped tbody tr:nth-child(even) {
+  background: #333333;
+}

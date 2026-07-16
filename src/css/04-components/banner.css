@@ -1,0 +1,24 @@
+/* rs-banner - the 468×60 "full banner", the only ad format that ever
+   mattered (docs/01 §4). Ours point only where you tell them. */
+
+.rs-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 468px;
+  max-inline-size: 100%;
+  aspect-ratio: 468 / 60;
+  margin-inline: auto;
+  overflow: hidden;
+  background: var(--rs-bevel-face);
+  border: 1px solid var(--rs-bevel-dark);
+  color: var(--rs-text);
+  text-decoration: none;
+}
+
+.rs-banner img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}

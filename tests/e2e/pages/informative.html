@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>retrostrap informative widgets</title>
+<link rel="stylesheet" href="/dist/retrostrap.css">
+</head>
+<body>
+<div class="rs-page rs-container">
+  <h1>Informative widgets</h1>
+
+  <p id="ticker" class="rs-statusbar" data-rs-widgets="ticker"
+     data-rs-ticker-messages='["Welcome to my page!!","Now with 30% more content","Sign my guestbook"]'
+     data-rs-ticker-speed="fast"></p>
+
+  <p><span id="clock" data-rs-widgets="clock" data-rs-clock-format="24" data-rs-clock-label="server time"></span></p>
+
+  <p id="updated" data-rs-widgets="last-updated"></p>
+
+  <div id="fortune" class="rs-panel" data-rs-widgets="fortune"></div>
+
+  <p>
+    You are visitor
+    <span id="counter-static" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="4096"></span>
+    <span id="counter-local" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="local" data-rs-hit-counter-label="your visits"></span>
+  </p>
+</div>
+<script src="/dist/retrostrap.js"></script>
+<script src="/dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

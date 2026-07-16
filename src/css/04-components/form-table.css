@@ -1,0 +1,57 @@
+/* rs-form-table - the label:field two-column layout every 1999 form used,
+   grid instead of an actual table. Stacks below vga. */
+
+.rs-form-table {
+  display: grid;
+  gap: var(--rs-space-1);
+}
+
+.rs-form-table > label {
+  font-weight: bold;
+  font-size: var(--rs-font-size-2);
+}
+
+.rs-form-error {
+  color: #CC0000; /* persistent red text uses the AA-safe red (docs/08) */
+  font-size: var(--rs-font-size-1);
+  font-weight: bold;
+}
+
+/* a full-width row (a textarea, usually) puts its own label on top and lets the
+   control fill the column, instead of stranding it at its tiny default size */
+.rs-form-table__full > label {
+  display: block;
+  text-align: start;
+  margin-block-end: var(--rs-space-1);
+}
+
+/* ...except when the label follows its own checkbox or radio: that pair
+   reads as one line, not as a caption stranded above a lonely box */
+.rs-form-table__full > input:is([type="checkbox"], [type="radio"]) + label {
+  display: inline;
+  margin-block-end: 0;
+}
+
+.rs-form-table__full > .rs-input,
+.rs-form-table__full > .rs-textarea,
+.rs-form-table__full > .rs-select {
+  inline-size: 100%;
+}
+
+@media (min-width: 640px) { /* vga */
+  .rs-form-table {
+    grid-template-columns: max-content 1fr;
+    gap: var(--rs-space-1) var(--rs-space-3);
+    align-items: center;
+  }
+
+  .rs-form-table > label {
+    text-align: end;
+  }
+
+  /* error lines and full-width rows sit under the field column */
+  .rs-form-table > .rs-form-error,
+  .rs-form-table > .rs-form-table__full {
+    grid-column: 2;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "note",
+  "kind": "component",
+  "label": "Note",
+  "summary": "A yellow sticky note with a hard shadow, for asides and webmaster's notes.",
+  "era": "The yellow \"webmaster's note\" box wedged into every 1999 update log, apologizing for the guestbook again.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-note", "role": "sticky note: #FFFF99 bg, olive border, hard 2px shadow" }
+  ],
+  "a11y": "Just styled content; mark it up as an <aside> when it truly is one. No role required.",
+  "assets": [],
+  "tags": ["content", "aside"]
+}

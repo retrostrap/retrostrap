@@ -1,0 +1,17 @@
+{
+  "id": "bullet-paw",
+  "size": [9, 9],
+  "palette": { ".": null, "k": "#663300", "p": "#996633" },
+  "frames": [[
+    ".kk.kk.k.",
+    ".pp.pp.pk",
+    "..kkkkk..",
+    ".kpppppk.",
+    ".kpppppk.",
+    ".kpppppk.",
+    "..kkkkk..",
+    ".........",
+    "........."
+  ]],
+  "fps": 0
+}

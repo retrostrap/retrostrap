@@ -1,0 +1,15 @@
+{
+  "id": "newspaper",
+  "kind": "theme",
+  "label": "Newspaper",
+  "summary": "The 1997 broadsheet: ink on newsprint, serif columns, a black masthead. Grayscale but for the links.",
+  "era": "The web portal and online-newspaper look, all gravitas and a serif headline.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "Ink on newsprint reads well by construction: every body pair passes WCAG AA, checked by scripts/contrast.mjs. Links stay underlined.",
+  "assets": [],
+  "tags": ["theme"]
+}

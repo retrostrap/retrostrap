@@ -1,0 +1,12 @@
+/* rs-kbd - a keycap you could almost press. */
+
+.rs-kbd {
+  font-family: var(--rs-font-mono);
+  font-size: 0.9em;
+  background: var(--rs-bevel-face);
+  color: var(--rs-text); /* set its own colour so it never inherits a fixed one (e.g. inside a note) */
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-shadow)
+                var(--rs-bevel-shadow) var(--rs-bevel-light);
+  padding: 0 var(--rs-space-2);
+}

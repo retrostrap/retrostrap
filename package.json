@@ -1,0 +1,88 @@
+{
+  "name": "retrostrap",
+  "version": "0.1.0",
+  "description": "Build like it's 2026, look like it's 1999. Retro CSS + JS framework, zero dependencies.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "!dist/retrospace",
+    "templates",
+    "CHANGELOG.md",
+    "MIGRATIONS.md"
+  ],
+  "main": "./dist/retrostrap.js",
+  "module": "./dist/retrostrap.esm.js",
+  "style": "./dist/retrostrap.css",
+  "unpkg": "dist/retrostrap.min.js",
+  "jsdelivr": "dist/retrostrap.min.js",
+  "exports": {
+    ".": {
+      "types": "./dist/retrostrap.d.ts",
+      "import": "./dist/retrostrap.esm.js",
+      "default": "./dist/retrostrap.js"
+    },
+    "./retrostrap.css": "./dist/retrostrap.css",
+    "./retrostrap.min.css": "./dist/retrostrap.min.css",
+    "./retrostrap-patterns.css": "./dist/retrostrap-patterns.css",
+    "./themes/*.css": "./dist/themes/*.css",
+    "./manifest.json": "./dist/manifest.json",
+    "./guardrails.json": "./dist/guardrails.json",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retrostrap/retrostrap.git"
+  },
+  "homepage": "https://retrostrap.dev",
+  "bugs": "https://github.com/retrostrap/retrostrap/issues",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepublishOnly": "npm run build && npm run check:pack",
+    "dev": "node scripts/build.mjs --watch",
+    "serve": "npm run build && node scripts/serve.mjs",
+    "test": "vitest run tests/unit services",
+    "test:smoke": "playwright test",
+    "catalog": "node scripts/catalog.mjs",
+    "check:size": "node scripts/sizes.mjs",
+    "check:pack": "node scripts/check-pack.mjs",
+    "check:fonts": "node scripts/check-fonts.mjs",
+    "contrast": "node scripts/contrast.mjs",
+    "site": "eleventy --config=site/eleventy.config.js --serve --input=site --output=site/_site",
+    "site:build": "eleventy --config=site/eleventy.config.js --input=site --output=site/_site",
+    "shots": "node scripts/shots.mjs",
+    "badges": "node scripts/badges.mjs",
+    "audit": "node scripts/audit.mjs",
+    "test:visual": "playwright test --config=playwright.visual.config.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "retro",
+    "y2k",
+    "geocities",
+    "web1.0",
+    "ui",
+    "components",
+    "nostalgia",
+    "90s"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
+    "axe-core": "^4.12.1",
+    "esbuild": "^0.28.1",
+    "pngjs": "^7.0.0",
+    "stylelint": "^17.14.0",
+    "vitest": "^4.1.10"
+  },
+  "types": "./dist/retrostrap.d.ts"
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- Dana's Desk Cam, a made-up 1999 "life on cam" desk page. Fiction, top to bottom: no real person, no real camera, nothing broadcasting. Best viewed at 800x600 in a dark room. -->
+<html lang="en" data-rs-theme="midnight">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dana's Desk Cam - my life at the desk</title>
+<meta name="description" content="Dana's Desk Cam, a made-up 1999 personal webcam page: a live-ish desk view that refreshes every 60 seconds, a right-now status, a daily diary, a cam FAQ, an archive, house rules, and a guestbook. A retrostrap demo, not a real person or camera.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/midnight.css">
+</head>
+<body data-rs-widgets="crt">
+
+<a class="rs-skip" href="#main">Skip to content</a>
+
+<div class="rs-page rs-container">
+
+  <header id="top" class="rs-center">
+    <h1 class="rs-rainbow rs-font-6">DANA'S DESK CAM</h1>
+    <p class="rs-font-4">~ my life at the desk, one frame at a time ~</p>
+    <div class="rs-marquee" data-rs-marquee-speed="normal">
+      <span class="rs-marquee__content">
+        &#9658;&#9658; the cam is on &#9668;&#9668; ~ a new frame every minute (well, every F5) ~ i mostly do homework, it is not exciting ~ please sign the guestbook ~ be kind, my mum reads it ~
+      </span>
+    </div>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Sections">
+    <a href="#cam">The cam</a>
+    <a href="#now">Right now</a>
+    <a href="#diary">Today</a>
+    <a href="#faq">Cam FAQ</a>
+    <a href="#archive">Archive</a>
+    <a href="#rules">House rules</a>
+    <a href="#guestbook">Guestbook</a>
+  </nav>
+
+  <hr class="rs-hr rs-hr--stars">
+
+  <main id="main">
+
+    <p class="rs-alert rs-alert--info">This is fiction. Dana is made up, the cam is made up, and nothing here is broadcasting, it&rsquo;s a demo of the retrostrap framework, not a real person or a real camera.</p>
+
+    <!-- ================= THE CAM ================= -->
+    <section id="cam" aria-labelledby="cam-h">
+      <h2 id="cam-h">The cam</h2>
+      <p>Here is my desk, live-ish. The camera points at the desk and only the desk,
+      never at me. It refreshes every sixty seconds, which is to say, whenever you press
+      refresh.</p>
+
+      <div class="rs-window">
+        <div class="rs-window__titlebar">
+          <span class="rs-window__title">dana's desk cam</span>
+        </div>
+        <div class="rs-window__body">
+<pre class="rs-dos" role="img" aria-label="The webcam view of Dana's desk: a monitor showing a small text file, a desk lamp, a coffee mug, a keyboard, a notebook, and a little potted plant. No one is in the picture.">
+  .------------------------------.
+  |  dana's desk  --  live view  |
+  |                              |
+  |   .------------.             |
+  |   | dana.txt   |     lamp    |
+  |   | &gt; homework |     _|_     |
+  |   | &gt; coffee   |    /   \    |
+  |   '------------'    '---'    |
+  |  =======================     |
+  |   |mug|  [__keys__]   ,|,    |
+  |   '---'  notebook   --(o)--  |
+  |                      plant   |
+  '------------------------------'
+</pre>
+        </div>
+        <div class="rs-window__statusbar">
+          <span class="rs-blink"><span aria-hidden="true">&#9679;</span> LIVE</span>
+          <span>refreshing every 60 seconds&hellip;</span>
+          <span data-rs-widgets="clock" data-rs-clock-format="12" data-rs-clock-label="cam clock"></span>
+        </div>
+      </div>
+
+      <p class="rs-note">The picture is drawn, not photographed, my real camera gave up
+      in the spring and I like the drawing better anyway. The clock, though, is real: it is
+      reading <em>your</em> computer, not mine. Press <kbd class="rs-kbd">F5</kbd> for a fresh
+      frame.</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= RIGHT NOW ================= -->
+    <section id="now" aria-labelledby="now-h">
+      <h2 id="now-h">What I'm doing right now</h2>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">Right now at the desk</h3>
+        <p>Right this minute I&rsquo;m doing chemistry homework and letting the coffee go
+        cold. If the lamp is on in the picture, I&rsquo;m home; if it is off, I stepped out
+        for a bit and the plant is in charge.</p>
+        <div class="rs-statusbar">
+          <span>doing: chem homework</span>
+          <span>coffee: warm</span>
+          <span>plant: thriving</span>
+          <span>as of 09:14</span>
+        </div>
+        <p class="rs-font-1">The clock up on the cam is your own computer&rsquo;s, not mine,
+        more on that in the <a href="#faq">FAQ</a>.</p>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= TODAY'S DIARY ================= -->
+    <section id="diary" aria-labelledby="diary-h">
+      <h2 id="diary-h">Today's diary</h2>
+      <p>A little log of the day, newest at the bottom. Nothing much happens, and that is
+      sort of the point.</p>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">Thursday</h3>
+        <dl>
+          <dt><strong>07:40</strong></dt>
+          <dd>Alarm, then coffee, then watered the plant. His name is Gerald and he had a
+          rough winter.</dd>
+
+          <dt><strong>08:15</strong></dt>
+          <dd>Turned the cam on and tidied the desk so it would look like I tidy the desk.</dd>
+
+          <dt><strong>09:14</strong></dt>
+          <dd>Chemistry homework. Balancing equations. Losing, gently.</dd>
+
+          <dt><strong>10:30</strong></dt>
+          <dd>Someone signed the guestbook from Finland! Hello Finland. It is very warm here
+          by comparison, which is not saying much.</dd>
+
+          <dt><strong>12:45</strong></dt>
+          <dd>Lunch away from the desk, so the frame is just the empty chair for a while.
+          Please do not worry, I always come back.</dd>
+
+          <dt><strong>13:20</strong></dt>
+          <dd>Back. Refilled the mug. Homework, round two.
+          <span class="rs-badge rs-badge--new">NEW!</span></dd>
+        </dl>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+
+    <!-- ================= CAM FAQ ================= -->
+    <section id="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Cam FAQ</h2>
+
+      <h3>Why do you do this?</h3>
+      <p>Honestly, the desk stays tidier when I know someone might glance at it. And there is
+      something quietly nice about feeling like an ordinary day is being kept, the way you
+      keep a receipt or a ticket stub.</p>
+
+      <h3>Is it really live?</h3>
+      <p>The picture is a little drawing I update by hand, so: live-ish. The clock is the
+      genuinely live part, it reads your computer, not mine. Press
+      <kbd class="rs-kbd">F5</kbd> and you pull a fresh frame of the desk.</p>
+
+      <h3>Can I see you?</h3>
+      <p>No, and that is on purpose. The camera looks at the desk, never at me. You get the
+      coffee mug and Gerald the plant; I keep my face. That trade has served us both well.</p>
+
+      <h3>What's on your desk?</h3>
+      <ul class="rs-list rs-list--arrows">
+        <li>A monitor and a keyboard with three shiny keys.</li>
+        <li>A mug that is always half full, in both senses.</li>
+        <li>A notebook and one pencil with no eraser left.</li>
+        <li>The desk lamp, which is how you know if I&rsquo;m home.</li>
+        <li>Gerald.</li>
+      </ul>
+
+      <h3>Can I be on your cam?</h3>
+      <p>It is my desk, so no. But you can sign the guestbook and be on the <em>page</em>,
+      which is nearly the same thing and a good deal less dusty.</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= CAM ARCHIVE ================= -->
+    <section id="archive" aria-labelledby="archive-h">
+      <h2 id="archive-h">Cam archive</h2>
+      <p>Frames I saved through the day. You can&rsquo;t click them, they are keepsakes,
+      not links, but here is the desk, hour by hour.</p>
+
+      <div class="rs-cols-3">
+        <figure class="rs-panel rs-panel--raised rs-center">
+<pre class="rs-dos" role="img" aria-label="A dim frame at dawn, the lamp still off.">.------.
+| .... |
+'------'</pre>
+          <figcaption><strong>06:12</strong><br>
+          <span class="rs-font-1">before coffee, lamp off</span></figcaption>
+        </figure>
+
+        <figure class="rs-panel rs-panel--raised rs-center">
+<pre class="rs-dos" role="img" aria-label="A frame with a fresh mug of coffee on the desk.">.------.
+|  cc  |
+'------'</pre>
+          <figcaption><strong>08:04</strong><br>
+          <span class="rs-font-1">first coffee poured</span></figcaption>
+        </figure>
+
+        <figure class="rs-panel rs-panel--raised rs-center">
+<pre class="rs-dos" role="img" aria-label="A frame of the open notebook, homework underway.">.------.
+| == = |
+'------'</pre>
+          <figcaption><strong>10:30</strong><br>
+          <span class="rs-font-1">homework, deep in it</span></figcaption>
+        </figure>
+
+        <figure class="rs-panel rs-panel--raised rs-center">
+<pre class="rs-dos" role="img" aria-label="A frame of the empty chair while Dana is at lunch.">.------.
+|  __  |
+'------'</pre>
+          <figcaption><strong>12:45</strong><br>
+          <span class="rs-font-1">empty chair, back soon</span></figcaption>
+        </figure>
+
+        <figure class="rs-panel rs-panel--raised rs-center">
+<pre class="rs-dos" role="img" aria-label="A brighter frame with afternoon sun across the desk.">.------.
+|  **  |
+'------'</pre>
+          <figcaption><strong>16:40</strong><br>
+          <span class="rs-font-1">sun on the desk</span></figcaption>
+        </figure>
+
+        <figure class="rs-panel rs-panel--raised rs-center">
+<pre class="rs-dos" role="img" aria-label="A quiet evening frame, the plant watered and the day winding down.">.------.
+| .oo. |
+'------'</pre>
+          <figcaption><strong>21:05</strong><br>
+          <span class="rs-font-1">wrapping up, plant fed</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+
+    <!-- ================= HOUSE RULES ================= -->
+    <section id="rules" aria-labelledby="rules-h">
+      <h2 id="rules-h">House rules</h2>
+      <p>Short list, kindly meant. Read it before you sign the book and we will get along
+      famously.</p>
+
+      <p class="rs-alert rs-alert--warn">Please don&rsquo;t ask where I live or where I go to
+      school. I won&rsquo;t answer, and that is the whole of it.</p>
+
+      <ul class="rs-list rs-list--stars">
+        <li>Be kind. My mum reads the guestbook, and so do I.</li>
+        <li>The picture is a drawing, so don&rsquo;t wait for me to wave. I can&rsquo;t see you
+        either, that is rather the deal.</li>
+        <li>No means no about the cam: it points at the desk, never at a person.</li>
+        <li>If a link is broken, it&rsquo;s 1999, not you. The web is held together with tape.</li>
+        <li>Take your shoes off. Metaphorically. It is that kind of page.</li>
+      </ul>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= GUESTBOOK ================= -->
+    <section id="guestbook" aria-labelledby="guestbook-h">
+      <h2 id="guestbook-h">Guestbook</h2>
+      <p>The guestbook lives on its own page. Leave a note, say where you&rsquo;re visiting
+      from, and tell me it isn&rsquo;t strange to watch a desk. It is a little strange. That is
+      allowed.</p>
+
+      <p class="rs-center">
+        <a class="rs-btn rs-btn--primary rs-btn--large" href="guestbook.html">Sign my guestbook</a>
+        <a class="rs-btn" href="guestbook.html">Read the book</a>
+      </p>
+
+      <div class="rs-quote">
+        <div class="rs-quote__source">from the guestbook, a favourite entry</div>
+        <blockquote class="rs-quote__body">
+          <p>Found you through the webring at two in the morning. Watched the empty chair for
+          a while. Weirdly comforting. Say hi to Gerald.</p>
+        </blockquote>
+      </div>
+
+      <p class="rs-note">On this demo the guestbook is just for show, the button points
+      at a page that lives only in the fiction. No note you leave here goes anywhere, and
+      nothing is stored.</p>
+    </section>
+
+  </main>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <p class="rs-center">
+    <span class="rs-blinkie rs-blinkie--cool">DESK CAM 24/7</span>
+    <span class="rs-blinkie rs-blinkie--hot">BE KIND</span>
+    <span class="rs-blinkie">SIGN MY BOOK</span>
+    <span class="rs-blinkie rs-blinkie--candy">~ 800x600 ~</span>
+  </p>
+
+  <nav class="rs-webring-bar" aria-label="Webring">
+    <p class="rs-webring-bar__name">This desk is part of the Slow Web Ring, quiet personal pages.</p>
+    <a href="https://ring.example/prev">&laquo; prev</a>
+    <a href="https://ring.example/random">random</a>
+    <a href="https://ring.example/">ring home</a>
+    <a href="https://ring.example/next">next &raquo;</a>
+  </nav>
+
+  <div class="rs-statusbar">
+    <span>cam: on</span>
+    <span>you: welcome</span>
+    <span>frames saved today: 6</span>
+    <span>best viewed at 800x600</span>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="9 November 1999"></p>
+    <p>You are desk-cam visitor <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="local"></span></p>
+    <div class="rs-footer__badges">
+      <a class="rs-button88" href="#top">DANA'S DESK CAM</a>
+      <a class="rs-button88" href="#cam">JUST A DESK</a>
+      <a class="rs-button88" href="#">made with retrostrap</a>
+      <a class="rs-button88" href="#">best viewed at 800x600</a>
+    </div>
+    <p class="rs-footer__email">Notes &amp; hellos: <a href="mailto:dana@deskcam.example">dana@deskcam.example</a></p>
+    <p class="rs-font-1">Dana&rsquo;s Desk Cam is a made-up person and this whole page is fiction,
+    a gentle demo of a 1999 &ldquo;life on cam&rdquo; page, with no real person, no real
+    camera, and nothing being watched or recorded.</p>
+    <a class="rs-top" href="#top">^ back to top ^</a>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="phosphor">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelNet NOC - Server Room Status</title>
+<meta name="description" content="The night-shift wall board for PixelNet, a dial-up ISP. Green phosphor, live host stats, and one very tired backup server.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/phosphor.css">
+<style>
+  /* Board geometry only. Every colour here is a --rs-* theme token or a
+     legal web-safe value; no new colours are invented (Palette Law). */
+  /* Let the three grid columns shrink below their content so the table and the
+     ASCII chart scroll inside their own boxes instead of the page. */
+  main.rs-cols-2 > .rs-panel { min-inline-size: 0; }
+  .noc-head { display: flex; flex-wrap: wrap; gap: var(--rs-space-2); align-items: baseline; justify-content: space-between; }
+  .noc-head h1 { margin: 0; }
+  .noc-head__meta { display: flex; gap: var(--rs-space-3); align-items: baseline; flex-wrap: wrap; }
+  .noc-head__meta > * { white-space: nowrap; }
+  .noc-motd { margin-block: var(--rs-space-2); }
+  .noc-controls { display: flex; flex-wrap: wrap; gap: var(--rs-space-2); align-items: center; justify-content: space-between; margin-block: var(--rs-space-2); }
+  .noc-tminus { margin: 0; white-space: nowrap; }
+  .noc-crit { margin-block: var(--rs-space-2) var(--rs-space-3); }
+  /* Fleet CPU cell: a number with a slim bar beneath it. */
+  .cpu-cell { min-inline-size: 5.5em; }
+  .cpu-cell .rs-progress { block-size: 8px; margin-block-start: 3px; }
+  .crit-row th, .crit-row td { font-weight: bold; }
+  /* Modem pool rows: name | bar | percent. */
+  .noc-pool { display: grid; grid-template-columns: 4.5em 1fr 3em; gap: var(--rs-space-2); align-items: center; margin-block: var(--rs-space-2); }
+  .noc-pool .rs-progress { block-size: 14px; }
+  .noc-pool__pct { text-align: end; }
+  /* The bandwidth ASCII chart keeps its own scroll so the page never scrolls. */
+  .noc-bw { margin: 0; }
+  .noc-wide { grid-column: 1 / -1; }
+  /* Incident ticker sits in its own status strip; min-width:0 lets it clip. */
+  .noc-ticker-bar > :first-child { flex: 0 0 auto; }
+  .noc-ticker { flex: 1 1 0; min-inline-size: 0; }
+  .noc-updates { display: none; }
+</style>
+</head>
+<body class="rs-crt" data-rs-widgets="crt" data-rs-crt-flicker="true">
+
+<a class="rs-skip" href="#main">Skip to the board &rarr;</a>
+
+<div class="rs-page rs-container--fluid">
+
+  <header>
+    <div class="noc-head">
+      <h1 class="rs-font-5">PIXELNET&nbsp;NOC &#9646; SERVER ROOM STATUS</h1>
+      <div class="noc-head__meta rs-font-4">
+        <span class="noc-clock" data-rs-widgets="clock" data-rs-clock-format="24" data-rs-clock-label="NOC 24H"></span>
+        <span class="noc-cd">Y2K&nbsp;<span data-rs-widgets="countdown" data-rs-countdown-to="2000-01-01T00:00:00Z" data-rs-countdown-done="T-0d"></span></span>
+      </div>
+    </div>
+
+    <h2 class="rs-typewriter rs-font-3 noc-motd">MOTD: if it blinks red, phone Iris. if Iris does not answer, it is not an outage, it is destiny.</h2>
+
+    <div class="noc-controls">
+      <div class="rs-toolbar" role="toolbar" aria-label="Board controls">
+        <button type="button" class="rs-btn rs-btn--small rs-tooltip" id="poll-now" data-rs-tip="Roll the numbers one step, right now">poll now</button>
+        <button type="button" class="rs-btn rs-btn--small rs-tooltip" id="freeze-btn" aria-pressed="false" data-rs-tip="Pause the 5-second auto-refresh">freeze</button>
+      </div>
+      <p class="noc-tminus rs-font-3">Y2K FREEZE &middot; <strong>T-21d</strong> &middot; readiness 94%</p>
+    </div>
+  </header>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <main id="main" class="rs-cols-2">
+
+    <!-- ================= FLEET ================= -->
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">FLEET</h2>
+
+      <p class="rs-alert rs-alert--error noc-crit" role="alert">
+        <span class="rs-blink">CRIT</span>: mimas (backup) pinned at 99%, uptime 0d. If it blinks red, phone Iris.
+      </p>
+
+      <div class="rs-table-scroll" tabindex="0">
+        <table class="rs-table rs-table--data rs-table--striped">
+          <caption class="rs-sr-only">Host fleet. CPU load refreshes every five seconds; status is OK, WARN or CRIT in text.</caption>
+          <thead>
+            <tr>
+              <th scope="col">host</th>
+              <th scope="col">role</th>
+              <th scope="col" class="rs-num">cpu</th>
+              <th scope="col" class="rs-num rs-show-svga">uptime</th>
+              <th scope="col">status</th>
+            </tr>
+          </thead>
+          <tbody id="fleet-body">
+            <!-- No-JS floor: the seeded fleet renders right here. app.js only
+                 steps the CPU numbers; everything below is honest static HTML. -->
+            <tr data-host="zeus" data-tier="ok">
+              <th scope="row">zeus</th><td>www</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">34</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="zeus CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="34"><div class="rs-progress__bar" style="width:34%"></div></div></td>
+              <td class="rs-num rs-show-svga">181d</td>
+              <td class="status-cell">OK</td>
+            </tr>
+            <tr data-host="hera" data-tier="warn">
+              <th scope="row">hera</th><td>mail</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">61</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="hera CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="61"><div class="rs-progress__bar" style="width:61%"></div></div></td>
+              <td class="rs-num rs-show-svga">97d</td>
+              <td class="status-cell"><strong class="rs-blink">WARN</strong></td>
+            </tr>
+            <tr data-host="hermes" data-tier="ok">
+              <th scope="row">hermes</th><td>news</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">12</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="hermes CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="12"><div class="rs-progress__bar" style="width:12%"></div></div></td>
+              <td class="rs-num rs-show-svga">204d</td>
+              <td class="status-cell">OK</td>
+            </tr>
+            <tr data-host="atlas" data-tier="ok">
+              <th scope="row">atlas</th><td>ftp</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">28</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="atlas CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="28"><div class="rs-progress__bar" style="width:28%"></div></div></td>
+              <td class="rs-num rs-show-svga">155d</td>
+              <td class="status-cell">OK</td>
+            </tr>
+            <tr data-host="iris" data-tier="ok">
+              <th scope="row">iris</th><td>dialup</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">47</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="iris CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="47"><div class="rs-progress__bar" style="width:47%"></div></div></td>
+              <td class="rs-num rs-show-svga">63d</td>
+              <td class="status-cell">OK</td>
+            </tr>
+            <tr data-host="pan" data-tier="ok">
+              <th scope="row">pan</th><td>dns</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">9</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="pan CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="9"><div class="rs-progress__bar" style="width:9%"></div></div></td>
+              <td class="rs-num rs-show-svga">412d</td>
+              <td class="status-cell">OK</td>
+            </tr>
+            <tr data-host="mimas" data-tier="crit" class="crit-row">
+              <th scope="row">mimas</th><td>backup</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">99</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="mimas CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="99"><div class="rs-progress__bar" style="width:99%"></div></div></td>
+              <td class="rs-num rs-show-svga">0d</td>
+              <td class="status-cell"><strong class="rs-blink">CRIT</strong></td>
+            </tr>
+            <tr data-host="rhea" data-tier="ok">
+              <th scope="row">rhea</th><td>sql</td>
+              <td class="rs-num cpu-cell"><span class="cpu-val">55</span>%<div class="rs-progress cpu-bar" role="progressbar" aria-label="rhea CPU load" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55"><div class="rs-progress__bar" style="width:55%"></div></div></td>
+              <td class="rs-num rs-show-svga">88d</td>
+              <td class="status-cell">OK</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="rs-sr-only" id="poll-status" role="status" aria-live="polite"></p>
+      <p class="rs-font-1 rs-mt-2"><span class="rs-tooltip" data-rs-tip="OK &lt; 55% &middot; WARN 55-90% &middot; CRIT &gt; 90%">status legend</span>: OK / WARN / CRIT, read the word, not the glow.</p>
+    </section>
+
+    <!-- ================= MODEM POOL ================= -->
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">MODEM POOL</h2>
+
+      <div class="noc-pool">
+        <span class="noc-pool__name">pool 1</span>
+        <div class="rs-progress" role="progressbar" aria-label="Modem pool 1 lines in use" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96"><div class="rs-progress__bar" style="width:96%"></div></div>
+        <span class="rs-num noc-pool__pct">96%</span>
+      </div>
+      <div class="noc-pool">
+        <span class="noc-pool__name">pool 2</span>
+        <div class="rs-progress" role="progressbar" aria-label="Modem pool 2 lines in use" aria-valuemin="0" aria-valuemax="100" aria-valuenow="71"><div class="rs-progress__bar" style="width:71%"></div></div>
+        <span class="rs-num noc-pool__pct">71%</span>
+      </div>
+      <div class="noc-pool">
+        <span class="noc-pool__name">pool 3</span>
+        <div class="rs-progress" role="progressbar" aria-label="Modem pool 3 lines in use" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38"><div class="rs-progress__bar" style="width:38%"></div></div>
+        <span class="rs-num noc-pool__pct">38%</span>
+      </div>
+
+      <hr class="rs-hr rs-hr--dotted">
+      <p class="rs-font-1">205 of 384 lines carrying callers. pool 3 flapped at 22:41,
+      kicked it, holding for now. busy signal is a feature, tell the customers.</p>
+    </section>
+
+    <!-- ================= BANDWIDTH ================= -->
+    <section class="rs-panel noc-wide">
+      <h2 class="rs-panel__title">BANDWIDTH &middot; 24H</h2>
+      <div class="rs-table-scroll" tabindex="0">
+        <div class="rs-dos__title">C:\NOC&gt; bwgraph --ascii uplink0</div>
+        <pre class="rs-dos noc-bw" tabindex="0" aria-describedby="bw-alt"> Mbit/s   uplink, 24h   (# = 5 min)
+ 1.5 |                        ####
+     |                      ########
+ 1.0 |                  ############
+     |              ################
+ 0.5 |         #####################
+     |     #########################  #
+ 0.0 +----------------------------------
+      00  03  06  09  12  15  18  21  24
+         quiet   coffee  lunch  evening</pre>
+      </div>
+      <p class="rs-sr-only" id="bw-alt">Twenty-four hour uplink graph: near idle overnight, a small
+      mid-morning bump, and a broad peak building through the evening to about 1.5 Mbit per second
+      around 21:00 before the midnight freeze quiets it again.</p>
+      <p class="rs-font-1 rs-mt-2">peak 1.48 Mbit/s at 21:05. the T1 holds. the fax machine does not count.</p>
+    </section>
+
+  </main>
+
+  <!-- Incident ticker: reads its lines from the hidden list below. -->
+  <div class="rs-statusbar noc-ticker-bar rs-mt-2">
+    <span aria-hidden="true">INCIDENTS&nbsp;&#9658;</span>
+    <span class="noc-ticker" data-rs-widgets="ticker" data-rs-ticker-source="#incident-log" data-rs-ticker-speed="slow" data-rs-ticker-separator="&middot;"></span>
+  </div>
+  <ul id="incident-log" hidden>
+    <li>23:58 mail2 queue backlog cleared</li>
+    <li>22:41 modem pool 3 flapping, kicked it. sorry, dialers</li>
+    <li>21:02 Y2K FREEZE IN EFFECT, NO CHANGES UNTIL JAN 03</li>
+    <li>19:30 vending machine on NOC floor accepts coins again</li>
+  </ul>
+
+  <!-- Board status line. Not a live region: a status bar that chattered would
+       be worse than one that blinked. -->
+  <div class="rs-statusbar">
+    <span id="sb-lastpoll">last poll --:--:--</span>
+    <span id="sb-next">next in 5s</span>
+    <span>8 hosts</span>
+    <span class="rs-show-svga">refresh: <kbd class="rs-kbd">F5</kbd>, if you dare</span>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p class="rs-font-1">PixelNet Internet Services &middot; est. 1996 &middot; the NOC wall never sleeps, unlike the NOC</p>
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="31 December 1999"></p>
+    <p class="rs-footer__email">pager the night shift: <a href="mailto:noc@pixelnet.example">noc@pixelnet.example</a></p>
+    <p class="rs-font-1">Best viewed on the CRT bolted to the wall, at any size.</p>
+  </footer>
+
+</div>
+
+<!-- Fleet fixture ships inline: works from file://, no fetch, no network. -->
+<script type="application/json" id="fleet-data">
+{"hosts": [
+  {"host": "zeus",   "role": "www",    "cpu": 34, "uptime": "181d", "status": "OK"},
+  {"host": "hera",   "role": "mail",   "cpu": 61, "uptime": "97d",  "status": "WARN"},
+  {"host": "hermes", "role": "news",   "cpu": 12, "uptime": "204d", "status": "OK"},
+  {"host": "atlas",  "role": "ftp",    "cpu": 28, "uptime": "155d", "status": "OK"},
+  {"host": "iris",   "role": "dialup", "cpu": 47, "uptime": "63d",  "status": "OK"},
+  {"host": "pan",    "role": "dns",    "cpu": 9,  "uptime": "412d", "status": "OK"},
+  {"host": "mimas",  "role": "backup", "cpu": 99, "uptime": "0d",   "status": "CRIT"},
+  {"host": "rhea",   "role": "sql",    "cpu": 55, "uptime": "88d",  "status": "OK"}
+]}
+</script>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

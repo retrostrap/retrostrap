@@ -1,0 +1,17 @@
+{
+  "id": "page",
+  "kind": "component",
+  "label": "Page sheet",
+  "summary": "The opaque content sheet that sits on the tiled or colored body.",
+  "era": "The centered content table on a starfield background, the anatomy of every 1997 homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-page", "role": "the sheet: content background, padding, bevel border from vga up" }
+  ],
+  "a11y": "Purely visual wrapper; carries no role. Put your landmarks inside it.",
+  "assets": [],
+  "tags": ["layout", "page"]
+}

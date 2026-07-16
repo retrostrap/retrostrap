@@ -1,0 +1,55 @@
+/* rs-checkbox / rs-radio - pixel-drawn system toggles. The radio is an
+   octagon: a pixel-art circle with no border-radius to confess to. Final
+   art arrives as sprites with the asset pipeline. */
+
+.rs-checkbox,
+.rs-radio {
+  appearance: none;
+  position: relative;
+  inline-size: 13px;
+  block-size: 13px;
+  margin: 0 var(--rs-space-1) 0 0;
+  vertical-align: -2px;
+  background: var(--rs-bg-content);
+  border: 2px solid;
+  border-color: var(--rs-bevel-shadow) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-shadow);
+  display: inline-grid;
+  cursor: pointer;
+}
+
+/* glyphs are absolute: an in-flow ::after hands the box a new baseline
+   and the whole control sinks below its unchecked neighbors */
+.rs-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  font: bold var(--rs-font-size-1)/1 var(--rs-font-narrow);
+  color: var(--rs-text);
+}
+
+.rs-radio {
+  inline-size: 12px;
+  block-size: 12px;
+  border: 1px solid var(--rs-border-color); /* stays visible on dark themes (bevel-shadow is #000 there) */
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%,
+                     70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.rs-radio:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  inline-size: 4px;
+  block-size: 4px;
+  background: var(--rs-text);
+}
+
+.rs-checkbox:disabled,
+.rs-radio:disabled {
+  background: var(--rs-bevel-face);
+  cursor: default;
+}

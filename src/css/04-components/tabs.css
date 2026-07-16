@@ -1,0 +1,50 @@
+/* rs-tabs - folder tabs. Unenhanced they are in-page anchors over stacked
+   sections (the law demands it); the enhancer wires the real tab roles. */
+
+.rs-tabs__tab {
+  display: inline-block;
+  padding: var(--rs-space-1) var(--rs-space-3);
+  margin-block-end: -2px;
+  font-family: var(--rs-font-narrow);
+  font-size: var(--rs-font-size-2);
+  color: var(--rs-text);
+  text-decoration: none;
+  background: var(--rs-bevel-face);
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-shadow)
+                var(--rs-bevel-shadow) var(--rs-bevel-light);
+  cursor: pointer;
+}
+
+.rs-tabs__tab:visited {
+  color: var(--rs-text);
+}
+
+.rs-tabs__tab--active,
+.rs-tabs__tab[aria-selected="true"] {
+  background: var(--rs-bg-content);
+  border-block-end-color: var(--rs-bg-content); /* the lip merges with the panel */
+  font-weight: bold;
+  position: relative;
+}
+
+.rs-tabs__panel {
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-shadow)
+                var(--rs-bevel-shadow) var(--rs-bevel-light);
+  background: var(--rs-bg-content);
+  padding: var(--rs-space-3);
+  margin-block-end: var(--rs-space-3);
+}
+
+/* Tab strips scroll sideways on narrow screens; a visible scrollbar is fine here. */
+@media (max-width: 639px) { /* below vga */
+  .rs-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  /* nowrap is for the tab row only; the panels are its children, so put wrapping back */
+  .rs-tabs__panel {
+    white-space: normal;
+  }
+}

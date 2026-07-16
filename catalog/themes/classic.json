@@ -1,0 +1,15 @@
+{
+  "id": "classic",
+  "kind": "theme",
+  "label": "Classic",
+  "summary": "The 1996 browser default: silver page, white sheet, Times, blue links.",
+  "era": "The unstyled Netscape look worn with pride, a university professor's homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "Ships in the core tokens; no theme file needed. Every body-text pair is AAA. Links stay underlined.",
+  "assets": [],
+  "tags": ["theme", "default"]
+}

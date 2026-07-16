@@ -1,0 +1,24 @@
+{
+  "id": "alert-error",
+  "size": [16, 16],
+  "palette": { ".": null, "k": "#000000", "r": "#CC0000", "w": "#FFFFFF" },
+  "frames": [[
+    "................",
+    "....kkkkkkkk....",
+    "..kkrrrrrrrrkk..",
+    ".krrrrrrrrrrrrk.",
+    ".krwwrrrrrrwwrk.",
+    "krrwwrrrrrrwwrrk",
+    "krrrwwrrrrwwrrrk",
+    "krrrrwwrrwwrrrrk",
+    "krrrrrwwwwrrrrrk",
+    "krrrrrwwwwrrrrrk",
+    "krrrrwwrrwwrrrrk",
+    "krrrwwrrrrwwrrrk",
+    ".krwwrrrrrrwwrk.",
+    ".krrrrrrrrrrrrk.",
+    "..kkrrrrrrrrkk..",
+    "....kkkkkkkk...."
+  ]],
+  "fps": 0
+}

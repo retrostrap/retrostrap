@@ -1,0 +1,71 @@
+---
+layout: base.njk
+title: Home
+description: "retrostrap: build like it's 2026, look like it's 1999. A retro CSS + JS framework: responsive, accessible, zero dependencies, two tags from a CDN."
+---
+<div class="rs-center">
+  <p class="rs-font-2">~ * ~ welcome, traveler of the information superhighway ~ * ~</p>
+  <h1 class="rs-font-7">retrostrap</h1>
+  <p class="rs-font-4">Build like it's 2026, look like it's 1999. <sup><span class="rs-badge rs-badge--new">NEW!</span></sup></p>
+</div>
+
+<hr class="rs-hr rs-hr--rainbow">
+
+<p>retrostrap is a CSS + JavaScript framework that lets anyone build websites that look
+like the web of 1996-2003, GeoCities homepages, phpBB forums, teal-desktop system UIs,
+green-phosphor terminals, while behaving like the best of the modern web: responsive on
+every screen, accessible, fast, and installable with two tags. The trick is constraint.
+Retro sites looked the way they did because of 256-color displays, a handful of
+preinstalled fonts, and 800×600 monitors; we reintroduce those limits as design law, so
+if you stay inside the vocabulary you <em>cannot accidentally build something that looks
+modern</em>. Underneath it is all 2026: real landmarks, native dialogs, CSS grid wearing
+1998's clothes. This site is built with nothing but retrostrap itself, poke the theme
+buttons up top and watch it change outfits.</p>
+
+<div class="rs-dos__title">C:\&gt; type QUICKSTART.HTM</div>
+<pre class="rs-dos">&lt;link rel="stylesheet" href="{{ manifest.cdn.css }}"&gt;
+&lt;script defer src="{{ manifest.cdn.js }}"&gt;&lt;/script&gt;</pre>
+<p class="rs-font-2">That's the whole install. Two tags and you're a webmaster. The
+long version, with themes and a page skeleton, lives in
+<a href="/get-started/">Get started</a>.</p>
+
+<section class="rs-panel">
+  <h2 class="rs-panel__title">The five laws</h2>
+  <ol>
+    <li><strong>Palette</strong>: {{ manifest.laws.palette.law }}</li>
+    <li><strong>Fonts</strong>: {{ manifest.laws.fonts.law }}</li>
+    <li><strong>Shape</strong>: {{ manifest.laws.shape.law }}</li>
+    <li><strong>Motion</strong>: {{ manifest.laws.motion.law }}</li>
+    <li><strong>Decency</strong>: {{ manifest.laws.decency.law }}</li>
+  </ol>
+  <p>The laws are what guarantee the look, and they're machine-checkable. Run
+  <code>Retrostrap.audit()</code> in your console and it will tell you, politely,
+  where you strayed.</p>
+</section>
+
+<h2>Take the tour</h2>
+<div class="rs-badge-wall">
+  <a class="rs-button88" href="/get-started/">GET STARTED</a>
+  <a class="rs-button88" href="/components/">{{ manifest.components.length }} COMPONENTS</a>
+  <a class="rs-button88" href="/themes/">{{ manifest.themes.length }} THEMES</a>
+  <a class="rs-button88" href="/kitchen-sink/">THE KITCHEN SINK</a>
+  <a class="rs-button88" href="/demos/">34 DEMO SITES</a>
+  <a class="rs-button88" href="/demos/builder/">THE BUILDER</a>
+  <a class="rs-button88" href="https://boards.retrostrap.dev">THE BOARDS</a>
+  <a class="rs-button88" href="/demos/retrospace/">RETROSPACE</a>
+  <a class="rs-button88" href="/museum/">THE MUSEUM</a>
+  <a class="rs-button88" href="/for-robots/">FOR ROBOTS</a>
+  <a class="rs-button88" href="/llms.txt">LLMS.TXT</a>
+</div>
+
+<div class="rs-spacer rs-spacer--3" aria-hidden="true"></div>
+
+<p class="rs-alert rs-alert--info">Status report: the framework shipped whole:
+{{ manifest.components.length }} components, {{ manifest.widgets.length }} widgets, and
+{{ manifest.themes.length }} themes, with demos to prove it.</p>
+
+<div class="rs-statusbar">
+  <span>Document: Done</span>
+  <span>retrostrap v{{ manifest.version }}</span>
+  <span>0 trackers, 0 cookies, 0 regrets</span>
+</div>

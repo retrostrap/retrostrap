@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="cosmic">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Computer - the webmaster's desktop</title>
+<meta name="description" content="A whole desktop OS on a web page, draggable windows, a start menu, a taskbar, and a bouncing screensaver, built with retrostrap.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/cosmic.css">
+<style>
+  body { margin: 0; }
+  .desk { position: relative; z-index: 1; } /* a stacking context above the screensaver */
+  .rs-dvd { z-index: 0 !important; }         /* the bouncing logo belongs behind the windows */
+  .desk .rs-window { inline-size: min(340px, 88vw); }
+  .desk__icons { position: absolute; inset-block-start: 8px; inset-inline-end: 12px; text-align: center;
+    display: block; background: none; border: 0; padding: 0; } /* neutralize the navbar chrome we borrow for a11y */
+  .desk__icon { display: block; color: var(--rs-text); text-decoration: none; margin-block-end: var(--rs-space-3); font-size: var(--rs-font-size-1); }
+  .desk__icon b { display: block; font-size: var(--rs-font-size-5); }
+  /* the corner buttons the page owns: the widget only drags, so we shade + maximise here */
+  .rs-window.is-shaded .rs-window__body, .rs-window.is-shaded .rs-window__statusbar { display: none; }
+  /* the polite nudge: a window already on top blinks its titlebar twice */
+  @keyframes desk-notice { 50% { background: var(--rs-bevel-face); color: var(--rs-text); } }
+  .is-noticed .rs-window__titlebar { animation: desk-notice 0.5s steps(1, end) 2; }
+  @media (prefers-reduced-motion: reduce) { .is-noticed .rs-window__titlebar { animation: none; } }
+  .rs-window.is-max { inset-block: 8px 36px !important; inset-inline: 8px !important; inline-size: auto !important; }
+  /* taskbar: a fixed strip along the bottom, start button + clock */
+  .taskbar { position: fixed; inset-inline: 0; inset-block-end: 0; block-size: 28px; display: flex; align-items: center; gap: var(--rs-space-2);
+    padding-inline: var(--rs-space-2); background: var(--rs-bevel-face); border-block-start: 2px solid var(--rs-bevel-light); z-index: 1000; }
+  .taskbar__clock { margin-inline-start: auto; padding: 1px var(--rs-space-3); font-size: var(--rs-font-size-1);
+    border: 1px solid; border-color: var(--rs-bevel-shadow) var(--rs-bevel-light) var(--rs-bevel-light) var(--rs-bevel-shadow); }
+  /* the Start button stays a bare button; only its submenu wears the bevel
+     panel, and it rises from the taskbar instead of dropping off the bottom */
+  .taskbar .rs-menu > ul { background: none; border: 0; padding: 0; }
+  .taskbar .rs-menu > ul > li > button { inline-size: auto; font-weight: bold; }
+  .taskbar .rs-menu li > ul { inset-block-start: auto; inset-block-end: 100%; }
+  @media (min-width: 800px) {
+    html, body { block-size: 100%; }
+    body { overflow: hidden; }
+    .desk { block-size: calc(100vh - 28px); overflow: hidden; }
+    .desk .rs-window { position: absolute; }
+    #win-computer { inset-block-start: 24px; inset-inline-start: 24px; }
+    #win-readme { inset-block-start: 60px; inset-inline-start: min(46vw, 520px); inline-size: min(420px, 88vw); }
+    #win-guestbook { inset-block-start: min(48vh, 430px); inset-inline-start: min(16vw, 180px); }
+  }
+</style>
+</head>
+<body class="rs-cursors" data-rs-widgets="windows dvd" data-rs-dvd-text="✦ COSMIC OS ✦" data-rs-dvd-speed="slow">
+<a class="rs-skip" href="#win-computer">Skip to the windows</a>
+
+<main class="desk">
+  <nav class="rs-navbar desk__icons" aria-label="Desktop shortcuts">
+    <a class="desk__icon" href="#win-computer"><b>▦</b> My Computer</a>
+    <a class="desk__icon" href="#win-readme"><b>▤</b> ReadMe</a>
+    <a class="desk__icon" href="#win-guestbook"><b>◉</b> Guestbook</a>
+    <a class="desk__icon" href="../index.html"><b>↩</b> Log off</a>
+  </nav>
+
+  <section class="rs-window" id="win-computer" data-rs-window="floating" role="dialog" aria-labelledby="t-computer">
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="t-computer">My Computer</span>
+      <span class="rs-window__controls">
+        <button aria-label="Minimize">_</button><button aria-label="Maximize">□</button><button aria-label="Close">✕</button>
+      </span>
+    </div>
+    <div class="rs-window__body">
+      <p class="rs-font-1">Drag me by the titlebar. Click any window to bring it to the front.</p>
+      <table class="rs-table">
+        <tbody>
+          <tr><td>▦ (C:)</td><td>2.1 GB</td><td>local disk</td></tr>
+          <tr><td>▦ (A:)</td><td>1.4 MB</td><td>3½ floppy</td></tr>
+          <tr><td>◎ (D:)</td><td>650 MB</td><td>CD-ROM</td></tr>
+          <tr><td>▤ My Documents</td><td>-</td><td>folder</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rs-window__statusbar"><span>4 object(s)</span></div>
+  </section>
+
+  <section class="rs-window" id="win-readme" data-rs-window="floating" role="dialog" aria-labelledby="t-readme">
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="t-readme">ReadMe.txt, Notepad</span>
+      <span class="rs-window__controls">
+        <button aria-label="Minimize">_</button><button aria-label="Maximize">□</button><button aria-label="Close">✕</button>
+      </span>
+    </div>
+    <div class="rs-window__body">
+      <pre class="rs-font-1" style="white-space:pre-wrap;margin:0">~ * ~ welcome to Cosmic OS ~ * ~
+
+this whole desktop is one web page. drag the windows by the titlebar, with the mouse, with touch, or with the arrow keys once one is focused. the buttons in each corner shade, maximise, and close; the taskbar and the desktop icons bring a closed window back and lift an open one to the front.
+
+the bouncing logo is the screensaver. we are all still waiting for it to hit the corner.
+
+the taskbar clock stopped at 11:59 on the last night of 1999. we are keeping it there.
+
+-- the webmaster</pre>
+    </div>
+    <div class="rs-window__statusbar"><span>Ln 1, Col 1</span></div>
+  </section>
+
+  <section class="rs-window" id="win-guestbook" data-rs-window="floating" role="dialog" aria-labelledby="t-gb">
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="t-gb">Guestbook</span>
+      <span class="rs-window__controls">
+        <button aria-label="Minimize">_</button><button aria-label="Maximize">□</button><button aria-label="Close">✕</button>
+      </span>
+    </div>
+    <div class="rs-window__body" data-rs-widgets="guestbook">
+      <script type="application/json">
+        { "entries": [
+          { "name": "sandra", "from": "the space corner", "date": "1999-12-31", "message": "your desktop is SO cool, how did you do the windows?!" },
+          { "name": "webmaster", "from": "here", "date": "1999-12-31", "message": "view source :)" }
+        ] }
+      </script>
+    </div>
+    <div class="rs-window__statusbar"><span>2 signatures</span></div>
+  </section>
+</main>
+
+<nav class="taskbar" aria-label="Taskbar">
+  <span class="rs-menu">
+    <ul>
+      <li>
+        <button class="rs-btn" aria-haspopup="true">▚ Start</button>
+        <ul id="start-menu">
+          <li><a href="#win-computer">My Computer</a></li>
+          <li><a href="#win-readme">ReadMe.txt</a></li>
+          <li><a href="#win-guestbook">Guestbook</a></li>
+          <li><a href="../index.html">Log off</a></li>
+        </ul>
+      </li>
+    </ul>
+  </span>
+  <a class="rs-btn rs-btn--small" href="#win-computer">My Computer</a>
+  <a class="rs-btn rs-btn--small" href="#win-readme">ReadMe.txt</a>
+  <a class="rs-btn rs-btn--small" href="#win-guestbook">Guestbook</a>
+  <span class="taskbar__clock">11:59 PM</span>
+</nav>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+<script>
+  // the widget only drags windows; the corner buttons are ours. close hides a
+  // window, minimize shades it to the titlebar, maximize fills the desk. any
+  // link to a window (taskbar, desktop icons, start menu) brings it back and
+  // lifts it; if it was already up front, the titlebar blinks politely.
+  (function () {
+    document.querySelectorAll('.desk .rs-window').forEach(function (win) {
+      var controls = win.querySelector('.rs-window__controls');
+      if (!controls) return;
+      controls.addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        var k = (b.getAttribute('aria-label') || '').toLowerCase();
+        if (k === 'close') win.hidden = true;
+        else if (k === 'minimize') win.classList.toggle('is-shaded');
+        else if (k === 'maximize') win.classList.toggle('is-max');
+      });
+    });
+    document.querySelectorAll('a[href^="#win-"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var win = document.querySelector(a.getAttribute('href'));
+        if (!win) return;
+        var peers = document.querySelectorAll('.desk .rs-window');
+        var z = function (w) { return Number(w.style.zIndex) || 0; };
+        var wasOnTop = !win.hidden && !win.classList.contains('is-shaded') &&
+          Array.prototype.every.call(peers, function (w) { return w === win || w.hidden || z(w) < z(win); });
+        win.hidden = false;
+        win.classList.remove('is-shaded');
+        // the core enhancer owns the shade state; its button restores it cleanly
+        var restore = win.querySelector('[aria-label="Restore window"]');
+        if (restore) restore.click();
+        // the manager lifts it; a taskbar click never lands a pointerdown on the window
+        win.dispatchEvent(new CustomEvent('rs:window:raise', { bubbles: true }));
+        if (wasOnTop) {
+          win.classList.remove('is-noticed');
+          void win.offsetWidth; // restart the blink on a second ask
+          win.classList.add('is-noticed');
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

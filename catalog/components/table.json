@@ -1,0 +1,21 @@
+{
+  "id": "table",
+  "kind": "component",
+  "label": "Table",
+  "summary": "Dressing for honest data tables: bordered cells, silver header row, stripe and mono-numeral modifiers.",
+  "era": "The high-score table: silver header row, bordered cells, cellpadding=2 cellspacing=0, forever.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-table", "role": "base dressing: 1px cell borders, silver header row" },
+    { "name": "rs-table--striped", "role": "modifier: alternating row backgrounds" },
+    { "name": "rs-table--bordered", "role": "modifier: 2px sunken outer border" },
+    { "name": "rs-table--data", "role": "modifier: mono numerals for data-heavy tables" },
+    { "name": "rs-num", "role": "cell class: right-aligns number cells" }
+  ],
+  "a11y": "Data tables only: <caption>, <thead>, and th scope=\"col\"/\"row\" as in the snippet. The borders are CSS; the semantics stay honest.",
+  "assets": [],
+  "tags": ["content", "table", "data"]
+}

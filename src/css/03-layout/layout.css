@@ -1,0 +1,60 @@
+/* rs-layout - page-shape recipes, not a 12-column grid. Era pages had
+   shapes (docs/02): sidebar, holy grail, portal. Below svga everything
+   stacks in source order: header, main, then nav, readers first.
+
+   Area names are assigned only where templates exist. A grid-area pointing
+   at a template that doesn't define it invents implicit lines and shuffles
+   the stack, the phone layout is plain source-order flow on purpose. */
+
+.rs-layout {
+  display: grid;
+  gap: var(--rs-space-2);
+}
+
+.rs-layout__main { min-width: 0; }
+
+@media (min-width: 800px) { /* svga */
+  .rs-layout__header { grid-area: header; }
+  .rs-layout__nav    { grid-area: nav; }
+  .rs-layout__main   { grid-area: main; }
+  .rs-layout__rail   { grid-area: rail; }
+  .rs-layout__footer { grid-area: footer; }
+
+  .rs-layout--sidebar-left {
+    grid-template-columns: 180px 1fr;
+    grid-template-areas:
+      "header header"
+      "nav    main"
+      "footer footer";
+  }
+
+  /* No rail column in the sidebar recipes: __nav rides left, __rail right. */
+  .rs-layout--sidebar-left .rs-layout__rail { grid-area: auto; }
+
+  .rs-layout--sidebar-right {
+    grid-template-columns: 1fr 180px;
+    grid-template-areas:
+      "header header"
+      "main   rail"
+      "footer footer";
+  }
+
+  .rs-layout--sidebar-right .rs-layout__nav { grid-area: auto; }
+
+  .rs-layout--holy-grail {
+    grid-template-columns: 180px 1fr 180px;
+    grid-template-areas:
+      "header header header"
+      "nav    main   rail"
+      "footer footer footer";
+  }
+
+  /* The portal look: three honest thirds. */
+  .rs-layout--three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "nav    main   rail"
+      "footer footer footer";
+  }
+}

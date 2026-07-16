@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!-- MegaByte Computers & Gadgets, a mail-order computer catalog gone online, circa 2000. Best viewed at 800x600. -->
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MegaByte Computers &amp; Gadgets - online store</title>
+<meta name="description" content="MegaByte Computers and Gadgets: PCs, peripherals, software and games shipped to your door. Serving netizens since 1997. Secure 128-bit ordering.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+<style>
+  /* Store layout, geometry only. No colours, fonts, radii, shadows or easings are
+     set here; every visible surface is a retrostrap component or a theme token. */
+  .mb-photo { min-block-size: 88px; display: flex; align-items: center; justify-content: center; text-align: center; }
+  /* the product-name stand-in read as pale cyan on the sunken panel; solid
+     theme text (no raw colour) makes it legible until a real photo lands */
+  .mb-photo .rs-gradient-text { background: none; color: var(--rs-text); -webkit-text-fill-color: var(--rs-text); }
+  .mb-search { display: flex; gap: var(--rs-space-2); align-items: center; }
+  .mb-search .rs-input { flex: 1 1 auto; min-inline-size: 0; }
+  .mb-hidden { display: none; }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to content &rarr;</a>
+
+<div class="rs-page rs-container rs-container--wide">
+
+  <header class="rs-center">
+    <h1>MegaByte Computers &amp; Gadgets</h1>
+    <p>~ your friendly online superstore &middot; serving netizens since 1997 ~</p>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Product categories">
+    <a href="#products" data-filter="computers">Computers</a>
+    <a href="#products" data-filter="peripherals">Peripherals</a>
+    <a href="#products" data-filter="software">Software</a>
+    <a href="#products" data-filter="games">Games</a>
+    <a href="#products" data-filter="accessories">Accessories</a>
+  </nav>
+
+  <div class="rs-marquee" data-rs-marquee-speed="normal">
+    <span class="rs-marquee__content">
+      &#9733; WEB SPECIALS &#9733; ClearView 17-inch monitor now $279 ~ free ground shipping on orders over $500 ~ TurboModem 56K back in stock ~ order by 2pm, ships today &#9733;
+    </span>
+  </div>
+
+  <nav class="rs-breadcrumbs" aria-label="You are here">
+    <ol>
+      <li><a href="#main">MegaByte</a></li>
+      <li aria-current="page">Storefront</li>
+    </ol>
+  </nav>
+
+  <div class="rs-layout rs-layout--sidebar-left">
+
+    <aside class="rs-layout__nav rs-sidenav" aria-label="Store sidebar">
+      <span class="rs-sidenav__section">~ Find it ~</span>
+      <form class="mb-search" role="search" action="#">
+        <label class="rs-sr-only" for="q">Search the catalog</label>
+        <input class="rs-input" id="q" name="q" type="search" autocomplete="off" placeholder="search products&hellip;">
+        <button class="rs-btn rs-btn--small" type="submit">Go</button>
+      </form>
+
+      <nav aria-label="Departments">
+        <span class="rs-sidenav__section">~ Departments ~</span>
+        <ul class="rs-list rs-list--arrows">
+          <li><a href="#products" data-filter="computers">Computers</a></li>
+          <li><a href="#products" data-filter="peripherals">Peripherals</a></li>
+          <li><a href="#products" data-filter="software">Software</a></li>
+          <li><a href="#products" data-filter="games">Games</a></li>
+          <li><a href="#products" data-filter="accessories">Accessories</a></li>
+        </ul>
+      </nav>
+
+      <span class="rs-sidenav__section">~ Your cart ~</span>
+      <p class="rs-font-2"><span id="cart-count">4</span> items in your basket.<br>
+      <a href="#cart">Go to shopping cart &rarr;</a></p>
+
+      <span class="rs-sidenav__section">~ Secure store ~</span>
+      <p class="rs-font-2">Every order travels over a 128-bit SSL connection. We never share your details.</p>
+    </aside>
+
+    <main class="rs-layout__main" id="main">
+
+      <section class="rs-panel rs-panel--raised rs-center">
+        <h2 class="rs-gradient-text rs-gradient-text--fire rs-font-6">Web specials this week</h2>
+        <p>Back-to-school bargains have landed. Spend $500 and ground shipping is on us.
+        These prices hold through 30 September, while stocks last.</p>
+      </section>
+
+      <section id="products">
+        <h2>This week's picks</h2>
+        <p class="rs-font-2">Prices in US dollars. Most items ship the same day when you order before 2pm.</p>
+        <p id="mb-count" role="status" class="rs-font-2"></p>
+
+        <div class="rs-cols-3">
+
+          <article class="rs-panel mb-product" data-category="computers" data-name="aurora 5000 desktop">
+            <h3 class="rs-panel__title">Aurora 5000 Desktop</h3>
+            <div class="rs-panel rs-panel--sunken mb-photo" aria-hidden="true">
+              <span class="rs-gradient-text rs-gradient-text--ice rs-font-5">Aurora 5000</span>
+            </div>
+            <p class="rs-font-2">800 MHz CPU &middot; 128 MB RAM &middot; 20 GB hard disk &middot; 48&times; CD-ROM</p>
+            <p><span class="rs-stars" role="img" aria-label="rated 5 of 5 by shoppers">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+            <p class="rs-font-5"><b>$1,299.00</b></p>
+            <p class="rs-font-1">Computers &middot; future-proof &middot; usually ships same day</p>
+            <p><button type="button" class="rs-btn rs-btn--primary add-to-cart" data-name="Aurora 5000 Desktop" data-price="1299.00">Add to cart</button></p>
+          </article>
+
+          <article class="rs-panel mb-product" data-category="computers" data-name="voyager 700 notebook">
+            <h3 class="rs-panel__title">Voyager 700 Notebook</h3>
+            <div class="rs-panel rs-panel--sunken mb-photo" aria-hidden="true">
+              <span class="rs-gradient-text rs-gradient-text--ice rs-font-5">Voyager 700</span>
+            </div>
+            <p class="rs-font-2">650 MHz CPU &middot; 64 MB RAM &middot; 6 GB disk &middot; 14-inch TFT display</p>
+            <p><span class="rs-stars" role="img" aria-label="rated 4 of 5 by shoppers">&#9733;&#9733;&#9733;&#9733;<span class="rs-stars__empty">&#9734;</span></span></p>
+            <p class="rs-font-5"><b>$1,899.00</b> <span class="rs-badge rs-badge--new">NEW!</span></p>
+            <p class="rs-font-1">Computers &middot; carry case included</p>
+            <p><button type="button" class="rs-btn rs-btn--primary add-to-cart" data-name="Voyager 700 Notebook" data-price="1899.00">Add to cart</button></p>
+          </article>
+
+          <article class="rs-panel mb-product" data-category="peripherals" data-name="clearview 17-inch monitor">
+            <h3 class="rs-panel__title">ClearView 17-inch Monitor</h3>
+            <div class="rs-panel rs-panel--sunken mb-photo" aria-hidden="true">
+              <span class="rs-gradient-text rs-gradient-text--ice rs-font-5">ClearView 17</span>
+            </div>
+            <p class="rs-font-2">0.27 mm dot pitch &middot; 1024&times;768 &middot; low-radiation glass</p>
+            <p><span class="rs-stars" role="img" aria-label="rated 4 of 5 by shoppers">&#9733;&#9733;&#9733;&#9733;<span class="rs-stars__empty">&#9734;</span></span></p>
+            <p class="rs-font-5"><b>$279.00</b> <span class="rs-badge rs-badge--hot">HOT!</span></p>
+            <p class="rs-font-1">Peripherals &middot; was $329.00</p>
+            <p><button type="button" class="rs-btn rs-btn--primary add-to-cart" data-name="ClearView 17-inch Monitor" data-price="279.00">Add to cart</button></p>
+          </article>
+
+          <article class="rs-panel mb-product" data-category="peripherals" data-name="pixeljet 640c printer">
+            <h3 class="rs-panel__title">PixelJet 640C Printer</h3>
+            <div class="rs-panel rs-panel--sunken mb-photo" aria-hidden="true">
+              <span class="rs-gradient-text rs-gradient-text--ice rs-font-5">PixelJet 640C</span>
+            </div>
+            <p class="rs-font-2">1200 dpi colour &middot; 8 pages a minute &middot; USB and parallel</p>
+            <p><span class="rs-stars" role="img" aria-label="rated 4 of 5 by shoppers">&#9733;&#9733;&#9733;&#9733;<span class="rs-stars__empty">&#9734;</span></span></p>
+            <p class="rs-font-5"><b>$149.00</b></p>
+            <p class="rs-font-1">Peripherals &middot; starter cartridge in the box</p>
+            <p><button type="button" class="rs-btn rs-btn--primary add-to-cart" data-name="PixelJet 640C Printer" data-price="149.00">Add to cart</button></p>
+          </article>
+
+          <article class="rs-panel mb-product" data-category="software" data-name="officeworks 2000 deluxe">
+            <h3 class="rs-panel__title">OfficeWorks 2000 Deluxe</h3>
+            <div class="rs-panel rs-panel--sunken mb-photo" aria-hidden="true">
+              <span class="rs-gradient-text rs-gradient-text--ice rs-font-5">OfficeWorks</span>
+            </div>
+            <p class="rs-font-2">Words, sheets and mail &middot; CD-ROM &middot; 32 MB RAM or better</p>
+            <p><span class="rs-stars" role="img" aria-label="rated 3 of 5 by shoppers">&#9733;&#9733;&#9733;<span class="rs-stars__empty">&#9734;&#9734;</span></span></p>
+            <p class="rs-font-5"><b>$89.00</b></p>
+            <p class="rs-font-1">Software &middot; free clip-art disc</p>
+            <p><button type="button" class="rs-btn rs-btn--primary add-to-cart" data-name="OfficeWorks 2000 Deluxe" data-price="89.00">Add to cart</button></p>
+          </article>
+
+          <article class="rs-panel mb-product" data-category="games" data-name="galaxy raiders">
+            <h3 class="rs-panel__title">Galaxy Raiders</h3>
+            <div class="rs-panel rs-panel--sunken mb-photo" aria-hidden="true">
+              <span class="rs-gradient-text rs-gradient-text--ice rs-font-5">Galaxy Raiders</span>
+            </div>
+            <p class="rs-font-2">3D space combat &middot; CD-ROM &middot; joystick ready</p>
+            <p><span class="rs-stars" role="img" aria-label="rated 5 of 5 by shoppers">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+            <p class="rs-font-5"><b>$39.95</b></p>
+            <p class="rs-font-1">Games &middot; ages 12 and up</p>
+            <p><button type="button" class="rs-btn rs-btn--primary add-to-cart" data-name="Galaxy Raiders" data-price="39.95">Add to cart</button></p>
+          </article>
+
+        </div>
+      </section>
+
+      <hr class="rs-hr rs-hr--groove">
+
+      <section id="cart">
+        <h2>Your shopping cart</h2>
+        <div class="rs-table-scroll">
+          <table class="rs-table rs-table--bordered rs-table--striped">
+            <caption>Items currently in your basket</caption>
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Unit price</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="cart-body"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="3">Subtotal</th>
+                <td class="rs-num" id="cart-subtotal">$0.00</td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="3">Ground shipping</th>
+                <td class="rs-num" id="cart-shipping">$7.95</td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="3">Order total</th>
+                <td class="rs-num"><b id="cart-total">$0.00</b></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="rs-center rs-mt-2">
+          <a class="rs-btn rs-btn--primary rs-btn--large" href="#checkout">Proceed to checkout &rarr;</a>
+        </p>
+      </section>
+
+      <hr class="rs-hr rs-hr--groove">
+
+      <section id="checkout">
+        <h2>Checkout</h2>
+
+        <p class="rs-alert rs-alert--info">
+          <span><b>Secure ordering.</b> This is a demonstration storefront, so nothing you type
+          is sent anywhere. In the real shop your details travel over a 128-bit SSL connection.</span>
+        </p>
+
+        <form class="rs-form-table">
+
+          <label for="c-name">Full name</label>
+          <input class="rs-input" id="c-name" name="name" type="text" autocomplete="name">
+
+          <label for="c-email">E-mail address</label>
+          <input class="rs-input" id="c-email" name="email" type="email" autocomplete="email">
+
+          <label for="c-phone">Daytime telephone</label>
+          <input class="rs-input" id="c-phone" name="phone" type="tel" autocomplete="tel">
+
+          <fieldset class="rs-fieldset rs-form-table__full">
+            <legend>Shipping address</legend>
+            <div class="rs-form-table">
+              <label for="c-street">Street address</label>
+              <input class="rs-input" id="c-street" name="street" type="text" autocomplete="street-address">
+
+              <label for="c-city">Town / city</label>
+              <input class="rs-input" id="c-city" name="city" type="text" autocomplete="address-level2">
+
+              <label for="c-state">State / region</label>
+              <input class="rs-input" id="c-state" name="state" type="text" autocomplete="address-level1">
+
+              <label for="c-zip">ZIP / postal code</label>
+              <input class="rs-input" id="c-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code">
+
+              <label for="c-country">Country</label>
+              <select class="rs-select" id="c-country" name="country" autocomplete="country-name">
+                <option>United States</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+                <option>Elsewhere on Earth</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset class="rs-fieldset rs-form-table__full">
+            <legend>Payment (demonstration only)</legend>
+            <p class="rs-font-2">Please don't type a real card number, this form goes nowhere.</p>
+            <div class="rs-form-table">
+              <label for="c-cardtype">Card type</label>
+              <select class="rs-select" id="c-cardtype" name="cardtype">
+                <option>Credit card</option>
+                <option>Charge card</option>
+                <option>ByteCard</option>
+                <option>NetCharge</option>
+              </select>
+
+              <label for="c-cardname">Name on card</label>
+              <input class="rs-input" id="c-cardname" name="cardname" type="text" autocomplete="off">
+
+              <label for="c-cardno">Card number</label>
+              <input class="rs-input" id="c-cardno" name="cardno" type="text" inputmode="numeric" autocomplete="off" placeholder="0000 0000 0000 0000">
+
+              <label for="c-exp">Expires (mm/yy)</label>
+              <input class="rs-input" id="c-exp" name="exp" type="text" inputmode="numeric" autocomplete="off" placeholder="09/03">
+
+              <label for="c-cvv">Security code</label>
+              <input class="rs-input" id="c-cvv" name="cvv" type="text" inputmode="numeric" autocomplete="off" placeholder="000">
+            </div>
+          </fieldset>
+
+          <p class="rs-form-table__full">
+            <span><input class="rs-checkbox" type="checkbox" id="c-terms" name="terms" value="yes">
+            <label for="c-terms">I have read the shipping and returns terms</label></span>
+          </p>
+
+          <p class="rs-form-table__full">
+            <button type="button" class="rs-btn rs-btn--primary rs-btn--large" id="place-order">Place order</button>
+          </p>
+          <div class="rs-form-table__full" id="order-status" role="status"></div>
+
+        </form>
+      </section>
+
+      <hr class="rs-hr rs-hr--groove">
+
+      <section>
+        <h2>Shopping with confidence</h2>
+        <div class="rs-cols-3">
+          <div class="rs-panel">
+            <h3 class="rs-panel__title">Secure ordering</h3>
+            <p>Your order is protected by 128-bit SSL encryption from the moment you press
+            &ldquo;Place order&rdquo;. We keep card details off the open Net.</p>
+          </div>
+          <div class="rs-panel">
+            <h3 class="rs-panel__title">Shipping &amp; returns</h3>
+            <p>Ground shipping is $7.95, or free over $500. Not happy? Send it back within
+            30 days for a full refund, no questions asked.</p>
+          </div>
+          <div class="rs-panel">
+            <h3 class="rs-panel__title">Satisfaction guarantee</h3>
+            <p>Every gadget carries our one-year MegaByte warranty and a real person on the
+            help line, Monday through Saturday.</p>
+          </div>
+        </div>
+      </section>
+
+      <p class="rs-note">Webmaster's note: this catalog is a demonstration of the storefront,
+      the basket is real, but the ordering is pretend and nothing leaves this page. Prices are make-believe too. ~thanks for browsing~</p>
+
+    </main>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p>
+      <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="0182477"></span>
+      <span class="rs-counter__label">shoppers served since 1997</span>
+    </p>
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="28 August 2000"></p>
+    <p class="rs-font-2">We accept all major cards. Prices in US dollars and may change without notice.</p>
+    <p class="rs-footer__email">Questions? Write to <a href="mailto:orders@megabyte-store.example">orders@megabyte-store.example</a></p>
+    <p class="rs-font-1">&copy; 1997-2000 MegaByte Computers &amp; Gadgets. A demonstration storefront, no orders are really taken. Best viewed at 800&times;600 or better.</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+<script>
+  // a real basket: add-to-cart writes to a live cart, the table and the sidebar
+  // count re-render, the totals add up. Client-side only, nothing leaves the page.
+  (function () {
+    var SHIP = 7.95;
+    var cart = {};
+    [['ClearView 17-inch Monitor', 279, 1], ['PixelJet 640C Printer', 149, 1], ['Galaxy Raiders', 39.95, 2]]
+      .forEach(function (s) { cart[s[0]] = { price: s[1], qty: s[2] }; });
+    var body = document.getElementById('cart-body');
+    var subEl = document.getElementById('cart-subtotal');
+    var totEl = document.getElementById('cart-total');
+    var shipEl = document.getElementById('cart-shipping');
+    var countEl = document.getElementById('cart-count');
+    if (!body) return;
+    function money(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    function render() {
+      body.textContent = '';
+      var names = Object.keys(cart), sub = 0, units = 0;
+      if (!names.length) {
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        td.colSpan = 4; td.className = 'rs-center';
+        td.textContent = 'Your basket is empty, add something from the aisle above.';
+        tr.appendChild(td); body.appendChild(tr);
+      } else {
+        names.forEach(function (name) {
+          var it = cart[name], line = it.price * it.qty;
+          sub += line; units += it.qty;
+          var tr = document.createElement('tr');
+          var th = document.createElement('th'); th.scope = 'row';
+          th.appendChild(document.createTextNode(name + ' '));
+          var rm = document.createElement('button');
+          rm.type = 'button'; rm.className = 'rs-btn rs-btn--link'; rm.textContent = 'remove';
+          rm.setAttribute('aria-label', 'Remove ' + name + ' from the basket');
+          rm.addEventListener('click', function () { delete cart[name]; render(); if (window.Retrostrap) Retrostrap.announce(name + ' removed. ' + countEl.textContent + ' items in your basket.'); });
+          th.appendChild(rm);
+          var q = document.createElement('td'); q.className = 'rs-num'; q.textContent = it.qty;
+          var u = document.createElement('td'); u.className = 'rs-num'; u.textContent = money(it.price);
+          var t = document.createElement('td'); t.className = 'rs-num'; t.textContent = money(line);
+          tr.append(th, q, u, t); body.appendChild(tr);
+        });
+      }
+      var ship = sub >= 500 ? 0 : SHIP; // the page promises free over $500, keep it
+      if (shipEl) shipEl.textContent = sub === 0 ? money(0) : (ship === 0 ? 'FREE' : money(ship));
+      subEl.textContent = money(sub);
+      totEl.textContent = money(sub ? sub + ship : 0);
+      if (countEl) countEl.textContent = String(units);
+    }
+    document.querySelectorAll('.add-to-cart').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var name = btn.getAttribute('data-name');
+        var price = parseFloat(btn.getAttribute('data-price'));
+        if (cart[name]) cart[name].qty++; else cart[name] = { price: price, qty: 1 };
+        render();
+        if (window.Retrostrap) Retrostrap.announce(name + ' added. ' + countEl.textContent + ' items in your basket.');
+        btn.textContent = 'Added ✓';
+        setTimeout(function () { btn.textContent = 'Add to cart'; }, 1000);
+      });
+    });
+    var placeBtn = document.getElementById('place-order');
+    if (placeBtn) placeBtn.addEventListener('click', function () {
+      var status = document.getElementById('order-status');
+      if (!status) return;
+      status.textContent = '';
+      var note = document.createElement('div');
+      note.className = 'rs-alert rs-alert--info';
+      note.textContent = 'Order logged to nowhere. In a real shop this is where the SSL would kick in.';
+      status.appendChild(note);
+    });
+    render();
+  })();
+</script>
+<script>
+  // the search and the department links actually filter the aisle now.
+  (function () {
+    var products = [].slice.call(document.querySelectorAll('.mb-product'));
+    var search = document.getElementById('q');
+    var count = document.getElementById('mb-count');
+    var form = search && search.closest('form');
+    if (!products.length) return;
+    function apply(query, cat) {
+      var shown = 0;
+      products.forEach(function (a) {
+        var hay = (a.getAttribute('data-name') + ' ' + a.textContent).toLowerCase();
+        var ok = (!query || hay.indexOf(query) >= 0) && (!cat || a.getAttribute('data-category') === cat);
+        a.classList.toggle('mb-hidden', !ok);
+        if (ok) shown++;
+      });
+      count.textContent = '';
+      if (query || cat) {
+        count.appendChild(document.createTextNode(shown + ' of ' + products.length + ' shown. '));
+        var all = document.createElement('button');
+        all.type = 'button'; all.className = 'rs-btn rs-btn--link'; all.textContent = 'show all';
+        all.addEventListener('click', function () { if (search) search.value = ''; apply('', null); });
+        count.appendChild(all);
+      }
+    }
+    var run = function () { apply((search.value || '').trim().toLowerCase(), null); };
+    if (form) form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+    if (search) search.addEventListener('input', run);
+    document.querySelectorAll('a[data-filter]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (search) search.value = '';
+        apply('', a.getAttribute('data-filter'));
+        var g = document.getElementById('products'); if (g) g.scrollIntoView();
+      });
+    });
+  })();
+</script>
+</body>
+</html>

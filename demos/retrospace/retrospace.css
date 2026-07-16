@@ -1,0 +1,39 @@
+/* retrospace.css, just the directory grid and chips; everything else is the
+   framework. Calm and roomy on purpose (docs/13). Lawful: legal colours, no
+   radius, no blurred shadow. */
+
+.rx-lang { display: inline-flex; gap: var(--rs-space-2); margin-block-start: var(--rs-space-2); }
+
+.rx-search { margin-block: var(--rs-space-4); }
+.rx-search label { display: block; font-weight: bold; margin-block-end: var(--rs-space-1); }
+.rx-search__row { display: flex; gap: var(--rs-space-2); max-inline-size: 32em; }
+.rx-search__row .rs-input { flex: 1; }
+
+.rx-chips { display: flex; flex-wrap: wrap; gap: var(--rs-space-2); margin-block-end: var(--rs-space-4); }
+.rx-chip {
+  font-size: var(--rs-font-size-2); padding: 2px var(--rs-space-3);
+  background: var(--rs-bevel-face); color: var(--rs-text);
+  border: 1px solid var(--rs-bevel-light);
+  border-inline-end-color: var(--rs-bevel-shadow); border-block-end-color: var(--rs-bevel-shadow);
+  cursor: pointer;
+}
+.rx-chip[aria-pressed="true"] { background: var(--rs-titlebar-bg); color: var(--rs-titlebar-text); }
+
+.rx-grid { list-style: none; margin: 0 0 var(--rs-space-5); padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--rs-space-4); }
+.rx-card { display: flex; flex-direction: column; gap: var(--rs-space-1);
+  padding: var(--rs-space-3); block-size: 100%;
+  background: var(--rs-bg-content); border: 1px solid var(--rs-border-color); }
+.rx-card__title { font-size: var(--rs-font-size-3); font-weight: bold; margin: 0; }
+.rx-card__blurb { margin: 0; flex: 1; }
+.rx-card__meta { display: flex; flex-wrap: wrap; gap: var(--rs-space-1); font-size: var(--rs-font-size-1); }
+.rx-tag { padding: 0 var(--rs-space-1); background: var(--rs-bevel-face); border: 1px solid var(--rs-bevel-shadow); }
+.rx-card__foot { display: flex; justify-content: space-between; align-items: baseline;
+  font-size: var(--rs-font-size-1); color: var(--rs-text); margin-block-start: var(--rs-space-1); }
+.rx-muted { color: var(--rs-text); font-size: var(--rs-font-size-2); }
+
+.rx-field { margin-block-end: var(--rs-space-3); }
+.rx-field label { display: block; font-weight: bold; font-size: var(--rs-font-size-1); margin-block-end: 2px; }
+.rx-field .rs-input, .rx-field .rs-select { inline-size: 100%; max-inline-size: 32em; }
+
+@media (max-width: 639px) { .rx-search__row { flex-wrap: wrap; } }

@@ -1,0 +1,18 @@
+{
+  "id": "sidenav",
+  "kind": "component",
+  "label": "Sidenav",
+  "summary": "The left nav list: pixel bullets, section headers, and visited links proudly purple.",
+  "era": "The left-hand nav column of every frameset site: star bullets, bold section caps, links purple from visiting.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-sidenav", "role": "the nav list; visited-link purple lives here" },
+    { "name": "rs-sidenav__section", "role": "bold caps section header" }
+  ],
+  "a11y": "A <nav> landmark with an aria-label wrapping real lists; the bullets are decoration, and links keep their visited state on purpose.",
+  "assets": ["bullet-star"],
+  "tags": ["navigation", "sidebar", "links"]
+}

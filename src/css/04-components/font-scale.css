@@ -1,0 +1,9 @@
+/* rs-font-1..7 - <font size=1..7>, back from the dead (docs/02). */
+
+.rs-font-1 { font-size: var(--rs-font-size-1); }
+.rs-font-2 { font-size: var(--rs-font-size-2); }
+.rs-font-3 { font-size: var(--rs-font-size-3); }
+.rs-font-4 { font-size: var(--rs-font-size-4); }
+.rs-font-5 { font-size: var(--rs-font-size-5); }
+.rs-font-6 { font-size: var(--rs-font-size-6); }
+.rs-font-7 { font-size: var(--rs-font-size-7); }

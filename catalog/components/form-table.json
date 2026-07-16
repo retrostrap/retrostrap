@@ -1,0 +1,18 @@
+{
+  "id": "form-table",
+  "kind": "component",
+  "label": "Form table",
+  "summary": "The label:field two-column form grid, minus the table.",
+  "era": "Every 1999 signup form was a two-column table, bold labels right-aligned against their fields. The table left; the look stayed.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-form-table", "role": "the grid: bold right-aligned labels, fields beside; stacks below vga" },
+    { "name": "rs-form-error", "role": "the error message line under a field" }
+  ],
+  "a11y": "It is a grid, not a <table>, so screen readers meet label-then-field in source order. Keep <label for> on every control and tie each rs-form-error line to its field with aria-describedby.",
+  "assets": [],
+  "tags": ["forms", "layout", "grid"]
+}

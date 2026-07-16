@@ -1,0 +1,15 @@
+/* rs-list - lists with jeweled bullets (docs/01 §4). Real pixel sprites now;
+   nested runs fall back to hollow Unicode markers, like the good pages did. */
+
+.rs-list {
+  padding-inline-start: 1.5em;
+}
+
+.rs-list--stars  { list-style-image: url("assets/bullet-star.png"); }
+.rs-list--arrows { list-style-image: url("assets/bullet-arrow.png"); }
+.rs-list--disks  { list-style-image: url("assets/bullet-disk.png"); }
+.rs-list--paws   { list-style-image: url("assets/bullet-paw.png"); }
+
+/* Nesting alternates: the sprite marks the outer run, a hollow glyph the inner. */
+.rs-list--stars  li li::marker { content: "☆ "; color: #FFCC00; }
+.rs-list--arrows li li::marker { content: "› "; color: var(--rs-accent); }

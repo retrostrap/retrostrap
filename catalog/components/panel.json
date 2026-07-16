@@ -1,0 +1,20 @@
+{
+  "id": "panel",
+  "kind": "component",
+  "label": "Panel",
+  "summary": "The general-purpose box: groove border with a title riding the line, fieldset-style.",
+  "era": "The groove-bordered group box with its label sitting on the line, system settings dialogs taught every homepage this shape.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-panel", "role": "the box: 2px groove border, content padding" },
+    { "name": "rs-panel__title", "role": "title riding the border line, legend-style" },
+    { "name": "rs-panel--raised", "role": "modifier: bevel out" },
+    { "name": "rs-panel--sunken", "role": "modifier: bevel in" }
+  ],
+  "a11y": "Use a real heading for the title; when the box groups form controls, build it on <fieldset> with the title as <legend> instead.",
+  "assets": [],
+  "tags": ["content", "box", "fieldset"]
+}

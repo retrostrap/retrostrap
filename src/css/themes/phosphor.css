@@ -1,0 +1,61 @@
+/* phosphor - green terminal on black: Courier, scanlines welcome, rs-dos
+   blends into the page on purpose (docs/07). Cosplay for your VT220. */
+
+[data-rs-theme="phosphor"] {
+  --rs-bg-page: #000000;
+  --rs-tile-page: none;
+  --rs-bg-content: #000000;
+  --rs-text: #33FF33;
+  --rs-text-muted: #00CC00;
+  --rs-heading: #33FF33;
+
+  --rs-link: #66FF66;
+  --rs-link-visited: #339933;
+  --rs-link-active: #FFCC00;
+
+  --rs-accent: #33FF33;
+  --rs-accent-2: #FFCC00;
+  --rs-good: #33FF33;
+  --rs-warn: #FFCC00;
+  --rs-bad: #FF3333;
+
+  --rs-bevel-face: #003300;
+  --rs-bevel-light: #009900;
+  --rs-bevel-shadow: #006600;
+  --rs-bevel-dark: #003300;
+  --rs-shadow-hard: 2px 2px 0 #000000; /* a shadow must be darker than the page, not lighter */
+
+  --rs-titlebar-bg: #003300;
+  --rs-titlebar-bg-2: #006600;
+  --rs-titlebar-text: #66FF66;
+  --rs-border-color: #009900;
+
+  --rs-selection-bg: #33FF33;
+  --rs-selection-text: #000000;
+  --rs-focus-color: #33FF33;
+
+  --rs-font-body: var(--rs-font-mono);
+  --rs-font-heading: var(--rs-font-mono);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* the page sheet is just a dim green frame around the terminal */
+[data-rs-theme="phosphor"] .rs-page {
+  border-color: #006600 #003300 #003300 #006600;
+}
+
+/* rs-dos disappears into the page, the joke lands (docs/07) */
+[data-rs-theme="phosphor"] .rs-dos {
+  color: #33FF33;
+  border-color: #006600;
+}
+
+[data-rs-theme="phosphor"] .rs-counter {
+  color: #33FF33;
+}
+
+/* the default grey stripe would wash out green text; retint it dark (docs/08) */
+[data-rs-theme="phosphor"] .rs-table--striped tbody tr:nth-child(even) {
+  background: #003300;
+}

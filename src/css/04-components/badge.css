@@ -1,0 +1,21 @@
+/* rs-badge - NEW! UPDATED! HOT! The attention economy at 88 bytes
+   (docs/01 §4). Add rs-blink for the full effect, sparingly. */
+
+.rs-badge {
+  display: inline-block;
+  font-family: var(--rs-font-narrow);
+  font-size: var(--rs-font-size-1);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding: 0 var(--rs-space-1);
+  border: 1px solid #000000;
+  vertical-align: super;
+}
+
+/* the loud era combos, tuned so the small bold text still clears WCAG AA:
+   yellow on a deep red, black on orange (white-on-orange was unreadable). */
+.rs-badge--new     { background: #CC0000; color: #FFFF00; }
+.rs-badge--updated { background: #000080; color: #FFFF00; }
+.rs-badge--hot     { background: #FF6600; color: #000000; }
+.rs-badge--cool    { background: #0000FF; color: #FFFFFF; }

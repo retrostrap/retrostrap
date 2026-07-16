@@ -1,0 +1,22 @@
+{
+  "id": "btn",
+  "kind": "component",
+  "label": "Button",
+  "summary": "The beveled system button; pressing it nudges the label one pixel down-right.",
+  "era": "The silver Windows 95 push button, raised at rest, sunken while you hold it, the most-pressed rectangle of the decade.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-btn", "role": "the raised bevel button; :active sinks it and nudges the label 1px" },
+    { "name": "rs-btn--primary", "role": "modifier: bold, accent-faced, the default action" },
+    { "name": "rs-btn--link", "role": "modifier: dressed as a link, still a button" },
+    { "name": "rs-btn--small", "role": "modifier: font step 1" },
+    { "name": "rs-btn--large", "role": "modifier: font step 4" },
+    { "name": "rs-btn--icon", "role": "modifier: 16×16 icon beside the text" }
+  ],
+  "a11y": "Always a real <button>, focus, Space and Enter come free, and the --link disguise is still a button underneath. Disabled buttons keep the engraved gray text, which WCAG exempts as inactive UI.",
+  "assets": [],
+  "tags": ["forms", "button", "bevel"]
+}

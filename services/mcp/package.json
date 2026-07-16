@@ -1,0 +1,41 @@
+{
+  "name": "retrostrap-mcp",
+  "version": "0.1.0",
+  "description": "retrostrap-mcp, the catalog, conversationally. An MCP server exposing search_catalog, get_snippet, get_theme, and audit_html to coding assistants (docs/09).",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "retrostrap-mcp": "src/server.js"
+  },
+  "files": [
+    "src",
+    "manifest.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prepack": "node prepack.mjs",
+    "postpack": "rm -f manifest.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retrostrap/retrostrap.git",
+    "directory": "services/mcp"
+  },
+  "homepage": "https://retrostrap.dev",
+  "bugs": "https://github.com/retrostrap/retrostrap/issues",
+  "keywords": [
+    "retrostrap",
+    "mcp",
+    "model-context-protocol",
+    "retro",
+    "css"
+  ],
+  "comment": "@modelcontextprotocol/sdk is the deploy-time transport only (docs/09); the tested core in src/{tools,audit-html,manifest}.js has no runtime dependencies.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "select",
+  "kind": "component",
+  "label": "Select",
+  "summary": "A native <select> in bevel chrome with a pixel down-arrow.",
+  "era": "The guestbook's \"How did you find my page?\" dropdown, a real Windows combo box, right down to the arrow.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-select", "role": "native select in bevel chrome with the pixel down-arrow" }
+  ],
+  "a11y": "It stays a native <select>: keyboard, screen readers and phone pickers all work untouched. We only paint the box the arrow lives on.",
+  "assets": ["select-button"],
+  "tags": ["forms", "select"]
+}

@@ -1,0 +1,11 @@
+/* rs-stars - ★★★☆☆. Display only; give it an aria-label that says the
+   number out loud. */
+
+.rs-stars {
+  color: #FFCC00;
+  white-space: nowrap;
+}
+
+.rs-stars__empty {
+  color: var(--rs-text-muted);
+}

@@ -1,0 +1,26 @@
+/* rs-hr - horizontal rules with a wardrobe (docs/01 §4: the divider GIFs). */
+
+.rs-hr {
+  border: 0;
+  border-block-start: 2px groove var(--rs-bevel-face); /* a bare rs-hr is a groove, not nothing */
+  margin-block: var(--rs-space-3);
+}
+
+.rs-hr--groove { border-block-start: 2px groove var(--rs-bevel-face); }
+.rs-hr--dotted { border-block-start: 2px dotted var(--rs-text-muted); }
+
+.rs-hr--rainbow {
+  border-block-start: 0; /* the bar is the rule; drop the base groove */
+  block-size: 4px;
+  background: linear-gradient(90deg,
+    #FF0000 0 16.7%, #FF9900 0 33.3%, #FFFF00 0 50%,
+    #00CC00 0 66.7%, #0000FF 0 83.3%, #9900CC 0 100%);
+}
+
+/* a row of pixel stars, tiled, the divider gif every 1999 shrine wore. */
+.rs-hr--stars {
+  border: 0;
+  block-size: 11px;
+  background: url("assets/star-divider.png") repeat-x center;
+  image-rendering: pixelated;
+}

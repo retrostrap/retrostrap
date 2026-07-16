@@ -1,0 +1,20 @@
+{
+  "id": "quote",
+  "kind": "component",
+  "label": "Forum quote",
+  "summary": "The forum quote block: source strip, quoted body, and the signature divider.",
+  "era": "phpBB 2's [quote] pyramid, \"Originally posted by\" strips stacked like sediment, the signature ruled off below the post.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-quote", "role": "the quote block: 1px sunken border; nesting flattens past three" },
+    { "name": "rs-quote__source", "role": "silver header strip: Originally posted by …" },
+    { "name": "rs-quote__body", "role": "the quoted text itself" },
+    { "name": "rs-quote__sig", "role": "signature divider: the -- line, then up to three muted lines" }
+  ],
+  "a11y": "Put the quoted text in a real <blockquote>; the source strip sits outside it, so attribution never reads as quotation. Signatures stay under three lines, RFC 1855 manners, kept by CSS.",
+  "assets": [],
+  "tags": ["typography", "forum", "quote"]
+}

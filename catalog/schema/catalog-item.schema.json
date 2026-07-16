@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://retrostrap.dev/catalog-item.schema.json",
+  "title": "retrostrap catalog item",
+  "description": "One component, widget, or theme. The catalog is the source of truth: docs pages, manifest.json, llms.txt and test pages are all generated from these files plus their snippet (catalog/snippets/<id>.html).",
+  "type": "object",
+  "required": ["id", "kind", "label", "summary", "era", "since", "stability", "requiresJs", "classes", "a11y", "assets", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Matches the file name and the snippet name."
+    },
+    "kind": { "enum": ["component", "widget", "theme"] },
+    "label": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "era": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The 1996-2003 artifact this descends from. No era reference, no entry."
+    },
+    "since": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "stability": { "enum": ["stable", "experimental"] },
+    "requiresJs": { "type": "boolean" },
+    "jsEnhancer": {
+      "type": ["string", "null"],
+      "description": "Name of the optional JS enhancer, if one exists."
+    },
+    "classes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "role"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "pattern": "^rsx?-[a-z0-9_-]+$" },
+          "role": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "a11y": { "type": "string", "minLength": 1 },
+    "assets": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+
+    "motion": {
+      "enum": ["decorative", "informative"],
+      "description": "Widgets only: how the widget behaves under prefers-reduced-motion."
+    },
+    "pointer": {
+      "enum": ["fine", "any"],
+      "description": "Widgets only: fine-pointer widgets no-op on touch."
+    },
+    "options": {
+      "type": "array",
+      "description": "Widgets only: the data-rs-<id>-<name> options.",
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "values": { "type": "array", "items": { "type": "string" } },
+          "default": {},
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "description": "Widgets only: rs:* events the widget emits.",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fortune",
+  "kind": "widget",
+  "label": "Fortune floppy",
+  "summary": "Shows an old-web fortune; click for another.",
+  "era": "The fortune cookie of the command line, pinned to a homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-fortune__quote", "role": "the current fortune line, added by the widget" }
+  ],
+  "options": [
+    { "name": "list", "type": "json-array", "note": "custom fortunes via an inline application/json block, not a data attribute" }
+  ],
+  "events": ["rs:fortune:next"],
+  "a11y": "Plain text and a real button. The pick is seeded off the clock, so no Math.random.",
+  "assets": [],
+  "tags": ["informative", "toybox"]
+}

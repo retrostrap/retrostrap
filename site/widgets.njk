@@ -1,0 +1,89 @@
+---
+layout: base.njk
+title: Widgets
+wide: true
+description: "The Toybox: retrostrap's optional decoration and utility widgets, a pixel cat, snow, cursor trails, counters and more, each with its options."
+---
+<h1>The Toybox</h1>
+
+<p>Widgets are the decorations and toys, the cat, the snow, the counters. They are
+JavaScript, individually loadable, and strictly optional: a retrostrap page with zero
+widgets is still a retrostrap page. Load the core script and the toybox, then declare
+what you want on any element:</p>
+
+<div class="rs-dos">
+<span class="rs-dos__title">index.html</span>
+<pre>&lt;script defer src="{{ manifest.cdn.js }}"&gt;&lt;/script&gt;
+&lt;script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap-toybox.min.js"&gt;&lt;/script&gt;
+
+&lt;body data-rs-widgets="snowfall neko"
+      data-rs-neko-behavior="patrol" data-rs-neko-target="#masthead"&gt;</pre>
+</div>
+
+<p>Every widget honors the ten-point Toybox contract: budgeted, pausable when the tab is
+hidden, invisible to assistive tech, and silent under <code>prefers-reduced-motion</code>
+if it's decorative. There are no live specimens on this page, a page full of snow and
+cats would bury the documentation. Load the toybox and try them on a page of your own.</p>
+
+<div class="rs-layout rs-layout--sidebar-left">
+  <div class="rs-layout__main">
+    {%- for w in manifest.widgets %}
+    <hr class="rs-hr rs-hr--rainbow">
+    <section id="{{ w.id }}">
+      <h2><code>{{ w.id }}</code>: {{ w.label }}</h2>
+      <p><em>{{ w.era }}</em></p>
+      <p>{{ w.summary }}</p>
+
+      <p class="rs-font-1">
+        <span class="rs-badge rs-badge--cool">{{ w.motion }}</span>
+        {%- if w.pointer == "fine" %} <span class="rs-badge rs-badge--hot">pointer only</span>{% endif %}
+      </p>
+
+      {%- if w.options and w.options.length %}
+      <div class="rs-table-scroll">
+        <table class="rs-table rs-table--data rs-table--striped">
+          <caption>Options: <code>data-rs-{{ w.id }}-&lt;name&gt;</code></caption>
+          <thead>
+            <tr><th scope="col">Option</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            {%- for o in w.options %}
+            <tr>
+              <th scope="row"><code>{{ o.name }}</code></th>
+              <td>{% if o.values %}{{ o.values | join(" · ") }}{% else %}{{ o.type }}{% endif %}</td>
+              <td>{% if o.default !== undefined %}<code>{{ o.default }}</code>{% else %}-{% endif %}</td>
+              <td class="rs-font-1">{{ o.note }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
+      {%- endif %}
+
+      {%- if w.events and w.events.length %}
+      <p class="rs-font-1"><strong>Events:</strong> {% for e in w.events %}<code>{{ e }}</code>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- endif %}
+
+      <p class="rs-font-1"><strong>Accessibility:</strong> {{ w.a11y }}</p>
+
+      {%- if w.snippet %}
+      <div class="rs-dos">
+        <span class="rs-dos__title">example</span>
+        <pre>{{ w.snippet | escape }}</pre>
+      </div>
+      {%- endif %}
+
+      <p><a href="#top">↑ top</a></p>
+    </section>
+    {%- endfor %}
+  </div>
+
+  <nav class="rs-layout__nav rs-sidenav" aria-label="Widgets">
+    <span class="rs-sidenav__section">The Toybox</span>
+    <ul class="rs-list rs-list--paws">
+      {%- for w in manifest.widgets %}
+      <li><a href="#{{ w.id }}">{{ w.id }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</div>

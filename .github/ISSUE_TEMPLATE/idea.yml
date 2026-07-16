@@ -1,0 +1,34 @@
+name: Idea (component, widget, or theme)
+description: Propose something new for the ideas backlog
+title: "[idea] "
+labels: [triage]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of thing?
+      options: ["component (CSS)", "widget (JS)", "theme", "pattern / background", "other"]
+    validations: { required: true }
+  - type: textarea
+    id: era-reference
+    attributes:
+      label: Era reference (required)
+      description: >-
+        Link or describe the 1996-2003 artifact that inspires this, an Archive
+        capture, screenshot, or vivid memory. No era reference, no backlog entry.
+    validations: { required: true }
+  - type: textarea
+    id: pitch
+    attributes:
+      label: The pitch
+      description: What is it, who uses it, what does it look like?
+    validations: { required: true }
+  - type: checkboxes
+    id: laws
+    attributes:
+      label: Laws check
+      options:
+        - label: Fits the Palette Law (216 web-safe + named colors)
+        - label: Radius 0 everywhere (Shape Law)
+        - label: Motion is linear/steps and respects reduced motion (Motion Law)
+        - label: No autoplay, no tracking, no external calls (Decency Law)

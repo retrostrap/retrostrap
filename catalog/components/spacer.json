@@ -1,0 +1,22 @@
+{
+  "id": "spacer",
+  "kind": "component",
+  "label": "Spacer",
+  "summary": "A vertical spacer block on the spacing scale.",
+  "era": "The 1×1 transparent spacer.gif, stretched into invisible struts. It held the old web together.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-spacer", "role": "block spacer, default 8px" },
+    { "name": "rs-spacer--1", "role": "2px" },
+    { "name": "rs-spacer--2", "role": "4px" },
+    { "name": "rs-spacer--3", "role": "8px" },
+    { "name": "rs-spacer--4", "role": "16px" },
+    { "name": "rs-spacer--5", "role": "32px" }
+  ],
+  "a11y": "Decorative: mark it aria-hidden, as the snippet does.",
+  "assets": [],
+  "tags": ["layout", "spacing"]
+}

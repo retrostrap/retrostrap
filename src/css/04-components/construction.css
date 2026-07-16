@@ -1,0 +1,37 @@
+/* rs-construction - the permanently temporary under-construction sign, the
+   single most honest element the old web produced (docs/01 §3). Pure CSS: a
+   yellow board between two diagonal caution bars, all legal colors. */
+
+.rs-construction {
+  display: block;
+  background: #FFCC00;
+  color: #000000;
+  border-inline: 2px solid #000000;
+  font: bold var(--rs-font-size-3)/1.4 var(--rs-font-narrow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: var(--rs-space-3);
+  margin-block: var(--rs-space-3);
+}
+
+/* the caution stripes, top and bottom */
+.rs-construction::before,
+.rs-construction::after {
+  content: "";
+  display: block;
+  block-size: 12px;
+  background: repeating-linear-gradient(45deg, #FFCC00 0 10px, #000000 10px 20px);
+}
+.rs-construction::before { margin: calc(-1 * var(--rs-space-3)) calc(-1 * var(--rs-space-3)) var(--rs-space-3); }
+.rs-construction::after  { margin: var(--rs-space-3) calc(-1 * var(--rs-space-3)) calc(-1 * var(--rs-space-3)); }
+
+/* just the barrier bar, no text board */
+.rs-construction--bar {
+  padding: 0;
+  border: 0;
+  block-size: 16px;
+  background: repeating-linear-gradient(45deg, #FFCC00 0 12px, #000000 12px 24px);
+}
+.rs-construction--bar::before,
+.rs-construction--bar::after { content: none; }

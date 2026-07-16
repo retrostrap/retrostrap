@@ -1,0 +1,12 @@
+/* rs-gradient-text - two-stop headline gradients, the WordArt food groups. */
+
+.rs-gradient-text {
+  background: linear-gradient(90deg, #FF0000, #FFFF00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rs-gradient-text--fire  { background-image: linear-gradient(90deg, #FF0000, #FF9900); }
+.rs-gradient-text--ice   { background-image: linear-gradient(90deg, #00FFFF, #3366FF); }
+.rs-gradient-text--toxic { background-image: linear-gradient(90deg, #00FF00, #008080); }

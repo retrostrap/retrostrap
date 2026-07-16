@@ -1,0 +1,27 @@
+{
+  "id": "snowfall",
+  "kind": "widget",
+  "label": "Snowfall",
+  "summary": "Falling snow (or hearts, or confetti) on a canvas.",
+  "era": "The JavaScript snow script every winter homepage installed in December.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "decorative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-snowfall", "role": "the canvas overlay the widget creates" }
+  ],
+  "options": [
+    { "name": "density", "type": "enum", "values": ["light", "normal", "blizzard"], "default": "normal", "note": "or a number, capped at 100" },
+    { "name": "glyph", "type": "enum", "values": ["star", "heart", "leaf", "confetti"], "note": "default is a pixel flake" },
+    { "name": "speed", "type": "enum", "values": ["slow", "normal", "fast"], "default": "normal" },
+    { "name": "wind", "type": "number", "default": 0, "note": "-2 to 2" },
+    { "name": "melt", "type": "bool", "default": true }
+  ],
+  "events": [],
+  "a11y": "Decoration: canvas is aria-hidden, pointer-events:none. Never mounts under prefers-reduced-motion; the shared loop pauses when the tab is hidden.",
+  "assets": [],
+  "tags": ["decoration", "canvas", "seasonal", "toybox"]
+}

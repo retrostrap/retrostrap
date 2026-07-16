@@ -1,0 +1,29 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+# the test job only reads the repo; don't hand it a write-scoped token
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with: { node-version: lts/*, cache: npm }
+      # npm install, not `npm ci`: this lock is generated on macOS and can't record a
+      # Linux-only transitive dep the runner needs. Regenerate the lock on Linux and switch
+      # back to strict `npm ci` when the public repo takes over publishing.
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - run: npm run check:pack       # tarball shape + the version in src/js/index.js matches package.json
+      - run: npm run catalog          # the catalog matches the CSS
+      - run: npm run contrast         # every theme passes WCAG AA
+      - run: npm test                 # vitest: the laws, options, palette
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:smoke       # playwright: demos, behaviors, axe
+      - run: npm run audit            # Retrostrap.audit() over every demo page
+      - run: npm run check:size       # gzip budgets, fails loud
+      - run: npm run check:fonts      # Font Law: sizes come from the seven-step scale

@@ -1,0 +1,18 @@
+{
+  "id": "toolbar",
+  "kind": "component",
+  "label": "Toolbar",
+  "summary": "A raised strip of buttons with groove separators that wraps instead of hiding.",
+  "era": "The Back, Forward, Stop and Reload strip of every 1998 browser window, grooves between the button families.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-toolbar", "role": "the raised strip; wraps, never collapses into an overflow menu" },
+    { "name": "rs-toolbar__sep", "role": "groove separator between button groups" }
+  ],
+  "a11y": "Buttons stay real buttons in the tab order; mark each separator aria-hidden, it is furniture. Overflow wraps to a second row, so nothing ever hides behind a menu.",
+  "assets": [],
+  "tags": ["toolbar", "buttons", "chrome"]
+}

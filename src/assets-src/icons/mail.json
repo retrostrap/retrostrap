@@ -1,0 +1,24 @@
+{
+  "id": "icon-mail",
+  "size": [16, 16],
+  "palette": { ".": null, "k": "#000000", "w": "#FFFFFF", "s": "#C0C0C0" },
+  "frames": [[
+    "................",
+    "................",
+    ".kkkkkkkkkkkkkk.",
+    ".kwwwwwwwwwwwwk.",
+    ".kwkwwwwwwwwkwk.",
+    ".kwwkwwwwwwkwwk.",
+    ".kwwwkwwwwkwwwk.",
+    ".kwwwwkwwkwwwwk.",
+    ".kwwwwwkkwwwwwk.",
+    ".kwwwwwwwwwwwwk.",
+    ".kwwwwwwwwwwwwk.",
+    ".kwwwwwwwwwwwwk.",
+    ".kkkkkkkkkkkkkk.",
+    "................",
+    "................",
+    "................"
+  ]],
+  "fps": 0
+}

@@ -1,0 +1,15 @@
+{
+  "id": "phosphor",
+  "kind": "theme",
+  "label": "Phosphor",
+  "summary": "Green terminal on black: Courier, scanlines welcome, rs-dos blends in.",
+  "era": "A VT220 you can browse, textfiles, zines, and hacker cool.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "Green on black clears WCAG AA on every body pair; the contrast gate keeps it that way. Pair with rs-crt only; the flicker variant stays off.",
+  "assets": [],
+  "tags": ["theme"]
+}

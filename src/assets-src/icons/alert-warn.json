@@ -1,0 +1,24 @@
+{
+  "id": "alert-warn",
+  "size": [16, 16],
+  "palette": { ".": null, "k": "#000000", "y": "#FFCC00" },
+  "frames": [[
+    "................",
+    ".......kk.......",
+    "......kkkk......",
+    "......kyyk......",
+    ".....kyyyyk.....",
+    ".....kyyyyk.....",
+    "....kyykkyyk....",
+    "....kyykkyyk....",
+    "...kyyykkyyyk...",
+    "...kyyykkyyyk...",
+    "..kyyyykkyyyyk..",
+    "..kyyyyyyyyyyk..",
+    ".kyyyyykkyyyyyk.",
+    ".kyyyyyyyyyyyyk.",
+    "kkkkkkkkkkkkkkkk",
+    "................"
+  ]],
+  "fps": 0
+}

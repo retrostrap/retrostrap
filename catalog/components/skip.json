@@ -1,0 +1,17 @@
+{
+  "id": "skip",
+  "kind": "component",
+  "label": "Skip link",
+  "summary": "A skip-to-content link, visually hidden until focused, first in the tab order.",
+  "era": "\"Skip intro\", the most-clicked link of the splash-screen era, repurposed to jump keyboards straight to the content.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-skip", "role": "visually hidden until focused, then a bevel chip at the top left" }
+  ],
+  "a11y": "The first focusable element in <body>, pointing at #main; on focus it appears as a proper 3D button. Every page ships one.",
+  "assets": [],
+  "tags": ["navigation", "a11y", "focus"]
+}

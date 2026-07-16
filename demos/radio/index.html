@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="y2k">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basement FM ~ net radio from a bedroom in the suburbs</title>
+<meta name="description" content="Basement FM: net radio streaming 24/7 from a bedroom floor. Now playing, today's DJ lineup, the request line, and how to tune in. Hosted by DJ Dial-Up.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/y2k.css">
+</head>
+<body data-rs-widgets="crt konami">
+
+<a class="rs-skip" href="#main">Skip to the broadcast &rarr;</a>
+
+<dialog class="rs-splash" aria-label="Tune in to Basement FM" hidden
+        data-rs-splash-remember="1">
+  <p class="rs-font-7 rs-gradient-text rs-gradient-text--ice">BASEMENT FM</p>
+  <p class="rs-font-3">net radio from a bedroom ~ streaming since Y2K</p>
+  <button class="rs-btn rs-btn--large rs-splash__enter" autofocus>[ TUNE IN ]</button>
+  <p class="rs-font-1">(no autoplay, no pop-ups, no ads, you press play when you are ready)</p>
+</dialog>
+
+<div class="rs-page rs-container rs-container--wide">
+
+  <div class="rs-frames">
+
+    <nav class="rs-frames__side rs-sidenav" aria-label="Station navigation">
+      <span class="rs-sidenav__section">~ Basement FM ~</span>
+      <ul>
+        <li><a href="index.html" aria-current="page">on air now</a></li>
+        <li><a href="#lineup">today's lineup</a></li>
+        <li><a href="#request">the request line</a></li>
+        <li><a href="#recent">last played</a></li>
+        <li><a href="#tunein">how to tune in</a></li>
+        <li><a href="#booth">the booth</a></li>
+        <li><a href="#ring">radio webring</a></li>
+      </ul>
+
+      <span class="rs-sidenav__section">~ Status ~</span>
+      <p class="rs-badge-wall">
+        <span class="rs-blinkie rs-blinkie--hot rs-blink">ON AIR</span>
+        <span class="rs-blinkie rs-blinkie--cool">128 KBPS</span>
+        <span class="rs-blinkie rs-blinkie--candy">24 / 7</span>
+      </p>
+
+      <span class="rs-sidenav__section">~ Tune in ~</span>
+      <div class="rs-badge-wall">
+        <a class="rs-button88" href="#tunein">.PLS PLAYLIST</a>
+        <a class="rs-button88" href="#tunein">.M3U STREAM</a>
+        <a class="rs-button88" href="#request">DEDICATE A SONG</a>
+      </div>
+    </nav>
+
+    <main class="rs-frames__main" id="main">
+
+      <header>
+        <h1 class="rs-rainbow rs-font-7">BASEMENT FM</h1>
+        <p class="rs-font-3">net radio, broadcasting live from a bedroom floor somewhere in
+        the suburbs. No ads, no schedule you can fully trust, and no DJ over the age of
+        nineteen. Press play and stay a while. ~ DJ Dial-Up, station of one</p>
+        <p class="rs-center rs-font-2">~ * ~ * ~ 88.8 on your imaginary dial ~ * ~ * ~</p>
+      </header>
+
+      <nav class="rs-breadcrumbs" aria-label="You are here">
+        <ol>
+          <li><a href="index.html">Basement FM</a></li>
+          <li aria-current="page">On air now</li>
+        </ol>
+      </nav>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">Now playing <span class="rs-badge rs-badge--hot rs-blink">LIVE</span></h2>
+        <div class="rs-marquee" id="np-marquee" data-rs-marquee-speed="normal">
+          <span class="rs-marquee__content">
+            &#9834; NOW PLAYING, "Dial Tone Symphony" by The Handshake Modems
+            &nbsp;&#9834;&nbsp; up next, "Teal Screensaver Waltz" by Bouncing DVD Logo
+            &nbsp;&#9834;&nbsp; the request line is open all night &nbsp;&#9834;&nbsp;
+            you are listener number forty-eight thousand and something &nbsp;&#9834;
+          </span>
+        </div>
+        <p class="rs-font-2">The booth is live. Whatever is spinning in the deck below is
+        what is going out over the stream this very second, give or take one
+        buffering hiccup and a cough into the mic.</p>
+        <div class="rs-statusbar">
+          <span>On air</span>
+          <span>128 kbps stereo</span>
+          <span>Best heard loud</span>
+        </div>
+      </section>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">&#9834; The Basement FM deck</h2>
+        <p class="rs-font-2">Here is tonight's rotation, loaded into the player. Nothing
+        plays until you press <strong>&#9654;</strong>, we would never blast audio at
+        a stranger who just walked in. Click any title to cue it up.</p>
+        <div data-rs-widgets="jukebox">
+          <script type="application/json">
+          {"album":"Basement FM, tonight's rotation","tracks":[
+            {"title":"Dial Tone Symphony, The Handshake Modems"},
+            {"title":"Teal Screensaver Waltz, Bouncing DVD Logo"},
+            {"title":"Cassette Deck Lullaby, Tape Hiss"},
+            {"title":"56k Forever, The Buffering"},
+            {"title":"Basement Window Blues, Fluorescent Hum"},
+            {"title":"Autoexec Dreams, Config Sys"},
+            {"title":"Last Song of the Night, DJ Dial-Up"}
+          ]}
+          </script>
+        </div>
+        <script>
+        // Tonight's rotation is synthesized in the booth: a phone-line-grade
+        // 8kHz square-wave tracker, one number string per song (semitones up
+        // from A3, "-" holds, "." rests). No MP3s to host, nothing fetched,
+        // and view-source is the liner notes.
+        (function () {
+          const RATE = 8000;
+          const wavUrl = (s) => {
+            const b = new Uint8Array(44 + s.length), v = new DataView(b.buffer);
+            const tag = (o, t) => { for (let i = 0; i < t.length; i++) b[o + i] = t.charCodeAt(i); };
+            tag(0, 'RIFF'); v.setUint32(4, 36 + s.length, true); tag(8, 'WAVEfmt ');
+            v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+            v.setUint32(24, RATE, true); v.setUint32(28, RATE, true);
+            v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+            tag(36, 'data'); v.setUint32(40, s.length, true); b.set(s, 44);
+            return URL.createObjectURL(new Blob([b], { type: 'audio/wav' }));
+          };
+          const song = (tune, bpm, passes) => {
+            const steps = tune.trim().split(/\s+/);
+            const step = Math.round(RATE * 30 / bpm); // an eighth note
+            const s = new Uint8Array(steps.length * step * passes);
+            let pos = 0, semi = null;
+            for (let p = 0; p < passes; p++) for (const n of steps) {
+              if (n !== '-') semi = n === '.' ? null : Number(n);
+              for (let i = 0; i < step; i++, pos++) {
+                if (semi === null) { s[pos] = 128; continue; }
+                const f = 220 * Math.pow(2, semi / 12), t = pos / RATE;
+                const amp = Math.min(1, i / 40, (step - i) / 120); // soften the note edges
+                s[pos] = 128 + Math.round((((t * f) % 1 < 0.5 ? 22 : -22) +
+                  ((t * f / 2) % 1 < 0.5 ? 9 : -9)) * amp); // lead over a sub-octave
+              }
+            }
+            return wavUrl(s);
+          };
+          // in playlist order; the waltz really is in three, count it out
+          const rotation = [
+            song('0 - 5 - 0 - 5 - 3 - 7 - 5 - - - . . 0 - 5 - 0 - 5 - 10 - 7 - 5 - 3 - - - . .', 132, 3),
+            song('12 - 7 - 5 - 7 - 3 - 5 - 3 - 0 - . - 0 - 12 - 7 - 5 - 7 - 15 - 12 - 10 - - - - -', 138, 3),
+            song('7 - - - 5 - - - 3 - 5 - 0 - - - . - 3 - 5 - 7 - - - 5 - 3 - 0 - - - - - . .', 92, 2),
+            song('0 5 7 12 7 5 0 5 7 12 15 12 7 5 3 5 0 5 7 12 7 5 0 5 10 12 15 12 10 7 5 3', 168, 5),
+            song('0 - 3 - 5 - 6 - 5 - 3 - 0 - - - . - 0 - 3 - 5 - 6 - 7 - - - 5 - 3 - 0 - - -', 108, 3),
+            song('0 - 3 5 7 - 10 12 10 - 7 5 3 - 0 - 5 - 7 10 12 - 15 17 15 - 12 10 7 - 5 -', 152, 4),
+            song('12 - - - 10 - - - 7 - - - 5 - 7 - 3 - - - 5 - - - 0 - - - - - - - . . . .', 80, 2),
+          ];
+          const holder = document.querySelector('[data-rs-widgets="jukebox"] script[type="application/json"]');
+          const cfg = JSON.parse(holder.textContent);
+          cfg.tracks.forEach((t, i) => { t.src = rotation[i]; });
+          holder.textContent = JSON.stringify(cfg);
+        })();
+        </script>
+        <noscript>
+          <p class="rs-alert rs-alert--info">The deck needs JavaScript. Tonight's rotation,
+          for the curious: Dial Tone Symphony, Teal Screensaver Waltz, Cassette Deck Lullaby,
+          56k Forever, Basement Window Blues, Autoexec Dreams, and Last Song of the Night.</p>
+        </noscript>
+      </section>
+
+      <hr class="rs-hr rs-hr--rainbow">
+
+      <section id="lineup">
+        <h2>Today's lineup</h2>
+        <p>The clock on the wall is a novelty item, so times are approximate. Slots
+        run on basement standard time.</p>
+        <table class="rs-table rs-table--striped rs-table--data">
+          <caption>Basement FM broadcast schedule, Thursday</caption>
+          <thead>
+            <tr>
+              <th scope="col">Slot</th>
+              <th scope="col">Show</th>
+              <th scope="col">On the decks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">6-9 AM</th><td>Modem Sunrise</td><td>DJ Dial-Up</td></tr>
+            <tr><th scope="row">9-12 PM</th><td>Desktop Wallpaper</td><td>DJ Teal</td></tr>
+            <tr><th scope="row">12-3 PM</th><td>Lunch Tray Lo-Fi</td><td>DJ Floppy</td></tr>
+            <tr><th scope="row">3-6 PM</th><td>After-School Static</td><td>Selector Static</td></tr>
+            <tr><th scope="row">6-9 PM</th><td>The Dinner Rush</td><td>MC Ctrl-Alt</td></tr>
+            <tr><th scope="row">9 PM-1 AM</th><td>Basement After Dark</td><td>DJ Dial-Up</td></tr>
+            <tr><th scope="row">1-6 AM</th><td>The Night Sysop (unattended)</td><td>a very long tape</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="rs-panel" id="request">
+        <h2 class="rs-panel__title" id="request-title">The request line</h2>
+        <p class="rs-font-2">Want to hear something? Dedicate a track to a friend, a crush,
+        or your own future self? Fill this out and it prints to the little receipt printer
+        by the mic. I read the good ones between songs.</p>
+        <form aria-labelledby="request-title" id="request-form">
+          <div class="rs-form-table">
+            <label for="req-handle">Your handle:</label>
+            <input class="rs-input" id="req-handle" name="handle" type="text" autocomplete="off">
+
+            <label for="req-city">Tuning in from:</label>
+            <input class="rs-input" id="req-city" name="city" type="text" autocomplete="off">
+
+            <label for="req-song">Song you want:</label>
+            <input class="rs-input" id="req-song" name="song" type="text" autocomplete="off">
+
+            <label for="req-slot">For which show:</label>
+            <select class="rs-select" id="req-slot" name="slot">
+              <option>Basement After Dark</option>
+              <option>Modem Sunrise</option>
+              <option>After-School Static</option>
+              <option>The Dinner Rush</option>
+              <option>whenever, I am patient</option>
+            </select>
+
+            <label for="req-msg">Your dedication:</label>
+            <textarea class="rs-textarea" id="req-msg" name="msg" rows="4" cols="40"></textarea>
+          </div>
+
+          <fieldset class="rs-fieldset">
+            <legend>How are you listening?</legend>
+            <p>
+              <input class="rs-radio" type="radio" name="how" id="how-phones" value="phones" checked>
+              <label for="how-phones">Headphones, obviously</label>
+            </p>
+            <p>
+              <input class="rs-radio" type="radio" name="how" id="how-speakers" value="speakers">
+              <label for="how-speakers">Speakers, parents permitting</label>
+            </p>
+            <p>
+              <input class="rs-radio" type="radio" name="how" id="how-tape" value="tape">
+              <label for="how-tape">Taping it to a cassette (say hi to the future)</label>
+            </p>
+          </fieldset>
+
+          <p>
+            <input class="rs-checkbox" type="checkbox" id="req-onair" name="onair" checked>
+            <label for="req-onair">Read my dedication on the air</label>
+          </p>
+
+          <p><button class="rs-btn rs-btn--primary" type="submit">Send it to the booth</button></p>
+        </form>
+        <p class="rs-alert rs-alert--warn">Heads up: this is a demo booth, so the receipt
+        printer is imaginary and nothing you type leaves your machine.</p>
+        <div id="request-receipt" role="status"></div>
+      </section>
+
+      <section id="recent">
+        <h2>Last played</h2>
+        <p>Missed something and need to know what it was? The deck remembers the last few.</p>
+        <ul class="rs-list rs-list--disks">
+          <li>"Dial Tone Symphony", The Handshake Modems <span class="rs-font-1">(11:58 PM)</span></li>
+          <li>"Autoexec Dreams", Config Sys <span class="rs-font-1">(11:52 PM)</span></li>
+          <li>"Basement Window Blues", Fluorescent Hum <span class="rs-font-1">(11:47 PM)</span></li>
+          <li>"56k Forever", The Buffering <span class="rs-font-1">(11:41 PM)</span></li>
+          <li>"Cassette Deck Lullaby", Tape Hiss <span class="rs-font-1">(11:36 PM)</span></li>
+          <li>"Teal Screensaver Waltz", Bouncing DVD Logo <span class="rs-font-1">(11:30 PM)</span></li>
+        </ul>
+      </section>
+
+      <section class="rs-center" id="listeners">
+        <h2>Listeners tuned in</h2>
+        <p class="rs-font-3">You are listener
+          <span data-rs-widgets="hit-counter"
+                data-rs-hit-counter-mode="static"
+                data-rs-hit-counter-value="48213"
+                data-rs-hit-counter-digits="6"></span>
+        </p>
+        <p class="rs-font-1">Counted since we warmed up the transmitter for Y2K.
+        Some of them are probably the same person hitting refresh. That person is welcome here.</p>
+      </section>
+
+      <section id="tunein">
+        <h2>How to tune in</h2>
+        <p>Point any streaming MP3 player at the stream. Open your player, choose
+        <kbd class="rs-kbd">File</kbd> then <kbd class="rs-kbd">Open URL</kbd>, and paste
+        one of these. No plugins, no login, no account to make.</p>
+        <div class="rs-dos__title">C:\NETCAST&gt;</div>
+        <pre class="rs-dos">
+type basementfm.pls
+
+[playlist]
+NumberOfEntries=1
+Title1=Basement FM - 128kbps stereo
+File1=http://stream.basementfm.example:8000/listen.pls
+
+  backup mount ...... http://stream.basementfm.example:8000/listen.m3u
+  status ............ ON AIR
+  bitrate ........... 128 kbps
+  now buffering ..... this is normal, breathe
+
+1 file(s) displayed, 0 ads served
+</pre>
+        <p class="rs-font-1">That address is a prop, a fake dial for a fake station.
+        Nothing here connects to anything; it is a picture of a stream, not a stream.</p>
+      </section>
+
+      <section class="rs-panel" id="booth">
+        <h2 class="rs-panel__title">The booth</h2>
+        <p>Basement FM signed on at midnight on the first of January, 2000, mostly to prove
+        the computer would survive the date. It survived. The stream never went back off.
+        It runs off one beige tower, a sound card with delusions of grandeur, and a
+        microphone clipped to a desk lamp.</p>
+        <p>The whole operation is <strong>DJ Dial-Up</strong>, nineteen, nocturnal,
+        and firmly of the opinion that a segue is a sacred thing. Guest DJs are friends who
+        wandered downstairs. The overnight show is a tape that loops until someone trips
+        over the cable.</p>
+
+        <h3>Station ID</h3>
+        <p>"You're locked into Basement FM, eighty-eight point eight on your
+        imaginary dial, the only frequency broadcast entirely from below ground level.
+        Stay warm, stay tuned."</p>
+
+        <div class="rs-quote">
+          <div class="rs-quote__source">From the request line, 2:14 AM</div>
+          <blockquote class="rs-quote__body">
+            <p>i have no idea who you are but the overnight tape got me through a whole
+            history essay. please never fix the buffering, it is part of the sound now.</p>
+          </blockquote>
+        </div>
+
+        <aside class="rs-note">
+          <p><b>DJ Dial-Up's note:</b> the request printer jammed on Tuesday, so if you sent
+          a dedication and never heard it, that is why. Send it again. I am not too proud
+          to read the same one twice.</p>
+        </aside>
+      </section>
+
+      <section id="ring">
+        <h2>Fellow basements</h2>
+        <p>We hold hands with other kids broadcasting off their bedroom floors. Follow the
+        ring around and go get lost in someone else's static.</p>
+        <p>Basement FM is a proud node of the <strong>Bedroom Broadcasters</strong>
+        webring, net radio from teenagers' floors, worldwide.</p>
+        <nav class="rs-webring-bar" data-rs-widgets="webring" aria-label="Bedroom Broadcasters webring">
+          <script type="application/json">
+          { "name": "Bedroom Broadcasters",
+            "home": "https://ring.example/bedroom-broadcasters",
+            "sites": [
+              { "name": "Basement FM",      "url": "/demos/radio/index.html" },
+              { "name": "Static Garden FM", "url": "https://ring.example/static-garden" },
+              { "name": "Tin Box Radio",    "url": "https://ring.example/tin-box" },
+              { "name": "Carpet Static",    "url": "https://ring.example/carpet-static" }
+            ] }
+          </script>
+        </nav>
+      </section>
+
+      <p class="rs-statusbar" data-rs-widgets="ticker" data-rs-ticker-speed="normal"
+         data-rs-ticker-messages='["Basement FM bulletin board","Overnight tape is holding steady, do not touch the cable","New station ID recorded, it took nine takes","Requests read on the air between every third song","Sign the imaginary guestbook, it means a lot to a fake station","Best heard on headphones after everyone else is asleep"]'></p>
+
+    </main>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="2 January 2000"></p>
+    <p>That's the sound of the basement. Leave the dial where it is, the tape does
+    not stop just because you did. ~ DJ Dial-Up, signing off and immediately back on ~</p>
+    <p class="rs-footer__badges">
+      <a class="rs-button88" href="#tunein">TUNE IN 24 / 7</a>
+      <a class="rs-button88" href="#request">REQUEST A SONG</a>
+      <a class="rs-button88" href="https://retrostrap.dev">made with retrostrap</a>
+    </p>
+    <p class="rs-footer__email">Requests &amp; fan mail:
+      <a href="mailto:booth@basementfm.example">booth@basementfm.example</a></p>
+    <p class="rs-font-1">Basement FM, DJ Dial-Up, every band and every guest DJ named on this
+    page are made up. This is a tribute to a station that never broadcast, from a basement
+    that does not exist. Best heard loud, in any browser.</p>
+    <a class="rs-top" href="#main">^ back to the top ^</a>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+<script>
+  // the request line prints a receipt to the imaginary printer instead of
+  // reloading the page and eating what you typed.
+  (function () {
+    var form = document.getElementById('request-form');
+    var out = document.getElementById('request-receipt');
+    if (!form || !out) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var who = get('req-handle') || 'a shy listener';
+      var song = get('req-song') || "the DJ's choice";
+      var slot = get('req-slot') || 'whenever';
+      out.textContent = '';
+      var pre = document.createElement('pre');
+      pre.className = 'rs-dos';
+      pre.textContent = 'BASEMENT FM, booth receipt\n'
+        + '----------------------------\n'
+        + 'from : ' + who + '\n'
+        + 'song : ' + song + '\n'
+        + 'show : ' + slot + '\n'
+        + 'queued. printing... printing... jam.';
+      out.appendChild(pre);
+      form.reset();
+    });
+  })();
+
+  // keep "Now playing" honest, reflect whatever the jukebox just cued in the deck
+  document.addEventListener('rs:jukebox:track', function (e) {
+    var m = document.getElementById('np-marquee');
+    if (!m || !e.detail || !e.detail.title) return;
+    var text = '♪ NOW PLAYING, ' + e.detail.title
+      + ' ♪ the request line is open all night ♪ you are listener number forty-eight thousand and something ♪';
+    // the marquee keeps a clone for the seamless loop, update both copies
+    m.querySelectorAll('.rs-marquee__content').forEach(function (c) { c.textContent = text; });
+  });
+</script>
+</body>
+</html>

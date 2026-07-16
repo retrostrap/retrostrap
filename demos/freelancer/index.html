@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<!-- PixelForge Web Design, a made-up freelance webmaster's services page, circa 2000. Fiction, top to bottom. Best viewed at 800x600. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelForge Web Design - Dave builds websites!</title>
+<meta name="description" content="PixelForge Web Design: a one-man web shop (circa 2000). Frames, JavaScript, tables, animated GIFs and forms, packages, prices, past work, and a quote form. Made-up demo, not a real business.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<style>
+  /* Layout only, spacing and flow. Every colour, bevel, border, radius and
+     bit of motion here belongs to retrostrap; this page invents none of its own.
+     That is what keeps the five laws honest. */
+  .pf-shot { margin-block: var(--rs-space-2) var(--rs-space-3); }
+  .pf-shot .rs-window__body { min-block-size: 96px; }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to content &rarr;</a>
+
+<div class="rs-page rs-container">
+
+  <header id="top" class="rs-center">
+    <h1 class="rs-font-7">PIXELFORGE WEB DESIGN</h1>
+    <p class="rs-font-4">~ Dave builds websites! ~</p>
+    <p>Your friendly neighborhood webmaster &middot; hand-coded in a plain text editor since 1997</p>
+
+    <div class="rs-marquee" data-rs-marquee-speed="normal">
+      <span class="rs-marquee__content">
+        &#9733; NEED A WEBSITE? &#9733; I do frames, JavaScript, tables, animated GIFs and forms &#9733; homepages from $75 &#9733; most sites live in two weeks &#9733; scroll down for prices and my past work &#9733; sign the guestbook on your way out &#9733;
+      </span>
+    </div>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Sections">
+    <a href="#pitch">The pitch</a>
+    <a href="#rates">Prices</a>
+    <a href="#portfolio">My work</a>
+    <a href="#process">How it works</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#promise">Guarantee</a>
+    <a href="#quote">Get a quote</a>
+  </nav>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <main id="main">
+
+    <p class="rs-alert rs-alert--info">
+      Heads up: PixelForge, &ldquo;Dave&rdquo;, and every client, review and price below are
+      made up for this demo. Nobody here is real, but the web shop is exactly the kind
+      that built half the web in 1999.
+    </p>
+
+    <!-- ================= THE PITCH ================= -->
+    <section id="pitch" aria-labelledby="pitch-h">
+      <h2 id="pitch-h">Need a website?</h2>
+
+      <div class="rs-cols-2">
+        <div>
+          <p>Hi, I'm Dave. I build websites for people who don't want to, small shops,
+          local teams, bands, your aunt's craft business. You bring the idea; I bring the
+          HTML, the late nights, and a folder of animated GIFs bigger than it has any right
+          to be.</p>
+          <p>No agency, no account managers, no meetings about meetings. Just me, one very
+          warm computer, and a modem that finally stopped screaming. If it belongs on the
+          World Wide Web, I can put it there.</p>
+        </div>
+        <div class="rs-panel rs-panel--raised">
+          <h3 class="rs-panel__title">What I do</h3>
+          <ul class="rs-list rs-list--stars">
+            <li><strong>Frames</strong>: menu on the side, content in the middle, the works</li>
+            <li><strong>JavaScript</strong>: rollover buttons, pop-up messages, drop-down menus</li>
+            <li><strong>Tables</strong>: laid out to the pixel, the way the pros do it</li>
+            <li><strong>Animated GIFs</strong>: spinning logos, flaming text, a dancing whatever-you-like</li>
+            <li><strong>Forms</strong>: contact forms and guestbooks that land in your inbox</li>
+            <li><strong>Counters &amp; guestbooks</strong>: proof that people came, and a place to say hi</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="rs-center">
+        <span class="rs-badge rs-badge--hot rs-blink">NOW BOOKING</span>
+        two build slots open this month, <a href="#quote">grab one below</a>.
+      </p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= RATES ================= -->
+    <section id="rates" aria-labelledby="rates-h">
+      <h2 id="rates-h">Packages and prices</h2>
+      <p>Plain prices, no surprises. Each package is a one-time build cost, you own
+      the files when it's done. Hosting and the domain name are separate; I'll help you get
+      both sorted (see the note under the table).</p>
+
+      <table class="rs-table rs-table--bordered rs-table--striped">
+          <caption>PixelForge build packages: what's included and the one-time price, in dollars.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Package</th>
+              <th scope="col">What you get</th>
+              <th scope="col" class="rs-num">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Starter page</th>
+              <td>One page. Your words, your pictures, a hit counter and a mail-to-me link. Live by the weekend.</td>
+              <td class="rs-num">$75</td>
+            </tr>
+            <tr>
+              <th scope="row">The homepage</th>
+              <td>Up to five pages, a guestbook, a hit counter, and one animated title just for you.</td>
+              <td class="rs-num">$200</td>
+            </tr>
+            <tr>
+              <th scope="row">Business package</th>
+              <td>Up to ten pages, a contact form, a photo gallery, and frames if you want them.</td>
+              <td class="rs-num">$450</td>
+            </tr>
+            <tr>
+              <th scope="row">The whole works</th>
+              <td>As many pages as it takes, forms, frames, JavaScript menus, and a members-only corner.</td>
+              <td class="rs-num">$800</td>
+            </tr>
+            <tr>
+              <th scope="row">Just fix mine</th>
+              <td>You've already got a site and it needs a hand. I patch, tidy and modernise, by the hour.</td>
+              <td class="rs-num">$30/hr</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <p class="rs-note">
+        <strong>About hosting:</strong> a website needs somewhere to live. Most folks pay a
+        host around $10 a month for space and a name like <em>yourshop.example</em>. I don't
+        resell it, I just point you at a good one and upload your site for free.
+      </p>
+
+      <h3>Extras you can bolt on</h3>
+      <p>Any of these drop onto any package. Mix and match.</p>
+
+      <table class="rs-table rs-table--bordered">
+          <caption>Optional add-ons and what each one does, with its one-time price in dollars.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Add-on</th>
+              <th scope="col">What it does</th>
+              <th scope="col" class="rs-num">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Animated logo</th>
+              <td>Your name, glowing and spinning, in a GIF small enough to load before lunch.</td>
+              <td class="rs-num">$40</td>
+            </tr>
+            <tr>
+              <th scope="row">Guestbook</th>
+              <td>Visitors sign, you read and moderate. The internet's front-door mat.</td>
+              <td class="rs-num">$25</td>
+            </tr>
+            <tr>
+              <th scope="row">Hit counter</th>
+              <td>The little odometer that proves the whole world stopped by.</td>
+              <td class="rs-num">$10</td>
+            </tr>
+            <tr>
+              <th scope="row">Contact form</th>
+              <td>Name, message, send, it lands straight in your e-mail.</td>
+              <td class="rs-num">$30</td>
+            </tr>
+            <tr>
+              <th scope="row">Background music</th>
+              <td>One MIDI tune with a real play button. It never starts on its own, I insist.</td>
+              <td class="rs-num">$15</td>
+            </tr>
+            <tr>
+              <th scope="row">Webring setup</th>
+              <td>I get you into a ring of sites like yours, so surfers find you.</td>
+              <td class="rs-num">$20</td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= PORTFOLIO ================= -->
+    <section id="portfolio" aria-labelledby="portfolio-h">
+      <h2 id="portfolio-h">My past work</h2>
+      <p>A few sites I've put on the web lately. Every business here is invented for the demo,
+      but the builds are the real menu, this is the sort of thing I make. (The little
+      windows are drawn in the browser, not photographs.)</p>
+
+      <div class="rs-cols-2 pf-portfolio">
+
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Sunrise Bakery</h3>
+          <div class="rs-window pf-shot">
+            <header class="rs-window__titlebar">
+              <span class="rs-window__title">www.sunrisebakery.example</span>
+              <span class="rs-window__controls" aria-hidden="true"><span>_</span> <span>&#9633;</span> <span>&#10005;</span></span>
+            </header>
+            <div class="rs-window__body rs-center">
+              <p class="rs-font-5"><strong>SUNRISE BAKERY</strong></p>
+              <p class="rs-font-2">Home &middot; Menu &middot; Find us &middot; Order ahead</p>
+              <hr class="rs-hr rs-hr--dotted">
+              <p>Fresh bread since, well, this morning.</p>
+              <p><span class="rs-badge rs-badge--new">NEW!</span> Sourdough Fridays</p>
+            </div>
+            <footer class="rs-window__statusbar"><span>Done</span><span>5 pages</span></footer>
+          </div>
+          <p><strong>Built:</strong> a five-page site with an online menu, an order-ahead form,
+          and a hit counter Marge checks every single morning.</p>
+        </div>
+
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Northside Little League</h3>
+          <div class="rs-window pf-shot">
+            <header class="rs-window__titlebar">
+              <span class="rs-window__title">www.northsideball.example</span>
+              <span class="rs-window__controls" aria-hidden="true"><span>_</span> <span>&#9633;</span> <span>&#10005;</span></span>
+            </header>
+            <div class="rs-window__body rs-center">
+              <p class="rs-font-5"><strong>GO NORTHSIDE!</strong></p>
+              <p class="rs-font-2">Schedule &middot; Roster &middot; Photos &middot; Snack rota</p>
+              <hr class="rs-hr rs-hr--dotted">
+              <p>Next game: Saturday, 10 AM, Field 3</p>
+              <p><span class="rs-badge rs-badge--hot">HOT!</span> We made the playoffs</p>
+            </div>
+            <footer class="rs-window__statusbar"><span>Done</span><span>8 pages</span></footer>
+          </div>
+          <p><strong>Built:</strong> a game schedule that updates each week, a photo page for
+          the parents, and a roster table nobody argues with anymore.</p>
+        </div>
+
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">The Sonic Toads</h3>
+          <div class="rs-window pf-shot">
+            <header class="rs-window__titlebar">
+              <span class="rs-window__title">www.sonictoads.example</span>
+              <span class="rs-window__controls" aria-hidden="true"><span>_</span> <span>&#9633;</span> <span>&#10005;</span></span>
+            </header>
+            <div class="rs-window__body rs-center">
+              <p class="rs-font-5"><strong>THE SONIC TOADS</strong></p>
+              <p class="rs-font-2">Bio &middot; Gigs &middot; Lyrics &middot; Guestbook</p>
+              <hr class="rs-hr rs-hr--dotted">
+              <p>New demo tape: &ldquo;Basement Sessions&rdquo;</p>
+              <p><span class="rs-badge rs-badge--cool">COOL!</span> Playing the Garage, Fri 9 PM</p>
+            </div>
+            <footer class="rs-window__statusbar"><span>Done</span><span>frames</span></footer>
+          </div>
+          <p><strong>Built:</strong> a framed site with a side menu, a gig list, a lyrics
+          archive, and a guestbook that is 40% fans, 60% the drummer's cousin.</p>
+        </div>
+
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Ledger &amp; Loomis</h3>
+          <div class="rs-window pf-shot">
+            <header class="rs-window__titlebar">
+              <span class="rs-window__title">www.ledgerloomis.example</span>
+              <span class="rs-window__controls" aria-hidden="true"><span>_</span> <span>&#9633;</span> <span>&#10005;</span></span>
+            </header>
+            <div class="rs-window__body rs-center">
+              <p class="rs-font-5"><strong>LEDGER &amp; LOOMIS</strong></p>
+              <p class="rs-font-2">Services &middot; About &middot; Contact</p>
+              <hr class="rs-hr rs-hr--groove">
+              <p>Bookkeeping &amp; tax, done right.</p>
+              <p class="rs-font-2">(They asked for no animated GIFs. I obliged. Once.)</p>
+            </div>
+            <footer class="rs-window__statusbar"><span>Done</span><span>tidy</span></footer>
+          </div>
+          <p><strong>Built:</strong> a calm, serious three-pager with a contact form, no
+          blinking anything, on strict instructions. It hurt, but the site looks sharp.</p>
+        </div>
+
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Whiskers Pet-Sitting</h3>
+          <div class="rs-window pf-shot">
+            <header class="rs-window__titlebar">
+              <span class="rs-window__title">www.whiskerspets.example</span>
+              <span class="rs-window__controls" aria-hidden="true"><span>_</span> <span>&#9633;</span> <span>&#10005;</span></span>
+            </header>
+            <div class="rs-window__body rs-center">
+              <p class="rs-font-5"><strong>WHISKERS PET-SITTING</strong></p>
+              <p class="rs-font-2">Rates &middot; Gallery &middot; Book us</p>
+              <hr class="rs-hr rs-hr--dotted">
+              <p>We watch your pets while you're away!</p>
+              <p><span class="rs-badge rs-badge--new rs-blink">BOOKING SUMMER</span></p>
+            </div>
+            <footer class="rs-window__statusbar"><span>Done</span><span>form</span></footer>
+          </div>
+          <p><strong>Built:</strong> a rates page, a wall of very good dogs, and a booking form
+          that e-mails the owner the moment someone needs a cat fed.</p>
+        </div>
+
+        <div class="rs-panel">
+          <h3 class="rs-panel__title">Big Al's Bait &amp; Tackle</h3>
+          <div class="rs-window pf-shot">
+            <header class="rs-window__titlebar">
+              <span class="rs-window__title">www.bigalsbait.example</span>
+              <span class="rs-window__controls" aria-hidden="true"><span>_</span> <span>&#9633;</span> <span>&#10005;</span></span>
+            </header>
+            <div class="rs-window__body rs-center">
+              <p class="rs-font-5"><strong>BIG AL'S BAIT &amp; TACKLE</strong></p>
+              <p class="rs-font-2">Stock &middot; Map &middot; Fish of the month</p>
+              <hr class="rs-hr rs-hr--dotted">
+              <p>Live worms daily. Coffee's on.</p>
+              <p><span class="rs-badge rs-badge--updated">UPDATED!</span> The big-catch board</p>
+            </div>
+            <footer class="rs-window__statusbar"><span>Done</span><span>catalog</span></footer>
+          </div>
+          <p><strong>Built:</strong> a product list, a map to the dock, and a &ldquo;fish of the
+          month&rdquo; page Al updates himself from the shop computer. He's very proud of it.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= PROCESS ================= -->
+    <section id="process" aria-labelledby="process-h">
+      <h2 id="process-h">How it works</h2>
+      <p>Three steps, start to finish. No jargon, no runaround.</p>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">From idea to online in three steps</h3>
+        <ol>
+          <li><strong>You tell me your idea.</strong> Fill in the quote form below, or just
+          e-mail me. Tell me what your business is and what you'd like the site to do. There's
+          no charge to ask, and I answer the same day.</li>
+          <li><strong>I build a mock-up.</strong> I sketch a home page and send it over for
+          you to poke at. We go back and forth, colours, words, that animated logo,
+          until it's right. Only then do I build out the rest.</li>
+          <li><strong>I put it on the web.</strong> When you're happy, I upload the whole thing,
+          test every link and form, hand you the files, and show you how to make small edits
+          yourself. You're live, and you can find your own site on the internet. Magic.</li>
+        </ol>
+      </div>
+
+      <div class="rs-construction">
+        This page itself is always under construction, a webmaster's home is never quite finished.
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section id="testimonials" aria-labelledby="testimonials-h">
+      <h2 id="testimonials-h">What clients say</h2>
+
+      <p class="rs-alert rs-alert--warn">
+        Every review below is <strong>fictional</strong>, written for this demo, from
+        clients who don't exist. Flattering, aren't they? Real testimonials would name real,
+        consenting people; these name nobody, on purpose.
+      </p>
+
+      <div class="rs-quote">
+        <div class="rs-quote__source">&ldquo;Marge&rdquo;, Sunrise Bakery (invented)</div>
+        <blockquote class="rs-quote__body">
+          <p>Dave had our bakery on the web in a weekend. Now folks order their loaves before
+          they leave the house. The little counter says three thousand visits, three
+          thousand! For bread!</p>
+        </blockquote>
+      </div>
+
+      <div class="rs-quote">
+        <div class="rs-quote__source">&ldquo;Coach Ramirez&rdquo;, Northside Little League (invented)</div>
+        <blockquote class="rs-quote__body">
+          <p>The parents stopped calling me about the schedule. It's all on the website now.
+          Worth every dollar for that alone. Go Northside.</p>
+        </blockquote>
+      </div>
+
+      <div class="rs-quote">
+        <div class="rs-quote__source">&ldquo;The Sonic Toads&rdquo;, local band (invented)</div>
+        <blockquote class="rs-quote__body">
+          <p>Our site has frames, a guestbook, AND flaming text. We are basically famous now.
+          The label hasn't called, but it's only a matter of time.</p>
+        </blockquote>
+      </div>
+      <p class="rs-quote__sig">--<br>
+      collected, entirely imagined, and framed above the desk where the modem used to sit</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= GUARANTEE ================= -->
+    <section id="promise" aria-labelledby="promise-h">
+      <h2 id="promise-h">Turnaround and guarantee</h2>
+
+      <div class="rs-cols-2">
+        <div class="rs-panel rs-panel--raised">
+          <h3 class="rs-panel__title">How fast?</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li>A <strong>Starter page</strong> is usually live within a weekend.</li>
+            <li>Most full sites go up in <strong>about two weeks</strong>.</li>
+            <li>In a real hurry? <strong>48-hour rush</strong> jobs cost a little extra, and I'll tell you up front if I can hit it.</li>
+          </ul>
+        </div>
+        <div class="rs-panel rs-panel--raised">
+          <h3 class="rs-panel__title">The PixelForge promise</h3>
+          <p>If you don't like it, I keep tweaking until you do. Small changes in the first
+          month are on the house. I don't take the final payment until you've seen your site
+          on the real web and smiled at it.</p>
+          <p class="rs-center">
+            <span class="rs-stars" role="img" aria-label="my own rating of this deal: 5 of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="rs-note">
+        <strong>Fine print, honestly:</strong> prices assume you supply the words and pictures.
+        I can write and draw too, but that's extra, and I'll quote it before I start,
+        never after.
+      </p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <!-- ================= QUOTE FORM ================= -->
+    <section id="quote" aria-labelledby="quote-h">
+      <h2 id="quote-h">Get a quote</h2>
+      <p>Tell me about your project and I'll send back a price, usually the same day. Asking
+      costs nothing and doesn't sign you up for a thing.</p>
+
+      <p class="rs-alert rs-alert--info">
+        This form opens your own e-mail program and works even with JavaScript switched off.
+        No computer of mine is sitting on the other end listening, old-fashioned, on purpose.
+      </p>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">Quote request</h3>
+
+        <form class="rs-form-table" action="mailto:dave@pixelforge.example" method="post" enctype="text/plain">
+
+          <label for="q-name">Your name</label>
+          <input class="rs-input" id="q-name" name="name" type="text" autocomplete="name" required>
+
+          <label for="q-email">E-mail</label>
+          <input class="rs-input" id="q-email" name="email" type="email" autocomplete="email" required>
+
+          <label for="q-biz">Business or project name</label>
+          <input class="rs-input" id="q-biz" name="business" type="text" autocomplete="organization">
+
+          <label for="q-kind">What kind of site?</label>
+          <select class="rs-select" id="q-kind" name="kind">
+            <option>A personal homepage</option>
+            <option>A small business site</option>
+            <option>A band or hobby site</option>
+            <option>An online catalog</option>
+            <option>Fixing a site I already have</option>
+            <option>I'm not sure yet, help me pick</option>
+          </select>
+
+          <label for="q-pages">About how many pages?</label>
+          <input class="rs-input" id="q-pages" name="pages" type="number" min="1" max="99" inputmode="numeric" placeholder="5">
+
+          <label for="q-budget">Budget in mind</label>
+          <select class="rs-select" id="q-budget" name="budget">
+            <option>Under $100</option>
+            <option>$100 to $300</option>
+            <option>$300 to $600</option>
+            <option>$600 and up</option>
+            <option>Not sure, what does it cost?</option>
+          </select>
+
+          <fieldset class="rs-fieldset rs-form-table__full">
+            <legend>What do you need? (tick all that apply)</legend>
+            <p>
+              <input class="rs-checkbox" id="q-frames" name="needs" type="checkbox" value="frames">
+              <label for="q-frames">Frames (side menu, main window)</label>
+            </p>
+            <p>
+              <input class="rs-checkbox" id="q-guestbook" name="needs" type="checkbox" value="guestbook">
+              <label for="q-guestbook">A guestbook</label>
+            </p>
+            <p>
+              <input class="rs-checkbox" id="q-counter" name="needs" type="checkbox" value="counter">
+              <label for="q-counter">A hit counter</label>
+            </p>
+            <p>
+              <input class="rs-checkbox" id="q-form" name="needs" type="checkbox" value="form">
+              <label for="q-form">A form that e-mails me</label>
+            </p>
+            <p>
+              <input class="rs-checkbox" id="q-logo" name="needs" type="checkbox" value="logo">
+              <label for="q-logo">An animated logo</label>
+            </p>
+            <p>
+              <input class="rs-checkbox" id="q-js" name="needs" type="checkbox" value="javascript">
+              <label for="q-js">JavaScript tricks (rollovers, menus)</label>
+            </p>
+          </fieldset>
+
+          <fieldset class="rs-fieldset rs-form-table__full">
+            <legend>How soon do you need it?</legend>
+            <p>
+              <input class="rs-radio" id="q-norush" name="timing" type="radio" value="no-rush" checked>
+              <label for="q-norush">No rush, whenever it's right</label>
+            </p>
+            <p>
+              <input class="rs-radio" id="q-weeks" name="timing" type="radio" value="few-weeks">
+              <label for="q-weeks">Within a few weeks</label>
+            </p>
+            <p>
+              <input class="rs-radio" id="q-rush" name="timing" type="radio" value="rush">
+              <label for="q-rush">As soon as humanly possible</label>
+            </p>
+          </fieldset>
+
+          <div class="rs-form-table__full">
+            <label for="q-msg">Tell me about your idea</label><br>
+            <textarea class="rs-textarea" id="q-msg" name="message" rows="5">What's the site for, who's it for, and what should it do?</textarea>
+          </div>
+
+          <div class="rs-form-table__full">
+            <button class="rs-btn rs-btn--primary" type="submit">Send my quote request</button>
+            <button class="rs-btn" type="reset">Start over</button>
+          </div>
+
+        </form>
+      </div>
+
+      <p class="rs-note">
+        <strong>Prefer to just write?</strong> E-mail me at
+        <a href="mailto:dave@pixelforge.example">dave@pixelforge.example</a> and tell me what
+        you're after. If the form does nothing when you press the button, your computer has no
+        e-mail set up, so use that address instead.
+      </p>
+    </section>
+
+  </main>
+
+  <hr class="rs-hr rs-hr--stars">
+
+  <p class="rs-center">
+    <span class="rs-blinkie">HAND CODED</span>
+    <span class="rs-blinkie rs-blinkie--cool">LYNX FRIENDLY</span>
+    <span class="rs-blinkie rs-blinkie--candy">Y2K READY</span>
+    <span class="rs-blinkie rs-blinkie--hot">2 WEEK BUILDS</span>
+  </p>
+
+  <div class="rs-webring-bar">
+    <span class="rs-webring-bar__name">The Webmasters' Ring, freelance web builders</span>
+    <a href="https://ring.example/prev">&laquo; prev</a> &middot;
+    <a href="https://ring.example/random">random</a> &middot;
+    <a href="https://ring.example/">ring home</a> &middot;
+    <a href="https://ring.example/next">next &raquo;</a>
+  </div>
+
+  <div class="rs-statusbar">
+    <span>Est. 1997</span>
+    <span>2 build slots open</span>
+    <span>best viewed at 800x600</span>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p>
+      You are visitor
+      <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="008642" data-rs-hit-counter-digits="6"></span>
+      <span class="rs-counter__label">to Dave's little web shop</span>
+    </p>
+    <p class="rs-footer__updated" data-rs-widgets="last-updated"></p>
+    <div class="rs-footer__badges">
+      <a class="rs-button88" href="#top">PIXELFORGE</a>
+      <a class="rs-button88" href="#quote">HIRE ME</a>
+      <a class="rs-button88" href="https://retrostrap.dev">made with retrostrap</a>
+      <a class="rs-button88" href="#top">best viewed at 800x600</a>
+    </div>
+    <p class="rs-footer__email">Say hi: <a href="mailto:dave@pixelforge.example">dave@pixelforge.example</a></p>
+    <p class="rs-font-1">PixelForge Web Design and everyone quoted here are fictional, made up for
+    this demo, no real business, client, or person is meant. The web shop, though, is 100% 1999.</p>
+    <a class="rs-top" href="#top">^ back to top ^</a>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

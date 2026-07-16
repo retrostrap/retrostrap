@@ -1,0 +1,103 @@
+/* kawaii - the pastel shrine: bubblegum page, a tiled drift of hearts, Comic
+   Sans, hot-pink headings and scalloped panels (docs/07). Maximum 2000s
+   glitter-shrine energy, with a modern conscience underneath. */
+
+[data-rs-theme="kawaii"] {
+  --rs-bg-page: #FFCCFF;
+  --rs-tile-page: none; /* the hearts tile is applied by the body rule below */
+  --rs-bg-content: #FFFFFF;
+  --rs-text: #663366;
+  --rs-text-muted: #993366;  /* AA on the white sheet and the pink page */
+  /* canon is #FF66CC, but that reads 2.62 on the white sheet, under AA-large.
+     Deepened one web-safe step (G 66→33) to clear 3:1 and keep the candy pink. */
+  --rs-heading: #FF33CC;
+
+  --rs-link: #CC0066;
+  --rs-link-visited: #9933CC;
+  --rs-link-active: #FF3399;
+
+  /* darker link/visited for tinted surfaces (the pink page, accent panels);
+     swapped in by the surface rules below so authors never pick (docs/08). */
+  --rs-link-tinted: #990066;
+  --rs-visited-tinted: #663399;
+
+  --rs-accent: #FF99CC;
+  --rs-accent-2: #99CCFF;
+  --rs-good: #009900;
+  --rs-warn: #FF9900;
+  --rs-bad: #FF0066;
+
+  --rs-bevel-face: #FFCCFF;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #CC99CC;
+  --rs-bevel-dark: #996699;
+
+  --rs-titlebar-bg: #FF99CC;
+  --rs-titlebar-bg-2: #FFCCFF;
+  --rs-titlebar-text: #663366;
+  --rs-border-color: #CC99CC;
+
+  --rs-selection-bg: #FF99CC;
+  --rs-selection-text: #663366;
+  --rs-focus-color: #663366;
+
+  --rs-font-body: var(--rs-font-comic);
+  --rs-font-heading: var(--rs-font-comic);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* The hearts drift is applied with a DIRECT url() here, not through a custom
+   property. A relative url() inside a custom property resolves inconsistently
+   across browsers (Chromium against the core stylesheet, spec browsers against
+   this file); a direct url() in a rule always resolves against its own
+   stylesheet, so "../assets" is correct everywhere (docs/07). Links resting on
+   the pink page take the darker tinted pair. */
+[data-rs-theme="kawaii"] body:where(:not([class*="rs-tile-"])) {
+  /* the guard bows out when the author picks an rs-tile-* wallpaper */
+  background-image: url("../assets/tile-hearts.png");
+  background-repeat: repeat;
+}
+[data-rs-theme="kawaii"] body {
+  --rs-link: var(--rs-link-tinted);
+  --rs-link-visited: var(--rs-visited-tinted);
+}
+
+/* the white sheet frames the hearts and restores the canonical link pair */
+[data-rs-theme="kawaii"] .rs-page {
+  border-color: #FFFFFF #CC99CC #CC99CC #FFFFFF;
+  --rs-link: #CC0066;
+  --rs-link-visited: #9933CC;
+}
+
+/* headings wear a hard white 1px offset, zero blur, the era's sticker-outline
+   highlight. Not on gradient-filled text, where a shadow swallows the fill. */
+[data-rs-theme="kawaii"] h1:not(.rs-rainbow):not([class*="rs-gradient-text"]),
+[data-rs-theme="kawaii"] h2:not(.rs-rainbow):not([class*="rs-gradient-text"]),
+[data-rs-theme="kawaii"] h3:not(.rs-rainbow):not([class*="rs-gradient-text"]) {
+  text-shadow: 1px 1px 0 #FFFFFF;
+}
+
+/* the plain divider goes dotted pink; the dressed-up variants keep their look */
+[data-rs-theme="kawaii"] .rs-hr:not([class*="rs-hr--"]) {
+  border-block-start: 2px dotted #FF99CC;
+}
+
+/* THE showpiece: rs-panel gets a scalloped pink frame. The rounding lives
+   entirely inside the border-image (the Shape Law permits rounding via a
+   border-image asset); border-radius stays 0 and a solid pink border is the
+   lawful fallback if the image ever fails to paint. */
+[data-rs-theme="kawaii"] .rs-panel {
+  border: 6px solid #FF99CC;
+  border-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2718%27%20height%3D%2718%27%20viewBox%3D%270%200%2018%2018%27%3E%3Cpath%20fill%3D%27%23FF99CC%27%20fill-rule%3D%27evenodd%27%20d%3D%27M4%204H14V14H4Z%20M6%206H12V12H6Z%27%2F%3E%3Cg%20fill%3D%27%23FF99CC%27%3E%3Ccircle%20cx%3D%273%27%20cy%3D%274%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%279%27%20cy%3D%274%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%2715%27%20cy%3D%274%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%273%27%20cy%3D%2714%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%279%27%20cy%3D%2714%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%2715%27%20cy%3D%2714%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%274%27%20cy%3D%273%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%274%27%20cy%3D%279%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%274%27%20cy%3D%2715%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%2714%27%20cy%3D%273%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%2714%27%20cy%3D%279%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%2714%27%20cy%3D%2715%27%20r%3D%273%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") 6 / 6px round;
+}
+
+/* striped tables read pink here instead of the default grey */
+[data-rs-theme="kawaii"] .rs-table--striped tbody tr:nth-child(even) {
+  background: #FFCCFF;
+}
+
+/* white header cells so a linked row-header title still clears AA on the pink */
+[data-rs-theme="kawaii"] .rs-table th {
+  background: #FFFFFF;
+}

@@ -1,0 +1,50 @@
+/* rs-frames - frameset cosplay (docs/01 §2): side pane and main pane, each
+   its own scroll world, divided by the mandatory ridge. Real URLs and a
+   working back button, the layout idea was right all along. */
+
+.rs-frames {
+  display: grid;
+}
+
+.rs-frames__side {
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  max-height: 40vh; /* the mobile strip must never swallow the screen */
+  background: var(--rs-bg-content);
+  padding: var(--rs-space-2);
+  border-block-end: 3px ridge var(--rs-bevel-face);
+  z-index: var(--rs-z-sticky);
+}
+
+.rs-frames__main {
+  min-width: 0;
+  /* the side pane pads itself; the main pane deserves the same courtesy,
+     or its text rides the ridge divider */
+  padding: var(--rs-space-2);
+}
+
+@media (min-width: 800px) { /* svga */
+  .rs-frames { grid-template-columns: 200px 1fr; }
+
+  /* the ridge needs more air on its content side than the mobile strip does */
+  .rs-frames__main { padding-inline-start: var(--rs-space-3); }
+
+  .rs-frames__side {
+    max-height: 100vh;
+    align-self: start;
+    border-block-end: 0;
+    border-inline-end: 3px ridge var(--rs-bevel-face);
+  }
+
+  .rs-frames--right { grid-template-columns: 1fr 200px; }
+  .rs-frames--right .rs-frames__main {
+    padding-inline-start: var(--rs-space-2);
+    padding-inline-end: var(--rs-space-3);
+  }
+  .rs-frames--right .rs-frames__side {
+    order: 2;
+    border-inline-end: 0;
+    border-inline-start: 3px ridge var(--rs-bevel-face);
+  }
+}

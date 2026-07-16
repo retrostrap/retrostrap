@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!-- Neon Divide fan shrine, a love letter to every basement that never got a record deal. Best viewed at 800x600 with the lights off. -->
+<html lang="en" data-rs-theme="midnight">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Divide - the unofficial fan shrine</title>
+<meta name="description" content="An unofficial fan site for Neon Divide, the synth-rock band that broadcast from a basement between 1998 and 2003. Discography, tour dates, lyrics, and the listening booth.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/midnight.css">
+</head>
+<body data-rs-widgets="crt">
+
+<a class="rs-skip" href="#main">Skip to content</a>
+
+<div class="rs-page rs-container">
+
+  <header id="top" class="rs-center">
+    <h1 class="rs-gradient-text rs-gradient-text--ice rs-font-7">NEON DIVIDE</h1>
+    <p class="rs-font-4">~ synth-rock transmissions from a basement, 1998-2003 ~</p>
+    <div class="rs-marquee" data-rs-marquee-speed="normal">
+      <span class="rs-marquee__content">
+        &#9658;&#9658; NOW PLAYING: &ldquo;Cassette Sunrise&rdquo; &#9668;&#9668; ~ six bootlegs waiting in the listening booth ~ sign the street team book before you go ~ the band does not run this page and may not know it exists ~
+      </span>
+    </div>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Sections">
+    <a href="#booth">Listening booth</a>
+    <a href="#bio">The band</a>
+    <a href="#discography">Discography</a>
+    <a href="#tour">Tour dates</a>
+    <a href="#lyrics">Lyrics</a>
+    <a href="#streetteam">Street team</a>
+    <a href="#downloads">Downloads</a>
+  </nav>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <main id="main">
+
+    <p class="rs-alert rs-alert--info">Unofficial fan page, made by tape traders, for tape traders. The band doesn&rsquo;t run this and probably doesn&rsquo;t know it&rsquo;s here.</p>
+
+    <section id="booth" aria-labelledby="booth-h">
+      <h2 id="booth-h" class="rs-center">The listening booth</h2>
+      <p class="rs-center">Fan-taped, fan-shared. Click a title to cue it up. The loops are
+      bounced to 8-bit right here in the page; the real tapes still live in a shoebox.</p>
+
+      <div data-rs-widgets="jukebox">
+        <script type="application/json">{"tracks":[
+          {"title":"Cassette Sunrise"},
+          {"title":"Static in the Stairwell"},
+          {"title":"Neon Divide"},
+          {"title":"Answering Machine Heart"},
+          {"title":"Basement Aurora"},
+          {"title":"Modem Handshake (live)"}
+        ]}</script>
+      </div>
+      <script>
+      // Three practice-room loops, rendered right here at 8kHz and shared
+      // across six titles, the way one riff carries a whole demo tape. The
+      // number strings are semitones up from A3: "-" holds, "." rests.
+      (function () {
+        const RATE = 8000;
+        const wavUrl = (s) => {
+          const b = new Uint8Array(44 + s.length), v = new DataView(b.buffer);
+          const tag = (o, t) => { for (let i = 0; i < t.length; i++) b[o + i] = t.charCodeAt(i); };
+          tag(0, 'RIFF'); v.setUint32(4, 36 + s.length, true); tag(8, 'WAVEfmt ');
+          v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+          v.setUint32(24, RATE, true); v.setUint32(28, RATE, true);
+          v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+          tag(36, 'data'); v.setUint32(40, s.length, true); b.set(s, 44);
+          return URL.createObjectURL(new Blob([b], { type: 'audio/wav' }));
+        };
+        const loop = (tune, bpm, passes) => {
+          const steps = tune.trim().split(/\s+/);
+          const step = Math.round(RATE * 30 / bpm); // one eighth note
+          const s = new Uint8Array(steps.length * step * passes);
+          let pos = 0, semi = null;
+          for (let p = 0; p < passes; p++) for (const n of steps) {
+            if (n !== '-') semi = n === '.' ? null : Number(n);
+            for (let i = 0; i < step; i++, pos++) {
+              if (semi === null) { s[pos] = 128; continue; }
+              const f = 220 * Math.pow(2, semi / 12), t = pos / RATE;
+              const amp = Math.min(1, i / 40, (step - i) / 120); // declick the note edges
+              s[pos] = 128 + Math.round((((t * f) % 1 < 0.5 ? 22 : -22) +
+                ((t * f / 2) % 1 < 0.5 ? 9 : -9)) * amp); // lead + sub-octave
+            }
+          }
+          return wavUrl(s);
+        };
+        const loops = [
+          loop('0 - - - 3 - 5 - 7 - - - 5 - 3 - 2 - - - 3 - 2 - 0 - - - . . . .', 96, 4),
+          loop('0 0 7 - 0 0 8 - 0 0 7 - 5 - 3 - 0 0 7 - 0 0 10 - 8 - 7 - 5 - 3 -', 132, 4),
+          loop('12 - 10 - 8 - 7 - 8 - 10 - 12 - - - 7 - 5 - 3 - 5 - 7 - - - . . . .', 116, 4),
+        ];
+        const holder = document.querySelector('[data-rs-widgets="jukebox"] script[type="application/json"]');
+        const cfg = JSON.parse(holder.textContent);
+        cfg.tracks.forEach((t, i) => { t.src = loops[i % 3]; });
+        holder.textContent = JSON.stringify(cfg);
+      })();
+      </script>
+
+      <div class="rs-statusbar">
+        <span>6 tracks queued</span>
+        <span>128 kbps, as the gods intended</span>
+        <span>volume: your neighbours&rsquo; problem</span>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="bio" aria-labelledby="bio-h">
+      <h2 id="bio-h">The band</h2>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">From a basement, 1998</h3>
+        <p>Neon Divide came together in the autumn of 1998, in a basement with shag
+        carpet stapled to the walls for soundproofing and a space heater that hummed
+        in the key of A. Four kids, one borrowed synth, and a four-track that ate more
+        takes than it ever kept.</p>
+        <p>They played all-ages halls and record-shop back rooms for five years, pressed
+        three albums and an EP onto short runs of CD-Rs, and then everyone moved away. No label,
+        no video, no reunion. Just tapes, passed hand to hand, and this
+        <a href="#discography">little discography</a> we keep for them.</p>
+      </div>
+
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">Who&rsquo;s who</h3>
+        <ul class="rs-list rs-list--arrows">
+          <li><strong>Mara Vex</strong>: vocals, tape loops, and the good synth</li>
+          <li><strong>Dell Corrigan</strong>: guitar, solder smoke, backing howls</li>
+          <li><strong>Toby &ldquo;Sync&rdquo; Nakamura</strong>: drum machine and a shoebox of patch cables</li>
+          <li><strong>Nadia Okafor</strong>: bass, theremin, and driving the van</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+
+    <section id="discography" aria-labelledby="disc-h">
+      <h2 id="disc-h">Discography</h2>
+      <p>Four transmissions, none of them easy to find. Covers drawn from memory,
+      the originals were a photocopier and a lot of nerve.</p>
+
+      <div class="rs-cols-2">
+        <article class="rs-panel" aria-labelledby="lp1-h">
+          <h3 class="rs-panel__title" id="lp1-h">Cassette Sunrise <span class="rs-font-1">&middot; 1999</span></h3>
+          <p class="rs-gradient-text rs-gradient-text--fire rs-font-6 rs-center" aria-hidden="true">Cassette Sunrise</p>
+          <p>Debut LP. Eleven songs bounced to a borrowed four-track over one weekend.
+          There&rsquo;s hiss on every track and we left all of it in.</p>
+        </article>
+
+        <article class="rs-panel" aria-labelledby="lp2-h">
+          <h3 class="rs-panel__title" id="lp2-h">Static in the Stairwell <span class="rs-font-1">&middot; 2000</span></h3>
+          <p class="rs-gradient-text rs-gradient-text--ice rs-font-6 rs-center" aria-hidden="true">Static in the Stairwell</p>
+          <p>The cold one. Cut in an actual stairwell for the reverb, mixed at three in
+          the morning, released on a run of three hundred CD-Rs.</p>
+        </article>
+
+        <article class="rs-panel" aria-labelledby="lp3-h">
+          <h3 class="rs-panel__title" id="lp3-h">Answering Machine Heart <span class="rs-font-1">&middot; 2001</span></h3>
+          <p class="rs-gradient-text rs-font-6 rs-center" aria-hidden="true">Answering Machine Heart</p>
+          <p>Six songs and a hidden track. The one people actually own, and the reason
+          anyone still emails the street team.</p>
+        </article>
+
+        <article class="rs-panel" aria-labelledby="lp4-h">
+          <h3 class="rs-panel__title" id="lp4-h">Basement Aurora <span class="rs-font-1">&middot; 2003</span></h3>
+          <p class="rs-gradient-text rs-gradient-text--toxic rs-font-6 rs-center" aria-hidden="true">Basement Aurora</p>
+          <p>The last transmission before everyone scattered. Louder, sadder, and
+          somehow brighter. If you only hear one, hear this.</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="tour" aria-labelledby="tour-h">
+      <h2 id="tour-h">Tour dates</h2>
+      <table class="rs-table rs-table--striped rs-table--data">
+        <caption>Neon Divide, the Cassette Sunrise tour, spring 1999</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">City</th>
+            <th scope="col">Venue</th>
+            <th scope="col" class="rs-num">Door</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Fri 12 Mar 1999</th>
+            <td>Portland, OR</td>
+            <td>The Rec Room (all-ages)</td>
+            <td class="rs-num">$5</td>
+          </tr>
+          <tr>
+            <th scope="row">Sat 20 Mar 1999</th>
+            <td>Olympia, WA</td>
+            <td>the veterans' hall</td>
+            <td class="rs-num">$6</td>
+          </tr>
+          <tr>
+            <th scope="row">Fri 02 Apr 1999</th>
+            <td>Sacramento, CA</td>
+            <td>The Filament Room</td>
+            <td class="rs-num">$5</td>
+          </tr>
+          <tr>
+            <th scope="row">Sat 17 Apr 1999</th>
+            <td>Boise, ID</td>
+            <td>The Transistor</td>
+            <td class="rs-num">$7</td>
+          </tr>
+          <tr>
+            <th scope="row">Fri 30 Apr 1999</th>
+            <td>Denver, CO</td>
+            <td>The Snake Pit</td>
+            <td class="rs-num">$6</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="rs-note">These are the shows we taped. If you kept one, send us a copy, that&rsquo;s how half this archive got here.</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+
+    <section id="lyrics" aria-labelledby="lyr-h">
+      <h2 id="lyr-h">From the b-side</h2>
+      <div class="rs-quote">
+        <div class="rs-quote__source">from &ldquo;Answering Machine Heart&rdquo; (2001)</div>
+        <blockquote class="rs-quote__body">
+          <p>You left a message on my heart<br>
+          thirty seconds, then the dial tone.<br>
+          I played it back until the tape wore thin<br>
+          and the whole machine went neon.</p>
+        </blockquote>
+      </div>
+      <p class="rs-quote__sig">-- transcribed by ear from a fourth-generation tape; corrections welcome</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="streetteam" aria-labelledby="team-h">
+      <h2 id="team-h">Join the street team</h2>
+      <p>We can&rsquo;t pay you. We can mail you a photocopied zine, a sticker, and a tape
+      when there&rsquo;s a new one. Flyer your town, tape the shows, tell two friends.
+      That&rsquo;s the whole job.</p>
+
+      <form action="mailto:streetteam@neondivide.example" method="post">
+        <fieldset class="rs-fieldset">
+          <legend>Sign up</legend>
+          <p>
+            <label for="st-name">Name or handle:</label><br>
+            <input class="rs-input" id="st-name" name="name" type="text" autocomplete="nickname">
+          </p>
+          <p>
+            <label for="st-city">Your town:</label><br>
+            <input class="rs-input" id="st-city" name="city" type="text">
+          </p>
+          <p>
+            <label for="st-email">Email:</label><br>
+            <input class="rs-input" id="st-email" name="email" type="email" autocomplete="email">
+          </p>
+          <p>
+            <label for="st-why">Why you&rsquo;d flyer for us:</label><br>
+            <textarea class="rs-textarea" id="st-why" name="why" rows="3"></textarea>
+          </p>
+          <p>
+            <input class="rs-checkbox" id="st-shows" name="shows" type="checkbox" checked>
+            <label for="st-shows">Email me if a dub surfaces within 100 miles</label>
+          </p>
+          <p>
+            <button class="rs-btn rs-btn--primary" type="submit">Count me in</button>
+            <button class="rs-btn" type="reset">Clear the form</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+
+    <section id="downloads" aria-labelledby="dl-h">
+      <h2 id="dl-h">Grab the tracks</h2>
+      <div class="rs-panel">
+        <h3 class="rs-panel__title">MP3 archive</h3>
+        <p>Fan-encoded from the tapes at a heroic 128 kbps. Right-click, Save As.
+        Mirror it if you can, and please don&rsquo;t hotlink.</p>
+        <div class="rs-toolbar">
+          <a class="rs-btn" href="#">Cassette_Sunrise.mp3 <span class="rs-font-1">3.9 MB</span></a>
+          <a class="rs-btn" href="#">Static_in_the_Stairwell.mp3 <span class="rs-font-1">3.4 MB</span></a>
+          <span class="rs-toolbar__sep" aria-hidden="true"></span>
+          <a class="rs-btn" href="#">Answering_Machine_Heart.mp3 <span class="rs-font-1">3.1 MB</span></a>
+          <a class="rs-btn" href="#">Basement_Aurora.mp3 <span class="rs-font-1">4.2 MB</span> <span class="rs-badge rs-badge--new">NEW!</span></a>
+        </div>
+        <p class="rs-note">These buttons don&rsquo;t go anywhere, this is a shrine, not
+        a server. The real files pass hand to hand, the way they always did.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <p class="rs-center">
+    <span class="rs-blinkie rs-blinkie--cool">SYNTH UNDERGROUND</span>
+    <span class="rs-blinkie rs-blinkie--hot">TAPE TRADER</span>
+    <span class="rs-blinkie">128 KBPS 4 EVER</span>
+    <span class="rs-blinkie rs-blinkie--candy">~ BASEMENT SHOWS ~</span>
+  </p>
+
+  <div class="rs-webring-bar">
+    <span class="rs-webring-bar__name">The Synth Underground Ring</span>
+    <a href="https://ring.example/prev">&laquo; prev</a> &middot;
+    <a href="https://ring.example/random">random</a> &middot;
+    <a href="https://ring.example/">ring home</a> &middot;
+    <a href="https://ring.example/next">next &raquo;</a>
+  </div>
+
+  <footer class="rs-footer">
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="2 September 2003"></p>
+    <p>You are basement visitor <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="local"></span></p>
+    <div class="rs-footer__badges">
+      <a class="rs-button88" href="#">NEON DIVIDE ST</a>
+      <a class="rs-button88" href="#">HEARD IT ON A TAPE</a>
+      <a class="rs-button88" href="#">made with retrostrap</a>
+      <a class="rs-button88" href="#">best viewed at 800x600</a>
+    </div>
+    <p class="rs-footer__email">Tape trades &amp; corrections: <a href="mailto:webmaster@neondivide.example">webmaster@neondivide.example</a></p>
+    <p class="rs-font-1">Unofficial fan page. Neon Divide is a made-up band and this whole shrine is
+    fiction, a love letter to every basement scene that never got a record deal.</p>
+    <a class="rs-top" href="#top">^ back to top ^</a>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

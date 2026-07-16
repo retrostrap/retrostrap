@@ -1,0 +1,62 @@
+---
+layout: base.njk
+title: Themes
+loadAllThemes: true
+description: "All ten retrostrap themes, live swatches, era notes, and the install line for each."
+---
+<h1>Themes</h1>
+
+<p>A theme is a set of values for the token contract, page color, text, links,
+bevels, titlebars, type, and nothing more. Every theme is a documented dialect of
+the 1996-2003 web, not a fantasy; every body-text pair passes WCAG AA; and a theme
+<em>cannot</em> make retrostrap look modern, because the five laws sit underneath
+it. That is the point.</p>
+
+<p>Pick one per page with <code>data-rs-theme</code> on <code>&lt;html&gt;</code>.
+The swatches below are live, each little diorama is scoped to its own theme with
+that same attribute, all on one page. Press a "Wear this theme" button and the
+whole site changes outfits (we remember your choice, in your browser and nowhere
+else).</p>
+
+{%- for t in manifest.themes %}
+<hr class="rs-hr rs-hr--rainbow">
+<section id="{{ t.id }}">
+  <h2>{{ t.label }}</h2>
+  <p><em>{{ t.era }}</em></p>
+  <p>{{ t.summary }}</p>
+
+  <div class="site-swatch{% for a in t.assets %}{% if "tile-" in a %} rs-{{ a }}{% endif %}{% endfor %}" data-rs-theme="{{ t.id }}">
+    <div class="rs-page">
+      <h3>Sector 9 BBS</h3>
+      <p>Body text, set the way this theme likes it. Here is
+      <a href="#{{ t.id }}">a link you have not clicked</a>, underlined, as the
+      law requires.</p>
+      <p>
+        <button type="button" class="rs-btn">OK</button>
+        <button type="button" class="rs-btn rs-btn--primary" data-set-theme="{{ t.id }}">Wear this theme</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="rs-dos__title">C:\THEMES&gt; type {{ t.id | upper }}.HTM</div>
+  {%- if t.id == "classic" %}
+  <pre class="rs-dos">&lt;link rel="stylesheet" href="{{ manifest.cdn.css }}"&gt;
+&lt;!-- classic ships inside the core stylesheet: no theme file to load --&gt;
+&lt;html data-rs-theme="classic"&gt;</pre>
+  {%- else %}
+  <pre class="rs-dos">&lt;link rel="stylesheet" href="{{ manifest.cdn.css }}"&gt;
+&lt;link rel="stylesheet" href="{{ manifest.cdn.theme | replace("{name}", t.id) }}"&gt;
+&lt;html data-rs-theme="{{ t.id }}"&gt;</pre>
+  {%- endif %}
+
+  <p class="rs-font-1"><strong>Access for all:</strong> {{ t.a11y }}</p>
+</section>
+{%- endfor %}
+
+<hr class="rs-hr rs-hr--rainbow">
+
+<p>Switching at runtime goes through <code>Retrostrap.theme.set("midnight")</code>,
+which persists the choice (in your browser, nowhere else); the recipe is in
+<a href="/get-started/#pick-a-theme">Get started</a>. Every theme here traces to a
+documented era genre, the <a href="/museum/#7-a-field-guide-to-era-color-and-type">Museum's
+field guide</a> shows the source material.</p>

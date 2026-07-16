@@ -1,0 +1,66 @@
+/* rs-marquee - scrolling text, the tag Internet Explorer gave the world
+   (docs/01 §6). CSS does a single-track scroll; the enhancer adds the
+   seamless loop and the pause button. Under reduced motion it stops being
+   a marquee and becomes an honest, fully-wrapped sentence. */
+
+.rs-marquee {
+  display: flex;
+  position: relative; /* anchor the pause control when it reveals on focus */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rs-marquee__content {
+  flex: none;
+  min-inline-size: 100%;
+  animation: rs-marquee-scroll var(--rs-marquee-duration, 12s) linear infinite;
+}
+
+@keyframes rs-marquee-scroll {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+
+/* the enhancer's clone: parked on top of the original (an absolute child of a
+   flex box sits at the content corner) and run half a phase behind, the two
+   copies tile the loop so the wrap never happens on screen */
+.rs-marquee__content--clone {
+  position: absolute;
+  inline-size: max-content;
+  min-inline-size: 100%;
+  animation-delay: calc(var(--rs-marquee-duration, 12s) / -2);
+}
+
+/* the enhancer sets these; hover and focus pause without it */
+.rs-marquee:hover .rs-marquee__content,
+.rs-marquee:focus-within .rs-marquee__content,
+.rs-marquee[data-rs-paused] .rs-marquee__content {
+  animation-play-state: paused;
+}
+
+/* the pause button stays sr-only until a keyboard reaches it, then it appears
+   in the corner: a focused control must never be invisible (docs/08). */
+.rs-marquee__pause:focus {
+  position: absolute !important;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inline-size: auto !important;
+  block-size: auto !important;
+  margin: 0 !important;
+  padding: 0 var(--rs-space-2) !important;
+  overflow: visible !important;
+  clip-path: none !important;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-marquee {
+    overflow: visible;
+    white-space: normal;
+  }
+  .rs-marquee__content {
+    animation: none;
+    min-inline-size: 0;
+  }
+}

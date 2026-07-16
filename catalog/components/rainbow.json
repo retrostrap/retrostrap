@@ -1,0 +1,17 @@
+{
+  "id": "rainbow",
+  "kind": "component",
+  "label": "Rainbow text",
+  "summary": "Per-character rainbow text via a banded gradient, for headlines only.",
+  "era": "Rainbow headlines built one <font color> tag per letter, a whole evening in Notepad, now a single class.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-rainbow", "role": "banded per-character rainbow via background-clip; headlines only" }
+  ],
+  "a11y": "It stays plain, selectable text under the paint. Reserve it for 24px-and-up headlines, where the banded colors clear large-text contrast against the theme background.",
+  "assets": [],
+  "tags": ["typography", "color", "headline"]
+}

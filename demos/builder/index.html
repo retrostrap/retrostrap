@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>retrostrap builder</title>
+<meta name="description" content="Drag-and-drop page builder for retrostrap, compose a page, pick a theme, export clean HTML.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="builder.css">
+</head>
+<body>
+
+<a class="rs-skip" href="#bx-canvas">skip to the canvas</a>
+
+<div class="bx-app">
+
+  <header class="bx-toolbar">
+    <strong class="bx-brand">retrostrap builder</strong>
+
+    <span class="bx-group">
+      <input id="bx-name" class="rs-input" type="text" aria-label="Project name" value="untitled" size="14">
+      <button type="button" class="rs-btn rs-btn--small" id="bx-new">New</button>
+      <button type="button" class="rs-btn rs-btn--small" id="bx-save">Save</button>
+      <select id="bx-projects" class="rs-select" aria-label="Saved projects"></select>
+      <button type="button" class="rs-btn rs-btn--small" id="bx-load">Load</button>
+      <button type="button" class="rs-btn rs-btn--small" id="bx-del">Delete</button>
+    </span>
+
+    <span class="bx-group">
+      <button type="button" class="rs-btn rs-btn--small" id="bx-undo" disabled>Undo</button>
+      <button type="button" class="rs-btn rs-btn--small" id="bx-redo" disabled>Redo</button>
+    </span>
+
+    <span class="bx-group" role="group" aria-label="Preview width">
+      <button type="button" class="rs-btn rs-btn--small" data-w="375" aria-pressed="false">Phone</button>
+      <button type="button" class="rs-btn rs-btn--small" data-w="768" aria-pressed="false">Tablet</button>
+      <button type="button" class="rs-btn rs-btn--small bx-w-on" data-w="0" aria-pressed="true">Full</button>
+    </span>
+
+    <span class="bx-group bx-group--end">
+      <button type="button" class="rs-btn rs-btn--small" id="bx-page-setup">Page setup</button>
+      <button type="button" class="rs-btn rs-btn--small" id="bx-preview" aria-pressed="false">Preview</button>
+      <button type="button" class="rs-btn rs-btn--small" id="bx-import">Import…</button>
+      <button type="button" class="rs-btn rs-btn--primary" id="bx-export">Export…</button>
+    </span>
+  </header>
+
+  <aside class="bx-palette" aria-label="Components">
+    <div class="bx-palette__head">
+      <input id="bx-search" class="rs-input" type="search" placeholder="search components" aria-label="Search components">
+    </div>
+    <div id="bx-palette-list" class="bx-palette__list"></div>
+  </aside>
+
+  <main class="bx-stage" aria-label="Page canvas">
+    <div class="bx-stage__frame" id="bx-frame-wrap">
+      <iframe id="bx-canvas" title="The page you are building" src="canvas.html"></iframe>
+    </div>
+  </main>
+
+  <aside class="bx-inspector" id="bx-inspector" aria-label="Inspector"></aside>
+
+</div>
+
+<div class="bx-drawer" id="bx-drawer" role="dialog" aria-label="Export HTML" aria-modal="false" hidden>
+  <div class="bx-drawer__head">
+    <strong id="bx-drawer-title">Export</strong>
+    <span class="rs-font-1" id="bx-drawer-hint">Paste this into an <code>.html</code> file. It passes the audit.</span>
+    <button type="button" class="rs-btn rs-btn--small" id="bx-import-load" hidden>Load this HTML</button>
+    <button type="button" class="rs-btn rs-btn--small" id="bx-copy">Copy</button>
+    <button type="button" class="rs-btn rs-btn--small" id="bx-download">Download</button>
+    <button type="button" class="rs-btn rs-btn--small" id="bx-drawer-close" aria-label="Close">✕</button>
+  </div>
+  <textarea id="bx-export-out" class="rs-textarea" readonly aria-label="Exported HTML" spellcheck="false"></textarea>
+</div>
+
+<noscript>
+  <p style="padding:16px">The builder needs JavaScript. The pages it makes do not.</p>
+</noscript>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script type="module" src="builder.js"></script>
+</body>
+</html>

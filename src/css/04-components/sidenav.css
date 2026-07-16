@@ -1,0 +1,34 @@
+/* rs-sidenav - the eternal left nav: a list of links, some bullets, and
+   the visited-purple doing its sacred work. */
+
+.rs-sidenav {
+  font-size: var(--rs-font-size-2);
+}
+
+.rs-sidenav ul {
+  list-style: square;
+  margin: 0 0 var(--rs-space-2);
+  padding-inline-start: 1.4em;
+}
+
+.rs-sidenav li {
+  padding-block: 1px;
+}
+
+.rs-sidenav__section {
+  display: block;
+  font-size: var(--rs-font-size-1);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--rs-text-muted);
+  margin-block: var(--rs-space-2) var(--rs-space-1);
+}
+
+/* In the frames strip, the sidenav flows horizontally. */
+.rs-frames__side .rs-sidenav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rs-space-1) var(--rs-space-3);
+  list-style: none;
+  padding: 0;
+}

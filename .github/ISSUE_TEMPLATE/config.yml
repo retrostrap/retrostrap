@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and help → Retrostrap Talk
+    url: https://boards.retrostrap.dev/boards/talk
+    about: Ask anything, usage, themes, "how did 1999 actually do this?" Our own forum; reading needs no account.
+  - name: Everything else → The Off-Topic Lounge
+    url: https://boards.retrostrap.dev/boards/lounge
+    about: The comfy corner.
+  - name: Auf Deutsch → Der Stammtisch
+    url: https://boards.retrostrap.dev/boards/stammtisch
+    about: Der deutschsprachige Tisch. Setz dich dazu.

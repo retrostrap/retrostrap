@@ -1,0 +1,302 @@
+<!-- Starport, a hand-sorted web directory, circa 1998. Best surfed at 800x600. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starport - your launch pad to the whole web</title>
+<meta name="description" content="Starport is a hand-sorted directory of the whole web: browse eight big categories, search the net, and dock at the cool site of the day.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to content</a>
+
+<div class="rs-page rs-container rs-container--wide">
+
+  <header id="top" class="rs-center">
+    <h1 class="rs-rainbow rs-font-7">STARPORT</h1>
+    <p class="rs-font-3">your launch pad to the whole web, 40,000 sites, sorted by hand</p>
+
+    <nav class="rs-navbar" aria-label="Site">
+      <a href="#" aria-current="page">Home</a>
+      <a href="#">Directory</a>
+      <a href="#">What&rsquo;s new</a>
+      <a href="#">Downloads</a>
+      <a href="#">Chat</a>
+      <a href="#">Free email</a>
+      <a href="#">Help</a>
+    </nav>
+
+    <form role="search" aria-label="Search Starport">
+      <p>
+        <label for="q">Search the web:</label>
+        <input class="rs-input" id="q" name="q" type="text" size="28">
+        <label for="scope">in</label>
+        <select class="rs-select" id="scope" name="scope">
+          <option>the whole web</option>
+          <option>the Starport directory</option>
+          <option>news headlines</option>
+        </select>
+        <button class="rs-btn rs-btn--primary" type="submit">Go!</button>
+      </p>
+      <p class="rs-font-1">popular:
+        <a href="#">mp3</a> &middot;
+        <a href="#">free email</a> &middot;
+        <a href="#">weather</a> &middot;
+        <a href="#">web cams</a> &middot;
+        <a href="#">star charts</a> &middot;
+        <a href="#">Y2K countdown</a>
+      </p>
+    </form>
+
+    <a class="rs-banner" href="#">
+      <span class="rs-gradient-text rs-gradient-text--fire rs-font-4">Your ad here, 10,000 hits a day!</span>
+    </a>
+
+    <div class="rs-marquee" data-rs-marquee-speed="normal">
+      <span class="rs-marquee__content">
+        ~*~ what&rsquo;s hot right now ~*~ mp3 &middot; free email &middot; web cams &middot; desktop themes &middot; dial-up tips &middot; clip art &middot; star charts &middot; recipe swap ~*~ tell a friend about Starport ~*~
+      </span>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <p class="rs-statusbar" data-rs-widgets="ticker"
+       data-rs-ticker-messages='["Mars lander phones home after seven-month cruise","Browser version 4 ships as the download wars heat up","Scientists chart another stretch of the human genome","City promises downtown fibre by the new year","Weather: clear skies inland, storms along the coast","Markets close higher as the tech sector rallies"]'>Starport newswire, today&rsquo;s headlines, refreshed hourly.</p>
+
+    <p class="rs-alert rs-alert--info"><span>New this month: <a href="#">free web-based email</a> for every Starport member. Nothing to install, read your mail from any computer on Earth.</span></p>
+
+    <section aria-labelledby="dir-h">
+      <h2 id="dir-h" class="rs-center">Browse the Starport directory</h2>
+
+      <div class="rs-cols-4">
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Arts &amp; Humanities</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">Painting</a></li>
+            <li><a href="#">Photography</a></li>
+            <li><a href="#">Poetry &amp; prose</a></li>
+            <li><a href="#">Museums</a> <span class="rs-font-1">(1,204)</span></li>
+            <li><a href="#">Literature</a></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Computers &amp; Internet</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">The web</a> <span class="rs-font-1">(8,530)</span></li>
+            <li><a href="#">Software</a></li>
+            <li><a href="#">Hardware</a></li>
+            <li><a href="#">Programming</a></li>
+            <li><a href="#">Free email</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Games</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">Adventure</a></li>
+            <li><a href="#">Puzzles</a></li>
+            <li><a href="#">Cheat codes</a> <span class="rs-badge rs-badge--hot rs-blink">HOT!</span></li>
+            <li><a href="#">Board games</a></li>
+            <li><a href="#">Arcade classics</a></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Music</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">MP3 archive</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+            <li><a href="#">MIDI files</a></li>
+            <li><a href="#">Lyrics</a></li>
+            <li><a href="#">Bands A-Z</a></li>
+            <li><a href="#">Concert dates</a></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">News &amp; Media</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">Newspapers</a></li>
+            <li><a href="#">Weather</a></li>
+            <li><a href="#">TV listings</a></li>
+            <li><a href="#">Radio</a></li>
+            <li><a href="#">Magazines</a></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Recreation &amp; Sports</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Outdoors</a></li>
+            <li><a href="#">Football</a> <span class="rs-font-1">(642)</span></li>
+            <li><a href="#">Cycling</a></li>
+            <li><a href="#">Fishing</a></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Science</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">Astronomy</a> <span class="rs-font-1">(1,088)</span></li>
+            <li><a href="#">Biology</a></li>
+            <li><a href="#">Chemistry</a></li>
+            <li><a href="#">Space</a> <span class="rs-badge rs-badge--hot rs-blink">HOT!</span></li>
+            <li><a href="#">Robotics</a></li>
+          </ul>
+        </section>
+
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Society &amp; Culture</h3>
+          <ul class="rs-list rs-list--arrows">
+            <li><a href="#">People</a></li>
+            <li><a href="#">Food &amp; drink</a></li>
+            <li><a href="#">Religion</a></li>
+            <li><a href="#">Holidays</a></li>
+            <li><a href="#">Languages</a></li>
+          </ul>
+        </section>
+
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <div class="rs-cols-3">
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">Cool site of the day</h2>
+        <p><strong>The Tide Pool</strong>, a hand-drawn field guide to the seashore, with the sound of the surf and a new creature every week.</p>
+        <p><span class="rs-stars" role="img" aria-label="Rated 5 of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+        <p><a href="#">Beam me there &raquo;</a></p>
+      </section>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">Top 10 sites this week</h2>
+        <ol>
+          <li><a href="#">The Weather Almanac</a></li>
+          <li><a href="#">Postcard Central</a></li>
+          <li><a href="#">MP3 Junction</a></li>
+          <li><a href="#">The Movie Vault</a></li>
+          <li><a href="#">Ask the Professor</a></li>
+          <li><a href="#">Dial-Up Diner</a></li>
+          <li><a href="#">The GIF Foundry</a></li>
+          <li><a href="#">Star Charts Live</a></li>
+          <li><a href="#">Recipe Swap</a></li>
+          <li><a href="#">Homework Helper</a></li>
+        </ol>
+      </section>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">New sites added today</h2>
+        <ul class="rs-list rs-list--disks">
+          <li><a href="#">Cloudspotters Guide</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+          <li><a href="#">The Typewriter Museum</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+          <li><a href="#">Backyard Astronomy</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+          <li><a href="#">The Soup Pot</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+          <li><a href="#">Paper Airplane HQ</a> <span class="rs-badge rs-badge--new">NEW!</span></li>
+        </ul>
+      </section>
+
+    </div>
+
+    <hr class="rs-hr rs-hr--dotted">
+
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">Weather across the network cities</h2>
+      <table class="rs-table rs-table--striped rs-table--bordered">
+        <caption>Today&rsquo;s forecast, updated at noon.</caption>
+        <thead>
+          <tr>
+            <th scope="col">City</th>
+            <th scope="col">Sky</th>
+            <th scope="col" class="rs-num">High</th>
+            <th scope="col" class="rs-num">Low</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Harbourton</th>
+            <td>Sunny</td>
+            <td class="rs-num">78&deg;</td>
+            <td class="rs-num">61&deg;</td>
+          </tr>
+          <tr>
+            <th scope="row">Fair Vale</th>
+            <td>Cloudy</td>
+            <td class="rs-num">71&deg;</td>
+            <td class="rs-num">55&deg;</td>
+          </tr>
+          <tr>
+            <th scope="row">Lake Cedar</th>
+            <td>Showers</td>
+            <td class="rs-num">64&deg;</td>
+            <td class="rs-num">50&deg;</td>
+          </tr>
+          <tr>
+            <th scope="row">Port Mesa</th>
+            <td>Clear</td>
+            <td class="rs-num">84&deg;</td>
+            <td class="rs-num">66&deg;</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <nav class="rs-webring-bar" aria-label="Webring">
+    <p class="rs-webring-bar__name">Starport rides the Web Portals ring.</p>
+    <a href="#">&laquo; Prev</a>
+    <a href="#">Random</a>
+    <a href="#">Ring home</a>
+    <a href="#">Next &raquo;</a>
+  </nav>
+
+  <footer class="rs-footer">
+    <p class="rs-center">
+      <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="2486109" data-rs-hit-counter-digits="8"></span>
+      <span class="rs-counter__label">travellers docked at Starport since June 1997</span>
+    </p>
+
+    <p class="rs-center">
+      <span class="rs-blinkie rs-blinkie--hot">SURF THE WEB</span>
+      <span class="rs-blinkie rs-blinkie--cool">FREE EMAIL 4 LIFE</span>
+      <span class="rs-blinkie rs-blinkie--candy">~ ADD YOUR SITE ~</span>
+    </p>
+
+    <p class="rs-center">
+      <a href="#">About Starport</a> &middot;
+      <a href="#">Add your site</a> &middot;
+      <a href="#">Advertise</a> &middot;
+      <a href="#">Help</a> &middot;
+      <a href="#">Privacy</a>
+    </p>
+
+    <div class="rs-footer__badges">
+      <a class="rs-button88" href="#">MADE WITH RETROSTRAP</a>
+      <a class="rs-button88" href="#">BEST VIEWED AT 800x600</a>
+      <a class="rs-button88" href="#">VALID HTML 4.0</a>
+    </div>
+
+    <p class="rs-footer__email">Webmaster: <a href="mailto:webmaster@starport.example">webmaster@starport.example</a></p>
+
+    <p class="rs-footer__updated">Last updated: 14 December 1998. Added the weather box, retired the old chat room.</p>
+
+    <p class="rs-font-1">Best viewed at 800&times;600 in a 4.0 browser, with your monitor set to thousands of colours.</p>
+
+    <p>&copy; 1997-1998 Starport. A tidy corner of a very big web.</p>
+
+    <p><a class="rs-top" href="#top">^ Back to top ^</a></p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+name: Showcase submission
+description: Built something with retrostrap? The gallery wants it.
+title: "[showcase] "
+labels: [showcase]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL
+    validations: { required: true }
+  - type: textarea
+    id: about
+    attributes:
+      label: Tell us about it
+  - type: checkboxes
+    id: built-with
+    attributes:
+      label: Built with
+      options:
+        - label: Uses retrostrap CSS (core or a theme)
+          required: true
+        - label: Uses at least one widget
+        - label: Honors the Decency Law (no autoplay, no tracking, no external calls)
+          required: true
+        - label: Displays an 88×31 "made with retrostrap" button (we'd love that)
+  - type: input
+    id: badge
+    attributes:
+      label: Your site's own 88×31 button (optional, the gallery will display it)

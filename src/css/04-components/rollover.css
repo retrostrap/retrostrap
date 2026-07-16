@@ -1,0 +1,16 @@
+/* rs-rollover - the onmouseover swap, done in CSS (docs/04). Wrap two versions
+   of a thing in __off (shown at rest) and __on (revealed on hover or focus).
+   Works for images, text, a badge, anything. Give the wrapper its own
+   accessible name; the two halves are just paint. */
+
+.rs-rollover { display: inline-block; }
+
+.rs-rollover__on { display: none; }
+
+.rs-rollover:hover .rs-rollover__off,
+.rs-rollover:focus-visible .rs-rollover__off,
+.rs-rollover:focus-within .rs-rollover__off { display: none; }
+
+.rs-rollover:hover .rs-rollover__on,
+.rs-rollover:focus-visible .rs-rollover__on,
+.rs-rollover:focus-within .rs-rollover__on { display: revert; }

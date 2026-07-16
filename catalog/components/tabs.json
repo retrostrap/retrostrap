@@ -1,0 +1,20 @@
+{
+  "id": "tabs",
+  "kind": "component",
+  "label": "Tabs",
+  "summary": "Folder tabs over stacked panels; without the enhancer they are honest in-page links.",
+  "era": "Manila folder tabs with the active lip merged into its page, the property-sheet look, brought to the web.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "tabs",
+  "classes": [
+    { "name": "rs-tabs", "role": "the tabs wrapper" },
+    { "name": "rs-tabs__tab", "role": "one folder lip" },
+    { "name": "rs-tabs__panel", "role": "one content panel" },
+    { "name": "rs-tabs__tab--active", "role": "modifier: active lip merged into its panel" }
+  ],
+  "a11y": "Unenhanced it is honest in-page links to headed, stacked sections, the snippet shows that shape. The enhancer adds role=tablist/tab/tabpanel, aria-selected and roving tabindex.",
+  "assets": [],
+  "tags": ["navigation", "tabs", "panels"]
+}

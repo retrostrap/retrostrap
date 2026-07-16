@@ -1,0 +1,25 @@
+{
+  "id": "sparkle",
+  "kind": "widget",
+  "label": "Sparkle",
+  "summary": "Twinkles at the pointer, or ambient glitter on a zone.",
+  "era": "The glitter-graphics and sparkle-trail scene of the kawaii and shrine pages.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "decorative",
+  "pointer": "any",
+  "classes": [],
+  "options": [
+    { "name": "mode", "type": "enum", "values": ["pointer", "ambient", "both"], "default": "pointer" },
+    { "name": "trigger", "type": "enum", "values": ["move", "click"], "default": "move" },
+    { "name": "palette", "type": "enum", "values": ["gold", "ice", "rainbow", "theme"], "default": "theme" },
+    { "name": "color", "type": "color", "note": "one legal color; overrides palette" },
+    { "name": "zone", "type": "selector", "note": "ambient area; defaults to the host" }
+  ],
+  "events": [],
+  "a11y": "Decoration: aria-hidden, pointer-events:none, silent under prefers-reduced-motion.",
+  "assets": [],
+  "tags": ["decoration", "toybox"]
+}

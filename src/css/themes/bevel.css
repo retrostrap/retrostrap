@@ -1,0 +1,54 @@
+/* bevel - the system-desktop look: teal desktop, silver everything, navy
+   titlebars, Tahoma labels (docs/07). Windows 2000 as a website. */
+
+[data-rs-theme="bevel"] {
+  --rs-bg-page: #008080;
+  --rs-tile-page: none;
+  --rs-bg-content: #C0C0C0;
+  --rs-text: #000000;
+  --rs-text-muted: #333333;  /* AA on the silver content face */
+  --rs-heading: #000080;
+
+  --rs-link: #000080;
+  --rs-link-visited: #660099;
+  --rs-link-active: #FF0000;
+
+  --rs-accent: #000080;
+  --rs-accent-2: #008080;
+  --rs-good: #008000;
+  --rs-warn: #808000;
+  --rs-bad: #FF0000;
+
+  --rs-bevel-face: #C0C0C0;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #808080;
+  --rs-bevel-dark: #000000;
+
+  --rs-titlebar-bg: #000080;
+  --rs-titlebar-bg-2: #3399FF; /* the legal aqua fade; #1084D0 is off-palette */
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #808080;
+
+  --rs-selection-bg: #000080;
+  --rs-selection-text: #FFFFFF;
+  /* pin the ring to the ink itself: :root defines --rs-focus-color, so the reset's currentColor
+     fallback never fires on its own. currentColor keeps focus visible on the navy titlebar too,
+     where a fixed black managed only 1.31:1 */
+  --rs-focus-color: currentColor;
+
+  --rs-font-body: var(--rs-font-narrow);
+  --rs-font-heading: var(--rs-font-narrow);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* the content sheet is itself a raised panel on the desktop */
+[data-rs-theme="bevel"] .rs-page {
+  border-color: var(--rs-bevel-light) var(--rs-bevel-dark)
+                var(--rs-bevel-dark) var(--rs-bevel-light);
+}
+
+/* scrollbars are chrome here too, the one place we dress them (docs/07) */
+[data-rs-theme="bevel"] * {
+  scrollbar-color: #C0C0C0 #008080;
+}

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<!-- The Webmaster's Workshop, a make-believe 1999 HTML tutorial site, built entirely from retrostrap. Best viewed at 800x600 with a plain text editor open in the other window. -->
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Webmaster's Workshop - learn to make your first homepage</title>
+<meta name="description" content="A friendly, hands-on HTML tutorial for absolute beginners. Learn tags, text, links, lists, tables, images, forms and frames, one small lesson at a time, and hand-code your very first web page.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to content &rarr;</a>
+
+<div class="rs-page rs-container" id="top">
+
+  <header class="rs-center">
+    <h1>The Webmaster's Workshop</h1>
+    <p>~ hand-code your first homepage, one small lesson at a time ~</p>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Lessons">
+    <a href="#top" aria-current="page">Start here</a>
+    <a href="#lesson-tags">Tags</a>
+    <a href="#lesson-text">Text</a>
+    <a href="#lesson-links">Links</a>
+    <a href="#lesson-lists">Lists</a>
+    <a href="#lesson-tables">Tables</a>
+    <a href="#lesson-images">Images</a>
+    <a href="#lesson-forms">Forms</a>
+    <a href="#lesson-frames">Frames</a>
+  </nav>
+
+  <div class="rs-marquee" data-rs-marquee-speed="normal">
+    <span class="rs-marquee__content">
+      &#9733; WELCOME to the Workshop &#9733; grab a coffee, open a plain text editor, and build your very first web page &#9733; no experience required, no fancy programs, no money down &#9733;
+    </span>
+  </div>
+
+  <main id="main">
+
+    <nav class="rs-breadcrumbs" aria-label="You are here">
+      <ol>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#top">Lessons</a></li>
+        <li aria-current="page">HTML for beginners</li>
+      </ol>
+    </nav>
+
+    <section class="rs-panel" id="intro">
+      <h2 class="rs-panel__title">So you want to make a homepage?</h2>
+      <div class="rs-cols-2">
+        <div>
+          <p>Good. You have come to the right corner of the Web. My name is the webmaster,
+          and I have been building pages by hand since the modem days. It is easier than it
+          looks, and there is a small thrill the first time a page you typed yourself opens
+          in the browser.</p>
+          <p>Here is the whole secret: a web page is just a plain text file with a few special
+          words in angle brackets. That is <b>HTML</b>. You do not need a degree or an
+          expensive program, a text editor and a browser will do. Work through these
+          lessons in order, type the examples out by hand (do not paste!), and by the end you
+          will have a page of your own.</p>
+          <p>Ready? Pour something to drink and let us begin.</p>
+        </div>
+        <div>
+          <div class="rs-panel rs-panel--raised">
+            <h3 class="rs-panel__title">In this workshop</h3>
+            <ul class="rs-list rs-list--arrows">
+              <li><a href="#lesson-tags">Tags 101</a></li>
+              <li><a href="#lesson-text">Text &amp; colours</a></li>
+              <li><a href="#lesson-links">Links</a></li>
+              <li><a href="#lesson-lists">Lists</a></li>
+              <li><a href="#lesson-tables">Tables</a></li>
+              <li><a href="#lesson-images">Images</a></li>
+              <li><a href="#lesson-forms">Forms</a></li>
+              <li><a href="#lesson-frames">Frames</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Before you open the editor</h2>
+      <p>You need exactly two things you almost certainly already have: a plain text editor
+      (the plainer the better, resist the fancy ones for now) and a web browser to look at
+      your work. Type your page, save it with a name ending in <b>.html</b>, then open that
+      file in the browser. Change something, save, and press reload. That loop, type,
+      save, reload, is the whole job.</p>
+
+      <aside class="rs-note">
+        <p><b>Webmaster's note:</b> the best teacher on the whole Web is the <em>View Source</em>
+        menu. Land on a page you admire and press <kbd class="rs-kbd">Ctrl</kbd> +
+        <kbd class="rs-kbd">U</kbd> to read the HTML behind it. That is how all of us learned.
+        Read other people's pages shamelessly, but ask before you borrow their graphics.</p>
+      </aside>
+
+      <p class="rs-alert rs-alert--info">
+        A tip that will save you an afternoon: save early and save often, and keep every file
+        for one page in the same folder. Browsers are fussy about spelling and about where
+        things live.
+      </p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-tags">
+      <h2>Lesson 1 &middot; Tags 101</h2>
+      <p>A <b>tag</b> is just a word wrapped in angle brackets, like <code>&lt;p&gt;</code>.
+      Most tags come as a pair: an opening tag and a matching closing tag with a slash in it,
+      like <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>. The opening tag, the closing tag,
+      and everything between them is called an <b>element</b>. You wrap your text in elements to
+      tell the browser what it is: a paragraph, a heading, a bit of bold.</p>
+      <p>Here is the same little sentence two ways. Read the <b>Markup</b> tab to see what you
+      type, then click <b>Result</b> to see what the browser draws.</p>
+
+      <div class="rs-tabs">
+        <a class="rs-tabs__tab rs-tabs__tab--active" href="#tags-markup">Markup</a>
+        <a class="rs-tabs__tab" href="#tags-result">Result</a>
+
+        <section class="rs-tabs__panel" id="tags-markup">
+          <div class="rs-dos__title">TAGS.HTML</div>
+          <pre class="rs-dos"><code>&lt;p&gt;This sentence is &lt;b&gt;bold&lt;/b&gt;, and
+this word is in &lt;i&gt;italics&lt;/i&gt;.&lt;/p&gt;</code></pre>
+        </section>
+        <section class="rs-tabs__panel" id="tags-result">
+          <p>This sentence is <b>bold</b>, and this word is in <i>italics</i>.</p>
+        </section>
+      </div>
+
+      <p>See how <code>&lt;b&gt;bold&lt;/b&gt;</code> turned into <b>bold</b>? You opened the
+      element, put your text inside, and closed it again. Forget the closing slash and the
+      browser will happily bold the rest of your page, a rite of passage we have all been
+      through.</p>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-text">
+      <h2>Lesson 2 &middot; Text &amp; colours</h2>
+      <p>Headings run from <code>&lt;h1&gt;</code> (the big one, use it once) down to
+      <code>&lt;h6&gt;</code>. Paragraphs go in <code>&lt;p&gt;</code>. That is most of what
+      you need to write a whole page. Type your words, wrap the important ones in
+      <code>&lt;b&gt;</code> or <code>&lt;em&gt;</code>, and let the browser handle the
+      spacing.</p>
+
+      <div class="rs-dos__title">TEXT.HTML</div>
+      <pre class="rs-dos"><code>&lt;h2&gt;My favourite films&lt;/h2&gt;
+&lt;p&gt;Here they are, &lt;b&gt;in order&lt;/b&gt;.&lt;/p&gt;
+&lt;p&gt;Some words feel &lt;em&gt;important&lt;/em&gt;.&lt;/p&gt;</code></pre>
+
+      <p>Sizes are worth a word. The Workshop sticks to seven honest text sizes and no more,
+      so a page never turns into a ransom note:</p>
+      <p class="rs-font-5">Big and friendly.</p>
+      <p class="rs-font-2">Small print for the fine details.</p>
+
+      <p class="rs-alert rs-alert--info">
+        About colour: pick from the 216 &ldquo;web-safe&rdquo; shades and every visitor sees the
+        same page, even on a screen that only shows 256 colours. The Workshop keeps you inside
+        that palette on purpose, your page will look right on your friend's ageing PC too.
+      </p>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-links">
+      <h2>Lesson 3 &middot; Links</h2>
+      <p>Links are what makes it the <em>Web</em>. The tag is <code>&lt;a&gt;</code>, for
+      &ldquo;anchor&rdquo;, and the important part is the <code>href</code> attribute,
+      short for <em>hypertext reference</em>, which is a grand way of saying &ldquo;where this
+      link goes&rdquo;. Put a full address for another site, a file name for a page in your own
+      folder, or a <code>mailto:</code> address to open the visitor's mail program.</p>
+
+      <div class="rs-tabs">
+        <a class="rs-tabs__tab rs-tabs__tab--active" href="#links-markup">Markup</a>
+        <a class="rs-tabs__tab" href="#links-result">Result</a>
+
+        <section class="rs-tabs__panel" id="links-markup">
+          <div class="rs-dos__title">LINKS.HTML</div>
+          <pre class="rs-dos"><code>&lt;a href="http://www.example.com/"&gt;
+  visit my friend's page&lt;/a&gt;
+
+&lt;a href="mailto:you@example.com"&gt;
+  send me e-mail&lt;/a&gt;</code></pre>
+        </section>
+        <section class="rs-tabs__panel" id="links-result">
+          <p><a href="#lesson-links">visit my friend's page</a></p>
+          <p><a href="mailto:you@example.com">send me e-mail</a></p>
+        </section>
+      </div>
+
+      <p>A link you have already clicked turns purple, that is the browser being helpful,
+      not a mistake. Whole pages used to be nothing but a tidy list of links to other people's
+      sites. Yours can be too.</p>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-lists">
+      <h2>Lesson 4 &middot; Lists</h2>
+      <p>When you have a handful of things to name, use a list. Wrap the whole lot in
+      <code>&lt;ul&gt;</code> for a plain bulleted list (or <code>&lt;ol&gt;</code> if the order
+      matters and you want numbers), and wrap each item in <code>&lt;li&gt;</code>.</p>
+
+      <div class="rs-dos__title">LISTS.HTML</div>
+      <pre class="rs-dos"><code>&lt;ul&gt;
+  &lt;li&gt;bread&lt;/li&gt;
+  &lt;li&gt;milk&lt;/li&gt;
+  &lt;li&gt;a fresh box of floppy disks&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+      <p>The browser draws the bullets and lines things up for you. Here is that very list,
+      dressed in the Workshop's pixel bullets:</p>
+      <ul class="rs-list rs-list--disks">
+        <li>bread</li>
+        <li>milk</li>
+        <li>a fresh box of floppy disks</li>
+      </ul>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-tables">
+      <h2>Lesson 5 &middot; Tables</h2>
+      <p>A table is a grid of rows and cells. You build it row by row: <code>&lt;tr&gt;</code>
+      starts a row, <code>&lt;th&gt;</code> is a heading cell (the browser makes it bold), and
+      <code>&lt;td&gt;</code> is an ordinary data cell. Nest them carefully and mind your
+      closing tags, tables are where a forgotten <code>&lt;/td&gt;</code> comes back to
+      bite you.</p>
+
+      <div class="rs-tabs">
+        <a class="rs-tabs__tab rs-tabs__tab--active" href="#tables-markup">Markup</a>
+        <a class="rs-tabs__tab" href="#tables-result">Result</a>
+
+        <section class="rs-tabs__panel" id="tables-markup">
+          <div class="rs-dos__title">TABLES.HTML</div>
+          <pre class="rs-dos"><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Game&lt;/th&gt;
+    &lt;th&gt;Year&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Star Quest 3D&lt;/td&gt;
+    &lt;td&gt;1998&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+        <section class="rs-tabs__panel" id="tables-result">
+          <table class="rs-table rs-table--bordered">
+            <caption>My games, a row each</caption>
+            <thead>
+              <tr>
+                <th scope="col">Game</th>
+                <th scope="col" class="rs-num">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Star Quest 3D</th><td class="rs-num">1998</td></tr>
+              <tr><th scope="row">Comet Racer</th><td class="rs-num">2000</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <p class="rs-alert rs-alert--warn">
+        A confession from the old days: we used tables to lay out whole pages, sidebars and
+        all. It worked, but it tangled fast. Keep tables for real grids of data, like the
+        one above, and your pages stay tidy and easy to read aloud.
+      </p>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-images">
+      <h2>Lesson 6 &middot; Images</h2>
+      <p>Pictures go in with <code>&lt;img&gt;</code>, one of the few tags that stands alone
+      with no closing partner. The <code>src</code> attribute names the file; put the picture in
+      the same folder as your page to keep life simple. Always add <code>width</code> and
+      <code>height</code> so the page can hold the space while the picture loads over a slow
+      line.</p>
+
+      <div class="rs-dos__title">IMAGES.HTML</div>
+      <pre class="rs-dos"><code>&lt;img src="house.gif"
+     width="96" height="96"
+     alt="a little pixel house"&gt;</code></pre>
+
+      <p>Never skip that <code>alt</code> text. It is the words shown when the picture cannot
+      load, and the words read aloud to a visitor who cannot see it. Write what the picture
+      <em>is</em>, in a few plain words. Here is our example, drawn pixel by pixel:</p>
+
+      <figure class="rs-figure">
+        <img class="rs-pixelated" width="96" height="96"
+          alt="A pixel drawing of a little house with a red roof, a yellow window and a green lawn"
+          src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='96'%20height='96'%20viewBox='0%200%2024%2024'%20shape-rendering='crispEdges'%3E%3Crect%20width='24'%20height='24'%20fill='%2399CCFF'/%3E%3Crect%20y='20'%20width='24'%20height='4'%20fill='%23009900'/%3E%3Cpolygon%20points='4,11%2012,4%2020,11'%20fill='%23990000'/%3E%3Crect%20x='7'%20y='11'%20width='10'%20height='9'%20fill='%23CCCC99'/%3E%3Crect%20x='11'%20y='15'%20width='3'%20height='5'%20fill='%23663300'/%3E%3Crect%20x='8'%20y='13'%20width='2'%20height='2'%20fill='%23FFFF00'/%3E%3Crect%20x='14'%20y='13'%20width='2'%20height='2'%20fill='%23FFFF00'/%3E%3Crect%20x='15'%20y='6'%20width='2'%20height='3'%20fill='%23999999'/%3E%3C/svg%3E">
+        <figcaption class="rs-figure__caption">house.gif, drawn by hand, saved small.</figcaption>
+      </figure>
+
+      <p class="rs-font-2">Rule of thumb: photographs go in a <b>.jpeg</b> file; flat drawings,
+      buttons and logos go in a <b>.gif</b>. Keep them small, every kilobyte is a second
+      of your visitor's afternoon.</p>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-forms">
+      <h2>Lesson 7 &middot; Forms</h2>
+      <p>A form is how a visitor talks back, a guestbook, a poll, a search box. Wrap the
+      whole thing in <code>&lt;form&gt;</code>. Each box is an <code>&lt;input&gt;</code> or a
+      <code>&lt;textarea&gt;</code>, and, this part matters, every box gets a
+      <code>&lt;label&gt;</code> tied to it. Match the label's <code>for</code> to the field's
+      <code>id</code> and a click on the words jumps into the box; a screen reader announces it
+      too.</p>
+
+      <div class="rs-dos__title">FORMS.HTML</div>
+      <pre class="rs-dos"><code>&lt;form&gt;
+  &lt;label for="nm"&gt;Name:&lt;/label&gt;
+  &lt;input id="nm" type="text"&gt;
+
+  &lt;label for="msg"&gt;Message:&lt;/label&gt;
+  &lt;textarea id="msg"&gt;&lt;/textarea&gt;
+
+  &lt;button&gt;Sign it&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+      <p>And here is a real one to try. It is only for practice, it does not send anywhere,
+      because catching a form needs a little program on the server, which is a lesson for another
+      day.</p>
+
+      <form class="rs-form-table" aria-label="Practice guestbook form">
+        <label for="gb-name">Name:</label>
+        <input class="rs-input" id="gb-name" type="text">
+
+        <label for="gb-email">E-mail:</label>
+        <input class="rs-input" id="gb-email" type="text">
+
+        <label for="gb-url">Homepage:</label>
+        <input class="rs-input" id="gb-url" type="text" value="http://">
+
+        <label for="gb-found">Found me via:</label>
+        <select class="rs-select" id="gb-found">
+          <option>a webring</option>
+          <option>a search engine</option>
+          <option>a friend's links page</option>
+          <option>happy accident (welcome!)</option>
+        </select>
+
+        <label for="gb-msg">Message:</label>
+        <textarea class="rs-textarea" id="gb-msg" rows="3">Great page! Greetings from a fellow webmaster.</textarea>
+
+        <button class="rs-btn rs-btn--primary" type="button">Sign it</button>
+      </form>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="lesson-frames">
+      <h2>Lesson 8 &middot; Frames</h2>
+      <p>Frames split the browser window into panes, each showing its own page. The classic trick
+      is a narrow menu on the left that never moves while the pages come and go on the right.
+      Instead of a <code>&lt;body&gt;</code>, a frames page has a <code>&lt;frameset&gt;</code>
+      that carves up the window and points each pane at a file.</p>
+
+      <div class="rs-dos__title">FRAMES.HTML</div>
+      <pre class="rs-dos"><code>&lt;frameset cols="150,*"&gt;
+  &lt;frame src="menu.html"&gt;
+  &lt;frame src="main.html"&gt;
+&lt;/frameset&gt;</code></pre>
+
+      <p>The <code>cols="150,*"</code> means &ldquo;a menu 150 pixels wide, and the rest of the
+      window for everything else&rdquo;. Two files, one tidy layout.</p>
+
+      <p class="rs-alert rs-alert--warn">
+        Fair warning: frames muddle the Back button and make pages hard to bookmark, so many
+        webmasters are quietly retiring them. If you want the look without the trouble, the
+        Workshop's own layout tools give you a menu that stays put while the page scrolls with none
+        of the headaches. Learn frames so you can read old pages, then reach for the modern
+        version.
+      </p>
+      <p><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+
+    <section id="goodies">
+      <h2>Grab my graphics</h2>
+      <p>Every homepage needs a little sparkle. Here are three tins of free goodies from the
+      workbench, bullets, divider lines, and link buttons. Take what you like for your own
+      page; a link back to the Workshop is thanks enough.</p>
+
+      <div class="rs-cols-3">
+
+        <section class="rs-window" aria-labelledby="win-bullets">
+          <div class="rs-window__titlebar">
+            <span class="rs-window__title" id="win-bullets">bullets.zip</span>
+          </div>
+          <div class="rs-window__body">
+            <p class="rs-font-2">Pixel bullets for your lists. Comes in stars, arrows, disks
+            and paws.</p>
+            <ul class="rs-list rs-list--stars">
+              <li>stars for the cool stuff</li>
+              <li>arrows for the rest</li>
+            </ul>
+            <ul class="rs-list rs-list--paws">
+              <li>paws, for the cat pages</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="rs-window" aria-labelledby="win-lines">
+          <div class="rs-window__titlebar">
+            <span class="rs-window__title" id="win-lines">lines.zip</span>
+          </div>
+          <div class="rs-window__body">
+            <p class="rs-font-2">Divider bars to break up a long page. A few of my favourites:</p>
+            <hr class="rs-hr rs-hr--groove">
+            <hr class="rs-hr rs-hr--dotted">
+            <hr class="rs-hr rs-hr--rainbow">
+            <hr class="rs-hr rs-hr--stars">
+          </div>
+        </section>
+
+        <section class="rs-window" aria-labelledby="win-buttons">
+          <div class="rs-window__titlebar">
+            <span class="rs-window__title" id="win-buttons">buttons.zip</span>
+          </div>
+          <div class="rs-window__body">
+            <p class="rs-font-2">The trusty 88&times;31 button. Link back to me with one:</p>
+            <div class="rs-badge-wall">
+              <a class="rs-button88" href="#top">THE WORKSHOP</a>
+              <a class="rs-button88" href="#top">HAND-CODED HTML</a>
+              <a class="rs-button88" href="#top">MADE WITH RETROSTRAP</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="glossary">
+      <h2>A little glossary</h2>
+      <p>New words pile up fast. Here are the ones you will keep bumping into, in plain
+      language.</p>
+      <table class="rs-table rs-table--striped">
+        <caption>Words worth keeping</caption>
+        <thead>
+          <tr>
+            <th scope="col">Word</th>
+            <th scope="col">What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">HTML</th><td>HyperText Markup Language, the tags this whole page is made of.</td></tr>
+          <tr><th scope="row">Tag</th><td>A word in angle brackets, like <code>&lt;p&gt;</code>, that marks up your text.</td></tr>
+          <tr><th scope="row">Element</th><td>An opening tag, its closing tag, and everything between them.</td></tr>
+          <tr><th scope="row">Attribute</th><td>Extra information inside a tag, like <code>href</code> or <code>width</code>.</td></tr>
+          <tr><th scope="row">URL</th><td>The address of a page or file on the Web.</td></tr>
+          <tr><th scope="row">Hyperlink</th><td>Clickable text or a picture that carries you off to another page.</td></tr>
+          <tr><th scope="row">Browser</th><td>The program that reads HTML and draws the page.</td></tr>
+          <tr><th scope="row">View source</th><td>The browser menu that shows you any page's raw HTML. Your best teacher.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="faq">
+      <h2>Questions I get a lot</h2>
+      <p>Click a question to open the answer.</p>
+
+      <details class="rs-spoiler">
+        <summary>Do I need an expensive program?</summary>
+        <p>No. A plain text editor and a browser are plenty for everything in this workshop. The fancy
+        editors are convenient later, but they hide the HTML, and right now you want to
+        <em>see</em> it.</p>
+      </details>
+
+      <details class="rs-spoiler">
+        <summary>How do I put my page on the Web so others can see it?</summary>
+        <p>You need a scrap of web space, your internet provider probably gives you some,
+        or a free host will, and a little program called an FTP client to copy your files
+        up to it. Keep the same folder layout you used at home and your links will still work.</p>
+      </details>
+
+      <details class="rs-spoiler">
+        <summary>Why does my page look different in another browser?</summary>
+        <p>Every browser draws things a little differently, and that is normal. Test your page in
+        more than one, keep the design simple, and do not chase pixel-perfection, nobody
+        else is comparing.</p>
+      </details>
+
+      <details class="rs-spoiler">
+        <summary>My image shows up as a broken box. Help?</summary>
+        <p>Nine times out of ten it is the file name. Check the spelling in your
+        <code>src</code>, check the file is in the same folder as the page, and remember that
+        many servers care about capital letters: <code>House.GIF</code> is not
+        <code>house.gif</code>.</p>
+      </details>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="next">
+      <h2>Where to go next</h2>
+      <p>That is the whole beginner course, you can now hand-build a real page. When you
+      are ready, the next courses cover styling your page with a little CSS, and drawing your
+      own animated buttons. They are on the workbench now:</p>
+
+      <div class="rs-construction">
+        More lessons under construction!<br>
+        Come back soon, styling and graphics are next.
+      </div>
+
+      <nav class="rs-pagination" aria-label="Courses">
+        <span aria-current="page">1. Beginner</span>
+        <a href="#top">2. Styling</a>
+        <a href="#top">3. Going live</a>
+        <a href="#top">Next&gt;</a>
+      </nav>
+
+      <p class="rs-center">
+        <a class="rs-btn rs-btn--primary rs-btn--large" href="#lesson-tags">Start the lessons again</a>
+      </p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="guestbook">
+      <h2>Sign my guestbook</h2>
+      <p>Made it all the way to the bottom? Then you are exactly the sort of visitor a webmaster
+      hopes for. Leave a note, say where you are writing from, and tell me what you are building.
+      Every homepage deserves a guestbook, and mine gets lonely.</p>
+      <p class="rs-center">
+        <a class="rs-btn rs-btn--primary rs-btn--large" href="#">Sign my guestbook &rarr;</a>
+      </p>
+    </section>
+
+    <hr class="rs-hr rs-hr--groove">
+
+    <section id="webring">
+      <h2>The Homebrew HTML webring</h2>
+      <p>The Workshop belongs to a ring of pages by people who still build the Web by hand. Follow
+      the ring and you will find a hundred more homepages just like this one, some polished,
+      some gloriously not. If you keep a hand-coded page, you are welcome to join.</p>
+      <nav class="rs-webring-bar" aria-label="Webring">
+        <p class="rs-webring-bar__name">This site is a proud member of the Homebrew HTML webring.</p>
+        <a href="#">&lt;&lt; Prev</a>
+        <a href="#">Random</a>
+        <a href="#">Ring Home</a>
+        <a href="#">Next &gt;&gt;</a>
+      </nav>
+    </section>
+
+  </main>
+
+  <div class="rs-statusbar">
+    <span>Document: Done</span>
+    <span>8 lessons loaded</span>
+    <span>Best viewed at 800&times;600</span>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p>
+      <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="001999"></span>
+      <span class="rs-counter__label">visitors have opened a text editor since 1999</span>
+    </p>
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="12 September 1999"></p>
+    <div class="rs-footer__badges">
+      <a class="rs-button88" href="#top">MADE WITH RETROSTRAP</a>
+      <a class="rs-button88" href="#top">HAND-CODED HTML</a>
+      <a class="rs-button88" href="#top">BEST VIEWED WITH ANY EYES</a>
+    </div>
+    <p class="rs-footer__email">Write to the webmaster: <a href="mailto:webmaster@workshop.example">webmaster@workshop.example</a></p>
+    <p class="rs-font-1">&copy; 1999 The Webmaster's Workshop. Keep the Web hand-made. Now go build something.</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

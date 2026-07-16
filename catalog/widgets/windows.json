@@ -1,0 +1,12 @@
+{
+  "id": "windows", "kind": "widget", "label": "Window manager",
+  "summary": "Makes rs-window elements draggable, with click-to-front (or dispatch rs:window:raise) and a five-window cap.",
+  "era": "The draggable fake-window scripts of the DHTML era.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "informative", "pointer": "any",
+  "classes": [{ "name": "rs-window", "role": "windows marked data-rs-window=floating become draggable" }],
+  "options": [],
+  "events": ["rs:window:focus"],
+  "a11y": "Drag by the titlebar with mouse, touch, or the keyboard (focus the titlebar, arrow to move, Shift for fine steps, Home to reset). Dragging is disabled below the svga breakpoint, where windows render in flow. Five windows maximum.",
+  "assets": [], "tags": ["informative", "chrome", "toybox"]
+}

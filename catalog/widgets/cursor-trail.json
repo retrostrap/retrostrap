@@ -1,0 +1,25 @@
+{
+  "id": "cursor-trail",
+  "kind": "widget",
+  "label": "Cursor trail",
+  "summary": "A little pool of sprites that chase your pointer.",
+  "era": "The DHTML trail scripts and Comet Cursor of the late-90s 'enhanced' homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "decorative",
+  "pointer": "fine",
+  "classes": [],
+  "options": [
+    { "name": "variant", "type": "enum", "values": ["dots", "stars", "sparkle", "hearts", "bubbles", "image"], "default": "stars" },
+    { "name": "count", "type": "int", "default": 8, "note": "max 16" },
+    { "name": "size", "type": "px", "default": 12, "note": "max 24" },
+    { "name": "color", "type": "color", "note": "legal palette; default theme accent" },
+    { "name": "image", "type": "url", "note": "for variant=image" }
+  ],
+  "events": [],
+  "a11y": "Decoration: the layer is aria-hidden and pointer-events:none. Never spawns under prefers-reduced-motion, and no-ops on touch.",
+  "assets": [],
+  "tags": ["decoration", "pointer", "toybox"]
+}

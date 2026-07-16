@@ -1,0 +1,14 @@
+/* rs-avatar - 80×80, pixelated. Any modern photo instantly reads 2001. */
+
+.rs-avatar {
+  inline-size: 80px;
+  block-size: 80px;
+  border: 1px solid var(--rs-bevel-dark);
+  image-rendering: pixelated;
+  object-fit: cover;
+}
+
+.rs-avatar--small {
+  inline-size: 40px;
+  block-size: 40px;
+}

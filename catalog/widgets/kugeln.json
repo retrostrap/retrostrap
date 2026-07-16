@@ -1,0 +1,24 @@
+{
+  "id": "kugeln",
+  "kind": "widget",
+  "label": "Kugeln",
+  "summary": "Shiny 3D spheres that trail or orbit your pointer, in a rainbow of colours.",
+  "era": "The spinning-ball DHTML cursor toys of around 2000, coloured orbs that chased the mouse across a homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "decorative",
+  "pointer": "fine",
+  "classes": [],
+  "options": [
+    { "name": "colors", "type": "enum", "values": ["rainbow", "red", "gold", "green", "cyan", "blue", "purple", "pink", "silver"], "default": "rainbow" },
+    { "name": "count", "type": "int", "default": 7, "note": "max 12" },
+    { "name": "size", "type": "px", "default": 20, "note": "8-32" },
+    { "name": "mode", "type": "enum", "values": ["trail", "orbit"], "default": "trail" }
+  ],
+  "events": [],
+  "a11y": "Decoration: the layer is aria-hidden and pointer-events:none. Never spawns under prefers-reduced-motion, and no-ops on touch.",
+  "assets": ["kugeln-red", "kugeln-gold", "kugeln-green", "kugeln-cyan", "kugeln-blue", "kugeln-purple", "kugeln-pink", "kugeln-silver"],
+  "tags": ["decoration", "pointer", "toybox"]
+}

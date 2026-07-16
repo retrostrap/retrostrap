@@ -1,0 +1,14 @@
+{
+  "id": "webring", "kind": "widget", "label": "Webring",
+  "summary": "Fills an rs-webring-bar from a ring's JSON, computing prev/random/next.",
+  "era": "Sites holding hands in a circle, curated by a ringmaster.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "informative", "pointer": "any",
+  "classes": [{ "name": "rs-webring-bar", "role": "the host the widget fills with links" }],
+  "options": [
+    { "name": "src", "type": "url", "note": "the ring JSON; or an inline <script type=application/json>" }
+  ],
+  "events": [],
+  "a11y": "Plain links, fully functional as static HTML. Works from an inline ring with no service at all.",
+  "assets": [], "tags": ["informative", "navigation", "toybox"]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "konami",
+  "kind": "widget",
+  "label": "Konami code",
+  "summary": "The cheat code, and a 30-second party mode.",
+  "era": "Up up down down left right left right B A: the most-typed secret on Earth.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "decorative",
+  "pointer": "any",
+  "classes": [],
+  "options": [
+    {
+      "name": "href",
+      "type": "url",
+      "note": "navigate to a secret page on the code, instead of party mode"
+    },
+    {
+      "name": "words",
+      "type": "string",
+      "note": "comma-separated secret words that also trigger the egg when typed"
+    }
+  ],
+  "events": [],
+  "a11y": "Loading the widget adds Retrostrap.konami.on(seq, fn) and .trigger(). Party mode composes only non-flashing widgets and stays in budget; under reduced motion it declines with a small note. A ten-tap gesture is the touch alternative.",
+  "assets": [],
+  "tags": [
+    "decoration",
+    "easter-egg",
+    "toybox"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "counter",
+  "kind": "component",
+  "label": "Counter",
+  "summary": "The sunken odometer shell for a hit counter; static digits work today, the hit-counter widget populates it later.",
+  "era": "The odometer hit counter at the foot of the page, proudly proving 4,096 visitors since 1998.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-counter", "role": "sunken bezel, black bg, odometer digits" },
+    { "name": "rs-counter__label", "role": "the \"visitors since …\" line" }
+  ],
+  "a11y": "One visually hidden sentence carries the count; the odometer digits are aria-hidden decoration. Never a live region.",
+  "assets": ["counter-digits"],
+  "tags": ["content", "counter", "hits"]
+}

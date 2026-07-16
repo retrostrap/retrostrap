@@ -1,0 +1,23 @@
+{
+  "id": "dialog",
+  "kind": "component",
+  "label": "Dialog",
+  "summary": "The native dialog in system-alert costume: titlebar, icon, message and button row over a dithered backdrop.",
+  "era": "The system alert: titlebar, 32×32 icon, OK and Cancel, the box the operating system sent when it needed you.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "dialog",
+  "classes": [
+    { "name": "rs-dialog", "role": "native <dialog> in alert-box costume; 8×8 dither backdrop" },
+    { "name": "rs-dialog__titlebar", "role": "titlebar; carries the id aria-labelledby points at" },
+    { "name": "rs-dialog__body", "role": "icon slot plus message" },
+    { "name": "rs-dialog__buttons", "role": "button row, a method=\"dialog\" form" },
+    { "name": "rs-dialog--info", "role": "modifier: info icon" },
+    { "name": "rs-dialog--warn", "role": "modifier: warning icon" },
+    { "name": "rs-dialog--error", "role": "modifier: error icon" }
+  ],
+  "a11y": "Native <dialog> opened with showModal(): focus containment, Escape and the top layer come from the platform. aria-labelledby points at the titlebar text; the button row is a method=\"dialog\" form.",
+  "assets": ["alert-info", "alert-warn", "alert-error"],
+  "tags": ["feedback", "dialog", "modal"]
+}

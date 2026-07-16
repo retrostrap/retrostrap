@@ -1,0 +1,24 @@
+{
+  "id": "smilies",
+  "kind": "widget",
+  "label": "Smilies",
+  "summary": "Turns :) and friends into pixel emoticons.",
+  "era": "The forum smiley pack, type the code, see the face, running since the phpBB age.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-smiley", "role": "each emoticon image the parser inserts" }
+  ],
+  "options": [
+    { "name": "scope", "type": "selector", "note": "the subtree to parse; defaults to the host" },
+    { "name": "src", "type": "string", "note": "override the smilies pack image URL (same-origin)" }
+  ],
+  "events": [],
+  "a11y": "Each image's alt is the original typed code, so copy-paste and screen readers round-trip. The parser skips code, kbd, inputs, and any [data-rs-no-smilies] region.",
+  "assets": ["smilies"],
+  "tags": ["informative", "text", "toybox"]
+}

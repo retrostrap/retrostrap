@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-rs-theme="classic">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.url == '/' %}retrostrap - build like it's 2026, look like it's 1999{% else %}{{ title }} · retrostrap{% endif %}</title>
+    <meta name="description" content="{{ description or 'retrostrap is a retro CSS + JS framework: build responsive, accessible sites that look like the web of 1996-2003.' }}">
+    <link rel="canonical" href="https://retrostrap.dev{{ page.url }}">
+    <meta property="og:title" content="{% if page.url == '/' %}retrostrap{% else %}{{ title }} · retrostrap{% endif %}">
+    <meta property="og:description" content="{{ description or "Build like it's 2026, look like it's 1999. A retro CSS + JS framework." }}">
+    <meta property="og:image" content="https://retrostrap.dev/assets/og.png">
+    <meta property="og:url" content="https://retrostrap.dev{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/dist/assets/icon-floppy.png">
+    <link rel="stylesheet" href="/dist/retrostrap.min.css">
+    <link id="rs-theme-css" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/retrostrap-patterns.css">
+    {%- if loadAllThemes %}
+    <!-- This page shows every theme side by side; themes scope to [data-rs-theme]. -->
+    {%- for t in manifest.themes %}{% if t.id != "classic" %}
+    <link rel="stylesheet" href="/dist/themes/{{ t.id }}.css">
+    {%- endif %}{% endfor %}
+    {%- endif %}
+    <link rel="stylesheet" href="/assets/site.css">
+    <script>
+      // Restore the saved theme and comfy mode before first paint.
+      // Classic lives in the core stylesheet, so it needs no theme file.
+      (function () {
+        try {
+          var themes = { {% for t in manifest.themes %}"{{ t.id }}": 1{% if not loop.last %}, {% endif %}{% endfor %} };
+          var saved = localStorage.getItem("rs:theme");
+          var theme = themes[saved] ? saved : "classic";
+          document.documentElement.setAttribute("data-rs-theme", theme);
+          if (theme !== "classic") {
+            document.getElementById("rs-theme-css")
+              .setAttribute("href", "/dist/themes/" + theme + ".css");
+          }
+          if (localStorage.getItem("rs:comfy") === "1") {
+            document.documentElement.classList.add("rs-comfy");
+          }
+        } catch (e) { /* no storage, no problem, classic it is */ }
+      })();
+    </script>
+    <script defer src="/dist/retrostrap.min.js"></script>
+  </head>
+  <body id="top">
+    <a class="rs-skip" href="#main">Skip to content →</a>
+    <div class="rs-page rs-container{% if wide %} rs-container--wide{% endif %}">
+      <header>
+        <nav class="rs-navbar" aria-label="Site">
+          {%- set navItems = [
+            ["/", "Home"],
+            ["/get-started/", "Get started"],
+            ["/components/", "Components"],
+            ["/widgets/", "Widgets"],
+            ["/themes/", "Themes"],
+            ["/demos/", "Demos"],
+            ["/demos/builder/", "Builder"],
+            ["/museum/", "Museum"],
+            ["/showcase/", "Showcase"],
+            ["/for-robots/", "For robots"],
+            ["/press/", "Press"]
+          ] %}
+          {%- for item in navItems %}
+          <a href="{{ item[0] }}"{% if page.url == item[0] %} aria-current="page"{% endif %}>{{ item[1] }}</a>
+          {%- endfor %}
+        </nav>
+        <div class="rs-toolbar" role="group" aria-label="Display settings">
+          <span class="rs-font-1" aria-hidden="true">Theme:</span>
+          {%- for t in manifest.themes %}
+          <button type="button" class="rs-btn rs-btn--small" data-set-theme="{{ t.id }}" aria-pressed="{{ "true" if t.id == "classic" else "false" }}">{{ t.label }}</button>
+          {%- endfor %}
+          <span class="rs-toolbar__sep" aria-hidden="true"></span>
+          <button type="button" class="rs-btn rs-btn--small" id="comfy-toggle" aria-pressed="false">Comfy mode: off</button>
+        </div>
+      </header>
+      <nav class="rs-breadcrumbs" aria-label="You are here">
+        <ol>
+          {%- if page.url == "/" %}
+          <li aria-current="page">Home</li>
+          {%- else %}
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">{{ title }}</li>
+          {%- endif %}
+        </ol>
+      </nav>
+      <main id="main"{% if mainClass %} class="{{ mainClass }}"{% endif %}>
+        {{ content | safe }}
+      </main>
+      <footer class="rs-footer">
+        <p class="rs-footer__updated">Last updated: {{ build.updated }}, the date regenerates on every build, which is the only way anyone ever kept one honest.</p>
+        <div class="rs-footer__badges">
+          <a class="rs-button88" href="/">MADE WITH RETROSTRAP</a>
+          <a class="rs-button88" href="https://github.com/retrostrap/retrostrap">VIEW SOURCE FREELY</a>
+          <a class="rs-button88" href="https://boards.retrostrap.dev">THE BOARDS</a>
+          <a class="rs-button88" href="/demos/retrospace/">RETROSPACE</a>
+          <a class="rs-button88" href="/for-robots/">ROBOT FRIENDLY</a>
+          <a class="rs-button88" href="/museum/">BEST VIEWED WITH EYES</a>
+          <a class="rs-button88" href="/press/">PRESS KIT</a>
+        </div>
+        <p class="rs-font-1">© {{ build.year }} the retrostrap maintainers. Feels like 1999. No trackers, no cookies, no kidding.</p>
+        <p class="rs-font-1"><a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
+      </footer>
+    </div>
+    <script>
+      // Theme switcher + comfy mode. This is all the JavaScript the site has.
+      (function () {
+        var link = document.getElementById("rs-theme-css");
+        var buttons = document.querySelectorAll("[data-set-theme]");
+
+        function currentTheme() {
+          return document.documentElement.getAttribute("data-rs-theme") || "classic";
+        }
+        function applyCss(name) {
+          if (name === "classic") link.removeAttribute("href");
+          else link.setAttribute("href", "/dist/themes/" + name + ".css");
+        }
+        function paint() {
+          var name = currentTheme();
+          for (var i = 0; i < buttons.length; i++) {
+            var pressed = buttons[i].getAttribute("data-set-theme") === name;
+            buttons[i].setAttribute("aria-pressed", String(pressed));
+          }
+        }
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", function () {
+            var name = this.getAttribute("data-set-theme");
+            applyCss(name); // load the stylesheet first, then flip the attribute
+            if (window.Retrostrap) {
+              Retrostrap.theme.set(name); // persists and announces rs:theme:change
+            } else {
+              document.documentElement.setAttribute("data-rs-theme", name);
+              try { localStorage.setItem("rs:theme", name); } catch (e) {}
+            }
+            paint();
+          });
+        }
+        document.addEventListener("rs:theme:change", paint);
+        paint();
+
+        var comfy = document.getElementById("comfy-toggle");
+        function paintComfy() {
+          var on = document.documentElement.classList.contains("rs-comfy");
+          comfy.setAttribute("aria-pressed", String(on));
+          comfy.textContent = "Comfy mode: " + (on ? "on" : "off");
+        }
+        comfy.addEventListener("click", function () {
+          var on = document.documentElement.classList.toggle("rs-comfy");
+          try { localStorage.setItem("rs:comfy", on ? "1" : "0"); } catch (e) {}
+          paintComfy();
+        });
+        paintComfy();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+/* rs-typewriter - Courier with tracked-out spacing; --reveal types a line on
+   in steps, like a modem delivering it. */
+
+.rs-typewriter {
+  font-family: var(--rs-font-mono);
+  letter-spacing: 1px; /* sanctioned: one of two legal letter-spacing sites (docs/02) */
+}
+
+@keyframes rs-type {
+  from { max-width: 0; }
+  to   { max-width: 100%; }
+}
+
+.rs-typewriter--reveal {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: rs-type 2s steps(30, end) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-typewriter--reveal { animation: none; }
+}

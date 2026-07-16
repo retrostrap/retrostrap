@@ -1,0 +1,8 @@
+/* rs-top - "^ Top". The jump is instant; smooth scrolling is modern
+   choreography and we don't do it. */
+
+.rs-top {
+  display: inline-block;
+  font-size: var(--rs-font-size-1);
+  margin-block-start: var(--rs-space-3);
+}

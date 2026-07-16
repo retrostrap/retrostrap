@@ -1,0 +1,26 @@
+{
+  "id": "last-updated",
+  "kind": "widget",
+  "label": "Last updated",
+  "summary": "Prints the document's last-modified date, era-style.",
+  "era": "\"Last updated: 04/17/1998\", the proudest line on any homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-last-updated", "role": "applied to the host" }
+  ],
+  "options": [
+    { "name": "prefix", "type": "string", "default": "Last updated:" },
+    { "name": "date", "type": "string", "note": "pin this date verbatim instead of the file's last-modified time" },
+    { "name": "format", "type": "enum", "values": ["long", "short"], "default": "long" },
+    { "name": "locale", "type": "string", "note": "defaults to the page lang" }
+  ],
+  "events": [],
+  "a11y": "Static text; nothing to rule on. Hides itself if the browser reports a garbage date.",
+  "assets": [],
+  "tags": ["informative", "toybox"]
+}

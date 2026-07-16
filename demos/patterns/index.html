@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backgrounds &amp; baubles ~ retrostrap</title>
+<meta name="description" content="The retrostrap wallpaper drawer and the kugeln that follow your mouse.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/retrostrap-patterns.css">
+<style>
+  /* just the gallery grid, everything else is the framework */
+  .tile-grid { list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--rs-space-4); }
+  .tile-grid figure { margin: 0; border: 1px solid #000000; background: #FFFFFF; }
+  .tile-grid .swatch { block-size: 88px; border-block-end: 1px solid #000000; }
+  .tile-grid figcaption { padding: var(--rs-space-1) var(--rs-space-2);
+    font-family: var(--rs-font-mono); font-size: var(--rs-font-size-1); }
+</style>
+</head>
+<body data-rs-widgets="kugeln"
+      data-rs-kugeln-colors="rainbow"
+      data-rs-kugeln-count="7"
+      data-rs-kugeln-mode="trail">
+
+<a class="rs-skip" href="#main">skip to the wallpaper &rarr;</a>
+
+<div class="rs-page rs-container">
+
+  <header class="rs-center">
+    <h1 class="rs-font-6">Backgrounds &amp; baubles</h1>
+    <p class="rs-font-3">~ move your mouse, the spheres will follow ~</p>
+  </header>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <main id="main">
+    <section>
+      <h2 class="rs-font-4">The kugeln</h2>
+      <p>Little shiny spheres that trail your pointer, a whole rainbow of them.
+         Add the toybox script and one attribute:</p>
+      <pre class="rs-dos"><code>&lt;body data-rs-widgets="kugeln"
+      data-rs-kugeln-colors="rainbow"
+      data-rs-kugeln-mode="trail"&gt;</code></pre>
+      <p>Switch <code>mode</code> to <code>orbit</code> for a ring that circles the cursor, or set
+         <code>colors</code> to one of red, gold, green, cyan, blue, purple, pink, silver.
+         They rest under reduced motion and never spawn on a touch screen, so the
+         page is exactly as usable without them.</p>
+    </section>
+
+    <hr class="rs-hr">
+
+    <section>
+      <h2 class="rs-font-4">The wallpaper drawer</h2>
+      <p>Each of these is a background you drop on any element with one
+         <code>rs-tile-*</code> class. Tile the page, then float an opaque
+         <code>rs-page</code> sheet on top: the centred-table-on-a-starfield anatomy the
+         era ran on. Every tile stays inside the 224 legal colours and repeats seamlessly.</p>
+
+      <ul class="tile-grid">
+        <li><figure><div class="swatch rs-tile-checker"></div><figcaption>rs-tile-checker</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-grid"></div><figcaption>rs-tile-grid</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-blueprint"></div><figcaption>rs-tile-blueprint</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-scanlines"></div><figcaption>rs-tile-scanlines</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-dither"></div><figcaption>rs-tile-dither</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-dots"></div><figcaption>rs-tile-dots</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-candy"></div><figcaption>rs-tile-candy</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-hazard"></div><figcaption>rs-tile-hazard</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-brick"></div><figcaption>rs-tile-brick</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-zigzag"></div><figcaption>rs-tile-zigzag</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-stars"></div><figcaption>rs-tile-stars</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-hearts"></div><figcaption>rs-tile-hearts</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-confetti"></div><figcaption>rs-tile-confetti</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-clouds"></div><figcaption>rs-tile-clouds</figcaption></figure></li>
+        <li><figure><div class="swatch rs-tile-paws"></div><figcaption>rs-tile-paws</figcaption></figure></li>
+      </ul>
+    </section>
+  </main>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <footer class="rs-center rs-font-1">
+    <p>part of the retrostrap demos ~ tiles opt in, spheres opt in, the page works with neither</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

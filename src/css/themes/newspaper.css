@@ -1,0 +1,48 @@
+/* newspaper - the 1997 portal / broadsheet: ink on newsprint, serif columns,
+   a black masthead. All the gravitas of a site that took itself seriously
+   (docs/07). Grayscale but for the links. */
+
+[data-rs-theme="newspaper"] {
+  --rs-bg-page: #CCCCCC;
+  --rs-tile-page: none;
+  --rs-bg-content: #FFFFFF;
+  --rs-text: #000000;
+  --rs-text-muted: #666666;
+  --rs-heading: #000000;
+
+  --rs-link: #000099;
+  --rs-link-visited: #660066;
+  --rs-link-active: #990000;
+
+  --rs-accent: #000099;
+  --rs-accent-2: #990000;
+  --rs-good: #006600;
+  --rs-warn: #996600;
+  --rs-bad: #990000;
+
+  --rs-bevel-face: #FFFFFF;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #999999;
+  --rs-bevel-dark: #000000;
+
+  --rs-titlebar-bg: #000000;
+  --rs-titlebar-bg-2: #333333;
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #000000;
+
+  --rs-selection-bg: #000099;
+  --rs-selection-text: #FFFFFF;
+  --rs-focus-color: #990000;
+
+  --rs-font-body: var(--rs-font-serif);
+  --rs-font-heading: var(--rs-font-serif);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* headlines get a rule beneath them, like a masthead */
+[data-rs-theme="newspaper"] h1,
+[data-rs-theme="newspaper"] h2 {
+  border-block-end: 2px solid #000000;
+  padding-block-end: var(--rs-space-1);
+}

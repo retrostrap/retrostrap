@@ -1,0 +1,23 @@
+{
+  "id": "font-scale",
+  "kind": "component",
+  "label": "Font scale",
+  "summary": "The seven sanctioned text sizes, 10px to 48px, as utility classes.",
+  "era": "The <font size=1..7> ladder at the browsers' own mapping, 10, 13, 16, 18, 24, 32, 48 pixels of pure 1997 hierarchy.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-font-1", "role": "10px (size=1): fine print, counters, footers" },
+    { "name": "rs-font-2", "role": "13px (size=2): sans-theme body text" },
+    { "name": "rs-font-3", "role": "16px (size=3): serif-theme body text" },
+    { "name": "rs-font-4", "role": "18px (size=4): lead paragraphs, h4" },
+    { "name": "rs-font-5", "role": "24px (size=5): section headings" },
+    { "name": "rs-font-6", "role": "32px (size=6): welcome banners, h1" },
+    { "name": "rs-font-7", "role": "48px (size=7): splash pages" }
+  ],
+  "a11y": "Pixel names, rem values underneath, browser zoom and user font-size overrides keep working. For contrast, steps 1-4 are body text; only 5 and up count as large (4 sneaks in when bold).",
+  "assets": [],
+  "tags": ["typography", "utilities", "sizes"]
+}

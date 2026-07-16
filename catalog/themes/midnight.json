@@ -1,0 +1,15 @@
+{
+  "id": "midnight",
+  "kind": "theme",
+  "label": "Midnight",
+  "summary": "GeoCities after dark: black page, tiled starfield, neon text, yellow headings.",
+  "era": "The black-with-neon cool page every 1998 teenager aspired to build.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "The docs/08 contrast matrix clears AA for every body pair here. Links keep their underlines.",
+  "assets": ["tile-stars"],
+  "tags": ["theme"]
+}

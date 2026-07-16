@@ -1,0 +1,21 @@
+{
+  "id": "hr",
+  "kind": "component",
+  "label": "Horizontal rule",
+  "summary": "A wardrobe of horizontal rules for the semantic <hr>.",
+  "era": "The divider-GIF drawer of 1998, braided ropes, chasing lights, rainbow bars, because every section break deserved jewelry.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-hr", "role": "base rule; the upgrade for a semantic <hr>" },
+    { "name": "rs-hr--groove", "role": "modifier: the classic 3D groove" },
+    { "name": "rs-hr--dotted", "role": "modifier: dotted line" },
+    { "name": "rs-hr--rainbow", "role": "modifier: 4px banded rainbow bar" },
+    { "name": "rs-hr--stars", "role": "modifier: tiled pixel-star divider" }
+  ],
+  "a11y": "Keep the semantic <hr>, assistive tech announces it as a separator, whatever costume it wears.",
+  "assets": ["star-divider"],
+  "tags": ["typography", "divider"]
+}

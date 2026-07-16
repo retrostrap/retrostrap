@@ -1,0 +1,53 @@
+/* high-contrast - accessibility mode in the 1998 spirit: maximum legibility,
+   the "high visibility" page you could read at a squint (docs/07). Every pair
+   clears AAA, the text runs a step larger, and focus is unmissable. */
+
+[data-rs-theme="highcontrast"] {
+  --rs-bg-page: #FFFFFF;
+  --rs-tile-page: none;
+  --rs-bg-content: #FFFFFF;
+  --rs-text: #000000;
+  --rs-text-muted: #333333;
+  --rs-heading: #000000;
+
+  --rs-link: #000099;
+  --rs-link-visited: #660099;
+  --rs-link-active: #CC0000;
+
+  --rs-accent: #000099;
+  --rs-accent-2: #006600;
+  --rs-good: #006600;
+  --rs-warn: #996600;
+  --rs-bad: #CC0000;
+
+  --rs-bevel-face: #C0C0C0;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #000000;
+  --rs-bevel-dark: #000000;
+
+  --rs-titlebar-bg: #000000;
+  --rs-titlebar-bg-2: #333333;
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #000000;
+
+  --rs-selection-bg: #000000;
+  --rs-selection-text: #FFFFFF;
+  --rs-focus-color: #CC0000;
+
+  --rs-font-body: var(--rs-font-narrow);
+  --rs-font-heading: var(--rs-font-narrow);
+  --rs-font-size-body: var(--rs-font-size-3);
+  --rs-font-size-comfy: var(--rs-font-size-4);
+}
+
+/* a thick, unmissable focus ring, the whole reason this theme exists */
+[data-rs-theme="highcontrast"] :focus-visible {
+  outline: 3px solid var(--rs-focus-color);
+  outline-offset: 2px;
+}
+
+/* the bevel's light edge is white here, so a field's bottom/right border
+   disappears on the white page, make the whole box black so it reads as a box */
+[data-rs-theme="highcontrast"] :is(.rs-input, .rs-textarea, .rs-select) {
+  border-color: #000000;
+}

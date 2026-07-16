@@ -1,0 +1,22 @@
+/* rs-figure - a picture in an outset frame with a sunken caption strip.
+   No rotation. Rotation is modern-cute, and we discussed this (docs/04). */
+
+.rs-figure {
+  display: inline-block;
+  margin: var(--rs-space-2);
+  border: 2px outset var(--rs-bevel-face);
+  background: var(--rs-bevel-face);
+  padding: var(--rs-space-1);
+}
+
+.rs-figure img {
+  display: block;
+}
+
+.rs-figure__caption {
+  border-block-start: 1px solid var(--rs-bevel-shadow);
+  margin-block-start: var(--rs-space-1);
+  padding: 1px var(--rs-space-2);
+  font-size: var(--rs-font-size-1);
+  text-align: center;
+}

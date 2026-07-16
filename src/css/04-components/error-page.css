@@ -1,0 +1,15 @@
+/* rs-error-page - HTTP 404, File Not Found. Getting lost should be the
+   best-looking part of the trip (docs/12). */
+
+.rs-error-page {
+  text-align: center;
+  padding: var(--rs-space-5) var(--rs-space-3);
+}
+
+.rs-error-page__code {
+  font-family: var(--rs-font-mono);
+  font-size: var(--rs-font-size-6);
+  font-weight: bold;
+  letter-spacing: normal;
+  margin: 0;
+}

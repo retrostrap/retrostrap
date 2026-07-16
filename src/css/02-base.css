@@ -1,0 +1,53 @@
+/* 02-base.css - body, type, links, selection: the parts every page gets
+   before a single class is written. Defaults are the classic theme. */
+
+body {
+  background-color: var(--rs-bg-page);
+  background-image: var(--rs-tile-page);
+  color: var(--rs-text);
+  font-family: var(--rs-font-body);
+  font-size: var(--rs-font-size-body);
+  line-height: 1.4; /* the era ran ~1.2; one invisible mercy (docs/02) */
+  overflow-wrap: break-word; /* a long geocities URL wraps, it doesn't widen the phone */
+}
+
+/* Comfy mode: one step up the scale, a little more air. */
+html.rs-comfy body {
+  font-size: var(--rs-font-size-comfy);
+  line-height: 1.5;
+}
+
+/* Headings: the browsers' own old mapping, sizes 6/5/4/3/2/1 down the
+   ladder. Margins stay the UA's em-scaled defaults, that IS the era. */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--rs-heading);
+  font-family: var(--rs-font-heading);
+  font-weight: bold;
+}
+
+h1 { font-size: var(--rs-font-size-6); }
+h2 { font-size: var(--rs-font-size-5); }
+h3 { font-size: var(--rs-font-size-4); }
+h4 { font-size: var(--rs-font-size-3); }
+h5 { font-size: var(--rs-font-size-2); }
+h6 { font-size: var(--rs-font-size-1); text-transform: uppercase; }
+
+/* Links: always underlined, and the visited-purple is sacred (docs/02). */
+a { color: var(--rs-link); text-decoration: underline; }
+a:visited { color: var(--rs-link-visited); }
+a:active { color: var(--rs-link-active); }
+
+::selection {
+  background: var(--rs-selection-bg);
+  color: var(--rs-selection-text);
+}
+
+pre, code, kbd, samp {
+  font-family: var(--rs-font-mono);
+}
+
+/* The default rule, dressed like it used to be. Fancier ones are rs-hr. */
+hr {
+  border: 0;
+  border-block-start: 2px groove var(--rs-bevel-face);
+}

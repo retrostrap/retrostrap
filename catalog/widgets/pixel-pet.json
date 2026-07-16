@@ -1,0 +1,23 @@
+{
+  "id": "pixel-pet",
+  "kind": "widget",
+  "label": "Pixel pet",
+  "summary": "A little desktop pet in the corner that you feed, and that remembers you between visits.",
+  "era": "The virtual pets of the early-2000s web, a creature that lived in the corner of your page.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [],
+  "options": [
+    { "name": "name", "type": "string", "default": "Blobby" },
+    { "name": "color", "type": "enum", "values": ["green", "blue", "pink", "gold"], "default": "green" },
+    { "name": "pace", "type": "int", "note": "seconds until fully hungry; default 300" }
+  ],
+  "events": ["rs:pixel-pet:fed", "rs:pixel-pet:gold"],
+  "a11y": "The pet is a labelled button you can feed with the keyboard; its mood is shown as text. State persists in localStorage. Appears (static) under prefers-reduced-motion.",
+  "assets": ["pixel-pet-green", "pixel-pet-blue", "pixel-pet-pink", "pixel-pet-gold"],
+  "tags": ["companion", "toybox", "localstorage"]
+}

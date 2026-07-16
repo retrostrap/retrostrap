@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button Works 1.0 - the 88×31 button maker</title>
+<meta name="description" content="Every homepage deserves a button. 88 by 31 pixels of pure self-expression, drawn on your own computer and downloaded as a PNG. No server, no upload.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+<style>
+  /* Program layout only, pure geometry. Colours come from theme tokens or the
+     lawful web-safe swatches the app itself paints; nothing new is invented. */
+  .bw-desktop { min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 16px 8px; }
+  .bw-window { width: 100%; max-width: 860px; }
+  .bw-panel h2 { margin-block-start: 0; }
+  .bw-panel + .bw-panel { margin-block-start: var(--rs-space-3); }
+
+  /* The zoomed preview: an 88×31 bitmap shown at 4×, kept crisp by rs-pixelated. */
+  .bw-zoom { display: inline-block; margin-block: var(--rs-space-2); }
+  #preview { display: block; width: 352px; max-width: 100%; height: auto; aspect-ratio: 88 / 31; }
+  #preview-actual { width: 88px; height: 31px; vertical-align: middle; border: 1px solid var(--rs-bevel-shadow); }
+
+  /* Swatch grids: 216 web-safe on an 18-wide grid, the named 16 on an 8-wide one. */
+  .bw-swatches { display: grid; grid-template-columns: repeat(18, 1fr); gap: 2px; max-width: 100%; margin-block: var(--rs-space-2); }
+  .bw-swatches--named { grid-template-columns: repeat(8, 1fr); }
+  .bw-swatch { -webkit-appearance: none; appearance: none; inline-size: 100%; block-size: 16px; padding: 0; margin: 0; border: 1px solid var(--rs-bevel-dark); cursor: pointer; }
+  .bw-swatch:focus-visible { outline: 2px solid var(--rs-focus-color); outline-offset: -1px; }
+  /* the toolbar jump lands here: a short double-rule flash, so clicking "Tile"
+     visibly points at the tile box instead of doing quiet keyboard work */
+  .bw-flash { outline: 3px double #000080; outline-offset: 2px; }
+
+  .bw-preset { cursor: pointer; }
+
+  /* Three regions: honest stacked tabs on small screens, three columns on desktop.
+     Above svga we hide the tab strip and lay every panel out side by side. */
+  @media (min-width: 800px) {
+    .bw-regions { display: grid; grid-template-columns: 240px 1fr 320px; gap: var(--rs-space-2); align-items: start; }
+    /* hide the whole strip, not just the tab links: a hidden-but-present strip
+       still occupies the first grid column and shoves the palette below the fold */
+    .bw-regions > .rs-tabs { display: none; }
+    .bw-regions .rs-tabs__panel { display: block; margin: 0; }
+    #panel-palette { grid-column: 1; grid-row: 1; }
+    #panel-design { grid-column: 2; grid-row: 1; }
+    #panel-preview { grid-column: 3; grid-row: 1; }
+  }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to the paint area &rarr;</a>
+
+<div class="bw-desktop">
+
+  <section class="rs-window bw-window" role="dialog" aria-labelledby="win-title" aria-describedby="sb-dims">
+
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="win-title">Button Works 1.0</span>
+      <span class="rs-window__controls">
+        <button type="button" aria-label="Minimize">_</button>
+        <button type="button" aria-label="Maximize">&#9633;</button>
+        <button type="button" aria-label="Close">&#10005;</button>
+      </span>
+    </div>
+
+    <div class="rs-toolbar" role="toolbar" aria-label="Program">
+      <button type="button" class="rs-btn rs-btn--small" data-focus="#btn-text">Text</button>
+      <button type="button" class="rs-btn rs-btn--small" data-focus="#slot-fieldset">Border</button>
+      <button type="button" class="rs-btn rs-btn--small" data-focus="#tile-fieldset">Tile</button>
+      <button type="button" class="rs-btn rs-btn--small" data-focus="#presets">Presets</button>
+      <span class="rs-toolbar__sep" aria-hidden="true"></span>
+      <button type="button" class="rs-btn rs-btn--small rs-btn--primary" id="download-top">Download</button>
+      <button type="button" class="rs-btn rs-btn--small" id="about-btn">About</button>
+    </div>
+
+    <main class="rs-window__body" id="main">
+      <h1 class="rs-sr-only">Button Works, an 88 by 31 pixel button maker</h1>
+
+      <noscript>
+        <p class="rs-alert rs-alert--info">
+          The button painter needs JavaScript to draw on a canvas and hand you a PNG.
+          Switch scripts on and reload, everything happens on your own computer,
+          no server, no upload. In the meantime, here are the six starter buttons:
+        </p>
+      </noscript>
+
+      <div class="bw-regions">
+        <div class="rs-tabs">
+          <a class="rs-tabs__tab" href="#panel-design">Design</a>
+          <a class="rs-tabs__tab rs-tabs__tab--active" href="#panel-preview">Preview</a>
+          <a class="rs-tabs__tab" href="#panel-palette">Palette</a>
+        </div>
+
+        <!-- ============ DESIGN ============ -->
+        <section class="rs-tabs__panel bw-panel" id="panel-design">
+          <h2 class="rs-font-3">Design</h2>
+
+          <p>
+            <label for="btn-text">Button text (max 14):</label>
+            <input class="rs-input" id="btn-text" type="text" maxlength="14" value="MY SITE" autocomplete="off">
+          </p>
+
+          <p>
+            <label for="btn-font">Font:</label>
+            <select class="rs-select" id="btn-font">
+              <option value="narrow" selected>Tahoma (system)</option>
+              <option value="mono">Courier (terminal)</option>
+              <option value="sans">Arial (plain)</option>
+              <option value="serif">Times (classic)</option>
+              <option value="fancy">Comic Sans (fun)</option>
+              <option value="impact">Impact (loud)</option>
+            </select>
+          </p>
+
+          <fieldset class="rs-fieldset" id="tile-fieldset">
+            <legend>Tile</legend>
+            <p><input class="rs-radio" type="radio" name="tile" id="tile-solid" value="solid" checked><label for="tile-solid">solid</label></p>
+            <p><input class="rs-radio" type="radio" name="tile" id="tile-checker" value="checker"><label for="tile-checker">checker</label></p>
+            <p><input class="rs-radio" type="radio" name="tile" id="tile-stars" value="stars"><label for="tile-stars">stars</label></p>
+            <p><input class="rs-radio" type="radio" name="tile" id="tile-stripes" value="stripes"><label for="tile-stripes">stripes</label></p>
+          </fieldset>
+
+          <fieldset class="rs-fieldset" id="slot-fieldset">
+            <legend>A swatch click sets&hellip;</legend>
+            <p><input class="rs-radio" type="radio" name="slot" id="slot-fg" value="fg"><label for="slot-fg">text colour (fg)</label></p>
+            <p><input class="rs-radio" type="radio" name="slot" id="slot-bg" value="bg" checked><label for="slot-bg">background (bg)</label></p>
+            <p><input class="rs-radio" type="radio" name="slot" id="slot-accent" value="accent"><label for="slot-accent">pattern (2nd colour)</label></p>
+            <p><input class="rs-radio" type="radio" name="slot" id="slot-border" value="border"><label for="slot-border">border (with bevel off)</label></p>
+          </fieldset>
+
+          <p>
+            <input class="rs-checkbox" type="checkbox" id="bevel-edge" checked>
+            <label for="bevel-edge">3D bevel edge</label>
+          </p>
+        </section>
+
+        <!-- ============ PREVIEW ============ -->
+        <section class="rs-tabs__panel bw-panel" id="panel-preview">
+          <h2 class="rs-font-3">Preview</h2>
+
+          <figure class="rs-figure bw-zoom">
+            <canvas id="preview" class="rs-pixelated" width="88" height="31" role="img" aria-label="Your button, shown at four times size"></canvas>
+            <figcaption class="rs-figure__caption">4&times; zoom</figcaption>
+          </figure>
+
+          <p class="rs-font-2">actual size:
+            <canvas id="preview-actual" class="rs-pixelated" width="88" height="31" role="img" aria-label="Your button at actual size, 88 by 31 pixels"></canvas>
+          </p>
+
+          <p><button type="button" class="rs-btn rs-btn--primary" id="download-btn">Download PNG</button></p>
+
+          <p class="rs-font-1">Palette keys: <kbd class="rs-kbd">&larr;</kbd> <kbd class="rs-kbd">&rarr;</kbd> <kbd class="rs-kbd">&uarr;</kbd> <kbd class="rs-kbd">&darr;</kbd> move, <kbd class="rs-kbd">Enter</kbd> picks.</p>
+
+          <h3 class="rs-font-2">Presets</h3>
+          <p class="rs-font-1">Click one to load it: classic navy &middot; hot lava &middot; terminal &middot; bubblegum &middot; roadworks &middot; midnight.</p>
+          <div class="rs-badge-wall" id="presets">
+            <button type="button" class="rs-button88 bw-preset" data-preset="0" style="background:#000080;color:#FFFFFF">MY SITE</button>
+            <button type="button" class="rs-button88 bw-preset" data-preset="1" style="background:#330000;color:#FF9900">COOL LINKS</button>
+            <button type="button" class="rs-button88 bw-preset" data-preset="2" style="background:#000000;color:#00FF00">root@home</button>
+            <button type="button" class="rs-button88 bw-preset" data-preset="3" style="background:#FFCCFF;color:#660066">kawaii!!</button>
+            <button type="button" class="rs-button88 bw-preset" data-preset="4" style="background:#FFCC00;color:#000000">UNDER CONSTR.</button>
+            <button type="button" class="rs-button88 bw-preset" data-preset="5" style="background:#000033;color:#FFFF00">star corner</button>
+          </div>
+        </section>
+
+        <!-- ============ PALETTE ============ -->
+        <section class="rs-tabs__panel bw-panel" id="panel-palette">
+          <h2 class="rs-font-3">Palette</h2>
+          <p class="rs-font-2">Active slot: <strong id="slot-name">background</strong>. Pick a colour to set it.</p>
+
+          <h3 class="rs-font-2" id="ws-head">216 web-safe</h3>
+          <div class="bw-swatches" id="ws-grid" aria-labelledby="ws-head"></div>
+
+          <h3 class="rs-font-2" id="named-head">the named 16</h3>
+          <div class="bw-swatches bw-swatches--named" id="named-grid" aria-labelledby="named-head"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="rs-window__statusbar">
+      <span id="sb-dims">88 &times; 31</span>
+      <span id="sb-colors">3 colours</span>
+      <span id="sb-size">PNG ~0 bytes</span>
+      <span id="sb-picked">picked #000080</span>
+      <span id="bw-say" role="status" aria-live="polite"></span>
+    </footer>
+
+  </section>
+
+</div>
+
+<dialog class="rs-dialog rs-dialog--info" id="about-dlg" aria-labelledby="about-title">
+  <div class="rs-dialog__titlebar" id="about-title">About Button Works</div>
+  <div class="rs-dialog__body">
+    <p>Button Works 1.0, a retrostrap demonstration program. No server, no upload:
+    your button is drawn on your own computer, like everything used to be.</p>
+    <p>Every homepage deserves a button. 88 by 31 pixels of pure self-expression.
+    Pick your colours, all 216 lawful ones, plus the named sixteen,
+    type your text, download your PNG, put it on your page, join a ring.</p>
+    <p class="rs-font-1">Animated GIF export (a two-frame sparkle) is coming eventually.
+    It is 1999; patience is a virtue and a bandwidth strategy.</p>
+  </div>
+  <form method="dialog" class="rs-dialog__buttons">
+    <button autofocus>OK</button>
+  </form>
+</dialog>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "tile-dither-navy",
+  "size": [8, 8],
+  "palette": { "a": "#000033", "b": "#000080" },
+  "frames": [[
+    "abababab",
+    "babababa",
+    "abababab",
+    "babababa",
+    "abababab",
+    "babababa",
+    "abababab",
+    "babababa"
+  ]],
+  "fps": 0
+}

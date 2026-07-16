@@ -1,0 +1,20 @@
+{
+  "id": "ascii",
+  "kind": "component",
+  "label": "ASCII art",
+  "summary": "A <pre> block for ASCII art and text banners, marked up as an image so readers announce a label, not every slash.",
+  "era": "Signatures, textfile logos, and figlet banners, the art you made when the only tool guaranteed to render was the font.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-ascii", "role": "the art block: tight-leading monospace on <pre>, scrolls sideways if wide" },
+    { "name": "rs-ascii--center", "role": "centers the block while the art inside stays left-aligned" },
+    { "name": "rs-ascii--framed", "role": "a raised bevel frame around the art" },
+    { "name": "rs-ascii--sig", "role": "the forum signature variant: smaller and quieter, under a hairline" }
+  ],
+  "a11y": "Mark it up as <pre role=\"img\"> with an aria-label that says what the art shows; assistive tech announces the label instead of reading every character. Wide art scrolls inside its own box, so it never breaks the page on a phone. For text you want read aloud (code, tables), use rs-dos instead.",
+  "assets": [],
+  "tags": ["typography", "decoration", "mono"]
+}

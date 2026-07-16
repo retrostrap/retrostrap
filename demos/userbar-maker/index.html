@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="bubble">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Userbar Factory 1.0 - the 350x19 signature banner maker</title>
+<meta name="description" content="Make a userbar: the glossy 350x19 signature banner of the mid-2000s forums. Pick a colour, an icon, and your text; download the PNG and wear it in your signature. No server.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bubble.css">
+<style>
+  /* Program geometry only; the gel comes from the canvas, chrome from the theme. */
+  .ub-desktop { min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 16px 8px; }
+  .ub-window { width: 100%; max-width: 780px; }
+  .ub-panel + .ub-panel { margin-block-start: var(--rs-space-3); }
+  .ub-panel h2 { margin-block-start: 0; }
+  .ub-controls { display: grid; gap: var(--rs-space-2); grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .ub-controls { grid-template-columns: 1fr 1fr; } }
+  .ub-controls .ub-wide { grid-column: 1 / -1; }
+  .ub-controls label { display: block; }
+  .ub-controls .rs-input, .ub-controls .rs-select { inline-size: 100%; }
+  /* the zoomed preview: 350x19 shown at 2x, kept crisp */
+  #zoom { display: block; width: 700px; max-width: 100%; height: auto; image-rendering: pixelated; border: 1px solid var(--rs-bevel-shadow); }
+  #actual { display: block; margin-block-start: var(--rs-space-2); border: 1px solid var(--rs-bevel-shadow); }
+  .ub-actions { display: flex; flex-wrap: wrap; gap: var(--rs-space-2); align-items: center; margin-block-start: var(--rs-space-2); }
+  .ub-swatches { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-block: var(--rs-space-2); }
+  .ub-swatch { appearance: none; -webkit-appearance: none; block-size: 22px; border: 1px solid var(--rs-bevel-dark); cursor: pointer; padding: 0; }
+  .ub-swatch:focus-visible { outline: 2px solid var(--rs-focus-color); outline-offset: 1px; }
+  .ub-swatch[aria-pressed="true"] { outline: 2px solid #000000; outline-offset: 1px; }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to the userbar &rarr;</a>
+
+<div class="ub-desktop">
+  <section class="rs-window ub-window" role="dialog" aria-labelledby="win-title">
+
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="win-title">Userbar Factory 1.0</span>
+      <span class="rs-window__controls">
+        <button type="button" aria-label="Minimize">_</button>
+        <button type="button" aria-label="Maximize">&#9633;</button>
+        <button type="button" aria-label="Close">&#10005;</button>
+      </span>
+    </div>
+
+    <main class="rs-window__body" id="main">
+
+      <div class="rs-panel ub-panel">
+        <h2 class="rs-panel__title">Your userbar</h2>
+        <div class="ub-controls">
+          <p class="ub-wide">
+            <label for="txt">Text (max 28)</label>
+            <input class="rs-input" id="txt" type="text" maxlength="28" value="RETRO SINCE 1999"
+                   autocomplete="off" spellcheck="false">
+          </p>
+          <p>
+            <label for="icon">Icon</label>
+            <select class="rs-select" id="icon">
+              <option value="none">none</option>
+              <option value="heart">heart</option>
+              <option value="star">star</option>
+              <option value="gem">gem</option>
+              <option value="floppy">floppy</option>
+              <option value="cat">cat</option>
+              <option value="invader">invader</option>
+              <option value="skull">skull</option>
+              <option value="bolt">lightning</option>
+              <option value="mushroom">mushroom</option>
+              <option value="cassette">cassette</option>
+              <option value="gamepad">gamepad</option>
+              <option value="note">music note</option>
+              <option value="paw">paw</option>
+              <option value="coffee">coffee</option>
+              <option value="cd">cd</option>
+              <option value="crown">crown</option>
+              <option value="crosshair">crosshair</option>
+            </select>
+          </p>
+          <p>
+            <label for="align">Text align</label>
+            <select class="rs-select" id="align">
+              <option value="right">right</option>
+              <option value="center">center</option>
+              <option value="left">left</option>
+            </select>
+          </p>
+        </div>
+        <p class="rs-font-1">Colour theme <span id="theme-name">midnight</span>, pick one:</p>
+        <div class="ub-swatches" id="swatches" role="group" aria-label="Colour theme"></div>
+        <p>
+          <label for="gloss">Gloss</label>
+          <select class="rs-select" id="gloss">
+            <option value="gel">gel</option>
+            <option value="oval">oval gel</option>
+            <option value="none">none</option>
+          </select>
+        </p>
+        <p>
+          <label for="texture">Texture</label>
+          <select class="rs-select" id="texture">
+            <option value="scanlines">scanlines</option>
+            <option value="none">none</option>
+            <option value="candy">candy stripes</option>
+            <option value="brushed">brushed metal</option>
+            <option value="carbon">carbon fibre</option>
+          </select>
+        </p>
+      </div>
+
+      <div class="rs-panel ub-panel">
+        <h2 class="rs-panel__title">Preview</h2>
+        <canvas id="zoom" width="700" height="38" role="img" aria-label="Userbar preview"></canvas>
+        <canvas id="actual" width="350" height="19" aria-hidden="true"></canvas>
+        <div class="ub-actions">
+          <button type="button" class="rs-btn rs-btn--primary" id="download">Download PNG</button>
+          <button type="button" class="rs-btn" id="copybb">Copy [img] tag</button>
+          <span class="rs-font-1" id="say" role="status" aria-live="polite"></span>
+        </div>
+        <p class="rs-font-1">Download it, host it on your own space, then drop
+        <code>[img]your-url.png[/img]</code> in your Boards signature.</p>
+      </div>
+
+    </main>
+
+    <footer class="rs-window__statusbar">
+      <span>Userbar Factory 1.0</span>
+      <span>350 &times; 19 &middot; drawn in your browser &middot; nothing uploaded</span>
+    </footer>
+  </section>
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

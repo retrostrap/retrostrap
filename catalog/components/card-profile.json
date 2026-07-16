@@ -1,0 +1,21 @@
+{
+  "id": "card-profile",
+  "kind": "component",
+  "label": "Profile card",
+  "summary": "The member card: avatar, name, rank stars and a fields table.",
+  "era": "The message-board member card beside every post: avatar, rank stars, and a Location/Interests table.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-card-profile", "role": "the member card shell" },
+    { "name": "rs-card-profile__avatar", "role": "slot: the 80×80 avatar" },
+    { "name": "rs-card-profile__name", "role": "slot: member name" },
+    { "name": "rs-card-profile__rank", "role": "slot: rank stars line" },
+    { "name": "rs-card-profile__fields", "role": "slot: the location/interests fields table" }
+  ],
+  "a11y": "The name is a real heading and the fields are a real table with th scope=\"row\" labels, so readers get proper label-value pairs.",
+  "assets": [],
+  "tags": ["content", "forum", "profile"]
+}

@@ -1,0 +1,30 @@
+/* rs-button88 - 88 by 31 pixels of pure self-expression (docs/01 §4).
+   Never scales. Wrap a collection in rs-badge-wall. */
+
+.rs-button88 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 88px;
+  block-size: 31px;
+  flex: none;
+  overflow: hidden;
+  background: var(--rs-bevel-face);
+  border: 1px solid var(--rs-bevel-dark);
+  color: var(--rs-text);
+  font: bold var(--rs-font-size-1)/1.1 var(--rs-font-sans);
+  text-align: center;
+  text-decoration: none; /* it's a button-shaped link, not body copy */
+}
+
+/* baked palettes for a proper wall of colour, the way the 88x31 GIFs used to be */
+.rs-button88--navy   { background: #000066; color: #FFFFFF; border-color: #000000; }
+.rs-button88--maroon { background: #660000; color: #FFCC00; border-color: #000000; }
+.rs-button88--teal   { background: #006666; color: #FFFFFF; border-color: #000000; }
+
+.rs-button88 img {
+  display: block;
+  inline-size: 88px;
+  block-size: 31px;
+  image-rendering: pixelated;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>To-Do List 98 - Help</title>
+<meta name="description" content="Help for To-Do List 98: contents, keyboard shortcuts, and how to register.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+<style>
+  .app-desktop {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px 12px;
+  }
+  .app-window { width: 100%; max-width: 640px; }
+  @media (max-width: 639px) { .app-desktop { padding: 0; } }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to the help text &rarr;</a>
+
+<div class="app-desktop">
+
+  <section class="rs-window app-window">
+
+    <header class="rs-window__titlebar">
+      <span class="rs-window__title">Help, To-Do List 98</span>
+      <span class="rs-window__controls">
+        <button type="button" aria-label="Minimize">_</button>
+        <button type="button" aria-label="Maximize">&#9633;</button>
+        <button type="button" aria-label="Close">&#10005;</button>
+      </span>
+    </header>
+
+    <nav class="rs-navbar" aria-label="Help">
+      <a href="index.html">Back to the program</a>
+      <a href="help.html" aria-current="page">Help</a>
+    </nav>
+
+    <main class="rs-window__body" id="main">
+      <h1>To-Do List 98, Help</h1>
+
+      <div class="rs-tabs">
+        <a class="rs-tabs__tab rs-tabs__tab--active" href="#tab-contents">Contents</a>
+        <a class="rs-tabs__tab" href="#tab-shortcuts">Shortcuts</a>
+        <a class="rs-tabs__tab" href="#tab-register">Register</a>
+
+        <section class="rs-tabs__panel" id="tab-contents">
+          <h2>What this program does</h2>
+          <p>To-Do List 98 keeps a list of things you mean to do. It saves that list to
+          <b>this very computer</b>, no server, no upload, no modem required after the
+          page has loaded. Close the browser, come back tomorrow, your list is waiting.</p>
+
+          <h2>Using it</h2>
+          <ul class="rs-list rs-list--disks">
+            <li>Type a task in the box and press <kbd class="rs-kbd">Enter</kbd> (or click <b>Add</b>).</li>
+            <li>Tick the box next to a task to mark it done. The progress bar fills as you go.</li>
+            <li>Click a task to <em>select</em> it, then use <b>Delete</b> or <b>Mark done</b> from
+            the toolbar or the <b>Edit</b> menu.</li>
+            <li><b>Clear completed</b> sweeps away every finished task at once, it asks first.</li>
+          </ul>
+
+          <p class="rs-alert rs-alert--info">
+            Your list lives in this browser on this machine. Use a different computer and you
+            start with a fresh, hopeful, empty list.
+          </p>
+        </section>
+
+        <section class="rs-tabs__panel" id="tab-shortcuts">
+          <h2>Keyboard shortcuts</h2>
+          <p>Select a task first (click it), then the keys below work whenever the typing box is
+          not focused.</p>
+          <table class="rs-table rs-table--bordered">
+            <caption class="rs-sr-only">Keyboard shortcuts</caption>
+            <thead>
+              <tr><th scope="col">Key</th><th scope="col">What it does</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><kbd class="rs-kbd">Enter</kbd></th><td>Add the task you just typed</td></tr>
+              <tr><th scope="row"><kbd class="rs-kbd">Space</kbd></th><td>Toggle the selected task done / undone</td></tr>
+              <tr><th scope="row"><kbd class="rs-kbd">Del</kbd></th><td>Delete the selected task (asks first)</td></tr>
+              <tr><th scope="row"><kbd class="rs-kbd">&uarr;</kbd> <kbd class="rs-kbd">&darr;</kbd></th><td>Move the selection up and down</td></tr>
+              <tr><th scope="row"><kbd class="rs-kbd">Esc</kbd></th><td>Close the dialog box on screen</td></tr>
+            </tbody>
+          </table>
+          <p class="rs-font-2">Rumour has it <kbd class="rs-kbd">F1</kbd> opens this very page. Rumour is
+          generous; the button just feels correct.</p>
+        </section>
+
+        <section class="rs-tabs__panel" id="tab-register">
+          <h2>Register your copy</h2>
+          <p>To-Do List 98 is <b>shareware</b>. Evaluate it free for 30 days. If you keep using it,
+          please register: send <b>$12</b> and you will receive the registered edition on a
+          3.5&Prime; floppy disk by post, plus a printed card that says you did the right thing.</p>
+
+          <p>The titlebar will proudly read <b>[registered to YOUR NAME]</b> instead of
+          <b>[unregistered]</b>. Registered users also receive: our sincere gratitude, and the
+          warm feeling of supporting one very small software company.</p>
+
+          <table class="rs-table rs-table--bordered">
+            <caption class="rs-sr-only">How to register</caption>
+            <tbody>
+              <tr><th scope="row">Price</th><td>$12, one-time, no subscription (it is 1998)</td></tr>
+              <tr><th scope="row">You get</th><td>The registered edition, on floppy, by post</td></tr>
+              <tr><th scope="row">Order by mail</th><td><a href="mailto:register@grebe-software.example?subject=Register%20To-Do%20List%2098">register@grebe-software.example</a></td></tr>
+            </tbody>
+          </table>
+
+          <p class="rs-note">This is a demonstration program. No money changes hands, no floppy is
+          in the post, and Grebe Software is as fictional as the late fees on those VHS tapes.</p>
+        </section>
+      </div>
+
+    </main>
+
+    <footer class="rs-window__statusbar">
+      <span>Help</span>
+      <span>To-Do List 98, [unregistered]</span>
+    </footer>
+
+  </section>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+</body>
+</html>

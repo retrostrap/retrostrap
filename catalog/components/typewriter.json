@@ -1,0 +1,18 @@
+{
+  "id": "typewriter",
+  "kind": "component",
+  "label": "Typewriter",
+  "summary": "Courier text with letterspacing; the reveal modifier types it on.",
+  "era": "The window.status typewriter loop that typed welcomes into the browser's status bar, promoted to the page, letter by letter.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-typewriter", "role": "Courier stack + 1px letterspacing" },
+    { "name": "rs-typewriter--reveal", "role": "modifier: types on with steps(); instant under reduced motion" }
+  ],
+  "a11y": "The reveal is decoration over real text: under prefers-reduced-motion the line simply appears, fully typed. Screen readers always get the whole sentence.",
+  "assets": [],
+  "tags": ["typography", "motion", "mono"]
+}

@@ -1,0 +1,10 @@
+/* rs-spacer - a vertical spacer div, named in loving memory of the 1×1
+   spacer.gif (docs/01 §2). It held the old web together; we owe it at
+   least an honest block-size. */
+
+.rs-spacer   { display: block; block-size: var(--rs-space-3); }
+.rs-spacer--1 { block-size: var(--rs-space-1); }
+.rs-spacer--2 { block-size: var(--rs-space-2); }
+.rs-spacer--3 { block-size: var(--rs-space-3); }
+.rs-spacer--4 { block-size: var(--rs-space-4); }
+.rs-spacer--5 { block-size: var(--rs-space-5); }

@@ -1,0 +1,17 @@
+{
+  "id": "input",
+  "kind": "component",
+  "label": "Text input",
+  "summary": "The sunken single-line text input.",
+  "era": "The white sunken fields of the guestbook form, name, email, homepage, waiting on every page worth visiting.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-input", "role": "sunken text input; invalid state gets the 1px red border" }
+  ],
+  "a11y": "Every field gets a <label for>, never a placeholder standing in for one. Invalid means a red border plus an rs-form-error line tied on with aria-describedby, so the message is more than a color.",
+  "assets": [],
+  "tags": ["forms", "input"]
+}

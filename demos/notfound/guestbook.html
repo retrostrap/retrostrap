@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guestbook - Sam's homepage</title>
+<meta name="description" content="The one page on Sam's homepage that actually works. Sign it so the place feels less lonely.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+</head>
+<body data-rs-widgets="smilies">
+
+<a class="rs-skip" href="#main">Skip to content &rarr;</a>
+
+<div class="rs-page rs-container">
+
+  <header id="top" class="rs-center">
+    <h1>SAM'S HOMEPAGE</h1>
+    <p class="rs-font-2">~ pardon the mess &middot; still under construction &middot; est. last weekend ~</p>
+  </header>
+
+  <nav class="rs-navbar" aria-label="Site">
+    <a href="index.html">Home</a>
+    <a href="guestbook.html" aria-current="page">Guestbook</a>
+    <a href="index.html#planned">Cool links</a>
+    <a href="mailto:sam@sams-homepage.example">Email</a>
+  </nav>
+
+  <main id="main">
+    <h2 class="rs-rainbow rs-font-6 rs-center">~ The Guestbook ~</h2>
+    <p class="rs-note">This is the one part of the site that works. Everything else is sawdust
+    and good intentions, but the guestbook? The guestbook is finished. Sign it so it feels
+    less lonely down here.</p>
+
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">Sign my guestbook!</h2>
+      <form class="rs-form-table" id="signbook" action="mailto:sam@sams-homepage.example" method="post" enctype="text/plain">
+        <label for="g-name">Your name:</label>
+        <input class="rs-input" id="g-name" name="name" type="text" required>
+        <label for="g-from">Where from:</label>
+        <input class="rs-input" id="g-from" name="from" type="text" placeholder="your town, or the webring">
+        <label for="g-home">Homepage:</label>
+        <input class="rs-input" id="g-home" name="homepage" type="url" placeholder="http://">
+        <label for="g-msg">Message:</label>
+        <textarea class="rs-textarea" id="g-msg" name="message" rows="3" required></textarea>
+        <div class="rs-form-table__full">
+          <button class="rs-btn rs-btn--primary" type="submit">Sign it!</button>
+        </div>
+      </form>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+    <h2 class="rs-text-center">~ Signatures (<span id="sig-count">4</span>) ~</h2>
+
+    <div id="gb" data-rs-widgets="guestbook">
+      <script type="application/json">
+      { "entries": [
+        { "name": "Marching_Band_Mike", "from": "the webring", "date": "3 days ago", "message": "found you on the Perpetually Unfinished ring. love a homepage that admits it. keep building! :)" },
+        { "name": "gina_from_the_hollow", "from": "Homestead Hollow", "date": "last week", "message": "the sawdust is charming, actually. bookmarked for the grand opening 8)" },
+        { "name": "Sam's Mum", "from": "downstairs", "date": "last week", "message": "It looks wonderful, dear. Is the guestbook the working part? Love you." },
+        { "name": "under_construction_club", "from": "everywhere", "date": "2 weeks ago", "message": "signing every unfinished page on the ring. yours has the best marquee ;)" }
+      ] }
+      </script>
+    </div>
+
+    <p class="rs-text-center"><a class="rs-top" href="#top">^ back to top ^</a></p>
+  </main>
+
+  <footer class="rs-footer rs-center">
+    <p><a href="index.html">&laquo; back to the mess</a></p>
+    <p class="rs-font-1">&copy; 1999-2026 Sam. Best viewed with patience, in any browser, at any size.</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+<script>
+  // Signing shows up right away, prepended into the guestbook widget's own list, and still
+  // offers the mailto so Sam can keep it for real. The one thing on this site that finishes.
+  (function () {
+    var form = document.getElementById('signbook');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      var name = (document.getElementById('g-name').value || '').trim();
+      var msg = (document.getElementById('g-msg').value || '').trim();
+      if (!name || !msg) return; // let `required` do its job
+      e.preventDefault();
+      var list = document.querySelector('.rs-guestbook__entries');
+      if (list) {
+        var from = (document.getElementById('g-from').value || '').trim();
+        var art = document.createElement('article');
+        art.className = 'rs-panel';
+        var h = document.createElement('h3');
+        h.className = 'rs-panel__title';
+        h.textContent = name + (from ? ' ~ ' + from : '') + ' ~ just now';
+        var p = document.createElement('p');
+        p.textContent = msg;
+        art.append(h, p);
+        list.insertBefore(art, list.firstChild);
+        var c = document.getElementById('sig-count');
+        if (c) c.textContent = String((Number(c.textContent) || 0) + 1);
+        if (window.Retrostrap) Retrostrap.announce('Entry added.');
+      }
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>

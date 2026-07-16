@@ -1,0 +1,6 @@
+# robots.txt: everyone is welcome here, crawlers included.
+# The interesting stuff for machines lives at /llms.txt and /for-robots/.
+User-agent: *
+Disallow:
+
+Sitemap: https://retrostrap.dev/sitemap.xml

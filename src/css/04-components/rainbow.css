@@ -1,0 +1,11 @@
+/* rs-rainbow - the <font color>-per-letter rainbow, minus the markup soup.
+   Banded hard stops, one character wide, straight off the legal palette. */
+
+.rs-rainbow {
+  background: repeating-linear-gradient(90deg,
+    #FF0000 0 1ch, #FF9900 1ch 2ch, #FFFF00 2ch 3ch,
+    #00CC00 3ch 4ch, #0000FF 4ch 5ch, #9900CC 5ch 6ch);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

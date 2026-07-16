@@ -1,0 +1,17 @@
+{
+  "id": "kbd",
+  "kind": "component",
+  "label": "Keycap",
+  "summary": "A <kbd> dressed as a beveled keycap.",
+  "era": "\"Press CTRL+D to bookmark this site!\", the era's favorite parting instruction, finally wearing real keycaps.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-kbd", "role": "keycap chrome on <kbd>: sunken bevel, mono, tight padding" }
+  ],
+  "a11y": "The element stays a semantic <kbd>, so keyboard input reads as keyboard input; the keycap is only chrome.",
+  "assets": [],
+  "tags": ["typography", "mono", "keyboard"]
+}

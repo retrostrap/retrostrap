@@ -1,0 +1,114 @@
+/* 05-utilities.css - the complete sanctioned set, deliberately this short
+   (docs/04). Every utility is a door out of the component system; we
+   install few doors. !important is the point here. */
+
+.rs-text-left   { text-align: left !important; }
+.rs-text-center { text-align: center !important; }
+.rs-text-right  { text-align: right !important; }
+
+.rs-pad-0 { padding: var(--rs-space-0) !important; }
+.rs-pad-1 { padding: var(--rs-space-1) !important; }
+.rs-pad-2 { padding: var(--rs-space-2) !important; }
+.rs-pad-3 { padding: var(--rs-space-3) !important; }
+.rs-pad-4 { padding: var(--rs-space-4) !important; }
+.rs-pad-5 { padding: var(--rs-space-5) !important; }
+
+.rs-gap-0 { gap: var(--rs-space-0) !important; }
+.rs-gap-1 { gap: var(--rs-space-1) !important; }
+.rs-gap-2 { gap: var(--rs-space-2) !important; }
+.rs-gap-3 { gap: var(--rs-space-3) !important; }
+.rs-gap-4 { gap: var(--rs-space-4) !important; }
+.rs-gap-5 { gap: var(--rs-space-5) !important; }
+
+.rs-mt-0 { margin-block-start: var(--rs-space-0) !important; }
+.rs-mt-1 { margin-block-start: var(--rs-space-1) !important; }
+.rs-mt-2 { margin-block-start: var(--rs-space-2) !important; }
+.rs-mt-3 { margin-block-start: var(--rs-space-3) !important; }
+.rs-mt-4 { margin-block-start: var(--rs-space-4) !important; }
+.rs-mt-5 { margin-block-start: var(--rs-space-5) !important; }
+
+.rs-mb-0 { margin-block-end: var(--rs-space-0) !important; }
+.rs-mb-1 { margin-block-end: var(--rs-space-1) !important; }
+.rs-mb-2 { margin-block-end: var(--rs-space-2) !important; }
+.rs-mb-3 { margin-block-end: var(--rs-space-3) !important; }
+.rs-mb-4 { margin-block-end: var(--rs-space-4) !important; }
+.rs-mb-5 { margin-block-end: var(--rs-space-5) !important; }
+
+@media (min-width: 640px) { /* vga */
+  .rs-hide-vga { display: none !important; }
+}
+@media (min-width: 800px) { /* svga */
+  .rs-hide-svga { display: none !important; }
+}
+@media (max-width: 639px) {
+  .rs-show-vga { display: none !important; }
+}
+@media (max-width: 799px) {
+  .rs-show-svga { display: none !important; }
+}
+
+.rs-pixelated { image-rendering: pixelated !important; }
+
+/* the era cursor pack, pixel-art cursors with keyword fallbacks. Opt a whole
+   region in with rs-cursors; the singles override one element at a time. */
+.rs-cursors { cursor: url("assets/cursor-arrow.png") 0 0, default; }
+.rs-cursors :is(a, button, summary, label, [role="button"]) { cursor: url("assets/cursor-hand.png") 3 0, pointer; }
+.rs-cursor-arrow { cursor: url("assets/cursor-arrow.png") 0 0, default !important; }
+.rs-cursor-hand { cursor: url("assets/cursor-hand.png") 3 0, pointer !important; }
+.rs-cursor-hourglass { cursor: wait !important; }
+.rs-cursor-crosshair { cursor: crosshair !important; }
+
+/* visually hidden, screen-reader available */
+.rs-sr-only {
+  position: absolute !important;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rs-badge-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rs-space-2);
+  align-items: center;
+}
+
+.rs-table-scroll {
+  overflow-x: auto;
+  max-inline-size: 100%;
+}
+
+/* invisible 44px touch hit-area for tiny era controls (docs/08) */
+.rs-hit {
+  position: relative;
+}
+
+.rs-hit::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: max(100%, 44px);
+  block-size: max(100%, 44px);
+  translate: -50% -50%;
+}
+
+/* scanline overlay; alpha allowed under the decorative-overlay clause
+   (docs/02 §alpha-and-gradients), the crt widget adds the rest later */
+.rs-crt {
+  position: relative;
+}
+
+.rs-crt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg,
+    rgba(0, 0, 0, 0.08) 0 1px, transparent 1px 3px);
+}

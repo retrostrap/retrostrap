@@ -1,0 +1,94 @@
+/* bubble - candy-plastic 2001: white windows on a pinstriped aqua desktop, gel
+   buttons with a two-stop sheen, blue titlebars, and traffic-light controls. A
+   generic homage to the glossy desktop of the era, kept legal: rounding stays 0,
+   the gloss is a hard-stop gradient of web-safe blues, nothing pulses (docs/07). */
+
+[data-rs-theme="bubble"] {
+  --rs-bg-page: #6699CC;
+  --rs-tile-page: none; /* the pinstripe is applied by the body rule below */
+  --rs-bg-content: #FFFFFF;
+  --rs-text: #000000;
+  --rs-text-muted: #666666;  /* AA on white */
+  --rs-heading: #003399;
+
+  --rs-link: #0066CC;
+  --rs-link-visited: #660099;
+  --rs-link-active: #FF6600;
+
+  --rs-accent: #3399FF;
+  --rs-accent-2: #0066CC;
+  --rs-good: #009900;
+  --rs-warn: #FFCC00;
+  --rs-bad: #CC0000;
+
+  --rs-bevel-face: #CCCCCC;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #999999;
+  --rs-bevel-dark: #666666;
+
+  --rs-titlebar-bg: #0066CC;
+  --rs-titlebar-bg-2: #3399FF;   /* lighter top stop of the gloss */
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #999999;
+
+  --rs-selection-bg: #3399FF;
+  --rs-selection-text: #FFFFFF;
+  --rs-focus-color: #0066FF;     /* an aqua ring, hard-edged per the Shape Law */
+
+  --rs-font-body: var(--rs-font-sans);      /* Verdana/Geneva, Geneva is the Mac face */
+  --rs-font-heading: var(--rs-font-sans);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* the pinstriped desktop, framing the white windows, a direct url()-free tile
+   of two web-safe blues, thin horizontal lines the way the era liked them.
+   The :where(:not()) guard bows out when the author picks an rs-tile-* wallpaper. */
+[data-rs-theme="bubble"] body:where(:not([class*="rs-tile-"])) {
+  background-image: repeating-linear-gradient(
+    0deg, #6699CC 0 3px, #99CCCC 3px 4px);
+}
+
+/* the window frame: a thin raised bezel around the white sheet */
+[data-rs-theme="bubble"] .rs-page {
+  border-color: #FFFFFF #999999 #999999 #FFFFFF;
+}
+
+/* the titlebar wears the two-stop blue gloss (bg-2 on top, bg below) */
+[data-rs-theme="bubble"] .rs-window__titlebar {
+  background-image: linear-gradient(180deg, #3399FF 0 50%, #0066CC 50% 100%);
+}
+
+/* traffic-light window controls, square, because circles need a radius */
+[data-rs-theme="bubble"] .rs-window__controls button {
+  color: #000000;
+  border-color: #FFFFFF #666666 #666666 #FFFFFF;
+}
+[data-rs-theme="bubble"] .rs-window__controls button:nth-child(1) { background: #FFCC00; }
+[data-rs-theme="bubble"] .rs-window__controls button:nth-child(2) { background: #33CC33; }
+[data-rs-theme="bubble"] .rs-window__controls button:nth-child(3) { background: #FF3333; }
+
+/* gel buttons: a white highlight over a candy fill, hard stop between them.
+   The primary rule repeats the :not() so it matches the plain rule's
+   specificity and wins by order; without it the white gel paints over the
+   blue and the primary label goes white-on-white. */
+[data-rs-theme="bubble"] .rs-btn:not(.rs-btn--link) {
+  background-image: linear-gradient(180deg, #FFFFFF 0 45%, #CCCCFF 45% 100%);
+}
+[data-rs-theme="bubble"] .rs-btn--primary:not(.rs-btn--link) {
+  background-image: linear-gradient(180deg, #3399FF 0 45%, #0033CC 45% 100%);
+  color: #FFFFFF;
+  border-color: #FFFFFF #003399 #003399 #FFFFFF;
+}
+
+/* panels and toolbars get a soft top sheen */
+[data-rs-theme="bubble"] .rs-panel__title,
+[data-rs-theme="bubble"] .rs-toolbar {
+  background-image: linear-gradient(180deg, #FFFFFF 0 50%, #CCCCFF 50% 100%);
+}
+
+/* table headers read as a glossy blue strip */
+[data-rs-theme="bubble"] .rs-table th {
+  background-image: linear-gradient(180deg, #3399FF 0 50%, #0066CC 50% 100%);
+  color: #FFFFFF;
+}

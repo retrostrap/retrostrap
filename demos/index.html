@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>retrostrap demos</title>
+<link rel="stylesheet" href="../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../dist/retrostrap-patterns.css">
+<!-- every theme, so each card below can wear the one its demo runs -->
+<link rel="stylesheet" href="../dist/themes/midnight.css">
+<link rel="stylesheet" href="../dist/themes/bevel.css">
+<link rel="stylesheet" href="../dist/themes/phosphor.css">
+<link rel="stylesheet" href="../dist/themes/kawaii.css">
+<link rel="stylesheet" href="../dist/themes/y2k.css">
+<link rel="stylesheet" href="../dist/themes/bubble.css">
+<link rel="stylesheet" href="../dist/themes/cosmic.css">
+<link rel="stylesheet" href="../dist/themes/newspaper.css">
+<link rel="stylesheet" href="../dist/themes/highcontrast.css">
+<style>
+  /* the quilt: each themed card is its own little world on the page sheet */
+  .hub-shelf { margin-block-start: var(--rs-space-5); }
+  .hub-grid { margin-block-start: var(--rs-space-3); }
+  /* re-declare color+bg from the card's own tokens, or the text stays the page's
+     inherited classic black on the themed panel (scoped-theme gotcha) */
+  .hub-card[data-rs-theme] { padding: var(--rs-space-3); color: var(--rs-text); background: var(--rs-bg-content); }
+  .hub-card[data-rs-theme] a:not(.rs-button88) { color: var(--rs-link); }
+  /* the site badges wear baked colors like real 88x31 GIFs, not the card's theme,
+     so they always read, and the shelf looks like a proper wall of buttons */
+  .hub-card .rs-button88 { border-color: currentColor; }
+  .hub-grid .hub-card:nth-child(6n+1) .rs-button88 { background: #000000; color: #00FF00; }
+  .hub-grid .hub-card:nth-child(6n+2) .rs-button88 { background: #000099; color: #FFFFFF; }
+  .hub-grid .hub-card:nth-child(6n+3) .rs-button88 { background: #660000; color: #FFCC00; }
+  .hub-grid .hub-card:nth-child(6n+4) .rs-button88 { background: #006666; color: #FFFFFF; }
+  .hub-grid .hub-card:nth-child(6n+5) .rs-button88 { background: #660099; color: #FFFFFF; }
+  .hub-grid .hub-card:nth-child(6n)   .rs-button88 { background: #000000; color: #00FFFF; }
+  .hub-start { margin-inline-start: var(--rs-space-2); }
+  .hub-shelf__title { font-size: var(--rs-font-size-5); border-block-end: 2px solid var(--rs-border-color); padding-block-end: var(--rs-space-1); }
+  /* rs-rainbow's yellow band vanishes on the white sheet; ink-weight stops read.
+     Use background-IMAGE, not the background shorthand, or it resets background-clip:text
+     (from the base class) to border-box and the transparent letters sit on a solid bar. */
+  .rs-rainbow { background-image: repeating-linear-gradient(90deg,
+    #CC0000 0 1ch, #CC6600 1ch 2ch, #999900 2ch 3ch,
+    #009900 3ch 4ch, #0000CC 4ch 5ch, #9900CC 5ch 6ch); }
+  /* a lone card on an odd row spans the shelf instead of leaving a white gap */
+  .hub-grid > .hub-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  /* the badge floats so the blurb wraps beside it instead of under a dead band */
+  .hub-card p:has(.rs-button88) { float: inline-end; margin-block: 0; margin-inline-start: var(--rs-space-3); }
+  .hub-card::after { content: ""; display: block; clear: both; }
+</style>
+</head>
+<body class="rs-tile-dots">
+<a class="rs-skip" href="#main">Skip to content</a>
+
+<div class="rs-page rs-container rs-container--wide">
+  <header class="rs-center">
+    <h1 class="rs-font-6 rs-rainbow">~ The retrostrap demo hub ~</h1>
+    <div class="rs-marquee">
+      <span class="rs-marquee__content">~ * ~ thirty-five sites and tools, built with nothing but retrostrap and its ten themes ~ * ~ view source on any of them ~ that is the whole point ~ * ~</span>
+    </div>
+    <p>Every card below runs in the theme its demo uses, all ten, on one page.
+    You are visitor
+    <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="local" data-rs-hit-counter-digits="6"></span>. It counts only you, which keeps it honest.</p>
+  </header>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <main id="main">
+
+    <section class="hub-shelf">
+      <h2 class="hub-shelf__title">Homepages &amp; shrines</h2>
+      <div class="hub-grid rs-cols-2">
+
+        <section class="rs-panel hub-card" data-rs-theme="midnight">
+          <h3 class="rs-panel__title">Sandra's Space Corner <span class="rs-badge rs-blink hub-start">START HERE</span></h3>
+          <p><a class="rs-button88" href="homepage-classic/index.html">SPACE CORNER</a></p>
+          <p>A teen astronomer's personal homepage, the whole 1999 liturgy: a counter, a guestbook, a webring, a cat on the masthead, snow in December.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the archetype. <em>Midnight.</em></p>
+          <p><a href="homepage-classic/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="kawaii">
+          <h3 class="rs-panel__title">Mel's Corner</h3>
+          <p><a class="rs-button88" href="whats-new/index.html">MEL'S CORNER</a></p>
+          <p>A teenager's diary: dated entries with mood stars and smilies, a spoiler, and a scalloped-panel blog on a hearts tile.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> personal publishing. <em>Kawaii.</em></p>
+          <p><a href="whats-new/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="midnight">
+          <h3 class="rs-panel__title">Neon Divide</h3>
+          <p><a class="rs-button88" href="band/index.html">NEON DIVIDE</a></p>
+          <p>An unofficial fan shrine for a made-up basement synth band, built around the jukebox, a discography, tour dates, and a street team.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the jukebox chrome, moodily. <em>Midnight.</em></p>
+          <p><a href="band/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="y2k">
+          <h3 class="rs-panel__title">The Nebula Shrine</h3>
+          <p><a class="rs-button88" href="fanpage/index.html">STAR QUEST 3D</a></p>
+          <p>A superfan's shrine to a fictional space sim: a splash gate, a frameset on a starfield, a jukebox, and a konami-code secret page.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> how loud the Laws allow. <em>Y2K.</em></p>
+          <p><a href="fanpage/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="kawaii">
+          <h3 class="rs-panel__title">The Story Nook</h3>
+          <p><a class="rs-button88" href="fanfic/index.html">STORY NOOK</a></p>
+          <p>A fanfiction archive for an invented fandom: a story index with ratings, a reading room with chapter navigation, and a review form.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> long-form reading. <em>Kawaii.</em></p>
+          <p><a href="fanfic/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="midnight">
+          <h3 class="rs-panel__title">Dana's Desk Cam</h3>
+          <p><a class="rs-button88" href="webcam/index.html">DESK CAM</a></p>
+          <p>A JenniCam-era "my life on cam" page, a "live" ASCII cam, a diary, an archive, and the earnest FAQ.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the personal-cam genre. <em>Midnight.</em></p>
+          <p><a href="webcam/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="kawaii">
+          <h3 class="rs-panel__title">Blobby Adoptions</h3>
+          <p><a class="rs-button88" href="adoptables/index.html">BLOBBY</a></p>
+          <p>Adopt a pixel pet, the pixel-pet widget puts a little blob in your corner that you feed and that remembers you between visits.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the pixel-pet widget. <em>Kawaii.</em></p>
+          <p><a href="adoptables/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Grandma Vi's Kitchen</h3>
+          <p><a class="rs-button88" href="recipes/index.html">GRANDMA VI'S</a></p>
+          <p>A homey recipe site: a featured recipe with ingredients and numbered steps, a recipe-box index, and a share-your-recipe form.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> honest content structure. <em>Classic.</em></p>
+          <p><a href="recipes/index.html">Visit &raquo;</a></p>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="hub-shelf">
+      <h2 class="hub-shelf__title">The public web, shops, clans, papers</h2>
+      <div class="hub-grid rs-cols-2">
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Pizzeria Bella Napoli 2000</h3>
+          <p><a class="rs-button88" href="smallbiz/index.html">BELLA NAPOLI</a></p>
+          <p>A family pizzeria on the web since the nephew learned HTML. Menu, hours, directions, a reservation form.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> a normal, useful site. <em>Classic.</em></p>
+          <p><a href="smallbiz/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">MegaByte Computers</h3>
+          <p><a class="rs-button88" href="store/index.html">MEGABYTE</a></p>
+          <p>A year-2000 online store: a product grid, a shopping cart that adds up, and a full checkout form, every field labelled, nothing ever sent.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> commerce forms and tables. <em>Bevel.</em></p>
+          <p><a href="store/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="phosphor">
+          <h3 class="rs-panel__title">Clan Vortex</h3>
+          <p><a class="rs-button88" href="clan/index.html">CLAN VORTEX</a></p>
+          <p>An arena-shooter clan page: a roster with K/D and ranks, match results, server info, and a recruiting tryout, the green-terminal gamer look.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> data tables under a theme. <em>Phosphor.</em></p>
+          <p><a href="clan/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="y2k">
+          <h3 class="rs-panel__title">Basement FM</h3>
+          <p><a class="rs-button88" href="radio/index.html">BASEMENT FM</a></p>
+          <p>Net radio from the basement: the jukebox as the station deck, a DJ lineup, a request line, and the recently-played list.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the jukebox in a station. <em>Y2K.</em></p>
+          <p><a href="radio/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="newspaper">
+          <h3 class="rs-panel__title">The Dial-Up Gazette</h3>
+          <p><a class="rs-button88" href="gazette/index.html">DIAL-UP GAZETTE</a></p>
+          <p>A small-town paper's first website: front-page columns, classifieds, a weather box, letters to the editor, sober editorial, no teal in sight.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the newspaper theme. <em>Newspaper.</em></p>
+          <p><a href="gazette/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="midnight">
+          <h3 class="rs-panel__title">The Pixel Dispatch</h3>
+          <p><a class="rs-button88" href="ezine/index.html">PIXEL DISPATCH</a></p>
+          <p>A monthly webzine about the web itself: a cover story, four department desks, starred reviews, an editor's letter, and a back-issue archive.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> editorial long-form. <em>Midnight.</em></p>
+          <p><a href="ezine/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="y2k">
+          <h3 class="rs-panel__title">The Chrome Comet Award</h3>
+          <p><a class="rs-button88" href="awards/index.html">CHROME COMET</a></p>
+          <p>A "win my award" program: a chrome medallion, judging criteria, an application form, and a hall of fame of past winners.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the award-site genre. <em>Y2K.</em></p>
+          <p><a href="awards/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">Nimbus Systems</h3>
+          <p><a class="rs-button88" href="corporate/index.html">NIMBUS SYSTEMS</a></p>
+          <p>Stiff year-2000 corporate brochureware, mission statement, products, leadership, press releases. Proof it does boring too.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> restrained enterprise. <em>Bevel.</em></p>
+          <p><a href="corporate/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">PixelForge Web Design</h3>
+          <p><a class="rs-button88" href="freelancer/index.html">PIXELFORGE</a></p>
+          <p>A freelance webmaster's "I make websites!" pitch: a portfolio of fake clients, a rates table, and a get-a-quote form.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the services-page genre. <em>Classic.</em></p>
+          <p><a href="freelancer/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Pixel &amp; Byte</h3>
+          <p><a class="rs-button88" href="webcomic/index.html">PIXEL &amp; BYTE</a></p>
+          <p>A slice-of-life webcomic: a three-panel strip with first/prev/next/last navigation, a dated archive, and the cartoonist's rant underneath.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the webcomic layout. <em>Classic.</em></p>
+          <p><a href="webcomic/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Starport</h3>
+          <p><a class="rs-button88" href="portal/index.html">STARPORT</a></p>
+          <p>A late-90s web directory: a search box, eight hand-sorted category columns, cool-site-of-the-day, a weather box, and a webring.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> density stays organised. <em>Classic.</em></p>
+          <p><a href="portal/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Pardon the mess</h3>
+          <p><a class="rs-button88" href="notfound/index.html">CONSTRUCTION</a></p>
+          <p>A perpetually-unfinished homepage: a friendly 404, caution-striped construction signs, and a countdown to a grand opening that never comes.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the error + construction kit. <em>Classic.</em></p>
+          <p><a href="notfound/index.html">Visit &raquo;</a></p>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="hub-shelf">
+      <h2 class="hub-shelf__title">Real programs &amp; communities</h2>
+      <div class="hub-grid rs-cols-2">
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">To-Do List 98</h3>
+          <p><a class="rs-button88" href="app-todo/index.html">TO-DO LIST 98</a></p>
+          <p>Shareware task manager in a Windows-98 window: full CRUD, offline, keyboard-driven, saves to your computer.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> a real modern app. <em>Bevel.</em></p>
+          <p><a href="app-todo/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="phosphor">
+          <h3 class="rs-panel__title">Server Room Status</h3>
+          <p><a class="rs-button88" href="dashboard/index.html">PIXELNET NOC</a></p>
+          <p>A dial-up ISP's NOC wall: a live fleet table, modem pools, an ASCII bandwidth chart, and a Y2K countdown, updating in discrete steps.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> a data-heavy live app. <em>Phosphor.</em></p>
+          <p><a href="dashboard/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="cosmic">
+          <h3 class="rs-panel__title">The Webmaster's Desktop</h3>
+          <p><a class="rs-button88" href="desktop/index.html">MY COMPUTER</a></p>
+          <p>A whole operating system, on a web page: draggable, stackable windows you can shuffle, a start menu, a taskbar, and a DVD logo bouncing as the screensaver.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the windows + dvd widgets. <em>Cosmic.</em></p>
+          <p><a href="desktop/index.html">Open the desktop &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Retrospace</h3>
+          <p><a class="rs-button88" href="retrospace/index.html">RETROSPACE</a></p>
+          <p>A curated, bilingual directory and search for the retrostrap world, browse by category and language; a human approves every listing.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the community keystone (DE/EN). <em>Classic.</em></p>
+          <p><a href="retrospace/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">The Webmaster's Workshop</h3>
+          <p><a class="rs-button88" href="tutorial/index.html">HTML WORKSHOP</a></p>
+          <p>A 1999 "learn to make a homepage" tutorial, the framework dogfooding its own tabs and code blocks to teach the era's craft.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> rs-tabs + rs-dos, teaching. <em>Bevel.</em></p>
+          <p><a href="tutorial/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="cosmic">
+          <h3 class="rs-panel__title">The Night Sky Ring</h3>
+          <p><a class="rs-button88" href="webring/index.html">NIGHT SKY RING</a></p>
+          <p>A webring: six small pages about the sky, each linking to the next. The bar works out its own neighbours from a little list, no server, no sign-up.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the webring widget. <em>Cosmic.</em></p>
+          <p><a href="webring/index.html">Enter the ring &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">The Software Vault</h3>
+          <p><a class="rs-button88" href="downloads/index.html">SOFTWARE VAULT</a></p>
+          <p>A shareware archive with star ratings and platform badges. Click download and a progress bar fills the honest, chunky way a 33.6 modem delivered a file.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> rs-progress + the transitions wipe. <em>Bevel.</em></p>
+          <p><a href="downloads/index.html">Visit &raquo;</a></p>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="hub-shelf">
+      <h2 class="hub-shelf__title">The toolshed</h2>
+      <div class="hub-grid rs-cols-2">
+
+        <section class="rs-panel hub-card" data-rs-theme="highcontrast">
+          <h3 class="rs-panel__title">Text-Only Mirror</h3>
+          <p><a class="rs-button88" href="text-only/index.html">TEXT-ONLY</a></p>
+          <p>The era's "text-only / Lynx-friendly / Bobby Approved" version, the accessibility mirror, told in-period. High contrast, big targets, no ornament.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the a11y story + high-contrast theme. <em>High&nbsp;contrast.</em></p>
+          <p><a href="text-only/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">The builder</h3>
+          <p><a class="rs-button88" href="builder/index.html">PAGE BUILDER</a></p>
+          <p>Drag components onto a canvas, pick a theme and wallpaper, turn on the toybox, and export clean HTML. GeoCities PageBuilder, but it passes the audit.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the catalog as a live tool. <em>System.</em></p>
+          <p><a href="builder/index.html">Open the builder &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">Button Works</h3>
+          <p><a class="rs-button88" href="button-maker/index.html">BUTTON WORKS</a></p>
+          <p>An 88×31 button generator styled like a paint program. Pick from the lawful colors, type your text, download a PNG, all in your browser.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the Palette Law as a UI. <em>Bevel.</em></p>
+          <p><a href="button-maker/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bevel">
+          <h3 class="rs-panel__title">Sign Painter</h3>
+          <p><a class="rs-button88" href="ascii-maker/index.html">SIGN PAINTER</a></p>
+          <p>Type a word, get a banner in big ASCII letters, two faces, an optional drop shadow, your choice of ink. Copy it or save a .txt.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> the rs-ascii component, live. <em>Bevel.</em></p>
+          <p><a href="ascii-maker/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="bubble">
+          <h3 class="rs-panel__title">Userbar Factory</h3>
+          <p><a class="rs-button88" href="userbar-maker/index.html">USERBAR FACTORY</a></p>
+          <p>The glossy 350×19 signature banner of the mid-2000s forums, colour themes, pixel icons, gel or oval gloss, scanlines or brushed metal. Download and wear it.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> forum-signature culture. <em>Bubble.</em></p>
+          <p><a href="userbar-maker/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card">
+          <h3 class="rs-panel__title">Backgrounds &amp; baubles</h3>
+          <p><a class="rs-button88" href="patterns/index.html">WALLPAPER</a></p>
+          <p>Every tiled background in one gallery, and the kugeln, shiny spheres that trail your pointer in a rainbow. Move your mouse.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> decoration that stays lawful. <em>Classic.</em></p>
+          <p><a href="patterns/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="y2k">
+          <h3 class="rs-panel__title">Which theme are you?</h3>
+          <p><a class="rs-button88" href="quiz/index.html">THEME QUIZ</a></p>
+          <p>A 1999-style personality quiz. Six questions, and the page wears the answer.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> attribute-scoped theming, live. <em>Y2K.</em></p>
+          <p><a href="quiz/index.html">Take the quiz &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel hub-card" data-rs-theme="phosphor">
+          <h3 class="rs-panel__title">The docs site</h3>
+          <p><a class="rs-button88" href="https://retrostrap.dev">RETROSTRAP</a></p>
+          <p>The documentation itself is a showpiece, every component and widget page, the theme switcher, and the Museum, all dogfooding the framework.</p>
+          <p class="rs-font-1"><strong>Proves:</strong> we use our own tools. <em>We lost count.</em></p>
+          <p><a href="https://retrostrap.dev">Visit &raquo;</a></p>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rs-footer">
+    <p class="rs-footer__badges">
+      <a class="rs-button88" href="https://retrostrap.dev">made with retrostrap</a>
+    </p>
+    <p class="rs-font-1">Best viewed in any browser, at any size.</p>
+  </footer>
+</div>
+<script defer src="../dist/retrostrap.min.js"></script>
+<script defer src="../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

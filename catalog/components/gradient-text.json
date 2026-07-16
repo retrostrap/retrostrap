@@ -1,0 +1,20 @@
+{
+  "id": "gradient-text",
+  "kind": "component",
+  "label": "Gradient text",
+  "summary": "Two-stop gradient display text in fire, ice, and toxic flavors.",
+  "era": "The WordArt welcome banner and the logo-mill headline GIF, a gradient poured into very large letters.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-gradient-text", "role": "two-stop gradient text, display sizes only" },
+    { "name": "rs-gradient-text--fire", "role": "modifier: red to yellow" },
+    { "name": "rs-gradient-text--ice", "role": "modifier: aqua to blue" },
+    { "name": "rs-gradient-text--toxic", "role": "modifier: lime to teal" }
+  ],
+  "a11y": "Real text with a painted fill, keep it at display sizes, so both gradient stops clear large-text contrast against the theme background.",
+  "assets": [],
+  "tags": ["typography", "color", "headline"]
+}

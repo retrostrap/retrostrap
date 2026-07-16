@@ -1,0 +1,27 @@
+/* rs-breadcrumbs - You are here: Home > Games > Star Quest 3D. The bold
+   prefix is part of the component; the whole web agreed on it once. */
+
+.rs-breadcrumbs {
+  font-size: var(--rs-font-size-2);
+}
+
+.rs-breadcrumbs::before {
+  content: "You are here: ";
+  font-weight: bold;
+}
+
+.rs-breadcrumbs ol {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rs-breadcrumbs li {
+  display: inline;
+}
+
+.rs-breadcrumbs li + li::before {
+  content: " > ";
+  color: var(--rs-text-muted);
+}

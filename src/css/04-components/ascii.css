@@ -1,0 +1,39 @@
+/* rs-ascii - a block for ASCII art and text banners, made safe. Marked up as
+   <pre role="img"> with an aria-label, a screen reader hears the label, not
+   "star dot dot acute grave". rs-dos is for text you read; this is for text you
+   look at. Wide art scrolls in its box instead of shoving the page sideways. */
+
+.rs-ascii {
+  font-family: var(--rs-font-mono);
+  font-size: var(--rs-font-size-2);
+  line-height: 1;                 /* the rows have to touch or the art falls apart */
+  white-space: pre;
+  overflow-x: auto;               /* wide art scrolls; the page never does */
+  color: var(--rs-text);
+  margin-block: var(--rs-space-3);
+}
+
+/* fit-content centers the block; the art inside stays left-aligned, as art must */
+.rs-ascii--center {
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
+
+/* a raised frame, like art hung on the wall (rs-dos is sunken, on purpose) */
+.rs-ascii--framed {
+  padding: var(--rs-space-3);
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-shadow)
+                var(--rs-bevel-shadow) var(--rs-bevel-light);
+  background: var(--rs-bg-content);
+}
+
+/* the forum signature block: smaller, quieter, under a hairline */
+.rs-ascii--sig {
+  font-size: var(--rs-font-size-1);
+  color: var(--rs-text-muted);
+  border-block-start: 1px solid var(--rs-bevel-shadow);
+  padding-block-start: var(--rs-space-2);
+  margin-block-start: var(--rs-space-4);
+}

@@ -1,0 +1,20 @@
+/* rs-toolbar - a raised strip of buttons with groove separators. Overflow
+   wraps; it never hides in a "…" menu, because it is not 2015. */
+
+.rs-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rs-space-1);
+  padding: var(--rs-space-1);
+  background: var(--rs-bevel-face);
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-shadow)
+                var(--rs-bevel-shadow) var(--rs-bevel-light);
+}
+
+.rs-toolbar__sep {
+  align-self: stretch;
+  border-inline-start: 2px groove var(--rs-bevel-face);
+  margin-inline: var(--rs-space-1);
+}

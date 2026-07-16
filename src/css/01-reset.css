@@ -1,0 +1,63 @@
+/* 01-reset.css - the smallest reset that lets 1996 happen on purpose.
+   Notably absent: stripping link underlines (sacred), display:block on
+   images (era images sit inline, baseline gap and all). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0; /* rs-page owns the page frame, not the UA */
+}
+
+img,
+canvas,
+video {
+  max-width: 100%;
+  height: auto; /* fixed-size pixel art carries width/height attributes and wins */
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  border-radius: 0; /* the Shape Law reaches bare controls too; UA buttons round themselves */
+}
+
+/* The era's focus ring was a 1px dotted rectangle, and it happens to be a
+   perfectly good modern one (docs/08). Keyboard always gets the ring;
+   mouse clicks on buttons and links don't. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus {
+  outline: 1px dotted var(--rs-focus-color, currentColor);
+  outline-offset: 1px;
+}
+
+:where(a, button, summary, [tabindex]):focus:not(:focus-visible) {
+  outline: none;
+}
+
+:where(:focus-visible) {
+  outline: 1px dotted var(--rs-focus-color, currentColor);
+  outline-offset: 1px;
+}
+
+/* rs-focus-loud - a page-level high-visibility focus mode for low-vision users
+   (docs/08). Two layers: a yellow ring that reads on dark, wrapped in a black
+   halo that reads on light. Enable with <html class="rs-focus-loud">. */
+html.rs-focus-loud :is(:focus, :focus-visible) {
+  outline: 3px solid #FFFF00;
+  outline-offset: 0;
+  box-shadow: 0 0 0 5px #000000; /* square halo, per the Shape Law */
+}
+
+/* rs-paused - the governor sets this on the root while the tab is hidden, so
+   CSS animations idle alongside the paused rAF loops until it returns (docs/08). */
+.rs-paused *,
+.rs-paused *::before,
+.rs-paused *::after {
+  animation-play-state: paused !important;
+}

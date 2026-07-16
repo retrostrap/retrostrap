@@ -1,0 +1,14 @@
+{
+  "id": "guestbook", "kind": "widget", "label": "Guestbook",
+  "summary": "Renders guestbook entries and wires the sign form.",
+  "era": "The comment section's gentle ancestor: a form, a list, and social obligation.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "informative", "pointer": "any",
+  "classes": [{ "name": "rs-guestbook__entries", "role": "the rendered entry list" }],
+  "options": [
+    { "name": "src", "type": "url", "note": "endpoint or JSON file; or an inline <script type=application/json>" }
+  ],
+  "events": ["rs:content"],
+  "a11y": "Every entry renders as text nodes only, injected markup shows as literal text, never runs. A missing endpoint shows a friendly note. Honeypot and minimum-time traps guard an existing form.",
+  "assets": [], "tags": ["informative", "toybox"]
+}

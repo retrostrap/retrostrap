@@ -1,0 +1,17 @@
+{
+  "id": "top",
+  "kind": "component",
+  "label": "Top link",
+  "summary": "The \"^ Top\" back-to-top link; instant jump, no smooth scroll.",
+  "era": "The \"^ Top\" link sprinkled through every long FAQ, back when pages were tall and scroll wheels were optional.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-top", "role": "the back-to-top link idiom; jumps instantly" }
+  ],
+  "a11y": "A plain in-page link; href=\"#top\" falls back to the document top natively. The jump is instant, smooth scrolling is not used.",
+  "assets": [],
+  "tags": ["navigation", "link"]
+}

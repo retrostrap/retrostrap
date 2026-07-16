@@ -1,0 +1,19 @@
+{
+  "id": "progress",
+  "kind": "component",
+  "label": "Progress bar",
+  "summary": "A segmented progress bar: sunken track, chunky accent blocks, optional marching indeterminate mode.",
+  "era": "The file-copy dialog: a sunken track filling with chunky blue blocks, eight pixels at a time.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-progress", "role": "sunken track" },
+    { "name": "rs-progress__bar", "role": "filled portion, segmented blocks" },
+    { "name": "rs-progress--indeterminate", "role": "modifier: three blocks marching" }
+  ],
+  "a11y": "role=\"progressbar\" with aria-valuemin/max/now and an aria-label, as in the snippet; indeterminate mode omits aria-valuenow.",
+  "assets": [],
+  "tags": ["content", "progress", "feedback"]
+}

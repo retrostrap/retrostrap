@@ -1,0 +1,17 @@
+{
+  "id": "statusbar",
+  "kind": "component",
+  "label": "Status bar",
+  "summary": "A sunken status strip whose direct children become cells. With JS, a hovered or focused link's real destination previews in a cell laid over the bar.",
+  "era": "The browser status bar every 1998 homepage scribbled welcomes into, rebuilt in-page, where it can't spoof a link.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "statusbar",
+  "classes": [
+    { "name": "rs-statusbar", "role": "sunken strip; direct children become groove-divided cells" }
+  ],
+  "a11y": "Static text, no live region, a status bar that chattered would be worse than one that blinked. If a ticker docks here, the ticker brings its own screen-reader manners.",
+  "assets": [],
+  "tags": ["statusbar", "chrome", "feedback"]
+}

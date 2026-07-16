@@ -1,0 +1,20 @@
+{
+  "id": "blinkie",
+  "kind": "component",
+  "label": "Blinkie",
+  "summary": "The ~150×20 glitter strip that declared your allegiances in a sidebar or signature.",
+  "era": "Blinkies, skinny animated badges with a shiny border and a phrase like \"I love my cat\".",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-blinkie", "role": "the 150×20 strip; pair with rs-blink for the shimmer" },
+    { "name": "rs-blinkie--hot", "role": "modifier: maroon and amber" },
+    { "name": "rs-blinkie--cool", "role": "modifier: black and cyan" },
+    { "name": "rs-blinkie--candy", "role": "modifier: fuchsia and white" }
+  ],
+  "a11y": "Just a small styled element; if it links somewhere, it's a real link. Add rs-blink for the classic shimmer (which stops under reduced motion).",
+  "assets": [],
+  "tags": ["content", "decoration"]
+}

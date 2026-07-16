@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="y2k">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nebula Shrine ~ a Star Quest 3D fan page</title>
+<meta name="description" content="The number one (and only?) fan shrine for Star Quest 3D, the greatest space sim ever pressed to CD-ROM. By NovaKnight97.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/y2k.css">
+</head>
+<body data-rs-widgets="starfield cursor-trail konami"
+      data-rs-konami-href="secret.html" data-rs-konami-words="starquest">
+
+<a class="rs-skip" href="#main">Skip to the shrine &rarr;</a>
+
+<dialog class="rs-splash" aria-label="Welcome to the Nebula Shrine" hidden
+        data-rs-splash-remember="1">
+  <p class="rs-font-7 rs-gradient-text rs-gradient-text--ice">STAR QUEST 3D</p>
+  <p class="rs-font-3">a fan zone since 1998 ~ warp speed recommended</p>
+  <button class="rs-btn rs-btn--large rs-splash__enter" autofocus>[ ENTER ]</button>
+  <p class="rs-font-1">(no cookies, no pop-ups, no banners that aren't hand-drawn)</p>
+</dialog>
+
+<div class="rs-page rs-container rs-container--wide">
+
+  <div class="rs-frames">
+
+    <nav class="rs-frames__side rs-sidenav" aria-label="Shrine navigation">
+      <span class="rs-sidenav__section">~ The Shrine ~</span>
+      <ul>
+        <li><a href="index.html" aria-current="page">home</a></li>
+        <li><a href="story.html">the story</a></li>
+        <li><a href="ships.html">the 9 ships</a></li>
+        <li><a href="cheats.html">cheats &amp; codes</a></li>
+      </ul>
+      <span class="rs-sidenav__section">~ Awards Won ~</span>
+      <div class="rs-badge-wall">
+        <a class="rs-button88" href="#awards">GOLDEN FLOPPY</a>
+        <a class="rs-button88" href="#awards">5 ALIEN HEADS</a>
+        <a class="rs-button88" href="#awards">BEST VIEWED AT 800x600</a>
+      </div>
+    </nav>
+
+    <main class="rs-frames__main" id="main">
+
+      <header>
+        <h1 class="rs-gradient-text rs-gradient-text--fire rs-font-7">THE NEBULA SHRINE</h1>
+        <p class="rs-font-3">the #1 (and only?) fan page for <strong>STAR QUEST 3D</strong>,
+        the greatest space sim ever squeezed onto a CD-ROM. Meteorhead gave us
+        40 missions and 9 ships. This whole page is my thank-you letter. ~ NovaKnight97</p>
+      </header>
+
+      <nav class="rs-breadcrumbs" aria-label="You are here">
+        <ol>
+          <li><a href="index.html">Shrine</a></li>
+          <li aria-current="page">Home</li>
+        </ol>
+      </nav>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">News <span class="rs-badge rs-badge--hot rs-blink">HOT!</span></h2>
+        <dl>
+          <dt><strong>21 Mar 2000</strong></dt>
+          <dd>CONFIRMED in the official Meteorhead newsletter: patch 1.2 adds the
+          <strong>Manta interceptor</strong> to skirmish mode!! The
+          <a href="cheats.html">cheat table</a> is already updated. I did not sleep.</dd>
+          <dt><strong>04 Feb 2000</strong></dt>
+          <dd>Finished writing up the whole plot on the <a href="story.html">story page</a>,
+          yes, even the ENDING (behind a spoiler tag, I am not a monster).</dd>
+          <dt><strong>11 Jan 2000</strong></dt>
+          <dd>New: every one of the <a href="ships.html">9 ships</a> with real stats
+          in a proper table. My favourite is still the Wren. Fight me.</dd>
+        </dl>
+      </section>
+
+      <aside class="rs-note">
+        <p><b>NovaKnight's official rating:</b>
+        <span class="rs-stars" role="img" aria-label="NovaKnight rates it 5 of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>,
+        five stars, no notes. "Better than the demo promised, better than the
+        sequel will be, better than school." ~this is the truth~</p>
+      </aside>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">&#9834; Jukebox, the OST, as I remember it</h2>
+        <p class="rs-font-2">Three real chiptune loops, reused across six titles,
+        that is just honest 1998 disk-space management. Click a track. Nothing plays
+        until you do.</p>
+        <div data-rs-widgets="jukebox">
+          <script type="application/json">
+          {"album":"Star Quest 3D OST (as remembered by NovaKnight97)","tracks":[
+            {"title":"Hangar Bay"},
+            {"title":"Nebula Run"},
+            {"title":"Boss: The Ninth Moon"},
+            {"title":"Docking Waltz"},
+            {"title":"Skirmish!"},
+            {"title":"Credits (Long Way Home)"}
+          ]}
+          </script>
+        </div>
+        <script>
+        // The OST, as remembered: three square-wave loops rendered right here
+        // at 8kHz, then reused across six titles. Meteorhead pulled the same
+        // trick on the CD, so this is accuracy, not laziness. The sheet music
+        // is the number strings below: semitones up from A3, "-" holds, "." rests.
+        (function () {
+          const RATE = 8000;
+          const wavUrl = (s) => {
+            const b = new Uint8Array(44 + s.length), v = new DataView(b.buffer);
+            const tag = (o, t) => { for (let i = 0; i < t.length; i++) b[o + i] = t.charCodeAt(i); };
+            tag(0, 'RIFF'); v.setUint32(4, 36 + s.length, true); tag(8, 'WAVEfmt ');
+            v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+            v.setUint32(24, RATE, true); v.setUint32(28, RATE, true);
+            v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+            tag(36, 'data'); v.setUint32(40, s.length, true); b.set(s, 44);
+            return URL.createObjectURL(new Blob([b], { type: 'audio/wav' }));
+          };
+          const loop = (tune, bpm, passes) => {
+            const steps = tune.trim().split(/\s+/);
+            const step = Math.round(RATE * 30 / bpm); // one eighth note
+            const s = new Uint8Array(steps.length * step * passes);
+            let pos = 0, semi = null;
+            for (let p = 0; p < passes; p++) for (const n of steps) {
+              if (n !== '-') semi = n === '.' ? null : Number(n);
+              for (let i = 0; i < step; i++, pos++) {
+                if (semi === null) { s[pos] = 128; continue; }
+                const f = 220 * Math.pow(2, semi / 12), t = pos / RATE;
+                const amp = Math.min(1, i / 40, (step - i) / 120); // declick the note edges
+                s[pos] = 128 + Math.round((((t * f) % 1 < 0.5 ? 22 : -22) +
+                  ((t * f / 2) % 1 < 0.5 ? 9 : -9)) * amp); // lead + sub-octave
+              }
+            }
+            return wavUrl(s);
+          };
+          const loops = [
+            loop('0 - 5 - 7 - 12 - 7 - 5 - 0 - - - 3 - 7 - 10 - 15 - 10 - 7 - 3 - - -', 112, 4),
+            loop('12 10 7 - 5 - 7 - 10 - 7 5 3 - 5 - 0 - 3 - 5 - 7 - 10 - - - . . . .', 126, 4),
+            loop('0 0 3 0 5 0 3 0 6 - 5 - 3 - 0 - 0 0 3 0 5 0 7 0 10 - 7 - 6 - 5 - 3 - - -', 140, 4),
+          ];
+          const holder = document.querySelector('[data-rs-widgets="jukebox"] script[type="application/json"]');
+          const cfg = JSON.parse(holder.textContent);
+          cfg.tracks.forEach((t, i) => { t.src = loops[i % 3]; });
+          holder.textContent = JSON.stringify(cfg);
+        })();
+        </script>
+        <noscript>
+          <p>The jukebox needs JavaScript. Tracklist, for the curious: Hangar Bay,
+          Nebula Run, Boss: The Ninth Moon, Docking Waltz, Skirmish!, and
+          Credits (Long Way Home).</p>
+        </noscript>
+      </section>
+
+      <p class="rs-center">
+        <a class="rs-banner" href="story.html">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22468%22%20height%3D%2260%22%20viewBox%3D%220%200%20468%2060%22%20shape-rendering%3D%22crispEdges%22%3E%20%3Crect%20width%3D%22468%22%20height%3D%2260%22%20fill%3D%22%23000033%22%2F%3E%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22468%22%20height%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%2300CCFF%22%20stroke-width%3D%222%22%2F%3E%20%3Cg%20fill%3D%22%23FFFFFF%22%3E%3Crect%20x%3D%2220%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%2244%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3Crect%20x%3D%22300%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3Crect%20x%3D%22360%22%20y%3D%2240%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3Crect%20x%3D%22430%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3Crect%20x%3D%22250%22%20y%3D%2248%22%20width%3D%222%22%20height%3D%222%22%2F%3E%3C%2Fg%3E%20%3Ctext%20x%3D%2220%22%20y%3D%2234%22%20font-family%3D%22Impact%2Csans-serif%22%20font-size%3D%2230%22%20fill%3D%22%23FFFF00%22%3ESTAR%20QUEST%20IV%3C%2Ftext%3E%20%3Ctext%20x%3D%2221%22%20y%3D%2235%22%20font-family%3D%22Impact%2Csans-serif%22%20font-size%3D%2230%22%20fill%3D%22%23FF6600%22%20opacity%3D%220%22%2F%3E%20%3Ctext%20x%3D%2220%22%20y%3D%2252%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213%22%20fill%3D%22%2300CCFF%22%3Ethe%20saga%20continues%20~%20COMING%202000%3C%2Ftext%3E%20%3Ctext%20x%3D%22360%22%20y%3D%2226%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2211%22%20fill%3D%22%23FFFFFF%22%3Eclick%20to%3C%2Ftext%3E%20%3Ctext%20x%3D%22360%22%20y%3D%2240%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2211%22%20fill%3D%22%23FFFFFF%22%3Ewarp%20in%20%26%23187%3B%3C%2Ftext%3E%20%3C%2Fsvg%3E"
+               alt="STAR QUEST IV, the saga continues, coming 2000" width="468" height="60">
+        </a>
+      </p>
+
+      <hr class="rs-hr rs-hr--rainbow">
+
+      <section id="awards">
+        <h2 class="rs-text-center">~ The Awards Wall ~</h2>
+        <div class="rs-center">
+          <figure class="rs-award">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%20%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23003399%22%2F%3E%20%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%222%22%2F%3E%20%3Cg%3E%3Crect%20x%3D%2244%22%20y%3D%2214%22%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23FFCC00%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2214%22%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22none%22%20stroke%3D%22%23996600%22%20stroke-width%3D%222%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2214%22%20width%3D%2216%22%20height%3D%2212%22%20fill%3D%22%23663300%22%2F%3E%3Crect%20x%3D%2254%22%20y%3D%2216%22%20width%3D%224%22%20height%3D%228%22%20fill%3D%22%23FFCC00%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2230%22%20width%3D%2224%22%20height%3D%2214%22%20fill%3D%22%23FFFFFF%22%2F%3E%3C%2Fg%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%23FFFFFF%22%3EGOLDEN%20FLOPPY%3C%2Ftext%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2283%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%229%22%20fill%3D%22%23FFFFFF%22%3EBest%20Shrine%206%2F99%3C%2Ftext%3E%20%3C%2Fsvg%3E"
+                 alt="Golden Floppy Award trophy" width="120" height="90">
+            <figcaption class="rs-award__caption">Golden Floppy, Best Shrine, June 1999.</figcaption>
+          </figure>
+          <figure class="rs-award">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%20%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23330066%22%2F%3E%20%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%222%22%2F%3E%20%3Cg%20fill%3D%22%23FFFF00%22%3E%3Cpolygon%20points%3D%2260%2C14%2065%2C30%2082%2C30%2068%2C40%2073%2C56%2060%2C46%2047%2C56%2052%2C40%2038%2C30%2055%2C30%22%2F%3E%3C%2Fg%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%23FFFFFF%22%3ECOSMIC%20SITE%3C%2Ftext%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2283%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%229%22%20fill%3D%22%23FFFFFF%22%3EAward%3C%2Ftext%3E%20%3C%2Fsvg%3E"
+                 alt="Cosmic Site Award, a gold star" width="120" height="90">
+            <figcaption class="rs-award__caption">Cosmic Site Award, straight from the webmaster.</figcaption>
+          </figure>
+          <figure class="rs-award">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%20%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23006600%22%2F%3E%20%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%222%22%2F%3E%20%3Cg%3E%3Cellipse%20cx%3D%2260%22%20cy%3D%2230%22%20rx%3D%2216%22%20ry%3D%2220%22%20fill%3D%22%2300CC00%22%2F%3E%3Cellipse%20cx%3D%2253%22%20cy%3D%2230%22%20rx%3D%224%22%20ry%3D%227%22%20fill%3D%22%23000000%22%2F%3E%3Cellipse%20cx%3D%2267%22%20cy%3D%2230%22%20rx%3D%224%22%20ry%3D%227%22%20fill%3D%22%23000000%22%2F%3E%3C%2Fg%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%23FFFFFF%22%3E5%20ALIEN%20HEADS%3C%2Ftext%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2283%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%229%22%20fill%3D%22%23FFFFFF%22%3EGalaxy%20Reviews%3C%2Ftext%3E%20%3C%2Fsvg%3E"
+                 alt="Five Alien Heads from Galaxy Reviews" width="120" height="90">
+            <figcaption class="rs-award__caption">5 Alien Heads out of 5, Galaxy Reviews.</figcaption>
+          </figure>
+          <figure class="rs-award">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%2290%22%20viewBox%3D%220%200%20120%2090%22%20shape-rendering%3D%22crispEdges%22%3E%20%3Crect%20width%3D%22120%22%20height%3D%2290%22%20fill%3D%22%23660000%22%2F%3E%20%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%22118%22%20height%3D%2288%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%222%22%2F%3E%20%3Cg%3E%3Crect%20x%3D%2252%22%20y%3D%2234%22%20width%3D%227%22%20height%3D%2216%22%20fill%3D%22%23CC0000%22%2F%3E%3Crect%20x%3D%2261%22%20y%3D%2234%22%20width%3D%227%22%20height%3D%2216%22%20fill%3D%22%230000CC%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2226%22%20r%3D%2214%22%20fill%3D%22%23FFCC00%22%20stroke%3D%22%23996600%22%20stroke-width%3D%222%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2231%22%20text-anchor%3D%22middle%22%20font-family%3D%22Impact%2Csans-serif%22%20font-size%3D%2214%22%20fill%3D%22%23663300%22%3E1%3C%2Ftext%3E%3C%2Fg%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22bold%22%20font-size%3D%2211%22%20fill%3D%22%23FFFFFF%22%3ESITE%20OF%20THE%20CYCLE%3C%2Ftext%3E%20%3Ctext%20x%3D%2260%22%20y%3D%2283%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%229%22%20fill%3D%22%23FFFFFF%22%3ERing%20of%20Sims%3C%2Ftext%3E%20%3C%2Fsvg%3E"
+                 alt="Site of the Cycle medal, Ring of Sims" width="120" height="90">
+            <figcaption class="rs-award__caption">"Site of the Cycle", Ring of Sims.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="rs-footer rs-center">
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="21 March 2000"></p>
+    <p>Sign nothing. Leave nothing. The shrine is eternal, and so is my love for
+    the Wren-class scout. ~ NovaKnight97 ~</p>
+    <p class="rs-footer__badges">
+      <a class="rs-button88" href="https://retrostrap.dev">made with retrostrap</a>
+    </p>
+    <p class="rs-font-1">Star Quest 3D and Meteorhead Software are made up. This is a
+    fan tribute to a game that never existed. Best viewed in any browser, at warp speed.</p>
+    <a class="rs-top" href="#main">^ back to the top ^</a>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

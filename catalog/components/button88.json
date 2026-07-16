@@ -1,0 +1,20 @@
+{
+  "id": "button88",
+  "kind": "component",
+  "label": "88×31 button",
+  "summary": "The 88×31 button as an element: fixed size forever, built for badge walls.",
+  "era": "The 88×31 button, the micro-banner standard every site traded and no committee ever ratified.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-button88", "role": "fixed 88×31 box, pixel border, one line of text; never scales" },
+    { "name": "rs-button88--navy", "role": "baked navy-on-white palette" },
+    { "name": "rs-button88--maroon", "role": "baked maroon-with-gold palette" },
+    { "name": "rs-button88--teal", "role": "baked teal-on-white palette" }
+  ],
+  "a11y": "A real link (or image link) whose text or alt names the destination, 88×31 pixels is no excuse for an empty accessible name.",
+  "assets": [],
+  "tags": ["content", "badge", "88x31"]
+}

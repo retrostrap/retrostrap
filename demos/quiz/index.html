@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="y2k">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which theme are you? - a personality quiz</title>
+<meta name="description" content="A 1999-style personality quiz built with retrostrap. Answer six questions and the page changes into the theme you turn out to be.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<!-- every theme loaded, so the result can re-dress the whole page live -->
+<link rel="stylesheet" href="../../dist/themes/midnight.css">
+<link rel="stylesheet" href="../../dist/themes/phosphor.css">
+<link rel="stylesheet" href="../../dist/themes/kawaii.css">
+<link rel="stylesheet" href="../../dist/themes/y2k.css">
+<link rel="stylesheet" href="../../dist/themes/cosmic.css">
+<link rel="stylesheet" href="../../dist/themes/newspaper.css">
+<link rel="stylesheet" href="../../dist/themes/highcontrast.css">
+<style>
+  .quiz fieldset { margin-block-end: var(--rs-space-4); }
+  .quiz legend { font-weight: bold; }
+  .quiz label { display: inline; }
+  .quiz-result { padding: var(--rs-space-4); }
+  .quiz-result__name { font-size: var(--rs-font-size-6); margin-block: 0 var(--rs-space-2); }
+  #result-h { outline: none; }
+  /* dress the resting y2k form like an installer: navy legend chips, option
+     slabs, the picked one lit. scoped to y2k, so the result re-dress stays clean */
+  [data-rs-theme="y2k"] .quiz legend { background: var(--rs-titlebar-bg); color: var(--rs-titlebar-text); padding: 1px var(--rs-space-3); border: 1px solid #000000; }
+  [data-rs-theme="y2k"] .quiz fieldset p { background: #FFFFFF; border: 1px solid #999999; padding: var(--rs-space-2) var(--rs-space-3); margin-block: var(--rs-space-2); }
+  [data-rs-theme="y2k"] .quiz fieldset p:has(:checked) { background: #CCFFFF; border-color: #0033CC; }
+</style>
+</head>
+<body>
+<a class="rs-skip" href="#main">Skip to content</a>
+<div class="rs-page rs-container">
+
+  <header class="rs-center">
+    <h1 class="rs-font-6">Which theme are you?</h1>
+    <p>Six questions. Answer honestly. When you're done, this page turns into the
+    theme you turn out to be, no email address required, unlike the magazines.</p>
+  </header>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <main id="main">
+    <form class="quiz" id="quiz" action="#">
+
+      <fieldset class="rs-fieldset">
+        <legend>1. It's 11pm. What is your homepage doing?</legend>
+        <p><input class="rs-radio" type="radio" name="q1" id="q1a" value="cosmic" required><label for="q1a">Twinkling quietly, faintly parallaxing</label></p>
+        <p><input class="rs-radio" type="radio" name="q1" id="q1b" value="y2k"><label for="q1b">Playing a MIDI you cannot turn off</label></p>
+        <p><input class="rs-radio" type="radio" name="q1" id="q1c" value="phosphor"><label for="q1c">Green text on black, compiling something</label></p>
+        <p><input class="rs-radio" type="radio" name="q1" id="q1d" value="newspaper"><label for="q1d">Neatly set, with a correction already planned</label></p>
+      </fieldset>
+
+      <fieldset class="rs-fieldset">
+        <legend>2. Your guestbook is mostly…</legend>
+        <p><input class="rs-radio" type="radio" name="q2" id="q2a" value="kawaii" required><label for="q2a">Glitter text and "OMG so cute!!"</label></p>
+        <p><input class="rs-radio" type="radio" name="q2" id="q2b" value="phosphor"><label for="q2b">ASCII art and inside jokes</label></p>
+        <p><input class="rs-radio" type="radio" name="q2" id="q2c" value="newspaper"><label for="q2c">Thoughtful letters, signed in full</label></p>
+        <p><input class="rs-radio" type="radio" name="q2" id="q2d" value="midnight"><label for="q2d">Signatures from three time zones at 3am</label></p>
+      </fieldset>
+
+      <fieldset class="rs-fieldset">
+        <legend>3. Pick a background.</legend>
+        <p><input class="rs-radio" type="radio" name="q3" id="q3a" value="cosmic" required><label for="q3a">Deep space, a little starlight</label></p>
+        <p><input class="rs-radio" type="radio" name="q3" id="q3b" value="kawaii"><label for="q3b">Pastel hearts, tiled</label></p>
+        <p><input class="rs-radio" type="radio" name="q3" id="q3c" value="y2k"><label for="q3c">Brushed aqua with a lens flare</label></p>
+        <p><input class="rs-radio" type="radio" name="q3" id="q3d" value="highcontrast"><label for="q3d">Clean white. Black text. No nonsense.</label></p>
+      </fieldset>
+
+      <fieldset class="rs-fieldset">
+        <legend>4. Someone visits on a text terminal. You…</legend>
+        <p><input class="rs-radio" type="radio" name="q4" id="q4a" value="highcontrast" required><label for="q4a">Already built them a text-only mirror</label></p>
+        <p><input class="rs-radio" type="radio" name="q4" id="q4b" value="newspaper"><label for="q4b">Shrug, it degrades just fine</label></p>
+        <p><input class="rs-radio" type="radio" name="q4" id="q4c" value="phosphor"><label for="q4c">Panic, then fix it by morning</label></p>
+        <p><input class="rs-radio" type="radio" name="q4" id="q4d" value="y2k"><label for="q4d">Add a note: "best viewed at 800×600"</label></p>
+      </fieldset>
+
+      <fieldset class="rs-fieldset">
+        <legend>5. Your favourite hour is…</legend>
+        <p><input class="rs-radio" type="radio" name="q5" id="q5a" value="midnight" required><label for="q5a">Midnight, obviously</label></p>
+        <p><input class="rs-radio" type="radio" name="q5" id="q5b" value="y2k"><label for="q5b">Golden hour, everything shiny</label></p>
+        <p><input class="rs-radio" type="radio" name="q5" id="q5c" value="cosmic"><label for="q5c">Whenever the aurora is out</label></p>
+        <p><input class="rs-radio" type="radio" name="q5" id="q5d" value="newspaper"><label for="q5d">Deadline o'clock</label></p>
+      </fieldset>
+
+      <fieldset class="rs-fieldset">
+        <legend>6. The web should feel…</legend>
+        <p><input class="rs-radio" type="radio" name="q6" id="q6a" value="kawaii" required><label for="q6a">Cozy, and a little sparkly</label></p>
+        <p><input class="rs-radio" type="radio" name="q6" id="q6b" value="cosmic"><label for="q6b">Vast, and very quiet</label></p>
+        <p><input class="rs-radio" type="radio" name="q6" id="q6c" value="highcontrast"><label for="q6c">Fast, and honest</label></p>
+        <p><input class="rs-radio" type="radio" name="q6" id="q6d" value="midnight"><label for="q6d">Like a place you find at 2am</label></p>
+      </fieldset>
+
+      <p><button class="rs-btn rs-btn--primary rs-btn--large" type="submit">See my result &raquo;</button></p>
+    </form>
+
+    <section class="rs-panel quiz-result" id="result" aria-live="polite" hidden>
+      <h2 id="result-h" tabindex="-1">Your result</h2>
+
+      <div data-theme="cosmic" hidden>
+        <p class="quiz-result__name"><strong>You are Cosmic.</strong></p>
+        <p>You like the web best when it's a little bit night sky, quiet, deep, faintly
+        glittering. You'd sooner point a telescope than a banner. Wander somewhere vast:
+        the <a href="../webring/index.html">Night Sky Ring</a> or the
+        <a href="../desktop/index.html">cosmic desktop</a>.</p>
+      </div>
+      <div data-theme="y2k" hidden>
+        <p class="quiz-result__name"><strong>You are Y2K.</strong></p>
+        <p>Optimist, futurist, lover of gloss and lens flare. You believed the new
+        millennium would look amazing and you were going to see to it personally. Go be
+        shiny at <a href="../fanpage/index.html">the fan page</a> or
+        <a href="../radio/index.html">the net radio</a>.</p>
+      </div>
+      <div data-theme="phosphor" hidden>
+        <p class="quiz-result__name"><strong>You are Phosphor.</strong></p>
+        <p>Green on black, cursor blinking, something always compiling. You think the
+        best interface is the one that gets out of the way. Your people are at
+        <a href="../clan/index.html">the clan page</a> and
+        <a href="../dashboard/index.html">the dashboard</a>.</p>
+      </div>
+      <div data-theme="newspaper" hidden>
+        <p class="quiz-result__name"><strong>You are Newspaper.</strong></p>
+        <p>Columns, mastheads, and a correction printed the next day. You believe a page
+        owes its reader clarity above all else. Read all about it in
+        <a href="../gazette/index.html">the Dial-Up Gazette</a>.</p>
+      </div>
+      <div data-theme="kawaii" hidden>
+        <p class="quiz-result__name"><strong>You are Kawaii.</strong></p>
+        <p>Pastel, sparkly, generous with the exclamation points. Your corner of the web
+        is soft and everyone is welcome to sit down. Come be cozy at
+        <a href="../whats-new/index.html">Mel's diary</a> or the
+        <a href="../adoptables/index.html">adoptables pound</a>.</p>
+      </div>
+      <div data-theme="midnight" hidden>
+        <p class="quiz-result__name"><strong>You are Midnight.</strong></p>
+        <p>You keep late hours and quiet colours. The best pages, you think, are the ones
+        you stumble on at 2am and never quite forget. Start with
+        <a href="../homepage-classic/index.html">Sandra's Space Corner</a> or
+        <a href="../band/index.html">the band shrine</a>.</p>
+      </div>
+      <div data-theme="highcontrast" hidden>
+        <p class="quiz-result__name"><strong>You are High Contrast.</strong></p>
+        <p>Black on white, big targets, nothing that needs a mouse. You build for the
+        person on the oldest machine in the room, and every one of them thanks you. See
+        the <a href="../text-only/index.html">text-only mirror</a>.</p>
+      </div>
+
+      <p>Paste this on your homepage, the way we used to:</p>
+      <pre class="rs-dos" id="quiz-badge"></pre>
+
+      <hr class="rs-hr rs-hr--dotted">
+      <p><button class="rs-btn" type="button" id="again">Take it again</button></p>
+    </section>
+  </main>
+
+  <hr class="rs-hr">
+  <footer class="rs-footer rs-center">
+    <p class="rs-font-1">No results are stored, sold, or emailed to you, the whole
+    quiz runs in your browser. <a href="../index.html">Back to the demo hub</a>.</p>
+  </footer>
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script>
+  // scoring is a browser trick, not a service: tally the checked answers, pick a
+  // winner (ties break toward the rarer themes), and re-dress the page in it.
+  (function () {
+    var form = document.getElementById('quiz');
+    var result = document.getElementById('result');
+    var order = ['highcontrast', 'cosmic', 'phosphor', 'newspaper', 'midnight', 'kawaii', 'y2k'];
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var tally = {};
+      form.querySelectorAll('input[type=radio]:checked').forEach(function (i) {
+        tally[i.value] = (tally[i.value] || 0) + 1;
+      });
+      var win = order[0], best = -1;
+      order.forEach(function (t) { if ((tally[t] || 0) > best) { best = tally[t] || 0; win = t; } });
+
+      document.documentElement.setAttribute('data-rs-theme', win);
+      result.querySelectorAll('[data-theme]').forEach(function (el) {
+        el.hidden = el.getAttribute('data-theme') !== win;
+      });
+      var names = { cosmic: 'Cosmic', y2k: 'Y2K', phosphor: 'Phosphor', newspaper: 'Newspaper', kawaii: 'Kawaii', midnight: 'Midnight', highcontrast: 'High Contrast' };
+      document.getElementById('quiz-badge').textContent = '★ I am ' + names[win] + ' ★, which theme are you?';
+      result.hidden = false;
+      var h = document.getElementById('result-h');
+      h.focus();
+      h.scrollIntoView({ block: 'start' });
+    });
+
+    document.getElementById('again').addEventListener('click', function () {
+      form.reset();
+      result.hidden = true;
+      document.documentElement.setAttribute('data-rs-theme', 'y2k');
+      form.scrollIntoView({ block: 'start' });
+    });
+  })();
+</script>
+</body>
+</html>

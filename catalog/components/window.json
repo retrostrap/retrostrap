@@ -1,0 +1,23 @@
+{
+  "id": "window",
+  "kind": "component",
+  "label": "Window",
+  "summary": "Window chrome: titlebar, control buttons, body and status bar; dragging arrives with the windows widget.",
+  "era": "Gray window chrome, gradient titlebar, _ □ ✕ in the corner, the 1998 desktop, quoted verbatim.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": "window",
+  "classes": [
+    { "name": "rs-window", "role": "window chrome shell" },
+    { "name": "rs-window__titlebar", "role": "titlebar with the two-stop fade" },
+    { "name": "rs-window__title", "role": "title text; carries the id aria-labelledby points at" },
+    { "name": "rs-window__controls", "role": "control button group" },
+    { "name": "rs-window__body", "role": "window content area" },
+    { "name": "rs-window__statusbar", "role": "sunken status cells" },
+    { "name": "rs-window--inactive", "role": "modifier: grayed titlebar" }
+  ],
+  "a11y": "A <section role=\"dialog\"> (non-modal, no aria-modal) labelled via aria-labelledby to the titlebar text; controls are real buttons with aria-labels. Never traps focus, it is furniture, not a modal.",
+  "assets": [],
+  "tags": ["content", "chrome", "desktop"]
+}

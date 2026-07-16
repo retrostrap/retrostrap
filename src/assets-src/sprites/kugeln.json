@@ -1,0 +1,102 @@
+{
+  "id": "kugeln",
+  "size": [
+    24,
+    24
+  ],
+  "skins": {
+    "red": {
+      ".": null,
+      "o": "#660000",
+      "s": "#CC0000",
+      "b": "#FF0000",
+      "l": "#FF9999",
+      "h": "#FFFFFF"
+    },
+    "blue": {
+      ".": null,
+      "o": "#000066",
+      "s": "#0000CC",
+      "b": "#0000FF",
+      "l": "#9999FF",
+      "h": "#FFFFFF"
+    },
+    "green": {
+      ".": null,
+      "o": "#003300",
+      "s": "#009900",
+      "b": "#00CC00",
+      "l": "#99FF99",
+      "h": "#FFFFFF"
+    },
+    "gold": {
+      ".": null,
+      "o": "#663300",
+      "s": "#CC9900",
+      "b": "#FFCC00",
+      "l": "#FFFF99",
+      "h": "#FFFFFF"
+    },
+    "purple": {
+      ".": null,
+      "o": "#330066",
+      "s": "#660099",
+      "b": "#9900CC",
+      "l": "#CC99FF",
+      "h": "#FFFFFF"
+    },
+    "cyan": {
+      ".": null,
+      "o": "#003333",
+      "s": "#009999",
+      "b": "#00CCCC",
+      "l": "#99FFFF",
+      "h": "#FFFFFF"
+    },
+    "pink": {
+      ".": null,
+      "o": "#660033",
+      "s": "#CC0099",
+      "b": "#FF00CC",
+      "l": "#FF99CC",
+      "h": "#FFFFFF"
+    },
+    "silver": {
+      ".": null,
+      "o": "#333333",
+      "s": "#666666",
+      "b": "#999999",
+      "l": "#CCCCCC",
+      "h": "#FFFFFF"
+    }
+  },
+  "frames": [
+    [
+      "........................",
+      ".........oooooo.........",
+      "......oolllllbbboo......",
+      ".....ollllllllbbbbo.....",
+      "....olllllllllbbbbso....",
+      "...ollllllllllbbbbbso...",
+      "..ollllhhhllllbbbbbsso..",
+      "..olllhhhhhlllbbbbbsso..",
+      "..llllhhhhhllbbbbbssss..",
+      ".olllllhhhlllbbbbbsssso.",
+      ".ollllllllllbbbbbbsssso.",
+      ".olllllllllbbbbbbssssso.",
+      ".obllllllbbbbbbbsssssso.",
+      ".obblllbbbbbbbbbsssssso.",
+      ".obbbbbbbbbbbbbssssssso.",
+      "..bbbbbbbbbbbbssssssss..",
+      "..obbbbbbbbbssssssssso..",
+      "..osbbbbbbssssssssssso..",
+      "...osssssssssssssssso...",
+      "....osssssssssssssso....",
+      ".....osssssssssssso.....",
+      "......oossssssssoo......",
+      ".........oooooo.........",
+      "........................"
+    ]
+  ],
+  "fps": 0
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="cosmic">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Night Sky Ring - a webring for pages about the sky</title>
+<meta name="description" content="A webring hub built with retrostrap: a circle of small pages about the night sky, with a live ring bar, a member directory, and the snippet to join.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/cosmic.css">
+<style>
+  .ring-members { margin-block-start: var(--rs-space-3); }
+  .ring-member { padding: var(--rs-space-3); }
+  .ring-member h3 { margin-block: 0 var(--rs-space-1); }
+  .ring-member__meta { font-size: var(--rs-font-size-1); color: var(--rs-text-muted); margin-block: 0 var(--rs-space-2); }
+  /* the live bar, set apart so it reads as a specimen, not page chrome */
+  .ring-specimen { border: 2px dashed var(--rs-border-color); padding: var(--rs-space-3); text-align: center; }
+</style>
+</head>
+<body>
+<a class="rs-skip" href="#main">Skip to content</a>
+<div class="rs-page rs-container">
+
+  <header class="rs-center">
+    <h1 class="rs-font-6 rs-rainbow">~ The Night Sky Ring ~</h1>
+    <div class="rs-marquee">
+      <span class="rs-marquee__content">~ * ~ six small pages, one sky ~ holding hands since 1998 ~ look up ~ * ~</span>
+    </div>
+    <p>A <strong>webring</strong>: a circle of homemade pages, each linking to
+    the next, so a visitor can wander the whole ring and come back to where they
+    started. This one is about the night sky.</p>
+  </header>
+
+  <hr class="rs-hr rs-hr--rainbow">
+
+  <main id="main">
+
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">The ring bar</h2>
+      <p>Every member wears this same bar somewhere on their page. It figures out
+      where it sits in the ring on its own, no server, just a little list. Here
+      it is running live:</p>
+      <div class="ring-specimen">
+        <div class="rs-webring-bar" data-rs-widgets="webring">
+          <script type="application/json">
+          { "name": "The Night Sky Ring",
+            "home": "index.html",
+            "sites": [
+              { "name": "Sandra's Space Corner",   "url": "../homepage-classic/index.html" },
+              { "name": "The Backyard Observatory", "url": "https://ring.example/backyard" },
+              { "name": "Meteor Watch",             "url": "https://ring.example/meteors" },
+              { "name": "Moon Diary",               "url": "https://ring.example/moon" },
+              { "name": "Aurora Chasers",           "url": "https://ring.example/aurora" },
+              { "name": "Flat Horizon A.C.",        "url": "https://ring.example/flathorizon" }
+            ] }
+          </script>
+        </div>
+      </div>
+      <p class="rs-font-1">The hub is the signpost, not a stop on the road, so the
+      bar honestly notes that this page isn't itself in the ring. On a member's
+      page it points at their neighbours instead.</p>
+    </section>
+
+    <section>
+      <h2 class="rs-font-5">The members</h2>
+      <p>Six sites, in ring order, only Sandra's is a page you can really visit;
+      the other five live in this story. Wander them with the bar above, or just pick one.</p>
+      <div class="ring-members rs-cols-2">
+
+        <section class="rs-panel ring-member">
+          <h3>Sandra's Space Corner</h3>
+          <p class="ring-member__meta">kept by sandra · joined 1999</p>
+          <p>Binoculars, the Andromeda galaxy, and a grey cat on the masthead. The
+          one that started the ring.</p>
+          <p><a href="../homepage-classic/index.html">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel ring-member">
+          <h3>The Backyard Observatory</h3>
+          <p class="ring-member__meta">kept by hal · joined 1998</p>
+          <p>One telescope, forty years of notes, scanned a page at a time. Hal
+          founded the ring and still answers every email.</p>
+          <p><a href="https://ring.example/backyard">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel ring-member">
+          <h3>Meteor Watch</h3>
+          <p class="ring-member__meta">kept by priya · joined 2000</p>
+          <p>The Leonids, the Perseids, and exactly where to stand to see them.
+          Updated the night after every shower.</p>
+          <p><a href="https://ring.example/meteors">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel ring-member">
+          <h3>Moon Diary</h3>
+          <p class="ring-member__meta">kept by jun · joined 1999</p>
+          <p>A photograph of the moon on every clear night, going back two years.
+          Loads slowly. Worth it.</p>
+          <p><a href="https://ring.example/moon">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel ring-member">
+          <h3>Aurora Chasers</h3>
+          <p class="ring-member__meta">kept by ingrid · joined 2001</p>
+          <p>The northern lights, and the long drives north to find them. The
+          photos never quite catch it. Ingrid keeps driving anyway.</p>
+          <p><a href="https://ring.example/aurora">Visit &raquo;</a></p>
+        </section>
+
+        <section class="rs-panel ring-member">
+          <h3>Flat Horizon Astronomy Club</h3>
+          <p class="ring-member__meta">kept by the club · joined 1998</p>
+          <p>Public star parties, second Friday of the month, weather permitting.
+          Newcomers welcome; bring a flashlight with red cellophane.</p>
+          <p><a href="https://ring.example/flathorizon">Visit &raquo;</a></p>
+        </section>
+
+      </div>
+    </section>
+
+    <hr class="rs-hr rs-hr--dotted">
+
+    <div class="rs-layout rs-layout--sidebar-right">
+      <section class="rs-layout__main">
+        <h2 class="rs-font-5">Join the ring</h2>
+        <p>New members are always welcome. Here's the whole deal:</p>
+        <ul>
+          <li>Your page is mostly about the night sky, stars, the moon, planets,
+          the weather up there. Amateur is the point.</li>
+          <li>No autoplaying music. We are trying to hear the crickets.</li>
+          <li>Carry the ring bar somewhere a visitor can find it.</li>
+          <li>Sign the keeper's guestbook to apply. Hal reads everything.</li>
+        </ul>
+        <p>Paste this where you want the bar, and point it at the ring's list:</p>
+        <pre class="rs-dos">&lt;div class="rs-webring-bar" data-rs-widgets="webring"
+     data-rs-webring-src="https://ring.example/nightsky.json"&gt;
+&lt;/div&gt;</pre>
+        <p class="rs-font-1">No server of your own required, the bar reads the
+        ring's list and works out your neighbours from the address of the page it
+        is sitting on.</p>
+      </section>
+
+      <aside class="rs-layout__rail">
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">The ring, in short</h3>
+          <table class="rs-table">
+            <tbody>
+              <tr><td>Founded</td><td>1998</td></tr>
+              <tr><td>Members</td><td>6</td></tr>
+              <tr><td>Keeper</td><td>hal</td></tr>
+              <tr><td>Motto</td><td>look up</td></tr>
+              <tr><td>Dues</td><td>none</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="rs-panel">
+          <h3 class="rs-panel__title">Sister rings</h3>
+          <p class="rs-font-1">We trade banners with the Tide Tables Ring and the
+          Old Lighthouses Ring. Ask Hal for an introduction.</p>
+        </section>
+      </aside>
+    </div>
+
+  </main>
+
+  <hr class="rs-hr">
+  <footer class="rs-footer rs-center">
+    <p class="rs-font-1">The Night Sky Ring · a circle since 1998 ·
+    <a href="../index.html">back to the demo hub</a></p>
+  </footer>
+</div>
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

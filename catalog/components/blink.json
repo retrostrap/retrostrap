@@ -1,0 +1,17 @@
+{
+  "id": "blink",
+  "kind": "component",
+  "label": "Blink",
+  "summary": "Inline text that blinks at exactly one hertz.",
+  "era": "Netscape's <blink> tag, born of a 1994 bar joke about Lynx, back, and holding steady at one flash per second.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-blink", "role": "1Hz steps(1) opacity blink; bold + underline under reduced motion" }
+  ],
+  "a11y": "One flash per second sits well under the three-per-second photosensitivity ceiling. Under prefers-reduced-motion it renders as static bold plus underline, the emphasis survives, the blinking does not.",
+  "assets": [],
+  "tags": ["typography", "motion"]
+}

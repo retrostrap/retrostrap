@@ -1,0 +1,22 @@
+/* rs-award - the trophy shelf. Everyone knew the trophies were
+   participation medals, and nobody cared (docs/01 §4). */
+
+.rs-award {
+  display: inline-block;
+  text-align: center;
+  margin: var(--rs-space-2);
+  max-inline-size: 140px;
+  vertical-align: top;
+}
+
+.rs-award img {
+  display: block;
+  margin-inline: auto;
+  image-rendering: pixelated;
+}
+
+.rs-award__caption {
+  font-size: var(--rs-font-size-1);
+  color: var(--rs-text-muted);
+  margin-block-start: var(--rs-space-1);
+}

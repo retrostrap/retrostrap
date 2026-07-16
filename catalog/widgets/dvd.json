@@ -1,0 +1,16 @@
+{
+  "id": "dvd", "kind": "widget", "label": "Bouncing logo",
+  "summary": "A logo that bounces around the viewport, waiting for the corner hit.",
+  "era": "The DVD screensaver logo that hypnotized a generation.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "decorative", "pointer": "any",
+  "classes": [{ "name": "rs-dvd", "role": "the bouncing logo chip (when the widget creates its own)" }],
+  "options": [
+    { "name": "target", "type": "selector", "note": "an element to bounce; otherwise a default chip" },
+    { "name": "text", "type": "string", "note": "text for the default chip" },
+    { "name": "speed", "type": "enum", "values": ["slow", "normal", "fast"], "default": "normal" }
+  ],
+  "events": ["rs:dvd:corner"],
+  "a11y": "Decoration: aria-hidden, pointer-events:none. Under prefers-reduced-motion it parks in a corner and holds still.",
+  "assets": [], "tags": ["decoration", "toybox"]
+}

@@ -1,0 +1,94 @@
+---
+layout: base.njk
+title: Components
+wide: true
+description: "Every retrostrap component: live specimens, class tables, era notes, and copy-paste source, straight from the generated catalog."
+---
+<h1>Components</h1>
+
+<p>All {{ manifest.components.length }} components in core, on one long page, the way
+FAQ pages used to be. Each exhibit comes with its era pedigree, a class table, a live
+specimen, and the source to copy. Everything here works without JavaScript; the laws
+apply throughout. This page is generated from
+<a href="/manifest.json">manifest.json</a>, so it cannot go stale, a class missing
+from the catalog is a release blocker, not a documentation bug.</p>
+
+<p class="rs-font-1">Curator's note: where a snippet references demo files
+(<code>avatar.gif</code>, <code>my-cat.jpg</code>, the files <em>you</em> are meant
+to supply), the live specimen borrows pixel art that ships in
+<code>/dist/assets/</code> so nothing on this page 404s. The source shown is the
+canonical snippet, verbatim.</p>
+
+<div class="rs-layout rs-layout--sidebar-left">
+  <div class="rs-layout__main">
+    {%- for group in componentGroups %}
+    <hr class="rs-hr rs-hr--rainbow">
+    <h2 id="group-{{ group.tag }}">{{ group.label }}</h2>
+    {%- for c in group.components %}
+    <section id="{{ c.id }}">
+      <h3>{{ c.label }}</h3>
+      <p><em>{{ c.era }}</em></p>
+      <p>{{ c.summary }}</p>
+      <div class="rs-table-scroll">
+        <table class="rs-table rs-table--data rs-table--striped">
+          <thead>
+            <tr>
+              <th scope="col">Class</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for cl in c.classes %}
+            <tr>
+              <th scope="row"><code>{{ cl.name }}</code></th>
+              <td>{{ cl.role }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
+      {%- if c.id == "splash" %}
+      <div class="rs-panel">
+        <p>No live specimen for this one: the splash covers the entire screen by
+        design and would sit on top of the whole museum. Paste the source into a
+        blank page and enjoy the ta-da, it is always skippable, and it remembers
+        being skipped.</p>
+      </div>
+      {%- elif c.id == "skip" %}
+      <div class="rs-panel">
+        <p>No boxed specimen needed, this very page has one. Press
+        <kbd class="rs-kbd">Tab</kbd> from the top of the page and the skip link
+        steps out of hiding, exactly once, exactly where a keyboard needs it.</p>
+      </div>
+      {%- elif c.id == "error-page" %}
+      <div class="rs-panel">
+        <p>A page, not a widget, so the live specimen is our own
+        <a href="/404.html">404 page</a>. Go get lost for a minute; we'll wait.</p>
+      </div>
+      {%- else %}
+      <div class="rs-panel site-preview">
+        {{ c.snippet | previewAssets | safe }}
+      </div>
+      {%- endif %}
+      <div class="rs-dos__title">C:\CATALOG&gt; type {{ c.id | replace("-", "") | upper | truncate(8, true, "") }}.HTM</div>
+      <pre class="rs-dos">{{ c.snippet }}</pre>
+      <p class="rs-font-1"><strong>Access for all:</strong> {{ c.a11y }}</p>
+      <p class="rs-font-1"><a class="rs-top" href="#top">^ Top</a></p>
+    </section>
+    {%- endfor %}
+    {%- endfor %}
+  </div>
+
+  <nav class="rs-layout__nav" aria-label="Component index">
+    <div class="rs-sidenav">
+      {%- for group in componentGroups %}
+      <h3 class="rs-sidenav__section">{{ group.label }}</h3>
+      <ul>
+        {%- for c in group.components %}
+        <li><a href="#{{ c.id }}">{{ c.label | lower }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,49 @@
+{
+  "id": "tile-clouds",
+  "size": [
+    32,
+    32
+  ],
+  "palette": {
+    "s": "#99CCFF",
+    "w": "#FFFFFF",
+    "d": "#CCCCCC"
+  },
+  "frames": [
+    [
+      "ssssssssssssssssssssssssssssssss",
+      "ssssssssssssssssssssssssssssssss",
+      "ssssssssssssssssssssssssssssssss",
+      "ssssssssssssssssssssssssssssssss",
+      "sssssswwwwwsswssssssssssssssssss",
+      "sssswwwwwwwwwwwwwsssssssssssssss",
+      "ssswwwwwwwwwwwwwwwssssssssssssss",
+      "ssswwwwwwwwwwwwwwwssssssssssssss",
+      "sswwwwwwwwwwwwwwwwssssssssssssss",
+      "sswwwwwwwwwwwwwwwwwsssssssssssss",
+      "sswwwwwwwwwwwwdwwdssssssssssssss",
+      "ssdwwwwwwdwwwwdwwdssssssssssssss",
+      "ssddwwwwwddwwddwddssssssssssssss",
+      "sssdwwwwwwdddddddsssssssssssssss",
+      "sssddwwwwwwwddssssssssssssssssss",
+      "ssssdddwwwdddsssssssssssssssssss",
+      "ssssssdddddssssssssssssswsssssss",
+      "ssssssssssssssssssssswwwwwwwwwws",
+      "sssssssssssssssssssswwwwwwwwwwww",
+      "wsssssssssssssssssswwwwwwwwwwwww",
+      "wsswssssssssssssssswwwwwwwwwwwww",
+      "wwwwwwssssssssssssswwwwwwwwwwwww",
+      "wwwwwwwssssssssssswwwwwwwwwwwddw",
+      "wwwwwwwssssssssssssdwwwwddwwwdwd",
+      "wwwwwwwwsssssssssssdwwwwwddwwddw",
+      "dwwwwwdssssssssssssddwwwwwddddds",
+      "ddwwwddsssssssssssssddwwwwwddsss",
+      "sdddddsssssssssssssssdddddddssss",
+      "sssdssssssssssssssssssssdsssssss",
+      "ssssssssssssssssssssssssssssssss",
+      "ssssssssssssssssssssssssssssssss",
+      "ssssssssssssssssssssssssssssssss"
+    ]
+  ],
+  "fps": 0
+}

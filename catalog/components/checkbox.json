@@ -1,0 +1,17 @@
+{
+  "id": "checkbox",
+  "kind": "component",
+  "label": "Checkbox",
+  "summary": "The 13×13 sunken checkbox with a proper check glyph.",
+  "era": "Windows 95's 13-by-13 checkbox, the exact square you ticked to join a mailing list forever.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-checkbox", "role": "restyled native checkbox: 13×13 sunken box, black check glyph" }
+  ],
+  "a11y": "Under the pixel paint sits the native input, keyboard toggling and screen-reader states are untouched, and the dotted focus ring lands on the label. Always wire the <label for>.",
+  "assets": [],
+  "tags": ["forms", "checkbox"]
+}

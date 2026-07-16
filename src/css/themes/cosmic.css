@@ -1,0 +1,67 @@
+/* cosmic - a starry deep-purple void, the "space" personal page dressed in
+   nebula instead of plain black (docs/07). Midnight's dreamier cousin, pink
+   and cyan on aubergine. */
+
+[data-rs-theme="cosmic"] {
+  --rs-bg-page: #330066;
+  --rs-tile-page: none; /* the starfield is applied by the body rule below */
+  --rs-bg-content: #330033;
+  --rs-text: #FFCCFF;
+  --rs-text-muted: #CC99CC;
+  --rs-heading: #FF66CC;
+
+  --rs-link: #66FFFF;
+  --rs-link-visited: #CC99FF;
+  --rs-link-active: #FFFF66;
+
+  --rs-accent: #FF66CC;
+  --rs-accent-2: #66FFFF;
+  --rs-good: #66FF66;
+  --rs-warn: #FFCC66;
+  --rs-bad: #FF6699;
+
+  --rs-bevel-face: #663366;
+  --rs-bevel-light: #9966CC;
+  --rs-bevel-shadow: #330033;
+  --rs-bevel-dark: #000000;
+  --rs-shadow-hard: 2px 2px 0 #000000; /* a shadow must be darker than the page, not lighter */
+
+  --rs-titlebar-bg: #660099;
+  --rs-titlebar-bg-2: #CC66FF;
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #9966CC;
+
+  --rs-selection-bg: #FF66CC;
+  --rs-selection-text: #330033;
+  --rs-focus-color: #66FFFF;
+
+  --rs-font-body: var(--rs-font-sans);
+  --rs-font-heading: var(--rs-font-fancy);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* direct url() so "../assets" resolves against this file, not the core sheet;
+   the :where(:not()) guard bows out for an explicit rs-tile-* wallpaper */
+[data-rs-theme="cosmic"] body:where(:not([class*="rs-tile-"])) {
+  background-image: url("../assets/tile-stars.png");
+  background-repeat: repeat;
+}
+
+[data-rs-theme="cosmic"] .rs-page {
+  border-color: #9966CC #330033 #330033 #9966CC;
+}
+
+/* dark sheet → retint the striped rows so the light text survives (docs/08) */
+[data-rs-theme="cosmic"] .rs-table--striped tbody tr:nth-child(even) {
+  background: #663366;
+}
+
+/* the default rainbow dips to a blue that vanishes on plum; brighten every stop.
+   background-IMAGE, not the shorthand: the shorthand resets the base class's
+   background-clip: text and the letters become a solid bar */
+[data-rs-theme="cosmic"] .rs-rainbow {
+  background-image: repeating-linear-gradient(90deg,
+    #FF3333 0 1ch, #FF9900 1ch 2ch, #FFFF00 2ch 3ch,
+    #00CC00 3ch 4ch, #3399FF 4ch 5ch, #CC66FF 5ch 6ch);
+}

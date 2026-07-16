@@ -1,0 +1,18 @@
+{
+  "id": "webring-bar",
+  "kind": "component",
+  "label": "Webring bar",
+  "summary": "The centered prev/random/next bar with a ring name line; static links until the webring widget fills them.",
+  "era": "The webring bar bolted under the footer: Prev, Random, Next, and faith that surfers would keep the loop alive.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-webring-bar", "role": "centered prev/random/next bar" },
+    { "name": "rs-webring-bar__name", "role": "the ring name line" }
+  ],
+  "a11y": "<nav aria-label=\"Webring\"> of plain links, fully functional as static HTML before the webring widget ever loads.",
+  "assets": [],
+  "tags": ["navigation", "webring"]
+}

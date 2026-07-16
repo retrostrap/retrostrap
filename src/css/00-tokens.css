@@ -1,0 +1,108 @@
+/* 00-tokens.css - every knob retrostrap has. Values are the `classic` theme:
+   the 1996 browser-default look, silver page and Times and blue links.
+   Themes override these tokens and nothing else (docs/07). The Palette Law
+   applies to every color in this file: web-safe 216 + the 16 named colors. */
+
+:root {
+  /* ---- identity ------------------------------------------------------ */
+  --rs-theme: "classic";
+
+  /* ---- page & content ------------------------------------------------ */
+  /* The body wears the tile; content sits on an opaque sheet (rs-page).  */
+  --rs-bg-page: #C0C0C0;
+  --rs-tile-page: none;             /* url() of a tile, or none           */
+  --rs-bg-content: #FFFFFF;
+  --rs-text: #000000;
+  --rs-text-muted: #666666;         /* #808080 is disabled-only, docs/08  */
+  --rs-heading: #000000;
+
+  /* ---- links (always underlined; visited MUST differ) ---------------- */
+  --rs-link: #0000FF;
+  --rs-link-visited: #660099;
+  --rs-link-active: #FF0000;
+
+  /* ---- accents & state ------------------------------------------------ */
+  --rs-accent: #000080;
+  --rs-accent-2: #008080;
+  --rs-good: #008000;
+  --rs-warn: #808000;
+  --rs-bad: #FF0000;
+
+  /* ---- the bevel system ----------------------------------------------- */
+  /* Raised: light on top/left, dark on bottom/right. Sunken: swap them.  */
+  --rs-bevel-face: #C0C0C0;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #808080;
+  --rs-bevel-dark: #000000;
+
+  /* ---- window & panel chrome ------------------------------------------ */
+  --rs-titlebar-bg: #000080;
+  --rs-titlebar-bg-2: #000080;      /* second stop of the two-stop fade   */
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #808080;
+
+  /* ---- selection & focus ---------------------------------------------- */
+  --rs-selection-bg: #000080;
+  --rs-selection-text: #FFFFFF;
+  --rs-focus-color: #000000;        /* the dotted ring, docs/08           */
+
+  /* ---- the nine sanctioned font stacks (Font Law, docs/02) ------------ */
+  --rs-font-serif: "Times New Roman", Times, serif;
+  --rs-font-sans: Verdana, Geneva, "DejaVu Sans", sans-serif;
+  --rs-font-narrow: Tahoma, "Segoe UI", Geneva, sans-serif;
+  --rs-font-arial: Arial, Helvetica, sans-serif;
+  --rs-font-comic: "Comic Sans MS", "Comic Neue", "Chalkboard SE", cursive;
+  --rs-font-mono: "Courier New", Courier, monospace;
+  --rs-font-display: Impact, "Arial Black", Haettenschweiler, sans-serif;
+  --rs-font-fancy: Georgia, "Times New Roman", serif;
+  --rs-font-trebuchet: "Trebuchet MS", Tahoma, sans-serif;
+
+  /* ---- the seven sizes ------------------------------------------------- */
+  /* <font size=1..7>, reborn. Documented in px, delivered in rem so zoom
+     and user font settings keep working. 10 / 13 / 16 / 18 / 24 / 32 / 48 */
+  --rs-font-size-1: 0.625rem;
+  --rs-font-size-2: 0.8125rem;
+  --rs-font-size-3: 1rem;
+  --rs-font-size-4: 1.125rem;
+  --rs-font-size-5: 1.5rem;
+  --rs-font-size-6: 2rem;
+  --rs-font-size-7: 3rem;
+
+  /* ---- type assignment (themes repoint these) -------------------------- */
+  --rs-font-body: var(--rs-font-serif);
+  --rs-font-heading: var(--rs-font-serif);
+  --rs-font-size-body: var(--rs-font-size-3);
+  --rs-font-size-comfy: var(--rs-font-size-4);  /* rs-comfy lands here */
+
+  /* ---- spacing --------------------------------------------------------- */
+  /* Dense on purpose; generous whitespace is a modern tell (docs/02).    */
+  --rs-space-0: 0;
+  --rs-space-1: 2px;                /* cellpadding=2                      */
+  --rs-space-2: 4px;                /* cellpadding=4                      */
+  --rs-space-3: 8px;
+  --rs-space-4: 16px;
+  --rs-space-5: 32px;
+
+  /* ---- borders --------------------------------------------------------- */
+  --rs-border-1: 1px;
+  --rs-border-2: 2px;
+
+  /* ---- shadows (blur is illegal; offsets only) ------------------------- */
+  --rs-shadow-hard: 2px 2px 0 #808080;
+
+  /* ---- the z-axis (docs/02; nothing above 600, no z-index wars) -------- */
+  --rs-z-raised: 10;
+  --rs-z-sticky: 100;
+  --rs-z-menu: 200;
+  --rs-z-window: 300;
+  --rs-z-dialog: 400;
+  --rs-z-splash: 500;
+  --rs-z-fx: 600;
+}
+
+/* Breakpoints (min-width), custom properties can't live in media queries,
+   so these four numbers appear literally, each with its monitor comment:
+     640px   vga
+     800px   svga
+    1024px   xga
+    1280px   sxga                                                          */

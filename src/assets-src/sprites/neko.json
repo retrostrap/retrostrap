@@ -1,0 +1,149 @@
+{
+  "id": "neko",
+  "size": [
+    16,
+    16
+  ],
+  "frameNames": [
+    "sit",
+    "alert",
+    "run1",
+    "run2",
+    "sleep",
+    "groom"
+  ],
+  "skins": {
+    "gif": {
+      ".": null,
+      "o": "#000000",
+      "b": "#999999",
+      "l": "#FFFFFF",
+      "e": "#000000"
+    },
+    "calico": {
+      ".": null,
+      "o": "#000000",
+      "b": "#FFFFFF",
+      "l": "#FFCC99",
+      "e": "#000000"
+    },
+    "void": {
+      ".": null,
+      "o": "#000000",
+      "b": "#333333",
+      "l": "#000000",
+      "e": "#00FF00"
+    }
+  },
+  "frames": [
+    [
+      "................",
+      "...o......o.....",
+      "..ooo....ooo....",
+      "..obboooobbo....",
+      "..obbbbbbbbo....",
+      "..oebbbbbbeo....",
+      "..obbbllbbbo....",
+      "..obbbllbbbo....",
+      "...obbbbbbo.....",
+      "...obbbbbbo.....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..o.oo..oo.o....",
+      "................"
+    ],
+    [
+      "...o......o.....",
+      "..ooo....ooo....",
+      "..obbo..obbo....",
+      "..obbboobbbo....",
+      "..obbbbbbbbo....",
+      "..oebbbbbbeo....",
+      "..obbbllbbbo....",
+      "..obbbllbbbo....",
+      "...obbbbbbo.....",
+      "...obbbbbbo.....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..o.oo..oo.o....",
+      "................"
+    ],
+    [
+      "................",
+      "..o..o..........",
+      ".oboobo......oo.",
+      ".ooooooooooooblo",
+      ".obbbbbbbbbo.oo.",
+      ".obebbbbbbbo....",
+      ".ollbbbbbbbo....",
+      ".ollbbbbbbbo....",
+      ".obbbbbbbbbo....",
+      "..ooooooooo.....",
+      ".ob.......ob....",
+      ".ob.......ob....",
+      ".ll.......ll....",
+      "................",
+      "................",
+      "................"
+    ],
+    [
+      "................",
+      "..o..o.......oo.",
+      ".oboobo.....oblo",
+      ".ooooooooooo.oo.",
+      ".obbbbbbbbbo....",
+      ".obebbbbbbbo....",
+      ".ollbbbbbbbo....",
+      ".ollbbbbbbbo....",
+      ".obbbbbbbbbo....",
+      "..ooooooooo.....",
+      "....ob..ob......",
+      "....ob..ob......",
+      "....ll..ll......",
+      "................",
+      "................",
+      "................"
+    ],
+    [
+      "................",
+      "................",
+      "................",
+      "................",
+      "......oooooo....",
+      ".....obbbbbboo..",
+      "....obbbbbbbbbo.",
+      "...obblbbbbbbbo.",
+      "..oeblllbbbbbbo.",
+      "...obbllbbbbbo..",
+      "....obbbbbbbo...",
+      ".....oooooooo...",
+      "................",
+      "................",
+      "................",
+      "................"
+    ],
+    [
+      "................",
+      "...o......o.....",
+      "..ooo....ooo....",
+      "..obboooobbo....",
+      "..obbbbbbbbo....",
+      "..oebbbbbbeo....",
+      "..obbllbbbbo....",
+      "...obllbbbo.....",
+      "...ollbbbbo.....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..obbbbbbbbo....",
+      "..o.oo..oo.o....",
+      "................",
+      "................"
+    ]
+  ],
+  "fps": 6
+}

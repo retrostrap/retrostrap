@@ -1,0 +1,74 @@
+/* rs-btn - the bevel button (docs/02: the bevel recipe). The :active nudge
+   is non-negotiable; it is half of what makes a button feel 1998. */
+
+.rs-btn {
+  display: inline-block;
+  font-family: var(--rs-font-narrow); /* form controls spoke system, not Times */
+  font-size: var(--rs-font-size-2);
+  color: var(--rs-text);
+  text-decoration: none;
+  background: var(--rs-bevel-face);
+  border: 2px solid;
+  border-color: var(--rs-bevel-light) var(--rs-bevel-dark)
+                var(--rs-bevel-dark) var(--rs-bevel-light);
+  box-shadow: inset -1px -1px 0 var(--rs-bevel-shadow);
+  padding: var(--rs-space-1) var(--rs-space-4);
+  cursor: pointer;
+}
+
+.rs-btn:active,
+.rs-btn[aria-pressed="true"] {
+  border-color: var(--rs-bevel-dark) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-dark);
+  box-shadow: inset 1px 1px 0 var(--rs-bevel-shadow);
+}
+
+/* the sacred nudge: pressed content moves 1px down-right, instantly */
+.rs-btn:active {
+  padding: calc(var(--rs-space-1) + 1px) calc(var(--rs-space-4) - 1px)
+           calc(var(--rs-space-1) - 1px) calc(var(--rs-space-4) + 1px);
+}
+
+.rs-btn:disabled,
+.rs-btn[aria-disabled="true"] {
+  color: var(--rs-bevel-shadow);
+  text-shadow: 1px 1px 0 var(--rs-bevel-light); /* the engraved look */
+  cursor: default;
+}
+
+/* the default button wore an extra black ring, as a 0-blur box-shadow, so
+   `outline` stays free for the focus ring (keyboard users must see focus) */
+.rs-btn--primary {
+  font-weight: bold;
+  box-shadow: 0 0 0 1px var(--rs-bevel-dark), inset -1px -1px 0 var(--rs-bevel-shadow);
+}
+
+.rs-btn--link {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  font: inherit;
+  color: var(--rs-link);
+  text-decoration: underline;
+}
+
+.rs-btn--small { font-size: var(--rs-font-size-1); padding: 1px var(--rs-space-3); }
+.rs-btn--large { font-size: var(--rs-font-size-4); padding: var(--rs-space-2) var(--rs-space-5); }
+
+/* the sacred nudge again, per size: the base :active padding would otherwise override
+   these compact/roomy variants and make them jump size on press */
+.rs-btn--small:active {
+  padding: calc(1px + 1px) calc(var(--rs-space-3) - 1px)
+           calc(1px - 1px) calc(var(--rs-space-3) + 1px);
+}
+.rs-btn--large:active {
+  padding: calc(var(--rs-space-2) + 1px) calc(var(--rs-space-5) - 1px)
+           calc(var(--rs-space-2) - 1px) calc(var(--rs-space-5) + 1px);
+}
+
+.rs-btn--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rs-space-2);
+}

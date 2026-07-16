@@ -1,0 +1,20 @@
+{
+  "id": "frames",
+  "kind": "component",
+  "label": "Frames",
+  "summary": "Frameset cosplay: sticky side pane and main pane, each scrolling on its own, divided by a ridge.",
+  "era": "Netscape 2.0 framesets, nav frame left, content frame right, minus the broken back button.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-frames", "role": "grid wrapper" },
+    { "name": "rs-frames__side", "role": "sticky side pane (top strip below svga)" },
+    { "name": "rs-frames__main", "role": "main pane" },
+    { "name": "rs-frames--right", "role": "modifier: side pane on the right" }
+  ],
+  "a11y": "Side pane should be a <nav>, main pane a <main>. Real URLs, working back button, the parts framesets got wrong.",
+  "assets": [],
+  "tags": ["layout", "frames", "navigation"]
+}

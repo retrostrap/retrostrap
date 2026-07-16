@@ -1,0 +1,11 @@
+/* rs-container - the width governor. 760px is what fit an 800×600 CRT
+   after scrollbar and chrome (docs/01 §2). Fluid below its max: that one
+   line is where "responsive" quietly happens. */
+
+.rs-container {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.rs-container--wide { max-width: 1000px; }
+.rs-container--fluid { max-width: none; }

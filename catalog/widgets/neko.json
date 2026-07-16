@@ -1,0 +1,27 @@
+{
+  "id": "neko",
+  "kind": "widget",
+  "label": "Neko (Gif the cat)",
+  "summary": "A pixel cat that chases your cursor, patrols an element edge, or dozes.",
+  "era": "The desktop-cat lineage (Neko/oneko), on the web since the late 90s. Gif is our own, drawn from a blank grid.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "decorative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-neko", "role": "the cat sprite the widget creates" }
+  ],
+  "options": [
+    { "name": "skin", "type": "enum", "values": ["gif", "calico", "void"], "default": "gif" },
+    { "name": "behavior", "type": "enum", "values": ["chase", "patrol", "sleepy"], "default": "chase" },
+    { "name": "target", "type": "selector", "note": "the element to patrol the top edge of" },
+    { "name": "speed", "type": "enum", "values": ["slow", "normal", "fast"], "default": "normal" },
+    { "name": "src", "type": "string", "note": "override the sprite sheet URL (defaults to the skin's)" }
+  ],
+  "events": ["rs:neko:sleep", "rs:neko:wake"],
+  "a11y": "Decoration: aria-hidden, pointer-events:none. Under prefers-reduced-motion the cat stays, sitting still. Chase falls back to patrol on touch. Two cats per page, maximum.",
+  "assets": ["neko-gif", "neko-calico", "neko-void"],
+  "tags": ["decoration", "mascot", "toybox"]
+}

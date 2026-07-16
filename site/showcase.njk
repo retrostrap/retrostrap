@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: Showcase
+description: "Sites built with retrostrap, a wall of 88×31 buttons, because that is how the web used to say we exist."
+---
+<h1>Showcase</h1>
+
+<p>Sites built with retrostrap, shown the way the old web showed off: a wall of
+88×31 buttons. Because that is how a page used to say <em>we exist</em>.</p>
+
+{% if showcase.length %}
+<div class="rs-badge-wall">
+  {%- for site in showcase %}
+  <a class="rs-button88" href="{{ site.url }}" title="{{ site.title }}, by {{ site.author }}">
+    {%- if site.button88 %}<img src="/assets/showcase/{{ site.button88 }}" alt="{{ site.title }}" width="88" height="31">
+    {%- else %}{{ site.title }}{% endif %}
+  </a>
+  {%- endfor %}
+</div>
+{% else %}
+<div class="rs-panel">
+  <h2 class="rs-panel__title">The wall is empty, for now</h2>
+  <p>No sites yet. <strong>Be the first</strong>, post #1 always gets remembered.
+  Build something, wear the badge, and send it in.</p>
+</div>
+{% endif %}
+
+<hr class="rs-hr rs-hr--rainbow">
+
+<h2>Submit your site</h2>
+<p>Open a pull request that adds one entry to
+<code>site/data/showcase.json</code> and drops an 88×31 button into
+<code>site/assets/showcase/</code>:</p>
+
+<div class="rs-dos">
+<span class="rs-dos__title">site/data/showcase.json</span>
+<pre>{
+  "url": "https://gardengnome.example",
+  "title": "The Garden Gnome Registry",
+  "author": "gnomekeeper",
+  "button88": "gnome-registry.png",
+  "added": "2026-06-05"
+}</pre>
+</div>
+
+<h3>House rules</h3>
+<ul class="rs-list rs-list--stars">
+  <li>Your site visibly uses retrostrap (a dist link, or an honest fork).</li>
+  <li>It passes the Laws, most of all Decency: no tracking, no ads in a trenchcoat.</li>
+  <li>Family-friendly; a fifteen-year-old building their first page reads this wall.</li>
+  <li>Original button art, no real-brand imitations. The
+      <a href="/demos/button-maker/">button-maker</a> will happily make you one.</li>
+</ul>
+
+<p class="rs-font-1">Or use the
+<a href="https://github.com/retrostrap/retrostrap/issues/new?template=showcase.yml">showcase issue form</a>
+and we'll open the PR for you.</p>

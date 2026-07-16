@@ -1,0 +1,18 @@
+/* rs-blink - one hertz, steps(1), exactly like the tag that started it all
+   (docs/01 §6). Under reduced motion the emphasis survives, the blink dies. */
+
+@keyframes rs-blink {
+  50% { visibility: hidden; }
+}
+
+.rs-blink {
+  animation: rs-blink 1s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-blink {
+    animation: none;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

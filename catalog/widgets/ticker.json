@@ -1,0 +1,27 @@
+{
+  "id": "ticker",
+  "kind": "widget",
+  "label": "Ticker",
+  "summary": "A scrolling status-bar text ticker.",
+  "era": "The window.status scrollers that welcomed you to a thousand homepages.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-ticker", "role": "applied to the host while it scrolls" }
+  ],
+  "options": [
+    { "name": "messages", "type": "json-array", "note": "the lines to scroll" },
+    { "name": "source", "type": "selector", "note": "read <li>s from this element instead" },
+    { "name": "speed", "type": "enum", "values": ["slow", "normal", "fast"], "default": "normal" },
+    { "name": "dock", "type": "enum", "values": ["bottom", "none"], "default": "none" },
+    { "name": "separator", "type": "string", "default": "+++" }
+  ],
+  "events": [],
+  "a11y": "Informative: the messages are ordinary readable text (never aria-live). Pauses on hover and focus. Under prefers-reduced-motion it swaps the message every 5s instead of scrolling.",
+  "assets": [],
+  "tags": ["informative", "toybox"]
+}

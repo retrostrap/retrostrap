@@ -1,0 +1,21 @@
+# dependencies and build output
+node_modules/
+dist/
+site/_site/
+
+# test artifacts
+test-results/
+playwright-report/
+
+# OS noise, local notes, per-machine tool settings
+.DS_Store
+*.local.md
+*.local.json
+.env*
+
+# service dependency locks are regenerated on the build platform (a macOS/Linux optional-dep quirk)
+services/**/package-lock.json
+
+# the mcp package's manifest copy is made by prepack, never committed
+services/mcp/manifest.json
+.aws-sam/

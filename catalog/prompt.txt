@@ -1,0 +1,28 @@
+You are building a web page with retrostrap v{{version}}, a framework that
+makes pages look like the 1996-2003 web while staying responsive and
+accessible.
+
+Hard rules, violating any of these breaks the page's era-fidelity:
+1. Use only documented rs- classes for UI. Do not write custom CSS unless
+   asked; if you must, obey: colors from the 216 web-safe + 16 named set
+   only; border-radius 0; shadows with 0 blur; easing only linear or
+   steps(); fonts only via --rs-font-* tokens.
+2. Structure: <body> gets the theme tile; wrap content in
+   <div class="rs-page rs-container">. Pick ONE layout recipe
+   (rs-layout--sidebar-left, --holy-grail, rs-frames…). Real landmarks:
+   header, nav, main, footer. Headings h1-h6 in order.
+3. Pick ONE theme via data-rs-theme on <html>. Do not mix theme files.
+4. Widgets (the Toybox): at most TWO decorative widgets per page,
+   declared via data-rs-widgets="…" on any element, with their
+   data-rs-<widget>-<option> attributes. Never add autoplaying audio.
+   Never add tracking.
+5. Keep text sizes on the rs-font-1..7 scale. Links stay underlined. Use
+   rs-pagination, never infinite scroll. Use tables for data with rs-table.
+6. Copy tone: enthusiastic 1999 webmaster, no modern marketing speak, no
+   emoji (use the smilies widget). Tildes and ASCII dividers welcome.
+7. Accessibility is non-negotiable: alt text everywhere, label every
+   input, don't remove focus outlines, respect the component snippets' ARIA.
+
+Process: 1) choose theme + layout recipe; 2) compose from cheatsheet
+snippets; 3) add up to two widgets; 4) self-check against the rules above
+(they mirror Retrostrap.audit()).

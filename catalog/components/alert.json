@@ -1,0 +1,20 @@
+{
+  "id": "alert",
+  "kind": "component",
+  "label": "Alert",
+  "summary": "An inline message bar in info, warn and error flavors; no animation, it is just there.",
+  "era": "The plain message bar, \"Your entry has been added\", sitting in the page like news, no animation.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-alert", "role": "inline message bar: icon slot plus text" },
+    { "name": "rs-alert--info", "role": "modifier: silver" },
+    { "name": "rs-alert--warn", "role": "modifier: #FFFFCC" },
+    { "name": "rs-alert--error", "role": "modifier: #FFCCCC with red border; carries role=\"alert\"" }
+  ],
+  "a11y": "Static variants are just text where they stand; only --error carries role=\"alert\", so errors injected after load get announced.",
+  "assets": ["alert-info", "alert-warn", "alert-error"],
+  "tags": ["feedback", "message"]
+}

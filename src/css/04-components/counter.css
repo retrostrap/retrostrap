@@ -1,0 +1,34 @@
+/* rs-counter - the odometer shell: sunken bezel, green digits on black.
+   The hit-counter widget animates it; static digits work fine too, and
+   nobody will check your math. */
+
+.rs-counter {
+  display: inline-block;
+  background: #000000;
+  color: #00FF00;
+  font-family: var(--rs-font-mono);
+  font-weight: bold;
+  padding: 1px var(--rs-space-2);
+  border: 2px solid;
+  border-color: var(--rs-bevel-shadow) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-shadow);
+}
+
+.rs-counter__digit {
+  display: inline-block;
+  inline-size: 11px;
+  block-size: 17px;
+  vertical-align: middle;
+  background-image: url("assets/counter-digits.png");
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.rs-counter__label {
+  display: block;
+  color: var(--rs-text); /* the label can land on any surface, so keep it full-contrast */
+  font-family: var(--rs-font-body);
+  font-size: var(--rs-font-size-1);
+  font-weight: normal;
+  text-align: center;
+}

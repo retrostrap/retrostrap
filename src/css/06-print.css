@@ -1,0 +1,48 @@
+/* 06-print.css - print like 1994, a backlog graduate. Black on white, decorations gone,
+   and every link's destination spelled out in parentheses the way a printout
+   always did. Applies only on paper; the screen is untouched. */
+
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    background-image: none !important;
+  }
+
+  /* the content sheet is just the page now */
+  .rs-page {
+    border: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+
+  /* every decoration is ink we don't spend */
+  .rs-snowfall, .rs-starfield, .rs-cursor-trail, .rs-sparkle-layer,
+  .rs-neko, .rs-dvd, .rs-crt-overlay, .rs-splash, .rs-marquee__pause,
+  .rs-skip, .rs-top {
+    display: none !important;
+  }
+
+  /* the pure-CSS scanline is a ::after (its widget cousin .rs-crt-overlay is above) */
+  .rs-crt::after { display: none !important; }
+
+  /* marquees and blinks hold still and stay readable */
+  .rs-marquee { overflow: visible !important; white-space: normal !important; }
+  .rs-marquee__content { animation: none !important; transform: none !important; }
+  .rs-blink { animation: none !important; font-weight: bold; text-decoration: underline; }
+
+  /* links keep their meaning: underlined, with the URL printed after */
+  a { color: #000000 !important; text-decoration: underline !important; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
+
+  /* bevels and windows flatten to a plain frame */
+  .rs-btn, .rs-window, .rs-panel, .rs-dialog {
+    box-shadow: none !important;
+    border: 1px solid #000000 !important;
+  }
+  .rs-window__titlebar, .rs-dialog__titlebar {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-block-end: 1px solid #000000 !important;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="midnight">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guestbook ~ Sandra's Space Corner</title>
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/midnight.css">
+</head>
+<body data-rs-widgets="smilies">
+
+<a class="rs-skip" href="#main">Skip to content</a>
+
+<div class="rs-page rs-container">
+  <header class="rs-center">
+    <h1 class="rs-rainbow rs-font-6">~ Guestbook ~</h1>
+  </header>
+
+  <nav class="rs-breadcrumbs" aria-label="You are here">
+    <ol><li><a href="index.html">Home</a></li><li>Guestbook</li></ol>
+  </nav>
+
+  <main id="main">
+    <p>Thanks for stopping by!! Leave a note before you go, my mum reads this so
+    keep it nice :) Newest signatures are up top.</p>
+
+    <section class="rs-panel">
+      <h2 class="rs-panel__title">Sign my guestbook!</h2>
+      <form class="rs-form-table" id="signbook" action="mailto:stargazer.sandra@mail.example" method="post" enctype="text/plain">
+        <label for="g-name">Your name:</label>
+        <input class="rs-input" id="g-name" name="name" type="text" required>
+        <label for="g-from">Where from:</label>
+        <input class="rs-input" id="g-from" name="from" type="text" placeholder="your town, or the moon">
+        <label for="g-home">Homepage:</label>
+        <input class="rs-input" id="g-home" name="homepage" type="url" placeholder="http://">
+        <label for="g-msg">Message:</label>
+        <textarea class="rs-textarea" id="g-msg" name="message" rows="3" required></textarea>
+        <div class="rs-form-table__full">
+          <button class="rs-btn rs-btn--primary" type="submit">Sign it!</button>
+        </div>
+      </form>
+      <p class="rs-note">This is a demo guestbook: your signature shows up right away but is not saved, so it is gone on reload. For a message that sticks around, the <a href="https://boards.retrostrap.dev">Retrostrap Boards</a> are a real, persistent guestbook.</p>
+    </section>
+
+    <hr class="rs-hr rs-hr--stars">
+    <h2 class="rs-text-center">~ Signatures (<span id="sig-count">6</span>) ~</h2>
+
+    <div data-rs-widgets="guestbook">
+      <script type="application/json">
+      { "entries": [
+        { "name": "RocketRandy", "from": "Ohio, USA", "date": "15 June 1999", "message": "KEWL page!! Found you on the ring. Clear skies! :D" },
+        { "name": "moonmaiden", "from": "the moon (Wales)", "date": "12 June 1999", "message": "your eclipse sketches are better than my photos. bookmarked!! ;)" },
+        { "name": "Dad", "from": "the next room", "date": "10 June 1999", "message": "Very nice Sandra. What do I click to go back?" },
+        { "name": "comet_carl", "from": "Bavaria, Germany", "date": "08 June 1999", "message": "Greetz from Bavaria! CU at perihelion 8)" },
+        { "name": "WebWanderer2000", "from": "everywhere", "date": "02 June 1999", "message": "signing every guestbook on the ring. yours is nr. 34! keep going :)" },
+        { "name": "Petra & Petra", "from": "astronomy club", "date": "30 May 1999", "message": "we are two Petras from the club, hi!!" }
+      ] }
+      </script>
+    </div>
+
+    <p class="rs-text-center"><a class="rs-top" href="#main">^ back to top ^</a></p>
+  </main>
+
+  <footer class="rs-footer">
+    <p><a href="index.html">&laquo; back to my homepage</a></p>
+  </footer>
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+<script>
+  // signing shows up on the page right away, prepended into the guestbook
+  // widget's own list, and still offers the mailto for Sandra to keep it for real.
+  (function () {
+    var form = document.getElementById('signbook');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      var name = (document.getElementById('g-name').value || '').trim();
+      var msg = (document.getElementById('g-msg').value || '').trim();
+      if (!name || !msg) return; // let required do its job
+      e.preventDefault();
+      var list = document.querySelector('.rs-guestbook__entries');
+      if (list) {
+        var from = (document.getElementById('g-from').value || '').trim();
+        var art = document.createElement('article');
+        art.className = 'rs-panel';
+        var h = document.createElement('h3');
+        h.className = 'rs-panel__title';
+        h.textContent = name + (from ? ' ~ ' + from : '') + ' ~ just now';
+        var p = document.createElement('p');
+        p.textContent = msg;
+        art.append(h, p);
+        list.insertBefore(art, list.firstChild);
+        // announce the injected text so the smilies widget passes over it too
+        art.dispatchEvent(new CustomEvent('rs:content', { bubbles: true }));
+        var c = document.getElementById('sig-count');
+        if (c) c.textContent = String((Number(c.textContent) || 0) + 1);
+        if (window.Retrostrap) Retrostrap.announce('Entry added.');
+      }
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "id": "alert-info",
+  "size": [16, 16],
+  "palette": { ".": null, "k": "#000000", "b": "#0066CC", "w": "#FFFFFF" },
+  "frames": [[
+    "................",
+    "....kkkkkkkk....",
+    "..kkbbbbbbbbkk..",
+    ".kbbbbbbbbbbbbk.",
+    ".kbbbbbwwbbbbbk.",
+    ".kbbbbbwwbbbbbk.",
+    "kbbbbbbbbbbbbbbk",
+    "kbbbbbbwwbbbbbbk",
+    "kbbbbbbwwbbbbbbk",
+    "kbbbbbbwwbbbbbbk",
+    "kbbbbbbwwbbbbbbk",
+    ".kbbbbbwwbbbbbk.",
+    ".kbbbbbbbbbbbbk.",
+    "..kkbbbbbbbbkk..",
+    "....kkkkkkkk....",
+    "................"
+  ]],
+  "fps": 0
+}

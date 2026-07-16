@@ -1,0 +1,27 @@
+/* rs-footer - the page's shoes: last-updated stamp, badge wall, mailto.
+   Date everything; brag about updating (docs/10 tone guide). */
+
+.rs-footer {
+  margin-block-start: var(--rs-space-4);
+  border-block-start: 2px groove var(--rs-bevel-face);
+  padding-block-start: var(--rs-space-3);
+  text-align: center;
+  font-size: var(--rs-font-size-2);
+}
+
+.rs-footer__updated {
+  color: var(--rs-text-muted);
+  font-size: var(--rs-font-size-1);
+}
+
+.rs-footer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--rs-space-2);
+  margin-block: var(--rs-space-2);
+}
+
+.rs-footer__email {
+  font-size: var(--rs-font-size-1);
+}

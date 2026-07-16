@@ -1,0 +1,4 @@
+/* rs-center - <center> walked so we could run (docs/04). Used earnestly. */
+
+.rs-center { text-align: center; }
+.rs-center > * { margin-inline: auto; }

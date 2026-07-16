@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- Blobby Adoptions ~ a virtual pixel-pet shelter, circa 2001. Adopt a blob and it lives in the corner of your page. Best viewed at 800x600 with a full belly. -->
+<html lang="en" data-rs-theme="kawaii">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blobby Adoptions ~ the pixel petting zoo</title>
+<meta name="description" content="Adopt a pixel blobby and it lives in the corner of your page. Six blobs in four coats, a care guide, and a feeding shop at the pixel petting zoo.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/kawaii.css">
+<style>
+  /* Blobby Adoptions, geometry and theme tokens only. No literal colours, radii,
+     shadows or easings live here; the coat swatches borrow the theme's own tokens. */
+  .ba-photo {
+    min-block-size: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid;
+    border-color: var(--rs-bevel-dark) var(--rs-bevel-light) var(--rs-bevel-light) var(--rs-bevel-dark);
+  }
+  .ba-photo--green { background: var(--rs-good); }
+  .ba-photo--blue  { background: var(--rs-accent-2); }
+  .ba-photo--pink  { background: var(--rs-accent); }
+  .ba-photo--gold  { background: var(--rs-warn); }
+  .ba-photo span { color: #000000; line-height: 1; }
+</style>
+</head>
+<body data-rs-widgets="pixel-pet smilies sparkle"
+      data-rs-pixel-pet-name="Blobby"
+      data-rs-pixel-pet-color="pink"
+      data-rs-sparkle-color="#FF66CC">
+
+<a class="rs-skip" href="#main">skip to the blobbies &rarr;</a>
+
+<div class="rs-page rs-container">
+
+  <header class="rs-center">
+    <h1 class="rs-rainbow rs-font-6">~ Blobby Adoptions ~</h1>
+    <p class="rs-font-3">the pixel petting zoo ~ adopt a blob, feed a blob
+    <span class="rs-badge rs-badge--new">NEW COATS!</span></p>
+    <div class="rs-marquee" data-rs-marquee-speed="normal">
+      <span class="rs-marquee__content">&#9733; now rehoming six blobbies in four coats
+      &#9733; the gold ones just arrived &#9733; adopt one and it lives in the corner of
+      your page &#9733; feed it a waffle &#9733; be gentle &#9733;</span>
+    </div>
+  </header>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <nav class="rs-navbar" aria-label="Around the zoo">
+    <a href="#meet">Meet the blobbies</a>
+    <a href="#care">Care guide</a>
+    <a href="#shop">Feeding shop</a>
+    <a href="#reserve">Adopt one</a>
+  </nav>
+
+  <div class="rs-layout rs-layout--sidebar-right">
+
+    <main class="rs-layout__main" id="main">
+
+      <p class="rs-alert rs-alert--info">Every blobby, keeper, and Blobby Buck here is
+      make-believe. This is a demo shelter, not a real one, so the only thing that needs
+      feeding is the pixel pet down in the corner. :)</p>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">Welcome to the petting zoo</h2>
+        <p>Hi, and welcome! This is a little shelter for pixel blobbies. Pick the one
+        whose face you like best and it moves into the corner of your page. Click it to
+        feed it, and it will remember you the next time you stop by. ^_^</p>
+        <p>Six blobbies are waiting below. Say the word and one is yours. Don't forget
+        to feed it!</p>
+      </section>
+
+      <section class="rs-panel" id="meet">
+        <h2 class="rs-panel__title">Meet the blobbies</h2>
+        <p>All six are litter-trained, dial-up friendly, and looking for a desktop to
+        call home. <span class="rs-blinkie rs-blinkie--candy">ADOPT TODAY</span></p>
+      </section>
+
+      <div class="rs-cols-3">
+
+        <article class="rs-panel rs-center">
+          <h3 class="rs-panel__title">Marshmallow <span class="rs-badge rs-badge--new">NEW!</span></h3>
+          <div class="ba-photo ba-photo--pink" aria-hidden="true"><span class="rs-font-4">( ^ 3 ^ )</span></div>
+          <p><b>Coat:</b> bubblegum pink</p>
+          <p>Softest blob in the litter. Purrs at 56k and naps on any warm modem.</p>
+          <p>cuteness: <span class="rs-stars" role="img" aria-label="cuteness 5 of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+          <p><a class="rs-btn rs-btn--primary" href="#reserve">Adopt me!</a></p>
+        </article>
+
+        <article class="rs-panel rs-center">
+          <h3 class="rs-panel__title">Kiwi</h3>
+          <div class="ba-photo ba-photo--green" aria-hidden="true"><span class="rs-font-4">( o u o )</span></div>
+          <p><b>Coat:</b> green-apple green</p>
+          <p>Bouncy and curious. Will chase your cursor to the edge of the screen and
+          straight back again.</p>
+          <p>cuteness: <span class="rs-stars" role="img" aria-label="cuteness 5 of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+          <p><a class="rs-btn rs-btn--primary" href="#reserve">Adopt me!</a></p>
+        </article>
+
+        <article class="rs-panel rs-center">
+          <h3 class="rs-panel__title">Blueberry</h3>
+          <div class="ba-photo ba-photo--blue" aria-hidden="true"><span class="rs-font-4">( - . - )</span></div>
+          <p><b>Coat:</b> blueberry blue</p>
+          <p>A calm, cool blob. Prefers dim rooms and slow connections. Naps often,
+          judges never.</p>
+          <p>cuteness: <span class="rs-stars" role="img" aria-label="cuteness 4 of 5">&#9733;&#9733;&#9733;&#9733;<span class="rs-stars__empty">&#9734;</span></span></p>
+          <p><a class="rs-btn rs-btn--primary" href="#reserve">Adopt me!</a></p>
+        </article>
+
+        <article class="rs-panel rs-center">
+          <h3 class="rs-panel__title">Butterscotch <span class="rs-badge rs-badge--hot">RARE!</span></h3>
+          <div class="ba-photo ba-photo--gold" aria-hidden="true"><span class="rs-font-4">( ^ o ^ )</span></div>
+          <p><b>Coat:</b> butterscotch gold</p>
+          <p>Our rarest coat. Shy for a minute, then never leaves your side. Lives for
+          birthday cake.</p>
+          <p>cuteness: <span class="rs-stars" role="img" aria-label="cuteness 5 of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+          <p><a class="rs-btn rs-btn--primary" href="#reserve">Adopt me!</a></p>
+        </article>
+
+        <article class="rs-panel rs-center">
+          <h3 class="rs-panel__title">Cotton</h3>
+          <div class="ba-photo ba-photo--pink" aria-hidden="true"><span class="rs-font-4">( &gt; w &lt; )</span></div>
+          <p><b>Coat:</b> bubblegum pink</p>
+          <p>The cuddliest of the bunch. Squishes flat when happy. Comes when called,
+          most of the time.</p>
+          <p>cuteness: <span class="rs-stars" role="img" aria-label="cuteness 5 of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+          <p><a class="rs-btn rs-btn--primary" href="#reserve">Adopt me!</a></p>
+        </article>
+
+        <article class="rs-panel rs-center">
+          <h3 class="rs-panel__title">Sage</h3>
+          <div class="ba-photo ba-photo--green" aria-hidden="true"><span class="rs-font-4">( ~ . ~ )</span></div>
+          <p><b>Coat:</b> green-apple green</p>
+          <p>The wise old blob. Gives good advice, mostly about waffles. A gentle first
+          pet.</p>
+          <p>cuteness: <span class="rs-stars" role="img" aria-label="cuteness 4 of 5">&#9733;&#9733;&#9733;&#9733;<span class="rs-stars__empty">&#9734;</span></span></p>
+          <p><a class="rs-btn rs-btn--primary" href="#reserve">Adopt me!</a></p>
+        </article>
+
+      </div>
+
+      <hr class="rs-hr rs-hr--dotted">
+
+      <section class="rs-panel" id="care">
+        <h2 class="rs-panel__title">Raising a happy blobby</h2>
+        <p>Blobbies are easy. Keep them fed, keep them warm, and they will keep you
+        company while the page loads.</p>
+        <p class="rs-font-2"><b>Every day:</b></p>
+        <ul class="rs-list rs-list--paws">
+          <li>Feed it once. Click the blobby in the corner and watch it go nom.</li>
+          <li>Say hello. A blobby that gets looked at is a blobby that stays.</li>
+          <li>Let it nap. If you wander off, it dozes until you come back.</li>
+        </ul>
+        <p class="rs-font-2"><b>Quick tips:</b></p>
+        <ul class="rs-list rs-list--paws">
+          <li>Waffles are a treat, not a meal. One a day is plenty.</li>
+          <li>A cold blobby is a sad blobby. Park it near a warm modem.</li>
+          <li>Blobbies remember you between visits, so visit often.</li>
+        </ul>
+      </section>
+
+      <section class="rs-panel" id="shop">
+        <h2 class="rs-panel__title">The feeding shop</h2>
+        <p>Stock up before you adopt. A well-fed blob is a blob that stays.</p>
+        <table class="rs-table rs-table--striped">
+          <caption>Treats every blobby loves, priced in Blobby Bucks</caption>
+          <thead>
+            <tr>
+              <th scope="col">Treat</th>
+              <th scope="col">What it does</th>
+              <th scope="col" class="rs-num">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Pixel waffle</th>
+              <td>Fills the belly. The everyday favourite.</td>
+              <td class="rs-num">5</td>
+            </tr>
+            <tr>
+              <th scope="row">Star cookie</th>
+              <td>A little happiness boost, with sprinkles.</td>
+              <td class="rs-num">8</td>
+            </tr>
+            <tr>
+              <th scope="row">Bubble tea</th>
+              <td>Naptime fuel. Dreams come out pastel.</td>
+              <td class="rs-num">6</td>
+            </tr>
+            <tr>
+              <th scope="row">Modem snack</th>
+              <td>Warms a cold blobby right back up.</td>
+              <td class="rs-num">4</td>
+            </tr>
+            <tr>
+              <th scope="row">Birthday cake</th>
+              <td>Once a year. Worth the wait every time.</td>
+              <td class="rs-num">12</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="rs-font-1">Prices in Blobby Bucks. Blobby Bucks are, of course,
+        imaginary.</p>
+      </section>
+
+      <section class="rs-panel" id="reserve">
+        <h2 class="rs-panel__title">Reserve a blobby</h2>
+        <p>Found your blob? Tell the keeper and we will set it aside. This is a demo, so
+        the form just opens your mail program.</p>
+        <form action="mailto:keeper@blobby.example" method="post" enctype="text/plain">
+          <div class="rs-form-table">
+            <label for="rq-name">Your name</label>
+            <input class="rs-input" id="rq-name" name="name" type="text" autocomplete="name" required>
+
+            <label for="rq-coat">Which coat?</label>
+            <select class="rs-select" id="rq-coat" name="coat">
+              <option>Green-apple green</option>
+              <option>Blueberry blue</option>
+              <option>Bubblegum pink</option>
+              <option>Butterscotch gold</option>
+              <option>Surprise me!</option>
+            </select>
+
+            <label for="rq-note">A note for the keeper</label>
+            <textarea class="rs-textarea" id="rq-note" name="note" rows="3">I promise to feed it.</textarea>
+          </div>
+          <p class="rs-center"><button class="rs-btn rs-btn--primary" type="submit">Send my adoption request</button></p>
+        </form>
+      </section>
+
+      <p class="rs-center"><a class="rs-top" href="#main">back to top ^^</a></p>
+
+    </main>
+
+    <aside class="rs-layout__rail" aria-label="Zoo extras">
+
+      <section class="rs-panel rs-center">
+        <h2 class="rs-panel__title">Blobbies adopted</h2>
+        <p>
+          <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="static" data-rs-hit-counter-value="0148372" data-rs-hit-counter-digits="7"></span>
+        </p>
+        <p class="rs-counter__label">happy blobbies rehomed since 1999</p>
+      </section>
+
+      <section class="rs-panel">
+        <h2 class="rs-panel__title">Take one home</h2>
+        <p>See the little pink pal in the corner? That is your blobby. Click it to feed
+        it, and it remembers you next time you visit.</p>
+        <p>Want one on your own page? Adopt any blobby above and it moves into the
+        corner, ready for waffles.</p>
+      </section>
+
+      <div class="rs-note">
+        <p><b>Keeper's tip:</b> a fed blobby is a happy blobby. Feed it once a day and
+        it will never wander off your taskbar. ~be gentle~</p>
+      </div>
+
+      <div class="rs-quote">
+        <div class="rs-quote__source">quote of the week</div>
+        <blockquote class="rs-quote__body">
+          <p>&ldquo;every blob deserves a desktop.&rdquo;</p>
+        </blockquote>
+      </div>
+      <p class="rs-quote__sig">--<br>
+      the keeper</p>
+
+      <nav class="rs-sidenav" aria-label="Friends of the zoo">
+        <span class="rs-sidenav__section">~ friends ~</span>
+        <ul>
+          <li><a href="https://pixelpals.example/">pixel pals club</a></li>
+          <li><a href="https://waffles.example/">the waffle society</a></li>
+          <li><a href="https://petzoo.example/">other petting zoos</a></li>
+        </ul>
+      </nav>
+
+    </aside>
+
+  </div>
+
+  <nav class="rs-webring-bar" aria-label="Webring">
+    <p class="rs-webring-bar__name">Blobby Adoptions rides the Pixel Pets webring.</p>
+    <a href="#">&laquo; Prev</a>
+    <a href="#">Random</a>
+    <a href="#">Ring home</a>
+    <a href="#">Next &raquo;</a>
+  </nav>
+
+  <footer class="rs-footer rs-center">
+    <p>You are visitor
+      <span class="rs-counter" data-rs-widgets="hit-counter" data-rs-hit-counter-mode="local"></span>
+      <span class="rs-counter__label">to the petting zoo</span>
+    </p>
+    <p class="rs-footer__updated" data-rs-widgets="last-updated" data-rs-last-updated-date="3 August 1999"></p>
+    <p><a href="#">sign the guestbook</a> ~ tell us which blobby you took home</p>
+    <p class="rs-footer__email"><a href="mailto:keeper@blobby.example">write to the keeper</a></p>
+    <p class="rs-font-1">Blobby Adoptions is a make-believe shelter. Every blobby,
+    keeper, and Blobby Buck here is invented. Best viewed with a full belly and a warm
+    modem. :)</p>
+  </footer>
+
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="../../dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

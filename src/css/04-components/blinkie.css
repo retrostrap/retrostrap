@@ -1,0 +1,24 @@
+/* rs-blinkie - the ~150×20 glitter strip that declared your allegiances in a
+   sidebar or a signature (docs/01 §4). Pair it with rs-blink for the shimmer.
+   A badge of belonging, made by hand. */
+
+.rs-blinkie {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 150px;
+  block-size: 20px;
+  padding-inline: var(--rs-space-1);
+  overflow: hidden;
+  background: #000080;
+  color: #FFFF00;
+  border: 1px ridge #C0C0C0;
+  font: bold var(--rs-font-size-1)/1 var(--rs-font-sans);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rs-blinkie--hot   { background: #800000; color: #FFCC00; }
+.rs-blinkie--cool  { background: #000000; color: #00FFFF; }
+.rs-blinkie--candy { background: #CC0099; color: #FFFFFF; } /* deep enough for white to clear AA */

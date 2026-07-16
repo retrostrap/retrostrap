@@ -1,0 +1,18 @@
+{
+  "id": "figure",
+  "kind": "component",
+  "label": "Figure",
+  "summary": "An image in a 2px outset frame with an optional sunken caption strip.",
+  "era": "A scanned photo in an outset frame with a caption strip below, the \"my cat, 72dpi\" exhibit on every personal page.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-figure", "role": "2px outset frame around the image" },
+    { "name": "rs-figure__caption", "role": "sunken caption strip below" }
+  ],
+  "a11y": "Native <figure>/<figcaption>: the caption describes the exhibit, the alt text still describes the image itself.",
+  "assets": [],
+  "tags": ["content", "image", "caption"]
+}

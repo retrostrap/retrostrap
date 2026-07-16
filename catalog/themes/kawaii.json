@@ -1,0 +1,15 @@
+{
+  "id": "kawaii",
+  "kind": "theme",
+  "label": "Kawaii",
+  "summary": "Pastel shrine: bubblegum page, tiled hearts, Comic Sans, hot-pink scalloped panels.",
+  "era": "The glitter-and-hearts fanpage every 2001 diary kept, bows and all.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "Every body-text pair passes WCAG AA (validated by scripts/contrast.mjs). Links on the tinted page darken to a tinted pair automatically, and stay underlined.",
+  "assets": ["tile-hearts"],
+  "tags": ["theme"]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "footer",
+  "kind": "component",
+  "label": "Footer",
+  "summary": "The page footer kit: last-updated line, 88×31 badge wall, and a mailto.",
+  "era": "The page basement of 1999: a \"Last updated\" line, an 88×31 badge wall, and a mailto envelope that spun.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-footer", "role": "the footer kit wrapper" },
+    { "name": "rs-footer__updated", "role": "the \"Last updated:\" line; pairs with the last-updated widget" },
+    { "name": "rs-footer__badges", "role": "88×31 badge wall row" },
+    { "name": "rs-footer__email", "role": "the mailto line" }
+  ],
+  "a11y": "A real <footer> landmark; badge links need proper accessible names, and the mailto shows the address as its own link text.",
+  "assets": ["icon-mail"],
+  "tags": ["navigation", "footer", "page"]
+}

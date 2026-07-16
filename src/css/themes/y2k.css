@@ -1,0 +1,117 @@
+/* y2k - millennium chrome: a dark navy page under a dithered haze, banded
+   silver panels, Impact headings with a cyan kick, and Arial everywhere else
+   (docs/07). Everything looks one firmware update from the year 2000 bug. */
+
+[data-rs-theme="y2k"] {
+  --rs-bg-page: #000033;
+  --rs-tile-page: none; /* the dither tile is applied by the body rule below */
+  --rs-bg-content: #CCCCCC;
+  --rs-text: #000000;
+  --rs-text-muted: #333333;  /* AA on the silver sheet */
+  --rs-heading: #003399;
+
+  /* canon link is #0066CC, but that reads 3.47 on the silver sheet, under AA.
+     Content lives on silver, so the link takes the interactive-on-silver blue
+     (#0033CC, 5.58); the dark page swaps in bright cyan below (docs/08). */
+  --rs-link: #0033CC;
+  --rs-link-visited: #660099;
+  --rs-link-active: #FF6600;
+
+  /* body-size accent text on the dark page, and interactive accent on silver:
+     #3366FF is chrome, not prose, so these carry the readable roles (docs/08). */
+  --rs-accent-text: #6699FF;
+  --rs-accent-on-panel: #0033CC;
+
+  --rs-accent: #3366FF;
+  --rs-accent-2: #00CCCC;
+  --rs-good: #009900;
+  --rs-warn: #FFCC00;
+  --rs-bad: #FF0000;
+
+  --rs-bevel-face: #CCCCCC;
+  --rs-bevel-light: #FFFFFF;
+  --rs-bevel-shadow: #666666;
+  --rs-bevel-dark: #000000;
+  --rs-shadow-hard: 2px 2px 0 #000000; /* a shadow must be darker than the page, not lighter */
+
+  --rs-titlebar-bg: #003399;
+  --rs-titlebar-bg-2: #00CCCC;
+  --rs-titlebar-text: #FFFFFF;
+  --rs-border-color: #666666;
+
+  --rs-selection-bg: #3366FF;
+  --rs-selection-text: #FFFFFF;
+  /* pin the ring to currentColor so it matches the ink it sits beside: :root defines
+     --rs-focus-color, so the reset's fallback never fires on its own. currentColor clears 3:1 on
+     silver and navy alike (docs/08); the old #FF6600 managed only 1.83:1 on the silver sheet */
+  --rs-focus-color: currentColor;
+
+  --rs-font-body: var(--rs-font-arial);
+  --rs-font-heading: var(--rs-font-display);
+  --rs-font-size-body: var(--rs-font-size-2);
+  --rs-font-size-comfy: var(--rs-font-size-3);
+}
+
+/* The dither is applied with a DIRECT url() here, not through a custom
+   property, a relative url() in a custom property resolves against the wrong
+   stylesheet in half the browsers; a direct url() resolves against this file,
+   so "../assets" is correct everywhere (docs/07). Links resting directly on the
+   navy page take the bright cyan that clears AAA on it (docs/08). */
+[data-rs-theme="y2k"] body:where(:not([class*="rs-tile-"])) {
+  /* the guard bows out when the author picks an rs-tile-* wallpaper */
+  background-image: url("../assets/tile-dither-navy.png");
+  background-repeat: repeat;
+}
+[data-rs-theme="y2k"] body {
+  --rs-link: #00CCFF;
+  --rs-link-visited: #CC99FF;
+}
+
+/* the splash rests on the navy page, not the silver sheet, so the sheet's
+   black ink vanishes there; hand the prose white (15.6:1 on #000033, docs/08).
+   color, not the token: buttons inside keep their silver-face black ink. */
+[data-rs-theme="y2k"] .rs-splash {
+  color: #FFFFFF;
+}
+
+/* the silver sheet frames the page and restores the silver-safe link pair */
+[data-rs-theme="y2k"] .rs-page {
+  border-color: #FFFFFF #666666 #666666 #FFFFFF;
+  --rs-link: #0033CC;
+  --rs-link-visited: #660099;
+}
+
+/* panels hold prose, so they wear the calmer two-band silver the buttons use;
+   the dark #999999 band made paragraphs muddy and stripey */
+[data-rs-theme="y2k"] .rs-panel {
+  background-image: linear-gradient(180deg, #FFFFFF 0 50%, #CCCCCC 0 100%);
+}
+
+/* the toolbar keeps the full banded silver chrome, hard stops between legal
+   greys, a stack of bands rather than a smooth fade: controls, not paragraphs */
+[data-rs-theme="y2k"] .rs-toolbar {
+  background-image: linear-gradient(180deg,
+    #FFFFFF 0 25%, #CCCCCC 0 50%, #999999 0 75%, #CCCCCC 0 100%);
+}
+
+/* chrome buttons get the aqua-adjacent-but-legal two-stop sheen; link buttons
+   stay flat text */
+[data-rs-theme="y2k"] .rs-btn:not(.rs-btn--link) {
+  background-image: linear-gradient(180deg, #FFFFFF 0 50%, #CCCCCC 0 100%);
+}
+
+/* table header reads as a chrome strip; stripes come back from the silver */
+[data-rs-theme="y2k"] .rs-table th {
+  background-image: linear-gradient(180deg, #FFFFFF 0 50%, #999999 0 100%);
+}
+
+[data-rs-theme="y2k"] .rs-table--striped tbody tr:nth-child(even) {
+  background: #FFFFFF;
+}
+
+/* Impact headings carry a hard cyan offset, zero blur, not on gradient text,
+   which brings its own color */
+[data-rs-theme="y2k"] h1:not(.rs-rainbow):not([class*="rs-gradient-text"]),
+[data-rs-theme="y2k"] h2:not(.rs-rainbow):not([class*="rs-gradient-text"]) {
+  text-shadow: 2px 2px 0 #00CCCC;
+}

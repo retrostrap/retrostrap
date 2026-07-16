@@ -1,0 +1,54 @@
+/* rs-progress - segmented blocks in a sunken track: the file-copy dialog
+   of fond memory. Blocks, never a smooth fill. */
+
+.rs-progress {
+  block-size: 16px;
+  background: var(--rs-bg-content);
+  border: 2px solid;
+  border-color: var(--rs-bevel-shadow) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-shadow);
+  padding: 1px;
+  overflow: hidden;
+}
+
+.rs-progress__bar {
+  block-size: 100%;
+  background: repeating-linear-gradient(90deg,
+    var(--rs-accent) 0 8px, transparent 8px 10px);
+}
+
+@keyframes rs-progress-march {
+  from { translate: -100% 0; }
+  to   { translate: 400% 0; }
+}
+
+.rs-progress--indeterminate .rs-progress__bar {
+  inline-size: 25%;
+  animation: rs-progress-march 2s steps(12, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-progress--indeterminate .rs-progress__bar {
+    animation: none;
+    inline-size: 100%;
+    background: repeating-linear-gradient(90deg,
+      var(--rs-text-muted) 0 8px, transparent 8px 10px);
+  }
+}
+
+/* rs-hourglass, the "please wait" spinner. It drains and flips, forever. */
+.rs-hourglass {
+  display: inline-block;
+  inline-size: 15px;
+  block-size: 15px;
+  vertical-align: middle;
+  background: url("assets/hourglass.png") 0 0 no-repeat;
+  image-rendering: pixelated;
+  animation: rs-hourglass 1.2s steps(4) infinite;
+}
+
+@keyframes rs-hourglass { to { background-position-x: -60px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-hourglass { animation: none; }
+}

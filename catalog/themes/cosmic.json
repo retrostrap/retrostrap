@@ -1,0 +1,15 @@
+{
+  "id": "cosmic",
+  "kind": "theme",
+  "label": "Cosmic",
+  "summary": "A starry deep-purple void: pink and cyan neon on aubergine, over a tiled starfield.",
+  "era": "The 'space' personal page dressed in nebula, midnight's dreamier cousin.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "All body-text pairs sit above AA; scripts/contrast.mjs gates them in CI. Links stay underlined.",
+  "assets": ["tile-stars"],
+  "tags": ["theme"]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "clock",
+  "kind": "widget",
+  "label": "Clock",
+  "summary": "An LED clock, refreshed once a second.",
+  "era": "The JavaScript clock tucked into the corner of the 'enhanced' homepage.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": true,
+  "jsEnhancer": null,
+  "motion": "informative",
+  "pointer": "any",
+  "classes": [
+    { "name": "rs-clock", "role": "applied to the host" }
+  ],
+  "options": [
+    { "name": "format", "type": "enum", "values": ["12", "24"], "default": "24" },
+    { "name": "seconds", "type": "bool", "default": true },
+    { "name": "label", "type": "string", "note": "a caption under the digits" }
+  ],
+  "events": [],
+  "a11y": "The visible digits are aria-hidden; a screen reader reads an sr-only <time>, updated once a minute, not every tick. A changing digit is content, not motion, so reduced motion changes nothing.",
+  "assets": [],
+  "tags": ["informative", "toybox"]
+}

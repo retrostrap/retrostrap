@@ -1,0 +1,16 @@
+{
+  "id": "starfield", "kind": "widget", "label": "Starfield",
+  "summary": "Warp-speed stars on a canvas.",
+  "era": "The flying-through-space screensaver, reborn as a page background.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "decorative", "pointer": "any",
+  "classes": [{ "name": "rs-starfield", "role": "the canvas overlay the widget creates" }],
+  "options": [
+    { "name": "density", "type": "enum", "values": ["sparse", "normal", "dense"], "default": "normal", "note": "or a number, capped at 200" },
+    { "name": "speed", "type": "enum", "values": ["slow", "normal", "fast"], "default": "normal" },
+    { "name": "layers", "type": "int", "default": 2, "note": "1 to 3 parallax layers" }
+  ],
+  "events": [],
+  "a11y": "Decoration: aria-hidden, pointer-events:none. Under prefers-reduced-motion it becomes a still sprinkle of stars, the look without the flight.",
+  "assets": [], "tags": ["decoration", "canvas", "toybox"]
+}

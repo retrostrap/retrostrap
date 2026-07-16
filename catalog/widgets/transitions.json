@@ -1,0 +1,14 @@
+{
+  "id": "transitions", "kind": "widget", "label": "Page transitions",
+  "summary": "Page-to-page wipes via the View Transitions API.",
+  "era": "The PowerPoint-meets-Internet-Explorer scene change, tamed.",
+  "since": "0.1.0", "stability": "experimental", "requiresJs": true, "jsEnhancer": null,
+  "motion": "decorative", "pointer": "any",
+  "classes": [],
+  "options": [
+    { "name": "style", "type": "enum", "values": ["wipe", "box-in", "box-out", "dissolve", "checker"], "default": "wipe" }
+  ],
+  "events": [],
+  "a11y": "Pure progressive enhancement: where the API is unsupported, navigation is instant and unbroken. The API honors reduced motion on its own; the widget also skips under it.",
+  "assets": [], "tags": ["decoration", "navigation", "toybox"]
+}

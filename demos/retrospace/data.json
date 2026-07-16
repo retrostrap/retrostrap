@@ -1,0 +1,570 @@
+{
+  "_note": "Retrospace's clearly-fictional founding members (docs/12): our demo sites, plus invented German-language examples. All URLs are reserved .example domains. Categories mirror src/classify.js.",
+  "categories": [
+    {
+      "id": "personal",
+      "en": "Personal homepages",
+      "de": "Persönliche Homepages"
+    },
+    {
+      "id": "art",
+      "en": "Art & pixels",
+      "de": "Kunst & Pixel"
+    },
+    {
+      "id": "music",
+      "en": "Music & radio",
+      "de": "Musik & Radio"
+    },
+    {
+      "id": "writing",
+      "en": "Writing & zines",
+      "de": "Texte & Zines"
+    },
+    {
+      "id": "games",
+      "en": "Games & fandom",
+      "de": "Spiele & Fandom"
+    },
+    {
+      "id": "projects",
+      "en": "Projects & tools",
+      "de": "Projekte & Werkzeuge"
+    },
+    {
+      "id": "community",
+      "en": "Communities",
+      "de": "Gemeinschaften"
+    },
+    {
+      "id": "curios",
+      "en": "The odd & the earnest",
+      "de": "Kurioses & Ernstes"
+    }
+  ],
+  "languages": [
+    {
+      "code": "en",
+      "en": "English",
+      "de": "Englisch"
+    },
+    {
+      "code": "de",
+      "en": "German",
+      "de": "Deutsch"
+    },
+    {
+      "code": "fr",
+      "en": "French",
+      "de": "Französisch"
+    },
+    {
+      "code": "es",
+      "en": "Spanish",
+      "de": "Spanisch"
+    },
+    {
+      "code": "ja",
+      "en": "Japanese",
+      "de": "Japanisch"
+    },
+    {
+      "code": "other",
+      "en": "Other",
+      "de": "Andere"
+    }
+  ],
+  "sites": [
+    {
+      "id": "s1",
+      "url": "https://sandras-space-corner.example",
+      "title": "Sandra's Space Corner",
+      "blurb": "A teen astronomer's homepage, stars, a guestbook, and a webring.",
+      "categories": [
+        "personal"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "space",
+        "astronomy",
+        "homepage"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-08-14",
+      "lastReviewedAt": "2025-08-14",
+      "nextReviewAt": "2026-08-14",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 91,
+      "outHits": 32
+    },
+    {
+      "id": "s2",
+      "url": "https://mels-corner.example",
+      "title": "Mel's Corner",
+      "blurb": "A diary that updates whenever she feels like it. Soft palette, lots of moods.",
+      "categories": [
+        "personal"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "diary",
+        "blog",
+        "kawaii"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-11-02",
+      "lastReviewedAt": "2025-11-02",
+      "nextReviewAt": "2026-11-02",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 188,
+      "outHits": 85
+    },
+    {
+      "id": "s3",
+      "url": "https://pixel-and-byte.example",
+      "title": "Pixel & Byte",
+      "blurb": "A slice-of-life webcomic about a kid, a beige computer, and a shared phone line.",
+      "categories": [
+        "art"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "webcomic",
+        "comic",
+        "archive"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-01-20",
+      "lastReviewedAt": "2026-01-20",
+      "nextReviewAt": "2027-01-20",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 85,
+      "outHits": 58
+    },
+    {
+      "id": "s4",
+      "url": "https://nebula-shrine.example",
+      "title": "The Nebula Shrine",
+      "blurb": "A maximalist fan shrine for the 1998 space sim Star Quest 3D. Frames and all.",
+      "categories": [
+        "games"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "fan",
+        "shrine",
+        "space",
+        "game"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-09-30",
+      "lastReviewedAt": "2025-09-30",
+      "nextReviewAt": "2026-09-30",
+      "check": {
+        "score": 90,
+        "verdict": "pass"
+      },
+      "inHits": 182,
+      "outHits": 31
+    },
+    {
+      "id": "s5",
+      "url": "https://clan-vortex.example",
+      "title": "Clan Vortex",
+      "blurb": "An arena-shooter clan, roster, match results, server, and a recruiting tryout.",
+      "categories": [
+        "games"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "clan",
+        "shooter",
+        "roster"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-02-11",
+      "lastReviewedAt": "2026-02-11",
+      "nextReviewAt": "2027-02-11",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 79,
+      "outHits": 84
+    },
+    {
+      "id": "s6",
+      "url": "https://neon-divide.example",
+      "title": "Neon Divide",
+      "blurb": "An unofficial fan shrine for a made-up basement synth band, built round a jukebox.",
+      "categories": [
+        "music"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "band",
+        "synth",
+        "jukebox",
+        "music"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-10-10",
+      "lastReviewedAt": "2025-10-10",
+      "nextReviewAt": "2026-10-10",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 176,
+      "outHits": 57
+    },
+    {
+      "id": "s7",
+      "url": "https://basement-fm.example",
+      "title": "Basement FM",
+      "blurb": "Net radio from a bedroom, 88.8 on your imaginary dial. A silent demo player.",
+      "categories": [
+        "music"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "radio",
+        "net radio",
+        "streaming"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-03-03",
+      "lastReviewedAt": "2026-03-03",
+      "nextReviewAt": "2027-03-03",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 73,
+      "outHits": 30
+    },
+    {
+      "id": "s8",
+      "url": "https://the-story-nook.example",
+      "title": "The Story Nook",
+      "blurb": "A cozy fanfiction archive for an invented fandom, ratings, chapters, reviews.",
+      "categories": [
+        "writing"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "fanfiction",
+        "stories",
+        "archive"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-12-01",
+      "lastReviewedAt": "2025-12-01",
+      "nextReviewAt": "2026-12-01",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 170,
+      "outHits": 83
+    },
+    {
+      "id": "s9",
+      "url": "https://pixel-dispatch.example",
+      "title": "The Pixel Dispatch",
+      "blurb": "A webzine about the early web, games, and net culture. A long-form cover story each month.",
+      "categories": [
+        "writing"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "zine",
+        "magazine",
+        "webzine"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-04-18",
+      "lastReviewedAt": "2026-04-18",
+      "nextReviewAt": "2027-04-18",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 67,
+      "outHits": 56
+    },
+    {
+      "id": "s10",
+      "url": "https://blobby-adoptions.example",
+      "title": "Blobby Adoptions",
+      "blurb": "Adopt a pixel pet, and it lives in the corner of your page, waiting to be fed.",
+      "categories": [
+        "community"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "adoptables",
+        "pet",
+        "cute"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-05-05",
+      "lastReviewedAt": "2026-05-05",
+      "nextReviewAt": "2027-05-05",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 164,
+      "outHits": 29
+    },
+    {
+      "id": "s11",
+      "url": "https://starport-directory.example",
+      "title": "Starport",
+      "blurb": "A hand-sorted web directory in the old style, categories, cool site of the day, a webring.",
+      "categories": [
+        "community"
+      ],
+      "languages": [
+        "en",
+        "de"
+      ],
+      "tags": [
+        "directory",
+        "portal",
+        "webring"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-07-22",
+      "lastReviewedAt": "2025-07-22",
+      "nextReviewAt": "2026-07-22",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 61,
+      "outHits": 82
+    },
+    {
+      "id": "s12",
+      "url": "https://webmasters-workshop.example",
+      "title": "The Webmaster's Workshop",
+      "blurb": "Learn to hand-code your first homepage, one small lesson at a time. Free graphics too.",
+      "categories": [
+        "projects"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "html",
+        "tutorial",
+        "learn",
+        "webmaster"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-01-06",
+      "lastReviewedAt": "2026-01-06",
+      "nextReviewAt": "2027-01-06",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 158,
+      "outHits": 55
+    },
+    {
+      "id": "s13",
+      "url": "https://grandma-vis-kitchen.example",
+      "title": "Grandma Vi's Kitchen",
+      "blurb": "Grandma's recipes, typed up by hand, ingredients, method, and a splatter or two.",
+      "categories": [
+        "curios"
+      ],
+      "languages": [
+        "en"
+      ],
+      "tags": [
+        "recipes",
+        "cooking",
+        "food"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-10-28",
+      "lastReviewedAt": "2025-10-28",
+      "nextReviewAt": "2026-10-28",
+      "check": {
+        "score": 90,
+        "verdict": "pass"
+      },
+      "inHits": 55,
+      "outHits": 28
+    },
+    {
+      "id": "s14",
+      "url": "https://stefans-pixelstube.example",
+      "title": "Stefans Pixelstube",
+      "blurb": "Eine kleine Heimseite über Pixel, Geduld und das langsame Netz.",
+      "categories": [
+        "personal"
+      ],
+      "languages": [
+        "de"
+      ],
+      "tags": [
+        "heimseite",
+        "pixel",
+        "homepage"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-02-20",
+      "lastReviewedAt": "2026-02-20",
+      "nextReviewAt": "2027-02-20",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 152,
+      "outHits": 81
+    },
+    {
+      "id": "s15",
+      "url": "https://der-nachtfunk.example",
+      "title": "Der Nachtfunk",
+      "blurb": "Radio für Nachtmenschen, jeden Abend ab zehn. Wünsche per Formular, nie per Anruf.",
+      "categories": [
+        "music"
+      ],
+      "languages": [
+        "de"
+      ],
+      "tags": [
+        "radio",
+        "nacht",
+        "musik"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-03-30",
+      "lastReviewedAt": "2026-03-30",
+      "nextReviewAt": "2027-03-30",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 249,
+      "outHits": 54
+    },
+    {
+      "id": "s16",
+      "url": "https://kachelwelt.example",
+      "title": "Kachelwelt",
+      "blurb": "Eine Galerie handgesetzter Hintergrundkacheln, Sterne, Wolken, Pfoten und mehr.",
+      "categories": [
+        "art"
+      ],
+      "languages": [
+        "de"
+      ],
+      "tags": [
+        "kacheln",
+        "muster",
+        "pixel",
+        "galerie"
+      ],
+      "status": "listed",
+      "approvedAt": "2025-09-12",
+      "lastReviewedAt": "2025-09-12",
+      "nextReviewAt": "2026-09-12",
+      "check": {
+        "score": 100,
+        "verdict": "pass"
+      },
+      "inHits": 146,
+      "outHits": 27
+    },
+    {
+      "id": "s17",
+      "url": "https://die-zettelkiste.example",
+      "title": "Die Zettelkiste",
+      "blurb": "Ein Zine über das entschleunigte Netz, kurze Texte, lange Gedanken.",
+      "categories": [
+        "writing"
+      ],
+      "languages": [
+        "de"
+      ],
+      "tags": [
+        "zine",
+        "texte",
+        "langsam"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-05-19",
+      "lastReviewedAt": "2026-05-19",
+      "nextReviewAt": "2027-05-19",
+      "check": {
+        "score": 90,
+        "verdict": "pass"
+      },
+      "inHits": 243,
+      "outHits": 80
+    },
+    {
+      "id": "s18",
+      "url": "https://werkstatt-56k.example",
+      "title": "Werkstatt 56k",
+      "blurb": "Anleitungen, Knöpfe und Bastelei für die eigene Homepage. Alles unter einer Diskette.",
+      "categories": [
+        "projects"
+      ],
+      "languages": [
+        "de"
+      ],
+      "tags": [
+        "anleitung",
+        "werkzeug",
+        "knöpfe"
+      ],
+      "status": "listed",
+      "approvedAt": "2026-04-01",
+      "lastReviewedAt": "2026-04-01",
+      "nextReviewAt": "2027-04-01",
+      "check": {
+        "score": 95,
+        "verdict": "pass"
+      },
+      "inHits": 140,
+      "outHits": 53
+    }
+  ]
+}

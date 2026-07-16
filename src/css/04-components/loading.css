@@ -1,0 +1,30 @@
+/* rs-loading - the hourglass. It reflects real waits and never fakes one;
+   skeleton theater is somebody else's framework. */
+
+.rs-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rs-space-2);
+  font-size: var(--rs-font-size-2);
+}
+
+/* named for the component: progress.css owns a different `rs-hourglass` (the sprite
+   cycle), and whichever imported last would otherwise win for both */
+@keyframes rs-loading-spin {
+  to { rotate: 360deg; }
+}
+
+.rs-loading::before {
+  content: "⧗";
+  font-size: var(--rs-font-size-3);
+  line-height: 1;
+  animation: rs-loading-spin 2s steps(2, end) infinite;
+}
+
+.rs-loading--bar {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-loading::before { animation: none; }
+}

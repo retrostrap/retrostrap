@@ -1,0 +1,83 @@
+{
+  "id": "hourglass",
+  "size": [
+    15,
+    15
+  ],
+  "palette": {
+    ".": null,
+    "k": "#000000",
+    "s": "#FFCC00"
+  },
+  "frames": [
+    [
+      "kkkkkkkkkkkkkkk",
+      ".ksssssssssssk.",
+      "..ksssssssssk..",
+      "...ksssssssk...",
+      "....ksssssk....",
+      ".....ksssk.....",
+      "......ksk......",
+      ".......s.......",
+      "......k.k......",
+      ".....k...k.....",
+      "....k.....k....",
+      "...k.......k...",
+      "..k.........k..",
+      ".k...........k.",
+      "kkkkkkkkkkkkkkk"
+    ],
+    [
+      "kkkkkkkkkkkkkkk",
+      ".k...........k.",
+      "..k.........k..",
+      "...k.......k...",
+      "....ksssssk....",
+      ".....ksssk.....",
+      "......ksk......",
+      ".......s.......",
+      "......k.k......",
+      ".....k...k.....",
+      "....k.....k....",
+      "...k.......k...",
+      "..ksssssssssk..",
+      ".ksssssssssssk.",
+      "kkkkkkkkkkkkkkk"
+    ],
+    [
+      "kkkkkkkkkkkkkkk",
+      ".k...........k.",
+      "..k.........k..",
+      "...k.......k...",
+      "....k.....k....",
+      ".....k...k.....",
+      "......ksk......",
+      ".......s.......",
+      "......k.k......",
+      ".....k...k.....",
+      "....ksssssk....",
+      "...ksssssssk...",
+      "..ksssssssssk..",
+      ".ksssssssssssk.",
+      "kkkkkkkkkkkkkkk"
+    ],
+    [
+      "kkkkkkkkkkkkkkk",
+      ".k...........k.",
+      "..k.........k..",
+      "...k.......k...",
+      "....k.....k....",
+      ".....k...k.....",
+      "......k.k......",
+      "...............",
+      "......ksk......",
+      ".....ksssk.....",
+      "....ksssssk....",
+      "...ksssssssk...",
+      "..ksssssssssk..",
+      ".ksssssssssssk.",
+      "kkkkkkkkkkkkkkk"
+    ]
+  ],
+  "fps": 3
+}

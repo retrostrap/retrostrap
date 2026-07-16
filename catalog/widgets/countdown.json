@@ -1,0 +1,15 @@
+{
+  "id": "countdown", "kind": "widget", "label": "Countdown",
+  "summary": "An LED countdown to a target date and time.",
+  "era": "\"Only 47 days until the year 2000!\" on a million homepages.",
+  "since": "0.1.0", "stability": "stable", "requiresJs": true, "jsEnhancer": null,
+  "motion": "informative", "pointer": "any",
+  "classes": [{ "name": "rs-countdown", "role": "applied to the host" }],
+  "options": [
+    { "name": "to", "type": "datetime", "note": "ISO datetime; required" },
+    { "name": "done", "type": "string", "note": "message shown at zero" }
+  ],
+  "events": ["rs:countdown:done"],
+  "a11y": "The digits are aria-hidden; a screen reader hears an sr-only remaining-time line updated once a minute. A changing digit is content, so reduced motion keeps the count.",
+  "assets": [], "tags": ["informative", "toybox"]
+}

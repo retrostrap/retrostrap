@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>retrostrap wave 2</title>
+<link rel="stylesheet" href="/dist/retrostrap.css">
+</head>
+<body data-rs-widgets="starfield crt dvd countdown transitions windows">
+<div class="rs-page rs-container">
+  <h1>Wave 2</h1>
+
+  <div class="rs-window" id="win" data-rs-window="floating" aria-labelledby="win-title" style="inline-size: 240px">
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="win-title">Drag Me 95</span>
+    </div>
+    <div class="rs-window__body"><p>A window you can drag by its titlebar.</p></div>
+  </div>
+
+  <p><span id="cd" data-rs-widgets="countdown" data-rs-countdown-to="2099-01-01T00:00:00Z"></span></p>
+
+  <div class="rs-webring-bar" id="ring" data-rs-widgets="webring">
+    <script type="application/json">
+    {"name":"The Test Ring","home":"https://ring.example/",
+     "sites":[
+       {"title":"Alpha","url":"https://a.example/"},
+       {"title":"This Page","url":"http://localhost:8098/tests/e2e/pages/wave2.html"},
+       {"title":"Gamma","url":"https://g.example/"}
+     ]}
+    </script>
+  </div>
+
+  <section id="gb" data-rs-widgets="guestbook">
+    <script type="application/json">
+    {"entries":[
+      {"name":"NiceGuest","from":"Ohio","date":"1999-06-15","message":"KEWL page!!"},
+      {"name":"Sneaky","from":"nowhere","date":"1999-06-16","message":"<img src=x onerror=alert(1)><script>window.__pwned=1<\/script> hi"}
+    ]}
+    </script>
+  </section>
+</div>
+<script src="/dist/retrostrap.js"></script>
+<script src="/dist/retrostrap-toybox.min.js"></script>
+</body>
+</html>

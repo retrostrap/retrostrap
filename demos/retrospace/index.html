@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retrospace - the curated directory</title>
+<meta name="description" content="A hand-sorted directory and search for the retrostrap world: a calm, polite corner of the web. German and English.">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="retrospace.css">
+</head>
+<!-- data-rsx-api points the counters + submit form at the write API; clear it to run the
+     directory as a purely static page (no beacons, submit previews only). -->
+<body data-rsx-api="/api/retrospace">
+
+<a class="rs-skip" href="#main">skip to the directory</a>
+
+<div class="rs-page rs-container rs-container--wide">
+
+  <header class="rs-center">
+    <h1 class="rs-font-6 rs-rainbow">Retrospace</h1>
+    <p id="tagline" class="rs-font-3">&nbsp;</p>
+    <div class="rx-lang" role="group" id="langtoggle" aria-label="Language / Sprache"></div>
+  </header>
+
+  <hr class="rs-hr rs-hr--dotted">
+
+  <nav id="nav" class="rs-navbar" aria-label="Retrospace"></nav>
+
+  <main id="main">
+    <form id="searchform" role="search" class="rx-search">
+      <label for="q" id="q-label">Search the directory</label>
+      <span class="rx-search__row">
+        <input type="search" id="q" class="rs-input" autocomplete="off">
+        <button type="submit" class="rs-btn rs-btn--primary" id="q-btn">Go</button>
+      </span>
+    </form>
+
+    <section aria-labelledby="cat-h">
+      <h2 id="cat-h" class="rs-font-3" data-i18n="nav.categories">Categories</h2>
+      <div id="cat-chips" class="rx-chips"></div>
+    </section>
+
+    <section aria-labelledby="lang-h">
+      <h2 id="lang-h" class="rs-font-3" data-i18n="nav.languages">Languages</h2>
+      <div id="lang-chips" class="rx-chips"></div>
+    </section>
+
+    <section id="sotd" aria-labelledby="sotd-h" class="rs-panel rs-panel--raised">
+      <h2 id="sotd-h" class="rs-panel__title" data-i18n="sotd">Site of the day</h2>
+      <div id="sotd-body"></div>
+    </section>
+
+    <section id="toplist" aria-labelledby="toplist-h" class="rs-panel rs-panel--raised">
+      <h2 id="toplist-h" class="rs-panel__title" data-i18n="toplist">Top sites</h2>
+      <p id="toplist-blurb" class="rs-font-1"></p>
+      <ol id="toplist-body" class="rs-list"></ol>
+    </section>
+
+    <h2 id="results-h" class="rs-font-4" aria-live="polite">&nbsp;</h2>
+    <ul id="results" class="rx-grid"></ul>
+
+    <hr class="rs-hr">
+
+    <section id="submit-sec" aria-labelledby="submit-h">
+      <h2 id="submit-h" class="rs-font-4" data-i18n="nav.submit">Submit a site</h2>
+      <p id="submit-note" class="rx-muted"></p>
+      <form id="submitform" class="rs-form-table"></form>
+      <p id="submit-ok" class="rs-note" role="status" hidden></p>
+    </section>
+
+    <hr class="rs-hr">
+
+    <section id="charter-sec" aria-labelledby="charter-h">
+      <h2 id="charter-h" class="rs-font-4" data-i18n="nav.charter">How curation works</h2>
+      <ul class="rs-list rs-list--stars" id="charter-list"></ul>
+    </section>
+  </main>
+
+  <hr class="rs-hr rs-hr--dotted">
+  <footer class="rs-center rs-font-1">
+    <p id="foot">A demonstration directory. Every site here is one of our own fictional demos.</p>
+    <!-- the site's legal pages; root-relative so they resolve once deployed on the apex -->
+    <p><a href="/impressum/">Impressum</a> &middot; <a href="/datenschutz/">Datenschutz</a></p>
+  </footer>
+
+</div>
+
+<noscript><p style="padding:16px">Retrospace's directory needs JavaScript to browse. The sites it lists do not.</p></noscript>
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

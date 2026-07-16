@@ -1,0 +1,19 @@
+{
+  "id": "container",
+  "kind": "component",
+  "label": "Container",
+  "summary": "Width governor: 760px by default, centered, fluid below its max.",
+  "era": "\"Best viewed at 800×600\", 760px is what actually fit that CRT after scrollbar and chrome.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-container", "role": "max-width 760px, centered" },
+    { "name": "rs-container--wide", "role": "modifier: max-width 1000px" },
+    { "name": "rs-container--fluid", "role": "modifier: full width" }
+  ],
+  "a11y": "None specific.",
+  "assets": [],
+  "tags": ["layout", "width"]
+}

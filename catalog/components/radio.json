@@ -1,0 +1,17 @@
+{
+  "id": "radio",
+  "kind": "component",
+  "label": "Radio button",
+  "summary": "The 12×12 sunken pixel-circle radio; a dot appears when checked.",
+  "era": "The site poll's round buttons, Windows 95 radios, whose 12-pixel \"circle\" was always secretly an octagon.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-radio", "role": "restyled native radio: 12×12 sunken pixel-circle, dot when checked" }
+  ],
+  "a11y": "Still a native radio: arrow keys walk the group and states announce themselves. Group the choices in a fieldset with a legend, and give every option its <label for>.",
+  "assets": [],
+  "tags": ["forms", "radio"]
+}

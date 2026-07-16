@@ -1,0 +1,32 @@
+/* rs-quote - the forum quote block and the sacred signature divider
+   (docs/01 §5). Quote sparingly; the Netiquette is watching. */
+
+.rs-quote {
+  border: 1px solid;
+  border-color: var(--rs-bevel-shadow) var(--rs-bevel-light)
+                var(--rs-bevel-light) var(--rs-bevel-shadow);
+  margin: var(--rs-space-2) 0;
+  font-size: var(--rs-font-size-2);
+  background: var(--rs-bg-content);
+}
+
+.rs-quote__source {
+  display: block;
+  background: var(--rs-bevel-face);
+  color: var(--rs-text);
+  font-weight: bold;
+  padding: 1px var(--rs-space-2);
+  border-block-end: 1px solid var(--rs-border-color);
+}
+
+.rs-quote__body {
+  padding: var(--rs-space-2);
+}
+
+.rs-quote__sig {
+  margin-block-start: 0;
+  border-block-start: 1px solid var(--rs-border-color);
+  padding: var(--rs-space-1) var(--rs-space-2);
+  color: var(--rs-text-muted);
+  font-size: var(--rs-font-size-1);
+}

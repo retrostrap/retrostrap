@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-rs-theme="bevel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign Painter 1.0 - the ASCII banner maker</title>
+<meta name="description" content="Type a word, get a banner in big ASCII letters. Pick the ink, add a border, copy it or save it as a .txt. Drawn on your own computer, no server.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../dist/retrostrap.min.css">
+<link rel="stylesheet" href="../../dist/themes/bevel.css">
+<style>
+  /* Program geometry only; every colour comes from the theme tokens. */
+  .as-desktop { min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 16px 8px; }
+  .as-window { width: 100%; max-width: 820px; }
+  .as-panel + .as-panel { margin-block-start: var(--rs-space-3); }
+  .as-panel h2 { margin-block-start: 0; }
+  .as-controls { display: grid; gap: var(--rs-space-2); grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .as-controls { grid-template-columns: 1fr 1fr; } }
+  .as-controls .as-wide { grid-column: 1 / -1; }
+  .as-controls label { display: block; }
+  .as-controls .rs-input, .as-controls .rs-select { inline-size: 100%; }
+  #out { min-block-size: 6em; }
+  .as-actions { display: flex; flex-wrap: wrap; gap: var(--rs-space-2); align-items: center; margin-block-start: var(--rs-space-2); }
+</style>
+</head>
+<body>
+
+<a class="rs-skip" href="#main">Skip to the sign &rarr;</a>
+
+<div class="as-desktop">
+  <section class="rs-window as-window" role="dialog" aria-labelledby="win-title">
+
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="win-title">Sign Painter 1.0</span>
+      <span class="rs-window__controls">
+        <button type="button" aria-label="Minimize">_</button>
+        <button type="button" aria-label="Maximize">&#9633;</button>
+        <button type="button" aria-label="Close">&#10005;</button>
+      </span>
+    </div>
+
+    <main class="rs-window__body" id="main">
+
+      <div class="rs-panel as-panel">
+        <h2 class="rs-panel__title">Your sign</h2>
+        <div class="as-controls">
+          <p class="as-wide">
+            <label for="txt">Text (max 16)</label>
+            <input class="rs-input" id="txt" type="text" maxlength="16" value="RETRO"
+                   autocomplete="off" spellcheck="false">
+          </p>
+          <p>
+            <label for="face">Face</label>
+            <select class="rs-select" id="face">
+              <option value="sign-painter">sign painter (5-row)</option>
+              <option value="poster">poster (6-row, bold)</option>
+            </select>
+          </p>
+          <p>
+            <label for="ink">Ink</label>
+            <select class="rs-select" id="ink">
+              <option value="#">#&nbsp;&nbsp;hash</option>
+              <option value="&#9608;">&#9608;&nbsp;&nbsp;block</option>
+              <option value="*">*&nbsp;&nbsp;star</option>
+              <option value="@">@&nbsp;&nbsp;at</option>
+              <option value="o">o&nbsp;&nbsp;bubble</option>
+            </select>
+          </p>
+          <p>
+            <label for="border">Border</label>
+            <select class="rs-select" id="border">
+              <option value="none">none</option>
+              <option value="box">box (+--+)</option>
+              <option value="stars">stars (~*~)</option>
+              <option value="dashes">dashes</option>
+            </select>
+          </p>
+          <p><label><input type="checkbox" id="shadow"> drop shadow</label></p>
+        </div>
+        <p class="rs-font-1">Uppercase A-Z, digits, and <code>! ? . , - ' : &amp; + / ( )</code>. Two faces, optional drop shadow. Sixteen characters, the width of an old marquee.</p>
+      </div>
+
+      <div class="rs-panel as-panel">
+        <h2 class="rs-panel__title">Preview</h2>
+        <!-- the real component: role="img" + aria-label so a reader hears the word, not the ink -->
+        <pre class="rs-ascii rs-ascii--framed" id="out" role="img" aria-label="ASCII banner">loading&hellip;</pre>
+        <div class="as-actions">
+          <button type="button" class="rs-btn rs-btn--primary" id="copy">Copy to clipboard</button>
+          <button type="button" class="rs-btn" id="download">Save as .txt</button>
+          <span class="rs-font-1" id="say" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="rs-window__statusbar">
+      <span>Sign Painter 1.0</span>
+      <span>drawn in your browser &middot; nothing uploaded</span>
+    </footer>
+  </section>
+</div>
+
+<script defer src="../../dist/retrostrap.min.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

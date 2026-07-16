@@ -1,0 +1,17 @@
+{
+  "id": "textarea",
+  "kind": "component",
+  "label": "Textarea",
+  "summary": "The sunken multi-line field, for messages of substance.",
+  "era": "The tall box under \"Your message:\", where a million guestbook greetings went, one heartfelt line at a time.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-textarea", "role": "sunken multi-line field; invalid state matches rs-input" }
+  ],
+  "a11y": "Label it with <label for> and size it with rows, the sunken bevel is paint, not policy. Invalid state matches rs-input: red border plus a linked rs-form-error line.",
+  "assets": [],
+  "tags": ["forms", "textarea"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "highcontrast",
+  "kind": "theme",
+  "label": "High contrast",
+  "summary": "Accessibility mode, 1998 spirit: black on white, larger text, an unmissable focus ring. Every pair clears AAA.",
+  "era": "The 'high visibility' accessibility pages that took legibility seriously before it was cool.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [],
+  "a11y": "Built for maximum legibility: AAA on every body-text pair, body text a step larger, a 3px focus ring.",
+  "assets": [],
+  "tags": ["theme", "accessibility"]
+}

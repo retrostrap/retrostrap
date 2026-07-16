@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>retrostrap behaviors</title>
+<link rel="stylesheet" href="/dist/retrostrap.css">
+</head>
+<body>
+<div class="rs-page rs-container">
+  <h1>Behavior harness</h1>
+
+  <h2>Menu</h2>
+  <nav class="rs-menu" aria-label="Main" id="menu">
+    <ul>
+      <li><button id="menu-file" aria-expanded="false">File</button>
+        <ul>
+          <li><a href="#" id="menu-new">New</a></li>
+          <li><a href="#" id="menu-open">Open</a></li>
+          <li><a href="#" id="menu-save">Save</a></li>
+        </ul>
+      </li>
+      <li><a href="#" id="menu-help">Help</a></li>
+    </ul>
+  </nav>
+
+  <h2>Tabs</h2>
+  <div class="rs-tabs" id="tabs">
+    <a class="rs-tabs__tab rs-tabs__tab--active" href="#panel-1" id="tab-1">One</a><a class="rs-tabs__tab" href="#panel-2" id="tab-2">Two</a><a class="rs-tabs__tab" href="#panel-3" id="tab-3">Three</a>
+  </div>
+  <section class="rs-tabs__panel" id="panel-1"><p>Panel one content.</p></section>
+  <section class="rs-tabs__panel" id="panel-2"><p>Panel two content.</p></section>
+  <section class="rs-tabs__panel" id="panel-3"><p>Panel three content.</p></section>
+
+  <h2>Marquee</h2>
+  <div class="rs-marquee" id="marquee" data-rs-marquee-speed="normal">
+    <span class="rs-marquee__content">welcome welcome welcome to the harness of scrolling text</span>
+  </div>
+
+  <h2>Spoiler</h2>
+  <details class="rs-spoiler" id="spoiler">
+    <summary>spoiler</summary>
+    <p id="spoiler-body">the butler did it</p>
+  </details>
+
+  <h2>Window</h2>
+  <div class="rs-window" id="window" aria-labelledby="win-title">
+    <div class="rs-window__titlebar">
+      <span class="rs-window__title" id="win-title">Notepad</span>
+      <span class="rs-window__controls">
+        <button aria-label="Minimize">▁</button>
+        <button aria-label="Close">✕</button>
+      </span>
+    </div>
+    <div class="rs-window__body" id="window-body"><p>untitled.txt</p></div>
+    <div class="rs-window__statusbar"><span>Ln 1</span></div>
+  </div>
+
+  <h2>Dialog</h2>
+  <button class="rs-btn" id="ask">Delete everything</button>
+  <p id="answer">-</p>
+</div>
+
+<script src="/dist/retrostrap.js"></script>
+<script>
+  document.getElementById('ask').addEventListener('click', async () => {
+    const ok = await Retrostrap.dialog.confirm('Delete everything? This cannot be undone.', { variant: 'warn' });
+    document.getElementById('answer').textContent = ok ? 'deleted' : 'spared';
+  });
+</script>
+</body>
+</html>

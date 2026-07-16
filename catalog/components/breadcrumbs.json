@@ -1,0 +1,17 @@
+{
+  "id": "breadcrumbs",
+  "kind": "component",
+  "label": "Breadcrumbs",
+  "summary": "The \"You are here:\" trail as an ordered list of links.",
+  "era": "\"You are here:\", the directory-portal trail printed above every category page, mall-map style.",
+  "since": "0.1.0",
+  "stability": "stable",
+  "requiresJs": false,
+  "jsEnhancer": null,
+  "classes": [
+    { "name": "rs-breadcrumbs", "role": "the trail; bold prefix and > separators come from the CSS" }
+  ],
+  "a11y": "<nav aria-label=\"You are here\"> around an <ol>; the current page gets aria-current=\"page\". Separators are CSS, invisible to readers.",
+  "assets": [],
+  "tags": ["navigation", "trail"]
+}

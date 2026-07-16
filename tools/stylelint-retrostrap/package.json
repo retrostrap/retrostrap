@@ -1,0 +1,9 @@
+{
+  "name": "stylelint-retrostrap",
+  "version": "0.0.1",
+  "description": "A stylelint plugin that enforces the retrostrap design laws in your own CSS.",
+  "license": "MIT",
+  "main": "index.cjs",
+  "keywords": ["stylelint", "stylelint-plugin", "retrostrap", "css"],
+  "peerDependencies": { "stylelint": ">=16" }
+}
