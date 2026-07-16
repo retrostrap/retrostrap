@@ -44,6 +44,13 @@ export function audit({ root = document, budgets = false, paint = false } = {}) 
   const scope = root.querySelectorAll ? root : document;
   const rsEls = scope.querySelectorAll('[class*="rs-"]');
 
+  // Assets inside a stylesheet resolve against that stylesheet's host, so an
+  // origin that already serves this page's CSS is no surprise (the CDN quickstart).
+  const trustedOrigins = new Set([location.origin]);
+  for (const sheet of document.styleSheets) {
+    if (sheet.href) { try { trustedOrigins.add(new URL(sheet.href).origin); } catch { /* opaque origin */ } }
+  }
+
   for (const el of rsEls) {
     const cs = getComputedStyle(el);
 
@@ -72,8 +79,12 @@ export function audit({ root = document, budgets = false, paint = false } = {}) 
     if (bg && bg !== 'none') {
       for (const m of bg.matchAll(/url\((["']?)([^"')]+)\1\)/g)) {
         const u = m[2];
-        if (/^[a-z][a-z0-9+.-]*:\/\//i.test(u) && !u.startsWith(location.origin + '/')) {
-          add('network', el, u, 'no external requests: background-image url() must be same-origin (Decency Law)');
+        if (/^[a-z][a-z0-9+.-]*:\/\//i.test(u)) {
+          let uo = '';
+          try { uo = new URL(u).origin; } catch { /* not fetchable, not a request */ }
+          if (!trustedOrigins.has(uo)) {
+            add('network', el, u, 'no external requests: background-image url() must come from your page or its stylesheets (Decency Law)');
+          }
         }
       }
     }
