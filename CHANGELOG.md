@@ -5,7 +5,11 @@ shape with a friendlier accent. When anything moves, MIGRATIONS.md has the recei
 
 ## [Unreleased]
 
-Nothing yet; the ink below is still wet.
+### Fixed
+- A page's declared theme survives a remembered one: the bundle no longer re-applies
+  the stored `rs:theme` on load, which repainted every same-origin page (the demos,
+  say) without their stylesheet even loaded. Restoring is the page's job, like loading
+  the theme stylesheet always was; the docs site already does both in its head script.
 
 ## [0.1.1] - 2026-07-16
 
