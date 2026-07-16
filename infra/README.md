@@ -55,6 +55,7 @@ Outputs you'll get: `SiteURL` (the CloudFront URL), `BucketName`, `ApiFunctionUr
    backend to the CloudFront `/api` path:
    ```html
    <span class="rs-counter" data-rs-widgets="hit-counter"
+         data-rs-hit-counter-mode="api"
          data-rs-hit-counter-src="https://YOURDOMAIN/api/counter"></span>
    <div data-rs-widgets="guestbook"
         data-rs-guestbook-src="https://YOURDOMAIN/api/guestbook/BOOKNAME"></div>
