@@ -1,6 +1,8 @@
 // theme.js - the theme switcher helper (docs/07). Sets data-rs-theme on the
 // root, remembers the choice, and announces the change. Loading the theme's
-// stylesheet is the page's job; this flips the token scope.
+// stylesheet is the page's job; this flips the token scope. Re-applying a
+// remembered choice on load is the page's job too (the docs site does it in
+// its head): a page that declares its own theme must keep it.
 
 import { emit } from './events.js';
 
@@ -20,16 +22,4 @@ export function set(name) {
   }
   emit(document.documentElement, 'theme:change', { theme: name, previous });
   return name;
-}
-
-/** Re-apply a remembered theme on load, if one was stored. */
-export function restore() {
-  let saved = null;
-  try {
-    saved = localStorage.getItem(KEY);
-  } catch {
-    /* ignore */
-  }
-  if (saved) document.documentElement.setAttribute('data-rs-theme', saved);
-  return get();
 }

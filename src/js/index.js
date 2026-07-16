@@ -74,7 +74,6 @@ const Retrostrap = {
 };
 
 function boot() {
-  theme.restore();
   init(document);
   emit(document.documentElement, 'ready', { version });
   greet();
