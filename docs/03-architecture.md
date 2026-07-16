@@ -114,10 +114,10 @@ figures live in [08-accessibility-performance.md](08-accessibility-performance.m
 Canonical CDN block (the first thing every doc and every AI sees):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/themes/midnight.css">
-<script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap-toybox.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/themes/midnight.css">
+<script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap-toybox.min.js"></script>
 ```
 
 (Real integrations pin exact versions + SRI; see [09](09-ai-integration.md) and [MIGRATIONS.md](../MIGRATIONS.md).)

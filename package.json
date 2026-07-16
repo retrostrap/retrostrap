@@ -1,6 +1,6 @@
 {
   "name": "retrostrap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build like it's 2026, look like it's 1999. Retro CSS + JS framework, zero dependencies.",
   "license": "MIT",
   "type": "module",

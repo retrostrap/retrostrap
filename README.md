@@ -42,10 +42,11 @@ real focus order, `prefers-reduced-motion`, performance budgets, progressive enh
 
 ## Status
 
-**It's all built and tested**: the CSS (63 components, ~7KB gzipped), the widget engine with
-a live `Retrostrap.audit()`, the ten themes and twenty-two widgets, the demos, the builder,
-Retrospace, and a docs site that dogfoods the lot. Not yet on npm; that waits on a version
-bump. The full blueprint lives in `docs/` (design laws, catalogs).
+**It's all built, tested, and live**: the CSS (63 components, ~7KB gzipped), the widget
+engine with a live `Retrostrap.audit()`, the ten themes and twenty-two widgets, the demos,
+the builder, and Retrospace, on npm as `retrostrap`, on the CDN, and running at
+[retrostrap.dev](https://retrostrap.dev). The full blueprint lives in `docs/` (design laws,
+catalogs).
 
 ## Quick start
 
@@ -55,14 +56,14 @@ bump. The full blueprint lives in `docs/` (design laws, catalogs).
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.css"
-        integrity="sha384-TyyT7UOQybGpE6mx4ld8KKa1fJ0V9iTL+SgrYsR+3slTsBrMhPTkyU7VLv4s1vRW" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/themes/midnight.css"
-        integrity="sha384-Kc8YtDRZXSryk4ZOwocWPSWXa0ZpP3lKyrjc3svAzpQE6CEIx4a3zb/rbOPlCqNd" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.js"
-          integrity="sha384-0kbx+lRlzcma2oceD32mzBUGyIGYY84l7SMnhd3vLbMKpbmDXdIljCeEPgmwWhpr" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap-toybox.min.js"
-          integrity="sha384-LiKuF4yjYyIJjCsMqZ9xvyt2l5TgIZ7gxaACxYbWeJM/ybDOANEaXe4/qPDw2VWo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.css"
+        integrity="sha384-SC+ga2p8hbUPXaRsOxH+EYGbYEdIO7hxwrSdKAXVPtaYJraon45yPLut6JNkyBV+" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/themes/midnight.css"
+        integrity="sha384-ndHiSg65WpOKFmgpnWUYxGV9kwI3ZVmiec39s9owo9lkJicGisiYMsPJqbb792IM" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.js"
+          integrity="sha384-Ryw9HBQdLuRoSeAz0+JpBQI5qtev8vV49NofDfGt7MC/HV3hYb32RQPKnaI9AOwO" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap-toybox.min.js"
+          integrity="sha384-HnsgaZJwyzLxPLXpeqZx90ib3BHEG4u63m65le2m2c/2YaRbW7r3G3V3dDYPX9tI" crossorigin="anonymous"></script>
 </head>
 <body data-rs-widgets="snowfall neko" data-rs-neko-behavior="patrol">
   <div class="rs-page rs-container">

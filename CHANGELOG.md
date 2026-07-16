@@ -5,7 +5,17 @@ shape with a friendlier accent. When anything moves, MIGRATIONS.md has the recei
 
 ## [Unreleased]
 
-Nothing yet; the ink on 0.1.0 is still wet.
+Nothing yet; the ink below is still wet.
+
+## [0.1.1] - 2026-07-16
+
+### Fixed
+- `Retrostrap.audit()` no longer flags the CDN quickstart's own sprites. The network
+  rule now trusts every origin a loaded stylesheet came from, not just the page's own:
+  a surprise request is one from a host you never invited.
+- The infra counter example gains `data-rs-hit-counter-mode="api"`; without it the
+  widget stays static per its contract and shows the decorative 1337.
+- The README stopped claiming it isn't on npm yet. It is.
 
 ## [0.1.0] - 2026-07-16
 

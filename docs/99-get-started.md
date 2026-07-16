@@ -8,8 +8,8 @@ Everything on this page is copy-paste ready, that is a design goal, not an accid
 Put these in your `<head>` and you are a webmaster:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.js"></script>
 ```
 
 The CSS is the framework; the script is optional enhancement (dialogs, the theme
@@ -17,10 +17,10 @@ API, the auditor), every component works without it. Two optional extras:
 
 ```html
 <!-- a theme (classic is built in; see "Pick a theme" below) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/themes/midnight.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/themes/midnight.css">
 
 <!-- tiled backgrounds: stars, checkers, hearts, dither bands … -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap-patterns.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap-patterns.css">
 ```
 
 The examples pin an exact version on purpose: machines and webmasters both
@@ -121,9 +121,9 @@ and a layout recipe gives the page its shape. Here is a complete homepage:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My corner of the web</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/themes/midnight.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/retrostrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/themes/midnight.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/retrostrap.min.js"></script>
 </head>
 <body>
   <a class="rs-skip" href="#main">Skip intro →</a>

@@ -26,7 +26,7 @@ for (const e of [marquee, spoiler, menu, tabs, windowEnhancer, splash, statusbar
   registerEnhancer(e);
 }
 
-const version = '0.1.0';
+const version = '0.1.1';
 // the global settings bag. assetBase is the one key consumed today (docs/06),
 // read by the Toybox through Retrostrap.config().assetBase to find its sprites.
 // No reduced-motion knob lives here on purpose: honoring the preference is not

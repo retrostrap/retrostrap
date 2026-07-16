@@ -24,7 +24,7 @@ API, the auditor), every component works without it. Two optional extras:
 
 ```html
 <!-- a theme (classic is built in; see "Pick a theme" below) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/themes/midnight.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/themes/midnight.css">
 
 <!-- tiled backgrounds: stars, checkers, hearts, dither bands … -->
 <link rel="stylesheet" href="{{ manifest.cdn.patterns }}">
@@ -129,7 +129,7 @@ and a layout recipe gives the page its shape. Here is a complete homepage:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My corner of the web</title>
   <link rel="stylesheet" href="{{ manifest.cdn.css }}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.0/dist/themes/midnight.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/retrostrap@0.1.1/dist/themes/midnight.css">
   <script defer src="{{ manifest.cdn.js }}"></script>
 </head>
 <body>
