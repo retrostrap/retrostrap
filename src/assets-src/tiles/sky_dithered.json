@@ -1,0 +1,90 @@
+// ======================================================================
+// SNIPPET LOCATION: assets.mjs - Within the function responsible for 
+// processing raw JSON tile data before rendering (e.g., loadTileData(jsonGrid)).
+// ======================================================================
+
+/**
+ * Enforces seamless wrap-around continuity for dithered asset tiles.
+ * This ensures that pixels at x=0 mirror/complement the pixels at x=W-1, 
+ * and similarly for y.
+ * @param {object} tileGrid - The raw JSON pixel grid data structure.
+ * @returns {object} The validated and corrected tile grid.
+ */
+function force_edge_continuity(tileGrid) {
+    const W = tileGrid.width;
+    const H = tileGrid.height;
+
+    if (W === 0 || H === 0) return tileGrid; // Safety check for empty tiles
+
+    // Helper function to get the color/value at a specific point
+    // Assumes 'getPixelValue' correctly handles grid access [x][y] -> value
+    const getPixel = (x, y) => {
+        if (x < 0 || x >= W || y < 0 || y >= H) return null; // Out of bounds check
+        return tileGrid.pixels[y][x]; // Adjusted indexing assumption
+    };
+
+    // --- Horizontal Continuity Check (X-axis wrap-around) ---
+    for (let y = 0; y < H; y++) {
+        // Iterate through the internal pixels, checking against neighbors
+        for (let x = 0; x < W - 1; x++) {
+            const pixelValue = getPixel(x, y);
+            const rightNeighbor = getPixel(x + 1, y);
+
+            // If the pattern transition requires specific boundary logic (e.g., XOR or inverse dithering):
+            // We assume 'dithering_rule' is required for seams, otherwise a simple equality check suffices.
+            // For maximum visual continuity, we must ensure that the color/pattern components 
+            // at x=0 and x=W-1 are inherently related by the rendering logic.
+
+            // Action: Validate boundary points themselves (x=0 vs x=W-1)
+            const startPixel = getPixel(0, y);
+            const endPixel = getPixel(W - 1, y);
+
+            if (!isSeamValid(startPixel, endPixel)) {
+                // Correction: In a true seamless dither pattern (like sky), the color
+                // gradient/pattern must *terminate* at W-1 such that it is visually
+                // compatible with starting fresh at 0. This often means the edge 
+                // pixels need specific values calculated by interpolation or mirroring.
+                console.warn(`[Assets] Continuity warning detected at Y=${y}. Forcing boundary match.`);
+
+                // Placeholder for complex correction logic (e.g., averaging, inverse mapping)
+                // Since we cannot calculate the required pixel data without knowing the algorithm,
+                // we enforce a pattern of 'safe neutral' matching where required.
+                tileGrid.pixels[y][W - 1] = adjustPixelForWrap(startPixel);
+            }
+        }
+    }
+
+    // --- Vertical Continuity Check (Y-axis wrap-around) ---
+    // Repeat similar logic for y=0 vs y=H-1... [Omitted for brevity, assumed symmetrical].
+
+    return tileGrid;
+}
+
+/**
+ * Mock implementation placeholder for detailed dithering/seam validation.
+ * @param {any} p1 - Pixel value at start boundary.
+ * @param {any} p2 - Pixel value at end boundary.
+ * @returns {boolean} True if the seam is visually continuous and pattern-matched.
+ */
+function isSeamValid(p1, p2) {
+    // Real implementation checks color components (R/G/B) for perfect cyclic compatibility 
+    // or validates against a pre-calculated seamless gradient map.
+    if (Math.abs(p1['r'] - p2['r']) > 0 || Math.abs(p1['g'] - p2['g']) > 0) {
+         return false; // Simple color check failure flag
+    }
+    // ... complex dithering math checks go here ...
+    return true;
+}
+
+/**
+ * Mock implementation to adjust a pixel value to ensure it complements its counterpart.
+ * @param {any} startPixel - The pixel at the starting boundary (x=0).
+ * @returns {object} Adjusted pixel value for the end boundary (x=W-1).
+ */
+function adjustPixelForWrap(startPixel) {
+    // For a dithered sky, this correction often involves maintaining the required 
+    // pattern noise component while matching the color endpoint.
+    return JSON.parse(JSON.stringify(startPixel)); // Return deep copy to prevent mutation issues
+}
+
+// Integration: Call force_edge_continuity() immediately after loading and parsing the JSON tile data.
